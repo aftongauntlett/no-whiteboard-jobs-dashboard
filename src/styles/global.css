@@ -1,1 +1,62 @@
+@config "../../tailwind.config.mjs";
 @import "tailwindcss";
+
+:root {
+  /* Backgrounds */
+  --bg: #f9f9f9;
+  --surface: #fefefe;
+
+  /* Text */
+  --text: #111827;
+  --text-muted: #6b7280;
+
+  /* Borders */
+  --border: #e5e7eb;
+
+  /* Accent */
+  --accent: #28b2f1;
+
+  /* Status: success */
+  --success-bg: #059669;
+  --success-text: #347058;
+  --success-border: #10b981;
+
+  /* Status: warning */
+  --warning-bg: #d97706;
+  --warning-text: #615323;
+  --warning-border: #f59e0b;
+
+  /* Status: info */
+  --info-bg: #0284c7;
+  --info-text: #224150;
+  --info-border: #0ea5e9;
+}
+
+.dark {
+  /* Backgrounds */
+  --bg: #0a0a0a;
+  --surface: #111111;
+
+  /* Text */
+  --text: #e5e7eb;
+  --text-muted: #9ca3af;
+
+  /* Borders */
+  --border: #262626;
+
+  /* Accent */
+  --accent: #66e1c6;
+
+  /* Status colors (usually unchanged, but adjustable if needed) */
+  --success-bg: #059669;
+  --success-text: #6ee7b7;
+  --success-border: #10b981;
+
+  --warning-bg: #d97706;
+  --warning-text: #fcd34d;
+  --warning-border: #f59e0b;
+
+  --info-bg: #0284c7;
+  --info-text: #7dd3fc;
+  --info-border: #0ea5e9;
+}
