@@ -1,0 +1,66 @@
+---
+type Variant = "primary" | "secondary" | "muted";
+type Style = "solid" | "outline";
+
+interface Props {
+  variant?: Variant;
+  style?: Style;
+  href?: string;
+  type?: "button" | "submit" | "reset";
+  disabled?: boolean;
+}
+
+const {
+  variant = "primary",
+  style = "solid",
+  href,
+  type = "button",
+  disabled = false,
+} = Astro.props;
+
+/**
+ * Base button styles
+ */
+const base =
+  "inline-flex items-center justify-center rounded-md px-3 py-1.5 text-sm font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-accent disabled:pointer-events-none disabled:opacity-50";
+
+/**
+ * Variant + style combinations
+ */
+const variants: Record<Variant, Record<Style, string>> = {
+  primary: {
+    solid: "bg-accent text-white hover:bg-accent/90",
+    outline: "border border-accent text-accent hover:bg-accent/10",
+  },
+  secondary: {
+    solid:
+      "bg-surface-light dark:bg-surface-dark text-text-light dark:text-text-dark hover:bg-surface-light/90 dark:hover:bg-surface-dark/90",
+    outline:
+      "border border-border-light dark:border-border-dark text-text-light dark:text-text-dark hover:bg-surface-light/10 dark:hover:bg-surface-dark/10 hover:text-accent dark:hover:text-accent",
+  },
+  muted: {
+    solid:
+      "bg-bg-light dark:bg-bg-dark text-text-mutedLight dark:text-text-mutedDark hover:bg-bg-light/90 dark:hover:bg-bg-dark/90",
+    outline:
+      "border border-border-light dark:border-border-dark text-text-mutedLight dark:text-text-mutedDark hover:bg-bg-light/10 dark:hover:bg-bg-dark/10",
+  },
+};
+
+const classes = `${base} ${variants[variant][style]}`;
+---
+
+{
+  href ? (
+    <a
+      href={href}
+      class={classes}
+      aria-disabled={disabled ? "true" : undefined}
+    >
+      <slot />
+    </a>
+  ) : (
+    <button type={type} class={classes} disabled={disabled}>
+      <slot />
+    </button>
+  )
+}

@@ -1,0 +1,62 @@
+---
+type Variant = "default" | "success" | "warning" | "info" | "muted";
+type Style = "solid" | "outline";
+
+interface Props {
+  variant?: Variant;
+  style?: Style;
+}
+
+const {
+  variant = "default",
+  style = "solid",
+} = Astro.props;
+
+/**
+ * Base badge styles
+ */
+const base =
+  "inline-flex items-center rounded px-2 py-0.5 text-xs font-medium leading-none";
+
+/**
+ * Variant + style combinations
+ */
+const variants: Record<Variant, Record<Style, string>> = {
+  default: {
+    solid:
+      "bg-surface-light dark:bg-surface-dark text-text-light dark:text-text-dark",
+    outline:
+      "border border-border-light dark:border-border-dark text-text-light dark:text-text-dark",
+  },
+  success: {
+    solid:
+      "bg-success-bg/20 text-success-text",
+    outline:
+      "border border-success-border/40 text-success-text",
+  },
+  warning: {
+    solid:
+      "bg-warning-bg/20 text-warning-text",
+    outline:
+      "border border-warning-border/40 text-warning-text",
+  },
+  info: {
+    solid:
+      "bg-info-bg/20 text-info-text",
+    outline:
+      "border border-info-border/40 text-info-text",
+  },
+  muted: {
+    solid:
+      "bg-bg-light dark:bg-bg-dark text-text-mutedLight dark:text-text-mutedDark",
+    outline:
+      "border border-border-light dark:border-border-dark text-text-mutedLight dark:text-text-mutedDark",
+  },
+};
+
+const classes = `${base} ${variants[variant][style]}`;
+---
+
+<span class={classes}>
+  <slot />
+</span>

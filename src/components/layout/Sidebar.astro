@@ -1,0 +1,173 @@
+---
+const { pathname } = Astro.url;
+const isActive = (path: string) => pathname === path;
+---
+
+<aside
+  class="w-64 shrink-0 bg-bg-light dark:bg-bg-dark border-r border-border-light dark:border-border-dark text-text-light dark:text-text-dark"
+>
+  <div class="h-full flex flex-col px-4 pt-6 pb-4">
+    <!-- Header / branding -->
+    <a
+      href="/"
+      class="mb-8 flex items-center gap-3 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+    >
+      <!-- Logo placeholder -->
+      <div
+        class="h-8 w-8 rounded bg-surface-light dark:bg-surface-dark border border-border-light dark:border-border-dark flex items-center justify-center text-xs font-semibold"
+        aria-hidden="true"
+      >
+        NW
+      </div>
+
+      <div class="leading-tight">
+        <div class="text-sm font-semibold">No Whiteboard Jobs</div>
+        <div class="text-xs text-text-mutedLight dark:text-text-mutedDark">
+          Dashboard
+        </div>
+      </div>
+    </a>
+
+    <!-- Divider -->
+    <div
+      class="mx-2 border-t border-border-light/60 dark:border-border-dark/60 mb-4"
+    >
+    </div>
+
+    <!-- Primary navigation -->
+    <nav aria-label="Primary navigation">
+      <ul class="space-y-1">
+        <li>
+          <a
+            href="/"
+            aria-current={isActive("/") ? "page" : undefined}
+            class={`group flex items-center rounded px-3 py-2 text-sm font-medium
+              border-l-2
+              ${
+                isActive("/")
+                  ? "border-accent text-accent bg-surface-light dark:bg-surface-dark"
+                  : "border-transparent text-text-mutedLight dark:text-text-mutedDark hover:text-text-light dark:hover:text-text-dark hover:bg-surface-light dark:hover:bg-surface-dark"
+              }
+              focus:outline-none focus-visible:ring-2 focus-visible:ring-accent`}
+          >
+            Browse companies
+          </a>
+        </li>
+
+        <li>
+          <a
+            href="/hiring-tips"
+            aria-current={isActive("/hiring-tips") ? "page" : undefined}
+            class={`group flex items-center rounded px-3 py-2 text-sm font-medium
+              border-l-2
+              ${
+                isActive("/hiring-tips")
+                  ? "border-accent text-accent bg-surface-light dark:bg-surface-dark"
+                  : "border-transparent text-text-mutedLight dark:text-text-mutedDark hover:text-text-light dark:hover:text-text-dark hover:bg-surface-light dark:hover:bg-surface-dark"
+              }
+              focus:outline-none focus-visible:ring-2 focus-visible:ring-accent`}
+          >
+            Hiring tips
+          </a>
+        </li>
+
+        <li>
+          <a
+            href="/about"
+            aria-current={isActive("/about") ? "page" : undefined}
+            class={`group flex items-center rounded px-3 py-2 text-sm font-medium
+              border-l-2
+              ${
+                isActive("/about")
+                  ? "border-accent text-accent bg-surface-light dark:bg-surface-dark"
+                  : "border-transparent text-text-mutedLight dark:text-text-mutedDark hover:text-text-light dark:hover:text-text-dark hover:bg-surface-light dark:hover:bg-surface-dark"
+              }
+              focus:outline-none focus-visible:ring-2 focus-visible:ring-accent`}
+          >
+            About
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Bottom actions -->
+    <div class="mt-auto pt-4">
+      <div
+        class="mx-2 border-t border-border-light/60 dark:border-border-dark/60"
+      >
+      </div>
+      <!-- Theme toggle -->
+      <button
+        id="theme-toggle"
+        type="button"
+        aria-label="Toggle theme"
+        class="mt-4 flex items-center gap-2 rounded p-2 text-text-mutedLight dark:text-text-mutedDark cursor-pointer
+               hover:text-accent dark:hover:text-accent
+               hover:bg-surface-light dark:hover:bg-surface-dark
+               focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+      >
+        <!-- Sun icon (light mode) -->
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="h-4 w-4 dark:hidden"
+          aria-hidden="true"
+        >
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+
+        <!-- Moon icon (dark mode) -->
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="h-4 w-4 hidden dark:block"
+          aria-hidden="true"
+        >
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+
+        <span class="text-sm dark:hidden">Light Mode</span>
+        <span class="text-sm hidden dark:block">Dark Mode</span>
+      </button>
+    </div>
+  </div>
+</aside>
+
+<script is:inline>
+  const button = document.getElementById("theme-toggle");
+
+  if (button) {
+    const root = document.documentElement;
+
+    button.setAttribute(
+      "aria-pressed",
+      root.classList.contains("dark") ? "true" : "false",
+    );
+
+    button.addEventListener("click", () => {
+      const isDark = root.classList.contains("dark");
+
+      root.classList.toggle("dark", !isDark);
+      localStorage.setItem("theme", isDark ? "light" : "dark");
+      button.setAttribute("aria-pressed", (!isDark).toString());
+    });
+  }
+</script>

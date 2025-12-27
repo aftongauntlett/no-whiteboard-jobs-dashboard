@@ -1,0 +1,26 @@
+---
+import Badge from "./Badge.astro";
+
+type EmploymentType = "Remote" | "Hybrid" | "In-office";
+
+interface Props {
+  employmentType: EmploymentType;
+}
+
+const { employmentType } = Astro.props;
+
+const getVariant = (type: EmploymentType) => {
+  switch (type) {
+    case "Remote":
+      return "info";
+    case "Hybrid":
+      return "warning";
+    case "In-office":
+      return "success";
+  }
+};
+---
+
+<Badge variant={getVariant(employmentType)}>
+  {employmentType}
+</Badge>

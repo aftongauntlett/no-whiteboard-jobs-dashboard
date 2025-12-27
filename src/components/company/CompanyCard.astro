@@ -1,0 +1,81 @@
+---
+import type { Company } from "@data/types";
+import EmploymentBadge from "../ui/EmploymentBadge.astro";
+import LocationChip from "../ui/LocationChip.astro";
+import LocationOverflowTooltip from "../ui/LocationOverflowTooltip.astro";
+import Button from "../ui/Button.astro";
+
+type Props = {
+  company: Company;
+};
+
+const { company } = Astro.props as Props;
+
+const employmentTypes = ["Remote", "Hybrid", "In-office"];
+const actualLocations = company.locations.filter(
+  (loc: any) => !employmentTypes.includes(loc),
+);
+---
+
+<article
+  class="group flex flex-col gap-4 rounded-lg border border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark p-4 transition-all duration-200 ease-in-out hover:bg-bg-light dark:hover:bg-bg-dark hover:border-accent/20 focus-within:bg-bg-light dark:focus-within:bg-bg-dark focus-within:border-accent/20 motion-reduce:transition-none"
+>
+  <!-- Header -->
+  <header class="flex items-start justify-between">
+    <h3
+      class="text-base font-semibold leading-tight text-text-light dark:text-text-dark group-hover:text-accent group-focus-within:text-accent transition-colors duration-200 ease-in-out motion-reduce:transition-none"
+    >
+      {
+        company.careersUrl ? (
+          <a
+            href={company.careersUrl}
+            class="hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+          >
+            {company.name}
+          </a>
+        ) : (
+          <span>{company.name}</span>
+        )
+      }
+    </h3>
+
+    <EmploymentBadge employmentType={company.employmentType} />
+  </header>
+
+  <!-- Locations -->
+  {
+    actualLocations.length > 0 && (
+      <div class="flex flex-wrap gap-2" aria-label="Company locations">
+        {actualLocations.slice(0, 1).map((location: any) => (
+          <LocationChip location={location} />
+        ))}
+        {actualLocations.length > 1 && (
+          <LocationOverflowTooltip
+            remainingLocations={actualLocations.slice(1)}
+            count={actualLocations.length - 1}
+          />
+        )}
+      </div>
+    )
+  }
+
+  <!-- Interview process -->
+  {
+    company.interviewProcess && (
+      <p class="text-sm text-text-light dark:text-text-dark line-clamp-3 group-hover:text-text-light/90 dark:group-hover:text-text-dark/90 group-focus-within:text-text-light/90 dark:group-focus-within:text-text-dark/90 transition-colors duration-200 ease-in-out motion-reduce:transition-none">
+        {company.interviewProcess}
+      </p>
+    )
+  }
+
+  <!-- Footer actions -->
+  <footer class="mt-auto flex items-center justify-end gap-3">
+    {
+      company.careersUrl && (
+        <Button href={company.careersUrl} variant="secondary" style="outline">
+          View jobs
+        </Button>
+      )
+    }
+  </footer>
+</article>

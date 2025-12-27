@@ -1,0 +1,13 @@
+---
+interface Props {
+  location: string;
+}
+
+const { location } = Astro.props;
+---
+
+<span
+  class="inline-flex items-center rounded bg-surface-light dark:bg-surface-dark px-2 py-1 text-xs text-text-mutedLight dark:text-text-mutedDark border border-border-light dark:border-border-dark"
+>
+  {location}
+</span>
