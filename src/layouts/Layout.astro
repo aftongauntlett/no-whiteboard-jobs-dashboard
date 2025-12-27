@@ -1,3 +1,57 @@
-<body class="min-h-screen bg-neutral-950 text-neutral-100">
-  <slot />
-</body>
+---
+import Footer from "../components/layout/Footer.astro";
+import Sidebar from "../components/layout/Sidebar.astro";
+import "../styles/global.css";
+
+const { title = "No Whiteboard Jobs" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{title}</title>
+
+    <!-- Initialize theme before paint -->
+    <script>
+      (() => {
+        const stored = localStorage.getItem("theme");
+        const prefersDark = window.matchMedia(
+          "(prefers-color-scheme: dark)",
+        ).matches;
+        const theme = stored ?? (prefersDark ? "dark" : "light");
+
+        if (theme === "dark") {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
+  </head>
+  <body
+    class="min-h-screen antialiased bg-bg-light text-text-light dark:bg-bg-dark dark:text-text-dark"
+  >
+    <!-- Skip link for keyboard and screen reader users -->
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 rounded bg-bg-dark px-4 py-2 text-sm text-text-dark focus-visible:ring-2 focus-visible:ring-accent"
+    >
+      Skip to content
+    </a>
+
+    <!-- App frame -->
+    <div class="flex min-h-screen">
+      <Sidebar />
+      <main id="main" class="flex flex-col flex-1 min-w-0">
+        <!-- Page content -->
+        <div class="flex-1 py-10">
+          <div class="max-w-7xl mx-auto px-8 w-full">
+            <slot />
+          </div>
+        </div>
+        <!-- Footer (full-width background, constrained content inside) -->
+        <Footer />
+      </main>
+    </div>
+  </body>
+</html>
