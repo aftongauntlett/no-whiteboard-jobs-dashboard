@@ -6,6 +6,7 @@ interface Props {
   variant?: Variant;
   style?: Style;
   href?: string;
+  target?: string;
   type?: "button" | "submit" | "reset";
   disabled?: boolean;
 }
@@ -14,6 +15,7 @@ const {
   variant = "primary",
   style = "solid",
   href,
+  target,
   type = "button",
   disabled = false,
 } = Astro.props;
@@ -53,6 +55,7 @@ const classes = `${base} ${variants[variant][style]}`;
   href ? (
     <a
       href={href}
+      target={target}
       class={classes}
       aria-disabled={disabled ? "true" : undefined}
     >

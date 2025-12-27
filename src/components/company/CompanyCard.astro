@@ -29,6 +29,7 @@ const actualLocations = company.locations.filter(
         company.careersUrl ? (
           <a
             href={company.careersUrl}
+            target="_blank"
             class="hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
           >
             {company.name}
@@ -72,7 +73,12 @@ const actualLocations = company.locations.filter(
   <footer class="mt-auto flex items-center justify-end gap-3">
     {
       company.careersUrl && (
-        <Button href={company.careersUrl} variant="secondary" style="outline">
+        <Button
+          href={company.careersUrl}
+          target="_blank"
+          variant="secondary"
+          style="outline"
+        >
           View jobs
         </Button>
       )
