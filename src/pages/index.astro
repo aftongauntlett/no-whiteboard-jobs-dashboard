@@ -1,16 +1,18 @@
 ---
-
+import Layout from "../layouts/Layout.astro";
+import PageHeader from "../components/layout/PageHeader.astro";
+import CompanyCard from "../components/company/CompanyCard.astro";
+import { companies } from "../data/companies.mock";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="No Whiteboard Jobs">
+  <PageHeader
+    title="No Whiteboard Jobs"
+    subtitle="Companies that hire without whiteboard-style interviews."
+  />
+  <section class="space-y-6">
+    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {companies.map((company) => <CompanyCard company={company} />)}
+    </div>
+  </section>
+</Layout>

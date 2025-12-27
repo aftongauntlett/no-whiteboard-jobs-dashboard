@@ -1,0 +1,65 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PageHeader from "../components/layout/PageHeader.astro";
+import Button from "../components/ui/Button.astro";
+---
+
+<Layout title="About">
+  <PageHeader
+    title="About"
+    subtitle="Why this list exists and what “no whiteboards” really means."
+  />
+  <div class="space-y-6">
+    <p>
+      This project is a list of companies or teams that do not rely on
+      “whiteboard” interviews. The term “whiteboard” is used as a metaphor for
+      interview practices that emphasize CS trivia and abstract puzzles rather
+      than real-world work.
+    </p>
+
+    <p>
+      Whiteboards themselves are not the problem. The issue is interviews that
+      focus on riddles, brainteasers, or algorithm trivia that does not resemble
+      day-to-day engineering tasks. Platforms like HackerRank or LeetCode often
+      fall into a similar category.
+    </p>
+
+    <p>
+      The companies listed here use interview techniques that better reflect
+      actual work. Common approaches include pairing on realistic problems or
+      completing a paid or unpaid take-home exercise.
+    </p>
+
+    <section aria-labelledby="tldr-heading" class="pt-2">
+      <h2 id="tldr-heading" class="text-lg font-semibold mb-2">tl;dr</h2>
+
+      <ul class="list-disc pl-5 space-y-1">
+        <li>
+          Discussing a real-world problem, with or without a whiteboard, is 👍
+        </li>
+        <li>
+          Solving CS trivia, puzzles, riddles, or brainteasers, with or without
+          a whiteboard, is 👎
+        </li>
+      </ul>
+    </section>
+
+    <footer class="pt-4 border-t border-border-light dark:border-border-dark">
+      <p class="text-sm text-text-mutedLight dark:text-text-mutedDark">
+        This text is adapted from the original hiring-without-whiteboards
+        repository. Please open a pull request on the original project if you
+        would like to contribute or be added.
+      </p>
+
+      <div class="mt-4 flex">
+        <Button
+          href="https://github.com/poteto/hiring-without-whiteboards"
+          variant="secondary"
+          style="outline"
+        >
+          View Original Repository
+        </Button>
+      </div>
+    </footer>
+  </div>
+</Layout>
