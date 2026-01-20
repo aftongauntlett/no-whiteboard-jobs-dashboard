@@ -7,6 +7,7 @@ interface Props {
   style?: Style;
   href?: string;
   target?: string;
+  rel?: string;
   type?: "button" | "submit" | "reset";
   disabled?: boolean;
 }
@@ -16,9 +17,13 @@ const {
   style = "solid",
   href,
   target,
+  rel,
   type = "button",
   disabled = false,
 } = Astro.props;
+
+const resolvedRel =
+  href && target === "_blank" ? (rel ?? "noopener noreferrer") : rel;
 
 /**
  * Base button styles
@@ -31,7 +36,7 @@ const base =
  */
 const variants: Record<Variant, Record<Style, string>> = {
   primary: {
-    solid: "bg-accent text-white hover:bg-accent/90",
+    solid: "bg-accent text-white dark:text-bg-dark hover:bg-accent/90",
     outline: "border border-accent text-accent hover:bg-accent/10",
   },
   secondary: {
@@ -56,6 +61,7 @@ const classes = `${base} ${variants[variant][style]}`;
     <a
       href={href}
       target={target}
+      rel={resolvedRel}
       class={classes}
       aria-disabled={disabled ? "true" : undefined}
     >

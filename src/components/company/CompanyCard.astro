@@ -3,7 +3,6 @@ import type { Company } from "@data/types";
 import EmploymentBadge from "../ui/EmploymentBadge.astro";
 import LocationChip from "../ui/LocationChip.astro";
 import LocationOverflowTooltip from "../ui/LocationOverflowTooltip.astro";
-import Button from "../ui/Button.astro";
 
 type Props = {
   company: Company;
@@ -15,73 +14,167 @@ const employmentTypes = ["Remote", "Hybrid", "In-office"];
 const actualLocations = company.locations.filter(
   (loc: any) => !employmentTypes.includes(loc),
 );
+
+function hashString(input: string): number {
+  let h = 0;
+  for (let i = 0; i < input.length; i++) {
+    h = (h << 5) - h + input.charCodeAt(i);
+    h |= 0;
+  }
+  return h;
+}
+
+const interviewIdBase = `${company.name}::${company.careersUrl ?? ""}`;
+const interviewId = `interview-${Math.abs(hashString(interviewIdBase))}`;
 ---
 
-<article
-  class="group flex flex-col gap-4 rounded-lg border border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark p-4 transition-all duration-200 ease-in-out hover:bg-bg-light dark:hover:bg-bg-dark hover:border-accent/20 focus-within:bg-bg-light dark:focus-within:bg-bg-dark focus-within:border-accent/20 motion-reduce:transition-none"
->
-  <!-- Header -->
-  <header class="flex items-start justify-between">
-    <h3
-      class="text-base font-semibold leading-tight text-text-light dark:text-text-dark group-hover:text-accent group-focus-within:text-accent transition-colors duration-200 ease-in-out motion-reduce:transition-none"
+{
+  company.careersUrl ? (
+    <article
+      class="group relative flex flex-col rounded-xl border border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark p-5 hover:bg-bg-light/60 dark:hover:bg-bg-dark/30 transition-colors focus-within:ring-2 focus-within:ring-accent/30 focus-within:ring-offset-2 focus-within:ring-offset-bg-light dark:focus-within:ring-offset-bg-dark"
     >
-      {
-        company.careersUrl ? (
-          <a
-            href={company.careersUrl}
-            target="_blank"
-            class="hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+      <a
+        href={company.careersUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="absolute inset-0 z-20 rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/30"
+        aria-label={`Open ${company.name} careers page in a new tab`}
+      ></a>
+
+      <div class="relative flex flex-col">
+        <!-- Header -->
+        <header class="flex items-start justify-between gap-3">
+          <div class="min-w-0 flex items-center gap-2">
+            <h3
+              class="text-base font-semibold leading-tight text-text-light dark:text-text-dark min-w-0"
+            >
+              <span class="group-hover:text-accent">
+                {company.name}
+              </span>
+            </h3>
+            <EmploymentBadge employmentType={company.employmentType} />
+          </div>
+
+          <!-- Reserved top-right slot for hover icon -->
+          <span
+            class="inline-flex h-8 w-8 items-center justify-center rounded-md text-accent opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity"
+            aria-hidden="true"
           >
-            {company.name}
-          </a>
-        ) : (
-          <span>{company.name}</span>
-        )
-      }
-    </h3>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="h-4 w-4"
+            >
+              <path d="M14 3h7v7" />
+              <path d="M10 14L21 3" />
+              <path d="M21 14v7h-7" />
+              <path d="M3 10v11h11" />
+            </svg>
+          </span>
+        </header>
 
-    <EmploymentBadge employmentType={company.employmentType} />
-  </header>
+        <!-- Locations -->
+        <div class="mt-1 flex flex-wrap gap-2" aria-label="Company locations">
+          {actualLocations.length > 0 ? (
+            <>
+              {actualLocations.slice(0, 1).map((location: any) => (
+                <LocationChip location={location} />
+              ))}
+              {actualLocations.length > 1 && (
+                <LocationOverflowTooltip
+                  remainingLocations={actualLocations.slice(1)}
+                  count={actualLocations.length - 1}
+                />
+              )}
+            </>
+          ) : (
+            <LocationChip location="Not Available" />
+          )}
+        </div>
 
-  <!-- Locations -->
-  {
-    actualLocations.length > 0 && (
-      <div class="flex flex-wrap gap-2" aria-label="Company locations">
-        {actualLocations.slice(0, 1).map((location: any) => (
-          <LocationChip location={location} />
-        ))}
-        {actualLocations.length > 1 && (
-          <LocationOverflowTooltip
-            remainingLocations={actualLocations.slice(1)}
-            count={actualLocations.length - 1}
-          />
+        <!-- Interview process -->
+        {company.interviewProcess && (
+          <div class="relative z-30 mt-3">
+            <p
+              id={interviewId}
+              data-readmore-text
+              data-readmore-clamp="line-clamp-4"
+              class="text-sm text-text-mutedLight dark:text-text-mutedDark group-hover:text-text-light dark:group-hover:text-text-dark group-focus-within:text-text-light dark:group-focus-within:text-text-dark transition-colors line-clamp-4"
+            >
+              {company.interviewProcess}
+            </p>
+            <button
+              type="button"
+              data-readmore-toggle
+              class="mt-1 hidden text-xs font-medium text-accent hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/30 rounded"
+              aria-expanded="false"
+              aria-controls={interviewId}
+            >
+              Read more
+            </button>
+          </div>
         )}
       </div>
-    )
-  }
+    </article>
+  ) : (
+    <article
+      class="group flex flex-col rounded-xl border border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark p-5"
+    >
+      <header class="flex items-start justify-between gap-3">
+        <div class="min-w-0 flex items-center gap-2">
+          <h3
+            class="text-base font-semibold leading-tight text-text-light dark:text-text-dark min-w-0"
+          >
+            <span>{company.name}</span>
+          </h3>
+          <EmploymentBadge employmentType={company.employmentType} />
+        </div>
+      </header>
 
-  <!-- Interview process -->
-  {
-    company.interviewProcess && (
-      <p class="text-sm text-text-light dark:text-text-dark line-clamp-3 group-hover:text-text-light/90 dark:group-hover:text-text-dark/90 group-focus-within:text-text-light/90 dark:group-focus-within:text-text-dark/90 transition-colors duration-200 ease-in-out motion-reduce:transition-none">
-        {company.interviewProcess}
-      </p>
-    )
-  }
+      <div class="mt-1 flex flex-wrap gap-2" aria-label="Company locations">
+        {actualLocations.length > 0 ? (
+          <>
+            {actualLocations.slice(0, 1).map((location: any) => (
+              <LocationChip location={location} />
+            ))}
+            {actualLocations.length > 1 && (
+              <LocationOverflowTooltip
+                remainingLocations={actualLocations.slice(1)}
+                count={actualLocations.length - 1}
+              />
+            )}
+          </>
+        ) : (
+          <LocationChip location="Not Available" />
+        )}
+      </div>
 
-  <!-- Footer actions -->
-  <footer class="mt-auto flex items-center justify-end gap-3">
-    {
-      company.careersUrl && (
-        <Button
-          href={company.careersUrl}
-          target="_blank"
-          variant="secondary"
-          style="outline"
-        >
-          View jobs
-        </Button>
-      )
-    }
-  </footer>
-</article>
+      {company.interviewProcess && (
+        <div class="relative z-30 mt-3">
+          <p
+            id={interviewId}
+            data-readmore-text
+            data-readmore-clamp="line-clamp-4"
+            class="text-sm text-text-mutedLight dark:text-text-mutedDark group-hover:text-text-light dark:group-hover:text-text-dark group-focus-within:text-text-light dark:group-focus-within:text-text-dark transition-colors line-clamp-4"
+          >
+            {company.interviewProcess}
+          </p>
+          <button
+            type="button"
+            data-readmore-toggle
+            class="mt-1 hidden text-xs font-medium text-accent hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/30 rounded"
+            aria-expanded="false"
+            aria-controls={interviewId}
+          >
+            Read more
+          </button>
+        </div>
+      )}
+    </article>
+  )
+}

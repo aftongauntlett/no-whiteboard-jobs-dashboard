@@ -3,8 +3,8 @@
 
 :root {
   /* Backgrounds */
-  --bg: #f9f9f9;
-  --surface: #fefefe;
+  --bg: #f4f7f8;
+  --surface: #eef3f5;
 
   /* Text */
   --text: #111827;
@@ -14,7 +14,7 @@
   --border: #e5e7eb;
 
   /* Accent */
-  --accent: #28b2f1;
+  --accent: #672d86;
 
   /* Status: success */
   --success-bg: #059669;
@@ -32,31 +32,28 @@
   --info-border: #0ea5e9;
 }
 
-.dark {
-  /* Backgrounds */
-  --bg: #0a0a0a;
-  --surface: #111111;
+/* Lightweight line-clamp utilities (used by Read more / Read less). */
+.line-clamp-2,
+.line-clamp-3,
+.line-clamp-4 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
 
-  /* Text */
-  --text: #e5e7eb;
-  --text-muted: #9ca3af;
+.line-clamp-2 {
+  -webkit-line-clamp: 2;
+}
 
-  /* Borders */
-  --border: #262626;
+.line-clamp-3 {
+  -webkit-line-clamp: 3;
+}
 
-  /* Accent */
-  --accent: #66e1c6;
+.line-clamp-4 {
+  -webkit-line-clamp: 4;
+}
 
-  /* Status colors (usually unchanged, but adjustable if needed) */
-  --success-bg: #059669;
-  --success-text: #6ee7b7;
-  --success-border: #10b981;
-
-  --warning-bg: #d97706;
-  --warning-text: #fcd34d;
-  --warning-border: #f59e0b;
-
-  --info-bg: #0284c7;
-  --info-text: #7dd3fc;
-  --info-border: #0ea5e9;
+.line-clamp-none {
+  display: block;
+  overflow: visible;
 }
