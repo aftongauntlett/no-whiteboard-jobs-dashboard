@@ -1,86 +1,149 @@
 ---
+import FileCheck from "lucide-astro/FileCheck";
+import FileX from "lucide-astro/FileX";
+import ExternalLink from "lucide-astro/ExternalLink";
 import Layout from "../layouts/Layout.astro";
 import PageHeader from "../components/layout/PageHeader.astro";
+import Button from "../components/ui/Button.astro";
 ---
 
 <Layout title="Hiring Tips">
   <PageHeader
     title="Hiring tips"
-    subtitle="Articles and discussions on alternatives to whiteboard-style interviews."
+    subtitle="Articles, discussions, and resources on alternatives to whiteboard-style interviews."
   />
 
-  <div class="space-y-6">
-    <!-- Discussion section -->
-    <section aria-labelledby="discussion-heading" class="space-y-3">
-      <h2 id="discussion-heading" class="text-lg font-semibold">Discussion</h2>
+  <!-- Main content -->
+  <section class="space-y-8">
+    <!-- External resources -->
+    <div>
+      <h2 class="text-xl font-semibold mb-6">External Resources</h2>
+      <div class="grid gap-6">
+        <article
+          class="flex flex-col gap-4 rounded-xl border border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark p-6"
+        >
+          <header class="flex items-center gap-3">
+            <FileX
+              class="h-12 w-12 text-orange-600 dark:text-orange-400 shrink-0"
+              aria-hidden="true"
+            />
+            <h3
+              class="text-base font-semibold leading-tight text-text-light dark:text-text-dark"
+            >
+              They Whiteboarded Me
+            </h3>
+          </header>
+          <p class="text-sm text-text-mutedLight dark:text-text-mutedDark">
+            A crowd-sourced and curated list of companies and their interview
+            practices, both good and bad. It helps job seekers understand what
+            an interview process actually looks like ahead of time, so they can
+            focus on roles that are a good fit.
+          </p>
+          <footer class="mt-auto flex items-center justify-end">
+            <Button
+              href="https://they.whiteboarded.me/"
+              target="_blank"
+              variant="primary"
+              style="outline"
+            >
+              Visit Website
+            </Button>
+          </footer>
+        </article>
 
-      <ul class="space-y-2">
-        <li>
-          <a
-            href="https://news.ycombinator.com/item?id=13874026"
-            target="_blank"
-            class="underline-offset-4 hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-          >
-            Hacker News discussion (2017)
-          </a>
-        </li>
-        <li>
-          <a
-            href="https://news.ycombinator.com/item?id=23981795"
-            target="_blank"
-            class="underline-offset-4 hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-          >
-            Hacker News discussion (2020)
-          </a>
-        </li>
-      </ul>
-    </section>
+        <article
+          class="flex flex-col gap-4 rounded-xl border border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark p-6"
+        >
+          <header class="flex items-center gap-3">
+            <FileCheck
+              class="h-12 w-12 text-teal-600 dark:text-teal-400 shrink-0"
+              aria-hidden="true"
+            />
+            <h3
+              class="text-base font-semibold leading-tight text-text-light dark:text-text-dark"
+            >
+              Hiring Without Whiteboards
+            </h3>
+          </header>
+          <p class="text-sm text-text-mutedLight dark:text-text-mutedDark">
+            The original open-source project this frontend is built on. It
+            maintains a list of companies that avoid interview processes focused
+            on CS trivia, puzzles, and gotcha questions, and instead emphasize
+            real, day-to-day engineering work.
+          </p>
+          <footer class="mt-auto flex items-center justify-end">
+            <Button
+              href="https://github.com/poteto/hiring-without-whiteboards"
+              target="_blank"
+              variant="primary"
+              style="outline"
+            >
+              View GitHub repository
+            </Button>
+          </footer>
+        </article>
+      </div>
+    </div>
 
-    <!-- Articles section -->
-    <section aria-labelledby="articles-heading" class="space-y-3">
-      <h2 id="articles-heading" class="text-lg font-semibold">Articles</h2>
+    <!-- Discussions and Articles -->
+    <div class="grid gap-6 md:grid-cols-2">
+      <div>
+        <h3 class="text-lg font-semibold">Discussions</h3>
+        <p class="text-sm text-text-mutedLight dark:text-text-mutedDark mb-2">
+          Community discussions on alternative hiring practices.
+        </p>
+        <ul class="space-y-2">
+          <li>
+            <a
+              href="https://example.com/discussion1"
+              target="_blank"
+              class="inline-flex items-center gap-2 text-sm text-accent hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm"
+            >
+              Discussion on Hacker News
+              <ExternalLink class="h-5 w-5" aria-hidden="true" />
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://example.com/discussion2"
+              target="_blank"
+              class="inline-flex items-center gap-2 text-sm text-accent hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm"
+            >
+              Reddit Thread
+              <ExternalLink class="h-5 w-5" aria-hidden="true" />
+            </a>
+          </li>
+        </ul>
+      </div>
 
-      <ul class="space-y-2">
-        <li>
-          <a
-            href="https://theoutline.com/post/1256/finding-a-better-alternative-to-the-whiteboard-interview"
-            target="_blank"
-            class="underline-offset-4 hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-          >
-            Finding a better alternative to the whiteboard interview
-          </a>
-        </li>
-        <li>
-          <a
-            href="https://jes.al//2023/03/how-to-hire-engineering-talent-without-the-bs/"
-            target="_blank"
-            class="underline-offset-4 hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-          >
-            How to hire engineering talent without the BS
-          </a>
-        </li>
-        <li>
-          <a
-            href="http://www.aaronsw.com/weblog/hiring.en"
-            target="_blank"
-            class="underline-offset-4 hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-          >
-            How I Hire Programmers
-          </a>
-          <span class="text-sm text-text-mutedLight dark:text-text-mutedDark">
-            by Aaron Swartz
-          </span>
-        </li>
-      </ul>
-    </section>
-
-    <!-- Attribution -->
-    <footer class="pt-4 border-t border-border-light dark:border-border-dark">
-      <p class="text-sm text-text-mutedLight dark:text-text-mutedDark">
-        Links and descriptions adapted from the hiring-without-whiteboards
-        repository. All credit for the original curation belongs to its authors
-        and contributors.
-      </p>
-    </footer>
-  </div>
+      <div>
+        <h3 class="text-lg font-semibold">Articles</h3>
+        <p class="text-sm text-text-mutedLight dark:text-text-mutedDark mb-2">
+          Articles and blog posts on hiring without whiteboards.
+        </p>
+        <ul class="space-y-2">
+          <li>
+            <a
+              href="https://example.com/article1"
+              target="_blank"
+              class="inline-flex items-center gap-2 text-sm text-accent hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm"
+            >
+              Why Whiteboards Are Bad
+              <ExternalLink class="h-5 w-5" aria-hidden="true" />
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://example.com/article2"
+              target="_blank"
+              class="inline-flex items-center gap-2 text-sm text-accent hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm"
+            >
+              Alternatives to Coding Interviews
+              <ExternalLink class="h-5 w-5" aria-hidden="true" />
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
 </Layout>
