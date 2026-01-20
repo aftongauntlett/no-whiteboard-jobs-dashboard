@@ -1,0 +1,246 @@
+---
+import type { Company } from "@data/types";
+import EmploymentBadge from "../ui/EmploymentBadge.astro";
+import LocationChip from "../ui/LocationChip.astro";
+import LocationOverflowTooltip from "../ui/LocationOverflowTooltip.astro";
+
+type Props = {
+  company: Company;
+};
+
+const { company } = Astro.props as Props;
+
+const employmentTypes = ["Remote", "Hybrid", "In-office"];
+const actualLocations = company.locations.filter(
+  (loc: any) => !employmentTypes.includes(loc),
+);
+
+const maxVisibleLocations = 1;
+
+function hashString(input: string): number {
+  let h = 0;
+  for (let i = 0; i < input.length; i++) {
+    h = (h << 5) - h + input.charCodeAt(i);
+    h |= 0;
+  }
+  return h;
+}
+
+const interviewIdBase = `${company.name}::${company.careersUrl ?? ""}`;
+const interviewId = `interview-${Math.abs(hashString(interviewIdBase))}`;
+---
+
+<li
+  class="group relative px-4 py-3 pr-12 sm:px-5 sm:py-4 sm:pr-14 md:pr-5 hover:bg-bg-light/60 dark:hover:bg-black/25 focus-within:bg-bg-light/60 dark:focus-within:bg-black/25 transition-colors md:col-span-4 md:grid md:grid-cols-subgrid md:gap-x-4 md:items-start"
+>
+  {
+    company.careersUrl ? (
+      <>
+        <a
+          href={company.careersUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="absolute inset-0 z-20 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/30 focus-visible:ring-offset-2 focus-visible:ring-offset-bg-light dark:focus-visible:ring-offset-bg-dark"
+          aria-label={`Open ${company.name} careers page in a new tab`}
+        ></a>
+        <div class="grid grid-cols-1 gap-3 md:contents">
+          <!-- Column A: Company -->
+          <div class="min-w-0">
+            <h3 class="min-w-0 text-sm font-semibold leading-snug text-text-light dark:text-text-dark">
+              <span class="block whitespace-nowrap truncate group-hover:text-accent group-focus-within:text-accent">
+                {company.name}
+              </span>
+            </h3>
+          </div>
+
+          <!-- Column B: Employment + locations -->
+          <div class="min-w-0 md:border-l-2 md:border-border-light/80 dark:md:border-border-dark/80 md:pl-4">
+            <div class="flex items-start">
+              <EmploymentBadge employmentType={company.employmentType} />
+            </div>
+            <div
+              class="mt-2 flex flex-wrap items-center gap-2"
+              aria-label="Company locations"
+            >
+              {actualLocations.length > 0 ? (
+                <>
+                  {actualLocations.slice(0, maxVisibleLocations).map((location: any) => (
+                    <LocationChip location={location} />
+                  ))}
+                  {actualLocations.length > maxVisibleLocations && (
+                    <LocationOverflowTooltip
+                      remainingLocations={actualLocations.slice(maxVisibleLocations)}
+                      count={actualLocations.length - maxVisibleLocations}
+                    />
+                  )}
+                </>
+              ) : (
+                <span class="inline-flex items-center rounded-md bg-bg-light/30 dark:bg-white/5 px-2 py-1 text-xs font-medium text-text-mutedLight dark:text-text-mutedDark border border-border-light/60 dark:border-border-dark/60">
+                  Not Available
+                </span>
+              )}
+            </div>
+          </div>
+
+          <!-- Column C: Interview -->
+          <div class="min-w-0 md:border-l-2 md:border-border-light/80 dark:md:border-border-dark/80 md:pl-4">
+            {
+              company.interviewProcess ? (
+                <div class="relative z-30">
+                  <p
+                    id={interviewId}
+                    data-readmore-text
+                    data-readmore-clamp="line-clamp-3"
+                    class="text-xs sm:text-sm text-text-mutedLight dark:text-text-mutedDark group-hover:text-text-light dark:group-hover:text-text-dark group-focus-within:text-text-light dark:group-focus-within:text-text-dark line-clamp-3"
+                  >
+                    {company.interviewProcess}
+                  </p>
+                  <button
+                    type="button"
+                    data-readmore-toggle
+                    class="mt-1 hidden text-xs font-medium text-accent hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/30 rounded"
+                    aria-expanded="false"
+                    aria-controls={interviewId}
+                  >
+                    Read more
+                  </button>
+                </div>
+              ) : (
+                <div class="relative z-30">
+                  <p class="text-xs text-text-mutedLight dark:text-text-mutedDark group-hover:text-text-light dark:group-hover:text-text-dark group-focus-within:text-text-light dark:group-focus-within:text-text-dark">
+                    No interview notes provided.
+                  </p>
+                </div>
+              )
+            }
+          </div>
+
+          <!-- Far right action -->
+          <div class="z-30 absolute right-4 top-3 sm:right-5 sm:top-4 md:static md:justify-self-end md:self-start">
+            <a
+              href={company.careersUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex h-8 w-8 items-center justify-center rounded-md text-accent opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/30"
+              aria-label={`Open ${company.name} careers page in a new tab`}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="h-4 w-4"
+                aria-hidden="true"
+              >
+                <path d="M14 3h7v7" />
+                <path d="M10 14L21 3" />
+                <path d="M21 14v7h-7" />
+                <path d="M3 10v11h11" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </>
+    ) : (
+      <div class="grid grid-cols-1 gap-3 md:contents">
+        <!-- Column A: Company -->
+        <div class="min-w-0">
+          <h3 class="min-w-0 text-sm font-semibold leading-snug text-text-light dark:text-text-dark">
+            <span class="block whitespace-nowrap truncate group-hover:text-accent group-focus-within:text-accent">
+              {company.name}
+            </span>
+          </h3>
+        </div>
+
+        <!-- Column B: Employment + locations -->
+        <div class="min-w-0 md:border-l-2 md:border-border-light/80 dark:md:border-border-dark/80 md:pl-4">
+          <div class="flex items-start">
+            <EmploymentBadge employmentType={company.employmentType} />
+          </div>
+          <div
+            class="mt-2 flex flex-wrap items-center gap-2"
+            aria-label="Company locations"
+          >
+            {actualLocations.length > 0 ? (
+              <>
+                {actualLocations.slice(0, maxVisibleLocations).map((location: any) => (
+                  <LocationChip location={location} />
+                ))}
+                {actualLocations.length > maxVisibleLocations && (
+                  <LocationOverflowTooltip
+                    remainingLocations={actualLocations.slice(maxVisibleLocations)}
+                    count={actualLocations.length - maxVisibleLocations}
+                  />
+                )}
+              </>
+            ) : (
+              <span class="inline-flex items-center rounded-md bg-bg-light/30 dark:bg-white/5 px-2 py-1 text-xs font-medium text-text-mutedLight dark:text-text-mutedDark border border-border-light/60 dark:border-border-dark/60">
+                Not Available
+              </span>
+            )}
+          </div>
+        </div>
+
+        <!-- Column C: Interview -->
+        <div class="min-w-0 md:border-l-2 md:border-border-light/80 dark:md:border-border-dark/80 md:pl-4">
+          {
+            company.interviewProcess ? (
+              <div class="relative z-30">
+                <p
+                  id={interviewId}
+                  data-readmore-text
+                  data-readmore-clamp="line-clamp-3"
+                  class="text-xs sm:text-sm text-text-mutedLight dark:text-text-mutedDark group-hover:text-text-light dark:group-hover:text-text-dark group-focus-within:text-text-light dark:group-focus-within:text-text-dark line-clamp-3"
+                >
+                  {company.interviewProcess}
+                </p>
+                <button
+                  type="button"
+                  data-readmore-toggle
+                  class="mt-1 hidden text-xs font-medium text-accent hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/30 rounded"
+                  aria-expanded="false"
+                  aria-controls={interviewId}
+                >
+                  Read more
+                </button>
+              </div>
+            ) : (
+              <div class="relative z-30">
+                <p class="text-xs text-text-mutedLight dark:text-text-mutedDark group-hover:text-text-light dark:group-hover:text-text-dark group-focus-within:text-text-light dark:group-focus-within:text-text-dark">
+                  No interview notes provided.
+                </p>
+              </div>
+            )
+          }
+        </div>
+
+        <!-- Far right action (disabled) -->
+        <div class="z-30 absolute right-4 top-3 sm:right-5 sm:top-4 md:static md:justify-self-end md:self-start">
+          <span
+            class="inline-flex h-8 w-8 items-center justify-center rounded-md text-text-mutedLight dark:text-text-mutedDark opacity-50"
+            aria-hidden="true"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="h-4 w-4"
+            >
+              <path d="M14 3h7v7" />
+              <path d="M10 14L21 3" />
+              <path d="M21 14v7h-7" />
+              <path d="M3 10v11h11" />
+            </svg>
+          </span>
+        </div>
+      </div>
+    )
+  }
+</li>

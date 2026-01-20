@@ -1,0 +1,60 @@
+---
+import type { AstroComponentFactory } from "astro/runtime/server/index.js";
+import Button from "./Button.astro";
+
+type Props = {
+  title: string;
+  description: string;
+  icon?: AstroComponentFactory;
+  button?: {
+    text: string;
+    href: string;
+  };
+};
+
+const { title, description, icon: Icon, button } = Astro.props as Props;
+---
+
+<article
+  class="group flex flex-col gap-4 rounded-lg border border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark p-6 hover:bg-bg-light dark:hover:bg-bg-dark hover:border-accent/20 focus-within:bg-bg-light dark:focus-within:bg-bg-dark focus-within:border-accent/20"
+>
+  <!-- Header -->
+  <header class="flex items-center gap-3">
+    {
+      Icon && (
+        <Icon
+          className="h-10 w-10 text-accent flex-shrink-0"
+          aria-hidden="true"
+        />
+      )
+    }
+    <h3
+      class="text-base font-semibold leading-tight text-text-light dark:text-text-dark group-hover:text-accent group-focus-within:text-accent transition-colors duration-200 ease-in-out motion-reduce:transition-none"
+    >
+      {title}
+    </h3>
+  </header>
+
+  <!-- Description -->
+  <p
+    class="text-sm text-text-mutedLight dark:text-text-mutedDark group-hover:text-text-light/90 dark:group-hover:text-text-dark/90 group-focus-within:text-text-light/90 dark:group-focus-within:text-text-dark/90 transition-colors duration-200 ease-in-out motion-reduce:transition-none"
+  >
+    {description}
+  </p>
+
+  <!-- Footer actions -->
+  {
+    button && (
+      <footer class="mt-auto flex items-center justify-end">
+        <Button
+          href={button.href}
+          target="_blank"
+          variant="secondary"
+          style="outline"
+        >
+          {button.text}
+        </Button>
+      </footer>
+    )
+  }
+</article>
