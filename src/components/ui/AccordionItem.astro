@@ -13,7 +13,7 @@ const { title, icon: Icon } = Astro.props as Props;
 <div class="border-t border-border-light/80 dark:border-border-dark/80">
   <details class="group">
     <summary
-      class="flex items-center justify-between cursor-pointer px-6 py-4 list-none
+      class="accordion-summary flex items-center justify-between cursor-pointer px-6 py-4 list-none
              text-text-light dark:text-text-dark
              hover:text-accent
              dark:hover:text-accent
@@ -29,7 +29,7 @@ const { title, icon: Icon } = Astro.props as Props;
         {
           Icon && (
             <Icon
-              className="h-8 w-8 text-accent opacity-80 group-hover:opacity-100 group-open:opacity-100 shrink-0 transition-[color,opacity] duration-200 ease-in-out motion-reduce:transition-none"
+              className="accordion-icon h-8 w-8 text-accent opacity-80 group-hover:opacity-100 group-open:opacity-100 shrink-0 transition-[color,opacity] duration-200 ease-in-out motion-reduce:transition-none"
               aria-hidden="true"
             />
           )
@@ -37,7 +37,7 @@ const { title, icon: Icon } = Astro.props as Props;
         <span class="font-semibold text-sm capitalize">{title}</span>
       </div>
       <ChevronDown
-        class="h-5 w-5 text-accent opacity-80 group-hover:opacity-100 group-open:opacity-100 transition-[color,opacity,transform] group-open:rotate-180 duration-200 ease-in-out motion-reduce:transition-none"
+        class="accordion-icon h-5 w-5 text-accent opacity-80 group-hover:opacity-100 group-open:opacity-100 transition-[color,opacity,transform] group-open:rotate-180 duration-200 ease-in-out motion-reduce:transition-none"
         aria-hidden="true"
       />
     </summary>

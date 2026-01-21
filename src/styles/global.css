@@ -149,6 +149,18 @@ html.theme-transitioning {
     --info-border 200ms ease-in-out;
 }
 
+/* During theme transitions, avoid per-element background-color transitions on the
+   accordion header. Background colors are already driven by animating the CSS
+   variables on html; letting the summary also transition background-color causes
+   a noticeable 'lag' while the variable itself is animating. */
+html.theme-transitioning .accordion-summary {
+  transition-property: none !important;
+}
+
+html.theme-transitioning .accordion-icon {
+  transition-property: opacity, transform !important;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html.theme-transitioning {
     transition: none !important;
