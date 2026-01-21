@@ -450,11 +450,11 @@ function init() {
     if (menuScrim) menuScrim.classList.toggle("hidden", !open);
 
     if (open) {
-      const firstFocusable = qs<HTMLElement>(
+      const firstInteractive = qs<HTMLElement>(
         menuPanel,
-        "input, button, [href], select, textarea",
+        "[data-companies-sort-option], [data-companies-employment-option], [data-companies-reset]",
       );
-      firstFocusable?.focus();
+      firstInteractive?.focus();
     }
   }
 
