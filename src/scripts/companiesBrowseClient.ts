@@ -882,10 +882,13 @@ function init() {
 
   // Keep pagination mode in sync when resizing across the md breakpoint.
   // Without this, the UI can drift (e.g., mobile "Show more" state vs desktop numbered pagination).
-  const mdMq = window.matchMedia(MD_QUERY);
+  type MediaQueryListLegacy = MediaQueryList & {
+    addListener?: (listener: (e: MediaQueryListEvent) => void) => void;
+  };
+  const mdMq = window.matchMedia(MD_QUERY) as MediaQueryListLegacy;
   let lastMdUp = mdMq.matches;
-  const onMdChange = (e: MediaQueryListEvent | MediaQueryList) => {
-    const nowMdUp = "matches" in e ? e.matches : mdMq.matches;
+  const onMdChange = (e: MediaQueryListEvent) => {
+    const nowMdUp = e.matches;
     if (nowMdUp === lastMdUp) return;
     lastMdUp = nowMdUp;
 
@@ -898,8 +901,8 @@ function init() {
 
     render();
   };
-  if ("addEventListener" in mdMq) mdMq.addEventListener("change", onMdChange);
-  else mdMq.addListener(onMdChange as any);
+  if (typeof mdMq.addListener === "function") mdMq.addListener(onMdChange);
+  else mdMq.addEventListener("change", onMdChange);
 
   // Events
   if (searchInput) {

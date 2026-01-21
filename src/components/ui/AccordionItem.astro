@@ -29,7 +29,7 @@ const { title, icon: Icon } = Astro.props as Props;
         {
           Icon && (
             <Icon
-              className="h-8 w-8 text-accent/80 group-hover:text-accent dark:group-hover:text-accent group-open:text-accent dark:group-open:text-accent shrink-0 transition-colors duration-200 ease-in-out motion-reduce:transition-none"
+              className="h-8 w-8 text-accent opacity-80 group-hover:opacity-100 group-open:opacity-100 shrink-0 transition-[color,opacity] duration-200 ease-in-out motion-reduce:transition-none"
               aria-hidden="true"
             />
           )
@@ -37,7 +37,7 @@ const { title, icon: Icon } = Astro.props as Props;
         <span class="font-semibold text-sm capitalize">{title}</span>
       </div>
       <ChevronDown
-        class="h-5 w-5 text-accent/80 group-hover:text-accent dark:group-hover:text-accent group-open:text-accent dark:group-open:text-accent transition-transform group-open:rotate-180 transition-colors duration-200 ease-in-out motion-reduce:transition-none"
+        class="h-5 w-5 text-accent opacity-80 group-hover:opacity-100 group-open:opacity-100 transition-[color,opacity,transform] group-open:rotate-180 duration-200 ease-in-out motion-reduce:transition-none"
         aria-hidden="true"
       />
     </summary>

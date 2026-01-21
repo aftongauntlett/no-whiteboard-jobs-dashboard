@@ -39,21 +39,41 @@ const { title = "No Whiteboard Jobs" } = Astro.props;
       (() => {
         const root = document.documentElement;
         const STORAGE_KEY = "theme";
-        const BG_LIGHT = "#f4f7f8";
-        const BG_DARK = "#0a0a0a";
+        const TRANSITION_CLASS = "theme-transitioning";
+        const TRANSITION_MS = 200;
+
+        let transitionTimeoutId = null;
+
+        const withThemeTransition = (fn) => {
+          // Avoid accumulating timeouts on rapid toggles.
+          if (transitionTimeoutId) window.clearTimeout(transitionTimeoutId);
+
+          root.classList.add(TRANSITION_CLASS);
+          // Force a style flush so the transition class is applied
+          // before we update theme variables.
+          root.getBoundingClientRect();
+
+          const result = fn();
+
+          transitionTimeoutId = window.setTimeout(() => {
+            root.classList.remove(TRANSITION_CLASS);
+            transitionTimeoutId = null;
+          }, TRANSITION_MS + 50);
+
+          return result;
+        };
 
         const applyTheme = (theme) => {
           const next = theme === "dark" ? "dark" : "light";
           root.classList.toggle("dark", next === "dark");
           root.dataset.theme = next;
-          root.style.backgroundColor = next === "dark" ? BG_DARK : BG_LIGHT;
           root.style.colorScheme = next;
           return next;
         };
 
         // Expose helpers for other components (e.g., theme toggle button)
         window.__setTheme = (theme) => {
-          const next = applyTheme(theme);
+          const next = withThemeTransition(() => applyTheme(theme));
           try {
             localStorage.setItem(STORAGE_KEY, next);
           } catch {
@@ -67,7 +87,7 @@ const { title = "No Whiteboard Jobs" } = Astro.props;
           const next = current === "dark" ? "light" : "dark";
           if (typeof window.__setTheme === "function")
             return window.__setTheme(next);
-          return applyTheme(next);
+          return withThemeTransition(() => applyTheme(next));
         };
 
         let stored = null;

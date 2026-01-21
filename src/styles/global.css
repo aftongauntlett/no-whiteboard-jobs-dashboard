@@ -1,8 +1,158 @@
 @config "../../tailwind.config.mjs";
 @import "tailwindcss";
 
+@property --bg {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #f4f7f8;
+}
+
+@property --surface {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #eef3f5;
+}
+
+@property --surface-muted {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: color-mix(in srgb, #eef3f5 70%, #f4f7f8);
+}
+
+@property --surface-hover {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: color-mix(in srgb, #eef3f5 88%, black 6%);
+}
+
+@property --text {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #111827;
+}
+
+@property --text-muted {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #6b7280;
+}
+
+@property --border {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #e5e7eb;
+}
+
+@property --accent {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #672d86;
+}
+
+@property --primary {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #0f766e;
+}
+
+@property --secondary {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #0369a1;
+}
+
+@property --coral {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #ff7f50;
+}
+
+@property --success-bg {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #059669;
+}
+
+@property --success-text {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #347058;
+}
+
+@property --success-border {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #10b981;
+}
+
+@property --warning-bg {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #d97706;
+}
+
+@property --warning-text {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #615323;
+}
+
+@property --warning-border {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #f59e0b;
+}
+
+@property --info-bg {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #0284c7;
+}
+
+@property --info-text {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #224150;
+}
+
+@property --info-border {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #0ea5e9;
+}
+
 html {
   background-color: var(--bg);
+}
+
+html.theme-transitioning {
+  transition:
+    --bg 200ms ease-in-out,
+    --surface 200ms ease-in-out,
+    --surface-muted 200ms ease-in-out,
+    --surface-hover 200ms ease-in-out,
+    --text 200ms ease-in-out,
+    --text-muted 200ms ease-in-out,
+    --border 200ms ease-in-out,
+    --accent 200ms ease-in-out,
+    --primary 200ms ease-in-out,
+    --secondary 200ms ease-in-out,
+    --coral 200ms ease-in-out,
+    --success-bg 200ms ease-in-out,
+    --success-text 200ms ease-in-out,
+    --success-border 200ms ease-in-out,
+    --warning-bg 200ms ease-in-out,
+    --warning-text 200ms ease-in-out,
+    --warning-border 200ms ease-in-out,
+    --info-bg 200ms ease-in-out,
+    --info-text 200ms ease-in-out,
+    --info-border 200ms ease-in-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.theme-transitioning {
+    transition: none !important;
+  }
 }
 
 :root {

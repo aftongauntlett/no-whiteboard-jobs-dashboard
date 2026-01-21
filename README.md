@@ -1,14 +1,16 @@
 # No Whiteboard Jobs Dashboard
+
 ![Astro](https://img.shields.io/badge/Astro-FF5D01?style=flat&logo=astro&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38BDF8?style=flat&logo=tailwindcss&logoColor=white)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/aftongauntlett/no-whiteboard-jobs-dashboard)
+
+View live: https://no-wb.org/
 
 A personal project I built after regularly referencing the hiring-without-whiteboards list and wanting an easier way to browse it. Full credit for the data and original work goes to the source repository.
 
 ## Data Source
 
 Data is sourced from the [hiring-without-whiteboards](https://github.com/poteto/hiring-without-whiteboards) repository.
-
 
 ## License
 

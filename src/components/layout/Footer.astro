@@ -1,25 +1,56 @@
+---
+const year = new Date().getFullYear();
+const portfolioUrl = "https://www.aftongauntlett.com/";
+---
+
 <footer>
   <div class="app-container">
     <div
-      class="mx-2 border-t border-border-light/80 dark:border-border-dark/80 py-6"
+      class="mx-2 border-t border-border-light/80 dark:border-border-dark/80"
     >
-      <div
-        class="flex items-center justify-between text-sm text-text-mutedLight dark:text-text-mutedDark"
-      >
-        <p>
-          Data sourced from the hiring-without-whiteboards repository. This
-          project is not affiliated with or maintained by the original authors.
-        </p>
-        <div class="flex items-center gap-4 shrink-0">
-          <p>
-            Built by <a
-              href="https://www.aftongauntlett.com/"
-              target="_blank"
-              class="underline-offset-4 hover:text-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-              >AG</a
-            >
-          </p>
+      <div class="py-6 grid gap-4 md:grid-cols-3 md:items-center">
+        <nav aria-label="Footer navigation" class="md:justify-self-start">
+          <ul
+            class="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-text-mutedLight dark:text-text-mutedDark"
+          >
+            <li>
+              <a
+                href="/"
+                class="underline-offset-4 hover:text-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                >Browse Companies</a
+              >
+            </li>
+            <li>
+              <a
+                href="/hiring-tips"
+                class="underline-offset-4 hover:text-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                >Hiring Tips</a
+              >
+            </li>
+            <li>
+              <a
+                href="/about"
+                class="underline-offset-4 hover:text-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                >About</a
+              >
+            </li>
+          </ul>
+        </nav>
 
+        <p
+          class="text-xs text-text-mutedLight dark:text-text-mutedDark md:justify-self-center md:text-center"
+        >
+          © {year}
+          <a
+            href={portfolioUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="underline-offset-4 hover:text-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+            >Afton Gauntlett</a
+          >
+        </p>
+
+        <div class="flex items-center gap-4 md:justify-self-end">
           <button
             type="button"
             data-scroll-top
