@@ -109,18 +109,16 @@ import ChevronLeft from "lucide-astro/ChevronLeft";
         id="theme-toggle"
         type="button"
         aria-label="Toggle theme"
-        class="ml-auto flex items-center justify-end gap-2 rounded p-2 border border-border-light dark:border-border-dark text-text-light dark:text-text-dark cursor-pointer
+        class="flex self-stretch items-center justify-start gap-2 rounded p-2 border border-border-light dark:border-border-dark text-text-light dark:text-text-dark cursor-pointer
                hover:bg-surface-light/10 dark:hover:bg-surface-dark/10 hover:text-accent
                focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
       >
-        <!-- Sun icon (light mode) -->
-        <Sun class="h-4 w-4 dark:hidden" aria-hidden="true" />
+        <!-- Action icon: moon in light mode, sun in dark mode -->
+        <Moon class="h-4 w-4 dark:hidden" aria-hidden="true" />
+        <Sun class="h-4 w-4 hidden dark:block" aria-hidden="true" />
 
-        <!-- Moon icon (dark mode) -->
-        <Moon class="h-4 w-4 hidden dark:block" aria-hidden="true" />
-
-        <span class="text-sm dark:hidden sidebar-text">Light Mode</span>
-        <span class="text-sm hidden dark:block sidebar-text">Dark Mode</span>
+        <span class="text-sm sidebar-text dark:hidden">Dark Mode</span>
+        <span class="text-sm sidebar-text hidden dark:inline">Light Mode</span>
       </button>
 
       <div
@@ -150,10 +148,16 @@ import ChevronLeft from "lucide-astro/ChevronLeft";
   if (button) {
     const root = document.documentElement;
 
-    button.setAttribute(
-      "aria-pressed",
-      root.classList.contains("dark") ? "true" : "false",
-    );
+    const updateThemeToggleLabel = () => {
+      const isDark = root.classList.contains("dark");
+      button.setAttribute(
+        "aria-label",
+        isDark ? "Switch to light mode" : "Switch to dark mode",
+      );
+      button.setAttribute("aria-pressed", isDark ? "true" : "false");
+    };
+
+    updateThemeToggleLabel();
 
     button.addEventListener("click", () => {
       // Layout initializes theme CSS variables and exposes helpers.
@@ -173,7 +177,7 @@ import ChevronLeft from "lucide-astro/ChevronLeft";
       }
 
       // aria-pressed reflects whether dark mode is active
-      button.setAttribute("aria-pressed", (nextTheme === "dark").toString());
+      updateThemeToggleLabel();
     });
   }
 
@@ -207,7 +211,7 @@ import ChevronLeft from "lucide-astro/ChevronLeft";
         chevronIcon.innerHTML = '<path d="m9 18 6-6-6-6"></path>';
         sidebarTexts.forEach((text) => text.classList.add("!hidden"));
         themeToggle.classList.add("icon-only");
-        themeToggle.classList.remove("ml-auto", "justify-end");
+        themeToggle.classList.remove("justify-start");
         themeToggle.classList.add("justify-center");
       } else {
         sidebar.classList.remove("w-16", "collapsed");
@@ -217,7 +221,7 @@ import ChevronLeft from "lucide-astro/ChevronLeft";
         chevronIcon.innerHTML = '<path d="m15 18-6-6 6-6"></path>';
         sidebarTexts.forEach((text) => text.classList.remove("!hidden"));
         themeToggle.classList.remove("icon-only");
-        themeToggle.classList.add("ml-auto", "justify-end");
+        themeToggle.classList.add("justify-start");
         themeToggle.classList.remove("justify-center");
       }
 
@@ -237,7 +241,7 @@ import ChevronLeft from "lucide-astro/ChevronLeft";
       chevronIcon.innerHTML = '<path d="m9 18 6-6-6-6"></path>';
       sidebarTexts.forEach((text) => text.classList.add("!hidden"));
       themeToggle.classList.add("icon-only");
-      themeToggle.classList.remove("ml-auto", "justify-end");
+      themeToggle.classList.remove("justify-start");
       themeToggle.classList.add("justify-center");
     }
   }

@@ -10,15 +10,45 @@
           Data sourced from the hiring-without-whiteboards repository. This
           project is not affiliated with or maintained by the original authors.
         </p>
-        <p>
-          Built by <a
-            href="https://www.aftongauntlett.com/"
-            target="_blank"
-            class="underline-offset-4 hover:text-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-            >AG</a
+        <div class="flex items-center gap-4 shrink-0">
+          <p>
+            Built by <a
+              href="https://www.aftongauntlett.com/"
+              target="_blank"
+              class="underline-offset-4 hover:text-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+              >AG</a
+            >
+          </p>
+
+          <button
+            type="button"
+            data-scroll-top
+            class="cursor-pointer inline-flex items-center justify-center rounded-full border border-border-light dark:border-border-dark bg-surface-light/70 dark:bg-surface-dark/60 px-4 py-2 text-xs text-text-light dark:text-text-dark shadow-sm hover:bg-surface-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+            aria-label="Scroll to top"
           >
-        </p>
+            ↑ Top
+          </button>
+        </div>
       </div>
     </div>
   </div>
 </footer>
+
+<script is:inline>
+  (() => {
+    const btn = document.querySelector("[data-scroll-top]");
+    if (!btn) return;
+
+    btn.addEventListener("click", () => {
+      const prefersReducedMotion = window.matchMedia?.(
+        "(prefers-reduced-motion: reduce)",
+      ).matches;
+
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: prefersReducedMotion ? "auto" : "smooth",
+      });
+    });
+  })();
+</script>

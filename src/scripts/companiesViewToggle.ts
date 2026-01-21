@@ -1,6 +1,11 @@
 type CompaniesView = "card" | "list";
 
 const STORAGE_KEY = "companies-view";
+const MD_QUERY = "(min-width: 768px)";
+
+function isMdUp(): boolean {
+  return window.matchMedia(MD_QUERY).matches;
+}
 
 function getStoredView(): CompaniesView {
   try {
@@ -55,7 +60,8 @@ function applyView(root: HTMLElement, next: CompaniesView) {
   }
 
   setGlobalListViewClass(next);
-  setStoredView(next);
+  // Below md, force card view and do not persist list mode.
+  if (isMdUp()) setStoredView(next);
 }
 
 function init() {
@@ -64,10 +70,21 @@ function init() {
   );
   if (roots.length === 0) return;
 
-  const initial = getStoredView();
+  const initial: CompaniesView = isMdUp() ? getStoredView() : "card";
 
   for (const root of roots) {
     applyView(root, initial);
+
+    const mq = window.matchMedia(MD_QUERY);
+    const onMqChange = () => {
+      if (!mq.matches) {
+        applyView(root, "card");
+        return;
+      }
+      applyView(root, getStoredView());
+    };
+    if ("addEventListener" in mq) mq.addEventListener("change", onMqChange);
+    else mq.addListener(onMqChange);
 
     const buttons = Array.from(
       root.querySelectorAll<HTMLElement>("[data-companies-view-button]"),
@@ -75,6 +92,10 @@ function init() {
 
     for (const btn of buttons) {
       btn.addEventListener("click", () => {
+        if (!isMdUp()) {
+          applyView(root, "card");
+          return;
+        }
         const view = btn.getAttribute(
           "data-companies-view-button",
         ) as CompaniesView | null;

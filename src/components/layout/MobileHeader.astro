@@ -1,0 +1,311 @@
+---
+const { pathname } = Astro.url;
+const isActive = (path: string) => pathname === path;
+---
+
+<header
+  class="md:hidden sticky top-0 z-40 bg-bg-light/85 dark:bg-bg-dark/85 backdrop-blur border-b border-border-light dark:border-border-dark"
+>
+  <div class="app-container">
+    <div class="flex items-center justify-between py-3">
+      <a
+        href="/"
+        class="flex items-center gap-3 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+      >
+        <div
+          class="h-8 w-8 rounded bg-surface-light dark:bg-surface-dark border border-border-light dark:border-border-dark flex items-center justify-center text-xs font-semibold"
+          aria-hidden="true"
+        >
+          NW
+        </div>
+        <div class="leading-tight">
+          <div class="text-sm font-semibold">No Whiteboard Jobs</div>
+          <div class="text-xs text-text-mutedLight dark:text-text-mutedDark">
+            Dashboard
+          </div>
+        </div>
+      </a>
+
+      <button
+        type="button"
+        data-mobile-nav-toggle
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="mobile-nav-panel"
+        class="inline-flex items-center justify-center rounded-md border border-border-light dark:border-border-dark bg-surface-light/70 dark:bg-surface-dark/60 px-3 py-2 text-sm text-text-light dark:text-text-dark shadow-sm hover:bg-surface-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="h-5 w-5"
+          aria-hidden="true"
+          data-mobile-nav-icon
+        >
+          <path d="M4 6h16"></path>
+          <path d="M4 12h16"></path>
+          <path d="M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div
+  data-mobile-nav-overlay
+  class="hidden fixed inset-0 z-[100]"
+  aria-hidden="true"
+>
+  <div
+    data-mobile-nav-backdrop
+    class="absolute inset-0 bg-black/30 dark:bg-black/60"
+  >
+  </div>
+
+  <div
+    id="mobile-nav-panel"
+    data-mobile-nav-panel
+    class="absolute right-0 top-0 h-full w-[min(22rem,85vw)] bg-bg-light dark:bg-bg-dark border-l border-border-light dark:border-border-dark shadow-2xl"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Site navigation"
+    tabindex="-1"
+  >
+    <div class="p-4">
+      <div class="flex items-center justify-between">
+        <div class="text-sm font-semibold">Menu</div>
+        <button
+          type="button"
+          data-mobile-nav-close
+          aria-label="Close navigation menu"
+          class="inline-flex items-center justify-center rounded-md border border-border-light dark:border-border-dark bg-surface-light/70 dark:bg-surface-dark/60 px-3 py-2 text-sm text-text-light dark:text-text-dark shadow-sm hover:bg-surface-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="h-5 w-5"
+            aria-hidden="true"
+          >
+            <path d="M18 6 6 18"></path>
+            <path d="M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+
+      <div
+        class="mt-4 border-t border-border-light/80 dark:border-border-dark/80"
+      >
+      </div>
+
+      <nav class="mt-4" aria-label="Mobile navigation">
+        <ul class="space-y-1">
+          <li>
+            <a
+              href="/"
+              aria-current={isActive("/") ? "page" : undefined}
+              data-mobile-nav-first-focus
+              class={`group flex items-center rounded px-3 py-2 text-sm font-medium
+                border-l-2
+                ${
+                  isActive("/")
+                    ? "border-accent text-accent bg-surface-light dark:bg-surface-dark"
+                    : "border-transparent text-text-mutedLight dark:text-text-mutedDark hover:text-text-light dark:hover:text-text-dark hover:bg-surface-light dark:hover:bg-surface-dark"
+                }
+                focus:outline-none focus-visible:ring-2 focus-visible:ring-accent`}
+            >
+              Browse Companies
+            </a>
+          </li>
+          <li>
+            <a
+              href="/hiring-tips"
+              aria-current={isActive("/hiring-tips") ? "page" : undefined}
+              class={`group flex items-center rounded px-3 py-2 text-sm font-medium
+                border-l-2
+                ${
+                  isActive("/hiring-tips")
+                    ? "border-accent text-accent bg-surface-light dark:bg-surface-dark"
+                    : "border-transparent text-text-mutedLight dark:text-text-mutedDark hover:text-text-light dark:hover:text-text-dark hover:bg-surface-light dark:hover:bg-surface-dark"
+                }
+                focus:outline-none focus-visible:ring-2 focus-visible:ring-accent`}
+            >
+              Hiring Tips
+            </a>
+          </li>
+          <li>
+            <a
+              href="/about"
+              aria-current={isActive("/about") ? "page" : undefined}
+              class={`group flex items-center rounded px-3 py-2 text-sm font-medium
+                border-l-2
+                ${
+                  isActive("/about")
+                    ? "border-accent text-accent bg-surface-light dark:bg-surface-dark"
+                    : "border-transparent text-text-mutedLight dark:text-text-mutedDark hover:text-text-light dark:hover:text-text-dark hover:bg-surface-light dark:hover:bg-surface-dark"
+                }
+                focus:outline-none focus-visible:ring-2 focus-visible:ring-accent`}
+            >
+              About
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <div
+        class="mt-4 border-t border-border-light/80 dark:border-border-dark/80"
+      >
+      </div>
+
+      <button
+        type="button"
+        data-mobile-theme-toggle
+        aria-label="Toggle theme"
+        class="mt-4 flex self-stretch items-center justify-start gap-2 rounded-md border border-border-light dark:border-border-dark bg-surface-light/70 dark:bg-surface-dark/60 px-4 py-2 text-sm text-text-light dark:text-text-dark shadow-sm hover:bg-surface-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+      >
+        <!-- Action icon: moon in light mode, sun in dark mode -->
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="h-5 w-5 dark:hidden"
+          aria-hidden="true"
+        >
+          <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79Z"></path>
+        </svg>
+
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="h-5 w-5 hidden dark:block"
+          aria-hidden="true"
+        >
+          <circle cx="12" cy="12" r="4"></circle>
+          <path d="M12 2v2"></path>
+          <path d="M12 20v2"></path>
+          <path d="m4.93 4.93 1.41 1.41"></path>
+          <path d="m17.66 17.66 1.41 1.41"></path>
+          <path d="M2 12h2"></path>
+          <path d="M20 12h2"></path>
+          <path d="m6.34 17.66-1.41 1.41"></path>
+          <path d="m19.07 4.93-1.41 1.41"></path>
+        </svg>
+
+        <span class="dark:hidden">Dark Mode</span>
+        <span class="hidden dark:inline">Light Mode</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  (() => {
+    const MD_QUERY = "(min-width: 768px)";
+
+    const toggle = document.querySelector("[data-mobile-nav-toggle]");
+    const closeBtn = document.querySelector("[data-mobile-nav-close]");
+    const overlay = document.querySelector("[data-mobile-nav-overlay]");
+    const panel = document.querySelector("[data-mobile-nav-panel]");
+    const firstFocus = document.querySelector("[data-mobile-nav-first-focus]");
+    const themeToggleButton = document.querySelector(
+      "[data-mobile-theme-toggle]",
+    );
+
+    const updateThemeToggleLabel = () => {
+      if (!themeToggleButton) return;
+      const isDark = document.documentElement.classList.contains("dark");
+      themeToggleButton.setAttribute(
+        "aria-label",
+        isDark ? "Switch to light mode" : "Switch to dark mode",
+      );
+    };
+
+    let lastTrigger = null;
+
+    const setOpen = (open) => {
+      if (!toggle || !overlay || !panel) return;
+
+      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      toggle.setAttribute(
+        "aria-label",
+        open ? "Close navigation menu" : "Open navigation menu",
+      );
+
+      overlay.classList.toggle("hidden", !open);
+      overlay.setAttribute("aria-hidden", open ? "false" : "true");
+
+      if (open) {
+        lastTrigger = toggle;
+        document.body.style.overflow = "hidden";
+        (firstFocus || panel).focus?.();
+      } else {
+        document.body.style.overflow = "";
+        if (lastTrigger && lastTrigger.focus) lastTrigger.focus();
+        lastTrigger = null;
+      }
+    };
+
+    const isOpen = () => toggle?.getAttribute("aria-expanded") === "true";
+
+    toggle?.addEventListener("click", () => {
+      setOpen(!isOpen());
+    });
+    closeBtn?.addEventListener("click", () => setOpen(false));
+
+    overlay?.addEventListener("click", (e) => {
+      const target = e.target;
+      if (!target) return;
+      if (
+        target === overlay ||
+        target.hasAttribute?.("data-mobile-nav-backdrop")
+      ) {
+        setOpen(false);
+      }
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key !== "Escape") return;
+      if (!isOpen()) return;
+      e.preventDefault();
+      setOpen(false);
+    });
+
+    // If the user resizes to md+, ensure the mobile panel is closed.
+    const mq = window.matchMedia(MD_QUERY);
+    const onMq = () => {
+      if (mq.matches) setOpen(false);
+    };
+    if ("addEventListener" in mq) mq.addEventListener("change", onMq);
+    else mq.addListener(onMq);
+
+    updateThemeToggleLabel();
+
+    themeToggleButton?.addEventListener("click", () => {
+      if (typeof window.__toggleTheme === "function") {
+        window.__toggleTheme();
+      } else {
+        const root = document.documentElement;
+        root.classList.toggle("dark");
+      }
+
+      updateThemeToggleLabel();
+    });
+  })();
+</script>

@@ -39,13 +39,9 @@ const {
     aria-hidden="true"
   >
   </div>
-  <div
-    class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between"
-  >
-    <div
-      class="flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:items-center sm:gap-0"
-    >
-      <div class="relative w-full sm:w-[min(28rem,60vw)]">
+  <div class="flex flex-nowrap items-center gap-3 min-w-0">
+    <div class="flex flex-1 min-w-0 items-center gap-2 md:gap-0">
+      <div class="relative flex-1 min-w-0 md:max-w-[min(28rem,60vw)]">
         <label class="sr-only" for="company-search">Search companies</label>
         <span
           class="pointer-events-none absolute inset-y-0 left-4 flex items-center text-text-mutedLight dark:text-text-mutedDark"
@@ -70,17 +66,18 @@ const {
           data-companies-search
           type="search"
           placeholder="Search companies…"
-          class="w-full rounded-full border border-border-light dark:border-border-dark bg-surface-light/70 dark:bg-surface-dark/60 py-2.5 pl-10 pr-4 text-sm text-text-light dark:text-text-dark shadow-sm placeholder:text-text-mutedLight/80 dark:placeholder:text-text-mutedDark/80 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent sm:rounded-r-none"
+          class="w-full rounded-full md:rounded-r-none border border-border-light dark:border-border-dark bg-surface-light/70 dark:bg-surface-dark/60 py-2.5 pl-10 pr-4 text-sm text-text-light dark:text-text-dark shadow-sm placeholder:text-text-mutedLight/80 dark:placeholder:text-text-mutedDark/80 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
         />
       </div>
 
-      <div class="relative z-40 sm:-ml-px" data-companies-menu>
+      <div class="relative md:z-40 md:-ml-px shrink-0" data-companies-menu>
         <button
           type="button"
           data-companies-menu-button
+          aria-label="Filter & sort"
           aria-expanded="false"
           aria-controls="companies-menu-panel"
-          class="cursor-pointer inline-flex w-full sm:w-auto items-center gap-3 rounded-full border border-border-light dark:border-border-dark bg-surface-light/70 dark:bg-surface-dark/60 px-4 py-2.5 text-sm text-text-light dark:text-text-dark shadow-sm hover:bg-surface-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-accent sm:rounded-l-none"
+          class="cursor-pointer inline-flex w-auto shrink-0 items-center justify-center gap-0 md:gap-3 rounded-full md:rounded-l-none border border-border-light dark:border-border-dark bg-surface-light/70 dark:bg-surface-dark/60 p-2.5 md:px-4 md:py-2.5 text-sm text-text-light dark:text-text-dark shadow-sm hover:bg-surface-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
         >
           <span
             class="shrink-0 text-text-mutedLight dark:text-text-mutedDark"
@@ -107,7 +104,9 @@ const {
               <path d="M16 18v4"></path>
             </svg>
           </span>
-          <span class="text-left text-text-mutedLight dark:text-text-mutedDark">
+          <span
+            class="hidden md:inline text-left text-text-mutedLight dark:text-text-mutedDark"
+          >
             Filter &amp; sort
           </span>
         </button>
@@ -115,7 +114,7 @@ const {
         <div
           id="companies-menu-panel"
           data-companies-menu-panel
-          class="hidden absolute left-0 mt-2 w-[min(92vw,22rem)] rounded-xl border border-border-light dark:border-border-dark bg-surface-light/95 dark:bg-surface-dark/95 shadow-lg ring-1 ring-black/5 dark:ring-white/10 z-50"
+          class="hidden absolute right-0 mt-2 w-[min(92vw,22rem)] rounded-xl border border-border-light dark:border-border-dark bg-surface-light/95 dark:bg-surface-dark/95 shadow-lg ring-1 ring-black/5 dark:ring-white/10 z-50"
           role="dialog"
           aria-label="Filter and sort companies"
         >
@@ -243,7 +242,7 @@ const {
     </div>
 
     <div
-      class="inline-flex items-center rounded-lg border border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark p-1"
+      class="hidden md:inline-flex items-center shrink-0 rounded-lg border border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark p-1 md:ml-auto"
       role="radiogroup"
       aria-label="Company view"
     >
@@ -275,9 +274,9 @@ const {
     >
       Showing {startIndex}–{endIndex} of {totalItems} companies
     </p>
-    <div class="flex items-center gap-2">
+    <div class="hidden md:flex items-center gap-2">
       <span
-        class="hidden sm:inline text-xs text-text-mutedLight dark:text-text-mutedDark"
+        class="hidden md:inline text-xs text-text-mutedLight dark:text-text-mutedDark"
       >
         Per page
       </span>
@@ -370,8 +369,21 @@ const {
     </ul>
   </div>
 
-  <div data-companies-client-pagination></div>
-  <div data-companies-fallback-pagination>
+  <div data-companies-client-pagination class="hidden md:block"></div>
+  <div
+    data-companies-mobile-pagination
+    class="md:hidden mt-6 flex justify-center"
+  >
+    <button
+      type="button"
+      data-companies-show-more
+      class="cursor-pointer inline-flex items-center justify-center rounded-full border border-border-light dark:border-border-dark bg-surface-light/70 dark:bg-surface-dark/60 px-6 py-2.5 text-sm text-text-light dark:text-text-dark shadow-sm hover:bg-surface-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+    >
+      Show more
+    </button>
+  </div>
+
+  <div data-companies-fallback-pagination class="hidden md:block">
     <Pagination currentPage={currentPage} totalPages={totalPages} />
   </div>
 </section>

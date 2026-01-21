@@ -1,5 +1,6 @@
 ---
 import Footer from "../components/layout/Footer.astro";
+import MobileHeader from "../components/layout/MobileHeader.astro";
 import Sidebar from "../components/layout/Sidebar.astro";
 import "../styles/global.css";
 
@@ -97,8 +98,11 @@ const { title = "No Whiteboard Jobs" } = Astro.props;
 
     <!-- App frame -->
     <div class="flex min-h-screen">
-      <Sidebar />
+      <div class="hidden md:block">
+        <Sidebar />
+      </div>
       <main id="main" class="flex flex-col flex-1 min-w-0">
+        <MobileHeader />
         <!-- Page content -->
         <div class="flex-1 py-10">
           <div class="app-container">

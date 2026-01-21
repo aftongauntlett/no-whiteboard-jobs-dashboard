@@ -14,6 +14,12 @@ const EMPLOYMENT_ORDER: Record<EmploymentType, number> = {
 };
 
 const STORAGE_VIEW_KEY = "companies-view";
+const MD_QUERY = "(min-width: 768px)";
+
+function isMdUp(): boolean {
+  if (typeof window === "undefined") return true;
+  return window.matchMedia(MD_QUERY).matches;
+}
 
 function qs<T extends Element>(root: ParentNode, selector: string): T | null {
   return root.querySelector(selector) as T | null;
@@ -38,6 +44,8 @@ function readInitialPageFromPath(): number | null {
 }
 
 function getView(): "card" | "list" {
+  // Below md, always force card view (ignore stored preference).
+  if (!isMdUp()) return "card";
   try {
     const value = localStorage.getItem(STORAGE_VIEW_KEY);
     return value === "list" ? "list" : "card";
@@ -180,7 +188,7 @@ function companyCardHtml(company: Company): string {
   const interviewId = `interview-${crypto.randomUUID()}`;
   const interview = company.interviewProcess
     ? `<div class="relative z-30 mt-3">
-        <p id="${interviewId}" data-readmore-text data-readmore-clamp="line-clamp-4" class="text-sm text-text-mutedLight dark:text-text-mutedDark group-hover:text-text-light dark:group-hover:text-text-dark group-focus-within:text-text-light dark:group-focus-within:text-text-dark transition-colors line-clamp-4">${escapeHtml(
+        <p id="${interviewId}" data-readmore-text data-readmore-clamp="line-clamp-3" class="text-sm text-text-mutedLight dark:text-text-mutedDark group-hover:text-text-light dark:group-hover:text-text-dark group-focus-within:text-text-light dark:group-focus-within:text-text-dark transition-colors line-clamp-3">${escapeHtml(
           company.interviewProcess,
         )}</p>
         <div class="text-right">
@@ -522,6 +530,16 @@ function init() {
         perPageAllowed,
       );
 
+  if (!isMdUp()) {
+    const mobileMax = 24;
+    const mobileAllowed = perPageAllowed.filter((n) => n <= mobileMax);
+    const mobileCap =
+      mobileAllowed.length > 0
+        ? Math.max(...mobileAllowed)
+        : defaultPerPageForView(initialView);
+    if (perPage > mobileCap) perPage = mobileCap;
+  }
+
   const pageParam = Number.parseInt(params.get("page") ?? "1", 10);
   let page = Number.isFinite(pageParam) && pageParam > 0 ? pageParam : 1;
 
@@ -563,6 +581,11 @@ function init() {
     "[data-companies-client-pagination]",
   );
 
+  const showMoreButton = qs<HTMLButtonElement>(
+    section,
+    "[data-companies-show-more]",
+  );
+
   const cardPanel = qs<HTMLElement>(
     section,
     '[data-companies-view-panel="card"]',
@@ -579,7 +602,10 @@ function init() {
   const paginationHost = clientPaginationHost;
 
   // Hide the static pagination once JS is active.
-  if (fallbackPagination) fallbackPagination.classList.add("hidden");
+  // Note: the fallback container uses responsive display classes (e.g. md:block),
+  // so class-based hiding can be overridden at certain breakpoints.
+  // Force-hide with inline style so only one pagination bar appears.
+  if (fallbackPagination) fallbackPagination.style.display = "none";
 
   if (searchInput) searchInput.value = query;
 
@@ -747,7 +773,28 @@ function init() {
     return sorted;
   }
 
-  function render() {
+  let lastTotalPages = 1;
+  let mobilePagingState: "idle" | "loading" | "done" = "idle";
+
+  function setShowMoreState(state: "idle" | "loading" | "done") {
+    if (!showMoreButton) return;
+    mobilePagingState = state;
+    if (state === "loading") {
+      showMoreButton.textContent = "Loading…";
+      showMoreButton.disabled = true;
+      return;
+    }
+    if (state === "done") {
+      showMoreButton.textContent = "All results loaded";
+      showMoreButton.disabled = true;
+      return;
+    }
+    showMoreButton.textContent = "Show more";
+    showMoreButton.disabled = false;
+  }
+
+  function render(options?: { append?: boolean }) {
+    const mdUp = isMdUp();
     const view = getView();
     const all = companies as Company[];
 
@@ -755,22 +802,42 @@ function init() {
     const total = filtered.length;
     const totalPages = Math.max(1, Math.ceil(total / perPage));
 
+    lastTotalPages = totalPages;
+
     if (page > totalPages) page = totalPages;
     if (page < 1) page = 1;
 
-    const startIndex = (page - 1) * perPage;
-    const endIndex = Math.min(startIndex + perPage, total);
+    const isMobilePaging = !mdUp;
+
+    const startIndex = isMobilePaging ? 0 : (page - 1) * perPage;
+    const endIndex = isMobilePaging
+      ? Math.min(page * perPage, total)
+      : Math.min(startIndex + perPage, total);
+
     const items = filtered.slice(startIndex, endIndex);
 
     if (countEl) {
-      countEl.textContent = total
-        ? `Showing ${startIndex + 1}–${endIndex} of ${total} companies`
-        : "No companies match your filters";
+      if (!total) {
+        countEl.textContent = "No companies match your filters";
+      } else if (isMobilePaging) {
+        countEl.textContent = `Showing 1–${endIndex} of ${total} companies`;
+      } else {
+        countEl.textContent = `Showing ${startIndex + 1}–${endIndex} of ${total} companies`;
+      }
     }
 
     // Render cards/list content
     if (view === "card") {
-      cardGrid.innerHTML = items.map(companyCardHtml).join("");
+      if (isMobilePaging && options?.append) {
+        const prevEnd = Math.min((page - 1) * perPage, total);
+        const nextItems = filtered.slice(prevEnd, endIndex);
+        cardGrid.insertAdjacentHTML(
+          "beforeend",
+          nextItems.map(companyCardHtml).join(""),
+        );
+      } else {
+        cardGrid.innerHTML = items.map(companyCardHtml).join("");
+      }
     } else {
       listWrap.innerHTML = `
 <ul class="rounded-xl border border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark divide-y divide-border-light dark:divide-border-dark md:grid md:gap-x-4 md:items-start md:grid-cols-[fit-content(18rem)_minmax(0,12rem)_minmax(0,1fr)_2.5rem]" aria-label="Companies">
@@ -782,20 +849,57 @@ function init() {
 
     // Pagination
     paginationHost.innerHTML = "";
-    if (total > 0 && totalPages > 1) {
-      paginationHost.append(
-        createPaginationNav(page, totalPages, (next) => {
-          page = Math.max(1, Math.min(totalPages, next));
-          updateUrl();
-          render();
-          scrollToTop();
-        }),
-      );
+    if (mdUp) {
+      if (total > 0 && totalPages > 1) {
+        paginationHost.append(
+          createPaginationNav(page, totalPages, (next) => {
+            page = Math.max(1, Math.min(totalPages, next));
+            updateUrl();
+            render();
+            scrollToTop();
+          }),
+        );
+      }
+    } else {
+      if (!showMoreButton) {
+        // no-op
+      } else if (total === 0) {
+        showMoreButton
+          .closest("[data-companies-mobile-pagination]")
+          ?.classList.add("hidden");
+      } else {
+        showMoreButton
+          .closest("[data-companies-mobile-pagination]")
+          ?.classList.remove("hidden");
+        if (page >= totalPages) setShowMoreState("done");
+        else setShowMoreState("idle");
+      }
     }
 
     updateUrl();
     syncControls();
   }
+
+  // Keep pagination mode in sync when resizing across the md breakpoint.
+  // Without this, the UI can drift (e.g., mobile "Show more" state vs desktop numbered pagination).
+  const mdMq = window.matchMedia(MD_QUERY);
+  let lastMdUp = mdMq.matches;
+  const onMdChange = (e: MediaQueryListEvent | MediaQueryList) => {
+    const nowMdUp = "matches" in e ? e.matches : mdMq.matches;
+    if (nowMdUp === lastMdUp) return;
+    lastMdUp = nowMdUp;
+
+    if (!nowMdUp) {
+      // Switching to mobile: reset mobile paging UI and baseline to avoid drift.
+      mobilePagingState = "idle";
+      setShowMoreState("idle");
+      page = 1;
+    }
+
+    render();
+  };
+  if ("addEventListener" in mdMq) mdMq.addEventListener("change", onMdChange);
+  else mdMq.addListener(onMdChange as any);
 
   // Events
   if (searchInput) {
@@ -875,6 +979,25 @@ function init() {
       if (searchInput) searchInput.value = "";
       render();
       setMenuOpen(false);
+    });
+  }
+
+  if (showMoreButton) {
+    showMoreButton.addEventListener("click", () => {
+      if (isMdUp()) return;
+      if (mobilePagingState === "loading") return;
+      if (page >= lastTotalPages) {
+        setShowMoreState("done");
+        return;
+      }
+
+      setShowMoreState("loading");
+
+      // Let the UI update to "Loading…" before rendering.
+      window.requestAnimationFrame(() => {
+        page = Math.min(lastTotalPages, page + 1);
+        render({ append: true });
+      });
     });
   }
 
