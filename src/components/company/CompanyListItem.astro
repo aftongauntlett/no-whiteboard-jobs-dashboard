@@ -81,7 +81,7 @@ const interviewId = `interview-${Math.abs(hashString(interviewIdBase))}`;
           </div>
 
           <!-- Column C: Interview -->
-          <div class="min-w-0 md:border-l-2 md:border-border-light/80 dark:md:border-border-dark/80 md:pl-4">
+          <div class="min-w-0 md:border-l-2 md:border-border-light/80 dark:md:border-border-dark/80 md:pl-4 md:max-w-prose md:justify-self-start">
             {
               company.interviewProcess ? (
                 <div class="relative z-30">
@@ -183,7 +183,7 @@ const interviewId = `interview-${Math.abs(hashString(interviewIdBase))}`;
         </div>
 
         <!-- Column C: Interview -->
-        <div class="min-w-0 md:border-l-2 md:border-border-light/80 dark:md:border-border-dark/80 md:pl-4">
+        <div class="min-w-0 md:border-l-2 md:border-border-light/80 dark:md:border-border-dark/80 md:pl-4 md:max-w-prose md:justify-self-start">
           {
             company.interviewProcess ? (
               <div class="relative z-30">

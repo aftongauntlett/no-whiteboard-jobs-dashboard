@@ -19,6 +19,11 @@ function setStoredView(view: CompaniesView) {
   }
 }
 
+function setGlobalListViewClass(view: CompaniesView) {
+  const target = document.getElementById("main") ?? document.body;
+  target.classList.toggle("companies-list-view", view === "list");
+}
+
 function applyView(root: HTMLElement, next: CompaniesView) {
   const cardPanel = root.querySelector<HTMLElement>(
     '[data-companies-view-panel="card"]',
@@ -49,6 +54,7 @@ function applyView(root: HTMLElement, next: CompaniesView) {
     btn.classList.toggle("text-accent", active);
   }
 
+  setGlobalListViewClass(next);
   setStoredView(next);
 }
 

@@ -298,7 +298,7 @@ function companyListItemHtml(company: Company): string {
 
     <div class="min-w-0 md:border-l-2 md:border-border-light/80 dark:md:border-border-dark/80 md:pl-4">${locationsCell}</div>
 
-    <div class="min-w-0 md:border-l-2 md:border-border-light/80 dark:md:border-border-dark/80 md:pl-4">${interview}</div>
+    <div class="min-w-0 md:border-l-2 md:border-border-light/80 dark:md:border-border-dark/80 md:pl-4 md:max-w-prose md:justify-self-start">${interview}</div>
 
     <div class="z-30 absolute right-4 top-3 sm:right-5 sm:top-4 md:static md:justify-self-end md:self-start">
       <span class="inline-flex h-8 w-8 items-center justify-center rounded-md text-text-mutedLight dark:text-text-mutedDark opacity-50" aria-hidden="true">
@@ -329,7 +329,7 @@ function companyListItemHtml(company: Company): string {
 
     <div class="min-w-0 md:border-l-2 md:border-border-light/80 dark:md:border-border-dark/80 md:pl-4">${locationsCell}</div>
 
-    <div class="min-w-0 md:border-l-2 md:border-border-light/80 dark:md:border-border-dark/80 md:pl-4">${interview}</div>
+    <div class="min-w-0 md:border-l-2 md:border-border-light/80 dark:md:border-border-dark/80 md:pl-4 md:max-w-prose md:justify-self-start">${interview}</div>
 
     <div class="z-30 absolute right-4 top-3 sm:right-5 sm:top-4 md:static md:justify-self-end md:self-start">
       <a href="${escapeHtml(
