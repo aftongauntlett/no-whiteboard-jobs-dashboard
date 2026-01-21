@@ -4,13 +4,25 @@ export default {
   theme: {
     extend: {
       colors: {
+        primary: {
+          DEFAULT: "var(--primary)",
+        },
+        secondary: {
+          DEFAULT: "var(--secondary)",
+        },
+        coral: {
+          DEFAULT: "var(--coral)",
+        },
         bg: {
           light: "var(--bg)",
           dark: "var(--bg)",
         },
         surface: {
+          DEFAULT: "var(--surface)",
           light: "var(--surface)",
           dark: "var(--surface)",
+          muted: "var(--surface-muted)",
+          hover: "var(--surface-hover)",
         },
         border: {
           light: "var(--border)",

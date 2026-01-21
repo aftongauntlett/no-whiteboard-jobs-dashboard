@@ -102,8 +102,7 @@ function escapeHtml(text: string): string {
 }
 
 function badgeClasses(type: EmploymentType): string {
-  const base =
-    "inline-flex items-center rounded px-2 py-0.5 text-xs font-medium leading-none";
+  const base = "ui-badge";
 
   if (type === "Remote") {
     return `${base} bg-info-bg/20 text-info-text`;
@@ -117,9 +116,7 @@ function badgeClasses(type: EmploymentType): string {
 }
 
 function locationChipHtml(location: string): string {
-  return `<span class="inline-flex items-center rounded-md bg-bg-light/60 dark:bg-white/10 px-2 py-1 text-xs font-medium text-text-light dark:text-text-dark border border-border-light dark:border-border-dark">${escapeHtml(
-    location,
-  )}</span>`;
+  return `<span class="location-chip">${escapeHtml(location)}</span>`;
 }
 
 function locationOverflowHtml(remaining: string[]): string {
@@ -130,7 +127,7 @@ function locationOverflowHtml(remaining: string[]): string {
   return `
 <button
   type="button"
-  class="group/loc relative z-30 inline-flex items-center rounded-md bg-bg-light/60 dark:bg-white/10 px-2 py-1 text-xs font-medium text-text-light dark:text-text-dark border border-border-light dark:border-border-dark hover:border-accent/30 focus:outline-none focus:ring-2 focus:ring-accent"
+  class="location-chip group/loc relative z-30 hover:border-accent/30 focus:outline-none focus:ring-2 focus:ring-accent"
   aria-label="${escapeHtml(label)}"
   aria-describedby="${tooltipId}"
 >
@@ -176,28 +173,32 @@ function companyCardHtml(company: Company): string {
     }
   } else {
     locationBits.push(
-      '<span class="inline-flex items-center rounded-md bg-bg-light/30 dark:bg-white/5 px-2 py-1 text-xs font-medium text-text-mutedLight dark:text-text-mutedDark border border-border-light/60 dark:border-border-dark/60">Not Available</span>',
+      '<span class="location-chip text-text-mutedLight dark:text-text-mutedDark">Not Available</span>',
     );
   }
 
   const interviewId = `interview-${crypto.randomUUID()}`;
   const interview = company.interviewProcess
     ? `<div class="relative z-30 mt-3">
-        <p id="${interviewId}" data-readmore-text data-readmore-clamp="line-clamp-4" class="text-sm text-text-mutedLight dark:text-text-mutedDark line-clamp-4">${escapeHtml(
+        <p id="${interviewId}" data-readmore-text data-readmore-clamp="line-clamp-4" class="text-sm text-text-mutedLight dark:text-text-mutedDark group-hover:text-text-light dark:group-hover:text-text-dark group-focus-within:text-text-light dark:group-focus-within:text-text-dark transition-colors line-clamp-4">${escapeHtml(
           company.interviewProcess,
         )}</p>
-        <button type="button" data-readmore-toggle class="mt-1 hidden text-xs font-medium text-accent hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/30 rounded" aria-expanded="false" aria-controls="${interviewId}">Read more</button>
+        <div class="text-right">
+          <button type="button" data-readmore-toggle class="mt-1 hidden text-xs font-medium text-accent hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/30 rounded" aria-expanded="false" aria-controls="${interviewId}">Read more</button>
+        </div>
       </div>`
     : "";
 
   if (!company.careersUrl) {
     return `
-  <article class="flex flex-col rounded-xl border border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark p-5">
+  <article class="company-card group">
   <header class="flex items-start justify-between gap-3">
-    <h3 class="text-base font-semibold leading-tight text-text-light dark:text-text-dark min-w-0">${escapeHtml(
-      company.name,
-    )}</h3>
-    <div class="shrink-0">${employment}</div>
+    <div class="min-w-0 flex items-center gap-2">
+      <h3 class="text-base font-semibold leading-tight text-text-light dark:text-text-dark min-w-0"><span>${escapeHtml(
+        company.name,
+      )}</span></h3>
+      <div class="shrink-0">${employment}</div>
+    </div>
   </header>
 
   <div class="mt-1 flex flex-wrap gap-2" aria-label="Company locations">${locationBits.join(
@@ -209,7 +210,7 @@ function companyCardHtml(company: Company): string {
   }
 
   return `
-<article class="group relative flex flex-col rounded-xl border border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark p-5 hover:bg-bg-light/60 dark:hover:bg-bg-dark/30 transition-colors focus-within:ring-2 focus-within:ring-accent/30 focus-within:ring-offset-2 focus-within:ring-offset-bg-light dark:focus-within:ring-offset-bg-dark">
+<article class="company-card company-card--interactive group relative focus-within:ring-2 focus-within:ring-accent/30 focus-within:ring-offset-2 focus-within:ring-offset-bg-light dark:focus-within:ring-offset-bg-dark">
   <a href="${escapeHtml(
     company.careersUrl,
   )}" target="_blank" rel="noopener noreferrer" class="absolute inset-0 z-20 rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/30" aria-label="Open ${escapeHtml(
@@ -247,7 +248,7 @@ function companyListItemHtml(company: Company): string {
   const maxVisibleLocations = 1;
 
   const notAvailableChip =
-    '<span class="inline-flex items-center rounded-md bg-bg-light/30 dark:bg-white/5 px-2 py-1 text-xs font-medium text-text-mutedLight dark:text-text-mutedDark border border-border-light/60 dark:border-border-dark/60">Not Available</span>';
+    '<span class="location-chip text-text-mutedLight dark:text-text-mutedDark">Not Available</span>';
 
   const locationBits: string[] = [];
   if (locations.length > 0) {
@@ -274,7 +275,9 @@ function companyListItemHtml(company: Company): string {
         <p id="${interviewId}" data-readmore-text data-readmore-clamp="line-clamp-3" class="text-xs sm:text-sm text-text-mutedLight dark:text-text-mutedDark group-hover:text-text-light dark:group-hover:text-text-dark group-focus-within:text-text-light dark:group-focus-within:text-text-dark line-clamp-3">${escapeHtml(
           company.interviewProcess,
         )}</p>
-        <button type="button" data-readmore-toggle class="mt-1 hidden text-xs font-medium text-accent hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/30 rounded" aria-expanded="false" aria-controls="${interviewId}">Read more</button>
+        <div class="text-right">
+          <button type="button" data-readmore-toggle class="mt-1 hidden text-xs font-medium text-accent hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/30 rounded" aria-expanded="false" aria-controls="${interviewId}">Read more</button>
+        </div>
       </div>`
     : `<div class="relative z-30"><p class="text-xs text-text-mutedLight dark:text-text-mutedDark group-hover:text-text-light dark:group-hover:text-text-dark group-focus-within:text-text-light dark:group-focus-within:text-text-dark">No interview notes provided.</p></div>`;
 
@@ -287,7 +290,7 @@ function companyListItemHtml(company: Company): string {
 
   if (!company.careersUrl) {
     return `
-<li class="group relative px-4 py-3 pr-12 sm:px-5 sm:py-4 sm:pr-14 md:pr-5 hover:bg-bg-light/60 dark:hover:bg-black/25 focus-within:bg-bg-light/60 dark:focus-within:bg-black/25 transition-colors md:col-span-4 md:grid md:grid-cols-subgrid md:gap-x-4 md:items-start">
+<li class="company-list-item group relative px-4 py-3 pr-12 sm:px-5 sm:py-4 sm:pr-14 md:pr-5 transition-colors md:col-span-4 md:grid md:grid-cols-subgrid md:gap-x-4 md:items-start">
     <div class="grid grid-cols-1 gap-3 md:contents">
     <div class="min-w-0">
       <h3 class="min-w-0 text-sm font-semibold leading-snug text-text-light dark:text-text-dark">${name}</h3>
@@ -312,7 +315,7 @@ function companyListItemHtml(company: Company): string {
   }
 
   return `
-<li class="group relative px-4 py-3 pr-12 sm:px-5 sm:py-4 sm:pr-14 md:pr-5 hover:bg-bg-light/60 dark:hover:bg-black/25 focus-within:bg-bg-light/60 dark:focus-within:bg-black/25 transition-colors md:col-span-4 md:grid md:grid-cols-subgrid md:gap-x-4 md:items-start">
+<li class="company-list-item group relative px-4 py-3 pr-12 sm:px-5 sm:py-4 sm:pr-14 md:pr-5 transition-colors md:col-span-4 md:grid md:grid-cols-subgrid md:gap-x-4 md:items-start">
   <a href="${escapeHtml(
     company.careersUrl,
   )}" target="_blank" rel="noopener noreferrer" class="absolute inset-0 z-20 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/30 focus-visible:ring-offset-2 focus-visible:ring-offset-bg-light dark:focus-visible:ring-offset-bg-dark" aria-label="Open ${escapeHtml(
@@ -413,73 +416,6 @@ function createPaginationNav(
   );
 
   return nav;
-}
-
-function ensurePaginationStylesInjected() {
-  if (document.getElementById("client-pagination-styles")) return;
-
-  const style = document.createElement("style");
-  style.id = "client-pagination-styles";
-  style.textContent = `
-.pagination-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 44px;
-  min-height: 44px;
-  padding: 0.5rem 0.75rem;
-  font-size: 0.875rem;
-  font-weight: 500;
-  border-radius: 0.375rem;
-  border: 1px solid var(--border);
-  background: var(--surface);
-  color: var(--text);
-  transition: background-color 150ms ease, border-color 150ms ease;
-  cursor: pointer;
-}
-
-.pagination-button:hover {
-  background: color-mix(in srgb, var(--surface) 80%, var(--accent) 8%);
-}
-
-.pagination-button:focus-visible {
-  outline: none;
-  box-shadow: 0 0 0 2px var(--accent);
-}
-
-.pagination-disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
-.pagination-current {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 44px;
-  min-height: 44px;
-  padding: 0.5rem 0.75rem;
-  font-size: 0.875rem;
-  font-weight: 600;
-  border-radius: 0.375rem;
-  border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
-  background: color-mix(in srgb, var(--accent) 10%, transparent);
-  color: var(--accent);
-}
-
-.pagination-ellipsis {
-  padding: 0.5rem;
-  color: var(--text-muted);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .pagination-button {
-    transition: none;
-  }
-}
-`.trim();
-
-  document.head.append(style);
 }
 
 function init() {
@@ -644,8 +580,6 @@ function init() {
 
   // Hide the static pagination once JS is active.
   if (fallbackPagination) fallbackPagination.classList.add("hidden");
-
-  ensurePaginationStylesInjected();
 
   if (searchInput) searchInput.value = query;
 
@@ -959,8 +893,16 @@ function init() {
   render();
 }
 
+function deferredInit() {
+  if ("requestIdleCallback" in window) {
+    requestIdleCallback(init, { timeout: 2000 });
+  } else {
+    setTimeout(init, 1);
+  }
+}
+
 if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", init, { once: true });
+  document.addEventListener("DOMContentLoaded", deferredInit, { once: true });
 } else {
-  init();
+  deferredInit();
 }

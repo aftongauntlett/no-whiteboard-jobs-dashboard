@@ -10,7 +10,7 @@ const tooltipId = `locations-tooltip-${crypto.randomUUID()}`;
 ---
 
 <button
-  class="group/loc relative z-30 inline-flex items-center rounded-md bg-bg-light/60 dark:bg-white/10 px-2 py-1 text-xs font-medium text-text-light dark:text-text-dark border border-border-light dark:border-border-dark hover:border-accent/30 focus:outline-none focus:ring-2 focus:ring-accent"
+  class="location-chip group/loc relative z-30 hover:border-accent/30 focus:outline-none focus:ring-2 focus:ring-accent"
   aria-label={`Show ${count} more location${count === 1 ? "" : "s"}`}
   aria-describedby={tooltipId}
   type="button"

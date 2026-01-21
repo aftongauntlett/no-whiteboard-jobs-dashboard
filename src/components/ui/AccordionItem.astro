@@ -1,0 +1,48 @@
+---
+import type { AstroComponentFactory } from "astro/runtime/server/index.js";
+import ChevronDown from "lucide-astro/ChevronDown";
+
+export type Props = {
+  title: string;
+  icon?: AstroComponentFactory;
+};
+
+const { title, icon: Icon } = Astro.props as Props;
+---
+
+<div class="border-t border-border-light/80 dark:border-border-dark/80">
+  <details class="group">
+    <summary
+      class="flex items-center justify-between cursor-pointer px-6 py-4 list-none
+             text-text-light dark:text-text-dark
+             hover:text-accent
+             dark:hover:text-accent
+             group-open:text-accent
+             dark:group-open:text-accent
+             hover:bg-surface-hover
+             group-open:bg-surface-hover
+             focus-visible:bg-surface-hover
+             focus:outline-none focus-visible:ring-2 focus-visible:ring-accent
+             transition-colors duration-200 ease-in-out motion-reduce:transition-none"
+    >
+      <div class="flex items-center gap-3">
+        {
+          Icon && (
+            <Icon
+              className="h-8 w-8 text-accent/80 group-hover:text-accent dark:group-hover:text-accent group-open:text-accent dark:group-open:text-accent shrink-0 transition-colors duration-200 ease-in-out motion-reduce:transition-none"
+              aria-hidden="true"
+            />
+          )
+        }
+        <span class="font-semibold text-sm capitalize">{title}</span>
+      </div>
+      <ChevronDown
+        class="h-5 w-5 text-accent/80 group-hover:text-accent dark:group-hover:text-accent group-open:text-accent dark:group-open:text-accent transition-transform group-open:rotate-180 transition-colors duration-200 ease-in-out motion-reduce:transition-none"
+        aria-hidden="true"
+      />
+    </summary>
+    <div class="px-6 py-5">
+      <slot />
+    </div>
+  </details>
+</div>

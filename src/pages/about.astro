@@ -4,10 +4,12 @@ import LayoutGrid from "lucide-astro/LayoutGrid";
 import MousePointerClick from "lucide-astro/MousePointerClick";
 import Shield from "lucide-astro/Shield";
 import GitFork from "lucide-astro/GitFork";
-import ChevronDown from "lucide-astro/ChevronDown";
 import ExternalLink from "lucide-astro/ExternalLink";
 import Layout from "../layouts/Layout.astro";
 import PageHeader from "../components/layout/PageHeader.astro";
+import ResourceCard from "../components/ui/ResourceCard.astro";
+import Accordion from "../components/ui/Accordion.astro";
+import AccordionItem from "../components/ui/AccordionItem.astro";
 ---
 
 <Layout title="About">
@@ -21,234 +23,99 @@ import PageHeader from "../components/layout/PageHeader.astro";
     <div>
       <h2 class="text-xl font-semibold mb-6">Overview</h2>
       <div class="grid gap-6 md:grid-cols-2">
-        <article
-          class="flex flex-col gap-4 rounded-xl border border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark p-6"
-        >
-          <header class="flex items-center gap-3">
-            <Sparkles
-              class="h-10 w-10 text-teal-600 dark:text-teal-400 shrink-0"
-              aria-hidden="true"
-            />
-            <h3
-              class="text-base font-semibold leading-tight text-text-light dark:text-text-dark"
-            >
-              Why I built it
-            </h3>
-          </header>
-          <p class="text-sm text-text-mutedLight dark:text-text-mutedDark">
+        <ResourceCard title="Why I built it" icon={Sparkles} tone="primary">
+          <p>
             The original project is an amazing resource, but browsing a huge
             list in markdown can be slow and frustrating. This dashboard is
             focused on clarity, scanning, and quick navigation.
           </p>
-          <ul
-            class="mt-1 list-disc pl-5 space-y-2 text-sm text-text-mutedLight dark:text-text-mutedDark marker:text-accent"
-          >
+          <ul class="mt-3 list-disc pl-5 space-y-2 marker:text-accent">
             <li>Consistent layout and typography</li>
             <li>Fast visual scanning (remote/hybrid/in-office, locations)</li>
             <li>One click to careers pages</li>
           </ul>
-        </article>
+        </ResourceCard>
 
-        <article
-          class="flex flex-col gap-4 rounded-xl border border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark p-6"
+        <ResourceCard
+          title="What you can do here"
+          icon={MousePointerClick}
+          tone="secondary"
         >
-          <header class="flex items-center gap-3">
-            <MousePointerClick
-              class="h-10 w-10 text-sky-600 dark:text-sky-400 shrink-0"
-              aria-hidden="true"
-            />
-            <h3
-              class="text-base font-semibold leading-tight text-text-light dark:text-text-dark"
-            >
-              What you can do here
-            </h3>
-          </header>
-          <p class="text-sm text-text-mutedLight dark:text-text-mutedDark">
+          <p>
             Use this UI for discovery, not as a promise. Treat it as a starting
             point for your own validation.
           </p>
-          <ul
-            class="mt-1 list-disc pl-5 space-y-2 text-sm text-text-mutedLight dark:text-text-mutedDark marker:text-accent"
-          >
+          <ul class="mt-3 list-disc pl-5 space-y-2 marker:text-accent">
             <li>
               Browse companies in a styled grid or list instead of a README
             </li>
             <li>Read interview-process notes at a glance (when provided)</li>
             <li>Open careers pages quickly to verify what’s current</li>
           </ul>
-        </article>
+        </ResourceCard>
       </div>
     </div>
 
     <!-- Details (progressive disclosure) -->
-    <article
-      class="rounded-xl border border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark overflow-hidden"
+    <Accordion
+      title="Details"
+      description="Expand for notes on scope, design, and corrections."
     >
-      <div class="px-6 py-5">
-        <h3
-          class="text-base font-semibold leading-tight text-text-light dark:text-text-dark"
-        >
-          Details
-        </h3>
-        <p class="mt-1 text-sm text-text-mutedLight dark:text-text-mutedDark">
-          Expand for notes on scope, design, and corrections.
+      <AccordionItem title="What this isn’t" icon={Shield}>
+        <p class="text-sm text-text-mutedLight dark:text-text-mutedDark">
+          This site doesn’t “certify” companies. Interview processes can change.
         </p>
-      </div>
+        <ul
+          class="mt-3 list-disc pl-5 space-y-2 text-sm text-text-mutedLight dark:text-text-mutedDark marker:text-accent"
+        >
+          <li>Not a hiring platform or recruiter tool</li>
+          <li>Not an endorsement of any company</li>
+          <li>Not a guarantee an interview process stays the same</li>
+        </ul>
+      </AccordionItem>
 
-      <div class="border-t border-black/10 dark:border-white/10">
-        <details class="group">
-          <summary
-            class="flex items-center justify-between cursor-pointer px-6 py-4 list-none
-                     hover:bg-bg-light/60 dark:hover:bg-bg-dark/30
-                     group-open:bg-bg-light/60 dark:group-open:bg-bg-dark/30
-                     focus-visible:bg-bg-light/60 dark:focus-visible:bg-bg-dark/30
-                     focus:outline-none focus-visible:ring-2 focus-visible:ring-accent
-                     transition-colors duration-200 ease-in-out motion-reduce:transition-none"
-          >
-            <div class="flex items-center gap-3">
-              <Shield
-                class="h-8 w-8 text-accent/80 group-open:text-accent shrink-0"
-                aria-hidden="true"
-              />
-              <span class="font-semibold text-sm">What this isn’t</span>
-            </div>
-            <ChevronDown
-              class="h-5 w-5 text-accent/80 group-open:text-accent transition-transform group-open:rotate-180"
-              aria-hidden="true"
-            />
-          </summary>
-          <div class="px-6 py-5">
-            <p class="text-sm text-text-mutedLight dark:text-text-mutedDark">
-              This site doesn’t “certify” companies. Interview processes can
-              change.
-            </p>
-            <ul
-              class="mt-3 list-disc pl-5 space-y-2 text-sm text-text-mutedLight dark:text-text-mutedDark marker:text-accent"
-            >
-              <li>Not a hiring platform or recruiter tool</li>
-              <li>Not an endorsement of any company</li>
-              <li>Not a guarantee an interview process stays the same</li>
-            </ul>
-          </div>
-        </details>
-      </div>
+      <AccordionItem title="Design goals" icon={LayoutGrid}>
+        <p class="text-sm text-text-mutedLight dark:text-text-mutedDark">
+          I’m optimizing for a calm, readable experience that works well in both
+          light and dark mode.
+        </p>
+        <ul
+          class="mt-3 list-disc pl-5 space-y-2 text-sm text-text-mutedLight dark:text-text-mutedDark marker:text-accent"
+        >
+          <li>Accessible contrast and focus styles</li>
+          <li>Consistent components across pages</li>
+          <li>Minimal friction between discovery and applying</li>
+        </ul>
+      </AccordionItem>
 
-      <div class="border-t border-black/10 dark:border-white/10">
-        <details class="group">
-          <summary
-            class="flex items-center justify-between cursor-pointer px-6 py-4 list-none
-                     hover:bg-bg-light/60 dark:hover:bg-bg-dark/30
-                     group-open:bg-bg-light/60 dark:group-open:bg-bg-dark/30
-                     focus-visible:bg-bg-light/60 dark:focus-visible:bg-bg-dark/30
-                     focus:outline-none focus-visible:ring-2 focus-visible:ring-accent
-                     transition-colors duration-200 ease-in-out motion-reduce:transition-none"
-          >
-            <div class="flex items-center gap-3">
-              <LayoutGrid
-                class="h-8 w-8 text-accent/80 group-open:text-accent shrink-0"
-                aria-hidden="true"
-              />
-              <span class="font-semibold text-sm">Design goals</span>
-            </div>
-            <ChevronDown
-              class="h-5 w-5 text-accent/80 group-open:text-accent transition-transform group-open:rotate-180"
-              aria-hidden="true"
-            />
-          </summary>
-          <div class="px-6 py-5">
-            <p class="text-sm text-text-mutedLight dark:text-text-mutedDark">
-              I’m optimizing for a calm, readable experience that works well in
-              both light and dark mode.
-            </p>
-            <ul
-              class="mt-3 list-disc pl-5 space-y-2 text-sm text-text-mutedLight dark:text-text-mutedDark marker:text-accent"
-            >
-              <li>Accessible contrast and focus styles</li>
-              <li>Consistent components across pages</li>
-              <li>Minimal friction between discovery and applying</li>
-            </ul>
-          </div>
-        </details>
-      </div>
+      <AccordionItem title="Contributing & corrections" icon={GitFork}>
+        <p class="text-sm text-text-mutedLight dark:text-text-mutedDark">
+          If something looks wrong or outdated, the best place to fix it is the
+          original dataset. That way the entire community benefits.
+        </p>
+        <ul
+          class="mt-3 list-disc pl-5 space-y-2 text-sm text-text-mutedLight dark:text-text-mutedDark marker:text-accent"
+        >
+          <li>Submit corrections in the upstream repo</li>
+          <li>Verify details on the company careers page</li>
+          <li>Assume processes change over time</li>
+        </ul>
+      </AccordionItem>
 
-      <div class="border-t border-black/10 dark:border-white/10">
-        <details class="group">
-          <summary
-            class="flex items-center justify-between cursor-pointer px-6 py-4 list-none
-                     hover:bg-bg-light/60 dark:hover:bg-bg-dark/30
-                     group-open:bg-bg-light/60 dark:group-open:bg-bg-dark/30
-                     focus-visible:bg-bg-light/60 dark:focus-visible:bg-bg-dark/30
-                     focus:outline-none focus-visible:ring-2 focus-visible:ring-accent
-                     transition-colors duration-200 ease-in-out motion-reduce:transition-none"
-          >
-            <div class="flex items-center gap-3">
-              <GitFork
-                class="h-8 w-8 text-accent/80 group-open:text-accent shrink-0"
-                aria-hidden="true"
-              />
-              <span class="font-semibold text-sm"
-                >Contributing & corrections</span
-              >
-            </div>
-            <ChevronDown
-              class="h-5 w-5 text-accent/80 group-open:text-accent transition-transform group-open:rotate-180"
-              aria-hidden="true"
-            />
-          </summary>
-          <div class="px-6 py-5">
-            <p class="text-sm text-text-mutedLight dark:text-text-mutedDark">
-              If something looks wrong or outdated, the best place to fix it is
-              the original dataset. That way the entire community benefits.
-            </p>
-            <ul
-              class="mt-3 list-disc pl-5 space-y-2 text-sm text-text-mutedLight dark:text-text-mutedDark marker:text-accent"
-            >
-              <li>Submit corrections in the upstream repo</li>
-              <li>Verify details on the company careers page</li>
-              <li>Assume processes change over time</li>
-            </ul>
-          </div>
-        </details>
-      </div>
-
-      <div class="border-t border-black/10 dark:border-white/10">
-        <details class="group">
-          <summary
-            class="flex items-center justify-between cursor-pointer px-6 py-4 list-none
-                     hover:bg-bg-light/60 dark:hover:bg-bg-dark/30
-                     group-open:bg-bg-light/60 dark:group-open:bg-bg-dark/30
-                     focus-visible:bg-bg-light/60 dark:focus-visible:bg-bg-dark/30
-                     focus:outline-none focus-visible:ring-2 focus-visible:ring-accent
-                     transition-colors duration-200 ease-in-out motion-reduce:transition-none"
-          >
-            <div class="flex items-center gap-3">
-              <ExternalLink
-                class="h-8 w-8 text-accent/80 group-open:text-accent shrink-0"
-                aria-hidden="true"
-              />
-              <span class="font-semibold text-sm">Data source</span>
-            </div>
-            <ChevronDown
-              class="h-5 w-5 text-accent/80 group-open:text-accent transition-transform group-open:rotate-180"
-              aria-hidden="true"
-            />
-          </summary>
-          <div class="px-6 py-5">
-            <p class="text-sm text-text-mutedLight dark:text-text-mutedDark">
-              Company data originates and is manually synced from the upstream
-              community repository when updates are published.
-            </p>
-            <a
-              href="https://github.com/poteto/hiring-without-whiteboards"
-              target="_blank"
-              class="mt-3 inline-flex items-center gap-2 text-sm text-accent hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm"
-            >
-              hiring-without-whiteboards
-              <ExternalLink class="h-5 w-5" aria-hidden="true" />
-            </a>
-          </div>
-        </details>
-      </div>
-    </article>
+      <AccordionItem title="Data source" icon={ExternalLink}>
+        <p class="text-sm text-text-mutedLight dark:text-text-mutedDark">
+          Company data originates and is manually synced from the upstream
+          community repository when updates are published.
+        </p>
+        <a
+          href="https://github.com/poteto/hiring-without-whiteboards"
+          target="_blank"
+          class="mt-3 inline-flex items-center gap-2 text-sm text-accent hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm"
+        >
+          hiring-without-whiteboards
+          <ExternalLink class="h-5 w-5" aria-hidden="true" />
+        </a>
+      </AccordionItem>
+    </Accordion>
   </section>
 </Layout>

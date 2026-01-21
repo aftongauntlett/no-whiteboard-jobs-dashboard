@@ -31,7 +31,7 @@ const interviewId = `interview-${Math.abs(hashString(interviewIdBase))}`;
 {
   company.careersUrl ? (
     <article
-      class="group relative flex flex-col rounded-xl border border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark p-5 hover:bg-bg-light/60 dark:hover:bg-bg-dark/30 transition-colors focus-within:ring-2 focus-within:ring-accent/30 focus-within:ring-offset-2 focus-within:ring-offset-bg-light dark:focus-within:ring-offset-bg-dark"
+      class="company-card company-card--interactive group relative focus-within:ring-2 focus-within:ring-accent/30 focus-within:ring-offset-2 focus-within:ring-offset-bg-light dark:focus-within:ring-offset-bg-dark"
     >
       <a
         href={company.careersUrl}
@@ -108,22 +108,24 @@ const interviewId = `interview-${Math.abs(hashString(interviewIdBase))}`;
             >
               {company.interviewProcess}
             </p>
-            <button
-              type="button"
-              data-readmore-toggle
-              class="mt-1 hidden text-xs font-medium text-accent hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/30 rounded"
-              aria-expanded="false"
-              aria-controls={interviewId}
-            >
-              Read more
-            </button>
+            <div class="text-right">
+              <button
+                type="button"
+                data-readmore-toggle
+                class="mt-1 hidden text-xs font-medium text-accent hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/30 rounded"
+                aria-expanded="false"
+                aria-controls={interviewId}
+              >
+                Read more
+              </button>
+            </div>
           </div>
         )}
       </div>
     </article>
   ) : (
     <article
-      class="group flex flex-col rounded-xl border border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark p-5"
+      class="company-card group"
     >
       <header class="flex items-start justify-between gap-3">
         <div class="min-w-0 flex items-center gap-2">
@@ -164,15 +166,17 @@ const interviewId = `interview-${Math.abs(hashString(interviewIdBase))}`;
           >
             {company.interviewProcess}
           </p>
-          <button
-            type="button"
-            data-readmore-toggle
-            class="mt-1 hidden text-xs font-medium text-accent hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/30 rounded"
-            aria-expanded="false"
-            aria-controls={interviewId}
-          >
-            Read more
-          </button>
+          <div class="text-right">
+            <button
+              type="button"
+              data-readmore-toggle
+              class="mt-1 hidden text-xs font-medium text-accent hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/30 rounded"
+              aria-expanded="false"
+              aria-controls={interviewId}
+            >
+              Read more
+            </button>
+          </div>
         </div>
       )}
     </article>

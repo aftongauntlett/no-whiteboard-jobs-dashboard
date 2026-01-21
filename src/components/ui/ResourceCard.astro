@@ -1,0 +1,48 @@
+---
+import type { AstroComponentFactory } from "astro/runtime/server/index.js";
+
+type Tone = "primary" | "secondary" | "accent";
+
+export type Props = {
+  title: string;
+  icon?: AstroComponentFactory;
+  tone?: Tone;
+  iconClass?: string;
+};
+
+const { title, icon: Icon, tone = "primary", iconClass } = Astro.props as Props;
+
+const toneClass: Record<Tone, string> = {
+  primary: "text-primary",
+  secondary: "text-secondary",
+  accent: "text-accent",
+};
+---
+
+<article
+  class="flex flex-col gap-4 rounded-xl border border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark p-6"
+>
+  <header class="flex items-center gap-3">
+    {
+      Icon && (
+        <Icon
+          className={`h-10 w-10 ${iconClass ?? toneClass[tone]} shrink-0`}
+          aria-hidden="true"
+        />
+      )
+    }
+    <h3
+      class="text-lg font-semibold leading-tight capitalize text-text-light dark:text-text-dark"
+    >
+      {title}
+    </h3>
+  </header>
+
+  <div class="text-sm text-text-mutedLight dark:text-text-mutedDark">
+    <slot />
+  </div>
+
+  <footer class="mt-auto">
+    <slot name="footer" />
+  </footer>
+</article>

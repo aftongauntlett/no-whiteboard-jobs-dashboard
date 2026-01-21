@@ -4,10 +4,12 @@ interface Props {
 }
 
 const { location } = Astro.props;
+
+const muted = location === "Not Available";
 ---
 
 <span
-  class="inline-flex items-center rounded-md bg-bg-light/60 dark:bg-white/10 px-2 py-1 text-xs font-medium text-text-light dark:text-text-dark border border-border-light dark:border-border-dark"
+  class={`location-chip ${muted ? "text-text-mutedLight dark:text-text-mutedDark" : ""}`}
 >
   {location}
 </span>

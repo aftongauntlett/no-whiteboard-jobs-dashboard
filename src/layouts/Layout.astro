@@ -13,68 +13,48 @@ const { title = "No Whiteboard Jobs" } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <title>{title}</title>
 
-    <!-- Initialize theme before paint -->
-    <script>
+    <!-- Pre-paint background + color-scheme to avoid white flash during navigation -->
+    <style is:inline>
+      html {
+        background-color: #f4f7f8;
+        color-scheme: light;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        html {
+          background-color: #0a0a0a;
+          color-scheme: dark;
+        }
+      }
+
+      html.dark {
+        background-color: #0a0a0a;
+        color-scheme: dark;
+      }
+    </style>
+
+    <!-- Initialize theme before paint (must be inline + synchronous) -->
+    <script is:inline>
       (() => {
-        type ThemeName = "light" | "dark";
-        type ThemeVars = Record<string, string>;
-
-        const themes = {
-          light: {
-            "--bg": "#f4f7f8",
-            "--surface": "#eef3f5",
-            "--text": "#111827",
-            "--text-muted": "#6b7280",
-            "--border": "#e5e7eb",
-            "--accent": "#672d86",
-            "--success-bg": "#059669",
-            "--success-text": "#347058",
-            "--success-border": "#10b981",
-            "--warning-bg": "#d97706",
-            "--warning-text": "#615323",
-            "--warning-border": "#f59e0b",
-            "--info-bg": "#0284c7",
-            "--info-text": "#224150",
-            "--info-border": "#0ea5e9",
-          },
-          dark: {
-            "--bg": "#0a0a0a",
-            "--surface": "#1f1f1f",
-            "--text": "#e5e7eb",
-            "--text-muted": "#9ca3af",
-            "--border": "#262626",
-            "--accent": "#7fb6ea",
-            "--success-bg": "#055296",
-            "--success-text": "#6ea0e7",
-            "--success-border": "#104eb9",
-            "--warning-bg": "#d97706",
-            "--warning-text": "#fcd34d",
-            "--warning-border": "#f59e0b",
-            "--info-bg": "#02c7a0",
-            "--info-text": "#8af4e1",
-            "--info-border": "#0ee9e9",
-          },
-        } satisfies Record<ThemeName, ThemeVars>;
-
         const root = document.documentElement;
+        const STORAGE_KEY = "theme";
+        const BG_LIGHT = "#f4f7f8";
+        const BG_DARK = "#0a0a0a";
 
-        const applyTheme = (theme: string) => {
-          const next: ThemeName = theme === "dark" ? "dark" : "light";
-
-          for (const [prop, value] of Object.entries(themes[next])) {
-            root.style.setProperty(prop, value);
-          }
-
+        const applyTheme = (theme) => {
+          const next = theme === "dark" ? "dark" : "light";
           root.classList.toggle("dark", next === "dark");
           root.dataset.theme = next;
+          root.style.backgroundColor = next === "dark" ? BG_DARK : BG_LIGHT;
+          root.style.colorScheme = next;
           return next;
         };
 
         // Expose helpers for other components (e.g., theme toggle button)
-        window.__setTheme = (theme: string) => {
+        window.__setTheme = (theme) => {
           const next = applyTheme(theme);
           try {
-            localStorage.setItem("theme", next);
+            localStorage.setItem(STORAGE_KEY, next);
           } catch {
             // ignore
           }
@@ -89,12 +69,17 @@ const { title = "No Whiteboard Jobs" } = Astro.props;
           return applyTheme(next);
         };
 
-        const stored = localStorage.getItem("theme");
+        let stored = null;
+        try {
+          stored = localStorage.getItem(STORAGE_KEY);
+        } catch {
+          // ignore
+        }
+
         const prefersDark = window.matchMedia(
           "(prefers-color-scheme: dark)",
         ).matches;
         const theme = stored ?? (prefersDark ? "dark" : "light");
-
         applyTheme(theme);
       })();
     </script>

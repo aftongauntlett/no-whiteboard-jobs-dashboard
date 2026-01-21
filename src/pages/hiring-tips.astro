@@ -2,14 +2,19 @@
 import FileCheck from "lucide-astro/FileCheck";
 import FileX from "lucide-astro/FileX";
 import ExternalLink from "lucide-astro/ExternalLink";
+import MessagesSquare from "lucide-astro/MessagesSquare";
+import Newspaper from "lucide-astro/Newspaper";
 import Layout from "../layouts/Layout.astro";
 import PageHeader from "../components/layout/PageHeader.astro";
 import Button from "../components/ui/Button.astro";
+import ResourceCard from "../components/ui/ResourceCard.astro";
+import Accordion from "../components/ui/Accordion.astro";
+import AccordionItem from "../components/ui/AccordionItem.astro";
 ---
 
 <Layout title="Hiring Tips">
   <PageHeader
-    title="Hiring tips"
+    title="Hiring Tips"
     subtitle="Articles, discussions, and resources on alternatives to whiteboard-style interviews."
   />
 
@@ -18,28 +23,20 @@ import Button from "../components/ui/Button.astro";
     <!-- External resources -->
     <div>
       <h2 class="text-xl font-semibold mb-6">External Resources</h2>
-      <div class="grid gap-6">
-        <article
-          class="flex flex-col gap-4 rounded-xl border border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark p-6"
+      <div class="grid gap-6 md:grid-cols-2">
+        <ResourceCard
+          title="They Whiteboarded Me"
+          icon={FileX}
+          tone="secondary"
+          iconClass="text-coral"
         >
-          <header class="flex items-center gap-3">
-            <FileX
-              class="h-12 w-12 text-orange-600 dark:text-orange-400 shrink-0"
-              aria-hidden="true"
-            />
-            <h3
-              class="text-base font-semibold leading-tight text-text-light dark:text-text-dark"
-            >
-              They Whiteboarded Me
-            </h3>
-          </header>
-          <p class="text-sm text-text-mutedLight dark:text-text-mutedDark">
+          <p>
             A crowd-sourced and curated list of companies and their interview
             practices, both good and bad. It helps job seekers understand what
             an interview process actually looks like ahead of time, so they can
             focus on roles that are a good fit.
           </p>
-          <footer class="mt-auto flex items-center justify-end">
+          <div slot="footer" class="flex items-center justify-end">
             <Button
               href="https://they.whiteboarded.me/"
               target="_blank"
@@ -48,30 +45,21 @@ import Button from "../components/ui/Button.astro";
             >
               Visit Website
             </Button>
-          </footer>
-        </article>
+          </div>
+        </ResourceCard>
 
-        <article
-          class="flex flex-col gap-4 rounded-xl border border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark p-6"
+        <ResourceCard
+          title="Hiring Without Whiteboards"
+          icon={FileCheck}
+          tone="primary"
         >
-          <header class="flex items-center gap-3">
-            <FileCheck
-              class="h-12 w-12 text-teal-600 dark:text-teal-400 shrink-0"
-              aria-hidden="true"
-            />
-            <h3
-              class="text-base font-semibold leading-tight text-text-light dark:text-text-dark"
-            >
-              Hiring Without Whiteboards
-            </h3>
-          </header>
-          <p class="text-sm text-text-mutedLight dark:text-text-mutedDark">
+          <p>
             The original open-source project this frontend is built on. It
             maintains a list of companies that avoid interview processes focused
             on CS trivia, puzzles, and gotcha questions, and instead emphasize
             real, day-to-day engineering work.
           </p>
-          <footer class="mt-auto flex items-center justify-end">
+          <div slot="footer" class="flex items-center justify-end">
             <Button
               href="https://github.com/poteto/hiring-without-whiteboards"
               target="_blank"
@@ -80,70 +68,123 @@ import Button from "../components/ui/Button.astro";
             >
               View GitHub repository
             </Button>
-          </footer>
-        </article>
+          </div>
+        </ResourceCard>
       </div>
     </div>
 
-    <!-- Discussions and Articles -->
-    <div class="grid gap-6 md:grid-cols-2">
-      <div>
-        <h3 class="text-lg font-semibold">Discussions</h3>
-        <p class="text-sm text-text-mutedLight dark:text-text-mutedDark mb-2">
+    <!-- Discussions + articles (progressive disclosure) -->
+    <Accordion
+      title="Discussions & Articles"
+      description="Expand for links to community discussions and longer-form reading."
+    >
+      <AccordionItem title="Discussions" icon={MessagesSquare}>
+        <p class="text-sm text-text-mutedLight dark:text-text-mutedDark">
           Community discussions on alternative hiring practices.
         </p>
-        <ul class="space-y-2">
+
+        <ul class="mt-3 space-y-2">
           <li>
-            <a
-              href="https://example.com/discussion1"
-              target="_blank"
-              class="inline-flex items-center gap-2 text-sm text-accent hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm"
-            >
-              Discussion on Hacker News
-              <ExternalLink class="h-5 w-5" aria-hidden="true" />
-            </a>
+            <div class="flex items-start justify-between gap-4">
+              <a
+                href="https://news.ycombinator.com/item?id=13874026"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 text-sm text-accent hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm"
+              >
+                HackerNews (2017)
+                <ExternalLink class="h-5 w-5" aria-hidden="true" />
+              </a>
+              <span
+                class="shrink-0 text-xs text-text-mutedLight dark:text-text-mutedDark"
+              >
+                Original thread
+              </span>
+            </div>
           </li>
           <li>
-            <a
-              href="https://example.com/discussion2"
-              target="_blank"
-              class="inline-flex items-center gap-2 text-sm text-accent hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm"
-            >
-              Reddit Thread
-              <ExternalLink class="h-5 w-5" aria-hidden="true" />
-            </a>
+            <div class="flex items-start justify-between gap-4">
+              <a
+                href="https://news.ycombinator.com/item?id=23981795"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 text-sm text-accent hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm"
+              >
+                HackerNews (2020)
+                <ExternalLink class="h-5 w-5" aria-hidden="true" />
+              </a>
+              <span
+                class="shrink-0 text-xs text-text-mutedLight dark:text-text-mutedDark"
+              >
+                Follow-up thread
+              </span>
+            </div>
           </li>
         </ul>
-      </div>
+      </AccordionItem>
 
-      <div>
-        <h3 class="text-lg font-semibold">Articles</h3>
-        <p class="text-sm text-text-mutedLight dark:text-text-mutedDark mb-2">
+      <AccordionItem title="Articles" icon={Newspaper}>
+        <p class="text-sm text-text-mutedLight dark:text-text-mutedDark">
           Articles and blog posts on hiring without whiteboards.
         </p>
-        <ul class="space-y-2">
+
+        <ul class="mt-3 space-y-2">
           <li>
-            <a
-              href="https://example.com/article1"
-              target="_blank"
-              class="inline-flex items-center gap-2 text-sm text-accent hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm"
-            >
-              Why Whiteboards Are Bad
-              <ExternalLink class="h-5 w-5" aria-hidden="true" />
-            </a>
+            <div class="flex items-start justify-between gap-4">
+              <a
+                href="https://theoutline.com/post/1256/finding-a-better-alternative-to-the-whiteboard-interview"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 text-sm text-accent hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm"
+              >
+                Finding a better alternative to the whiteboard interview
+                <ExternalLink class="h-5 w-5" aria-hidden="true" />
+              </a>
+              <span
+                class="shrink-0 text-xs text-text-mutedLight dark:text-text-mutedDark"
+              >
+                Tolulope Edionwe · Long-form
+              </span>
+            </div>
           </li>
           <li>
-            <a
-              href="https://example.com/article2"
-              target="_blank"
-              class="inline-flex items-center gap-2 text-sm text-accent hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm"
-            >
-              Alternatives to Coding Interviews
-              <ExternalLink class="h-5 w-5" aria-hidden="true" />
-            </a>
+            <div class="flex items-start justify-between gap-4">
+              <a
+                href="https://jes.al//2023/03/how-to-hire-engineering-talent-without-the-bs/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 text-sm text-accent hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm"
+              >
+                How to hire engineering talent without the BS
+                <ExternalLink class="h-5 w-5" aria-hidden="true" />
+              </a>
+              <span
+                class="shrink-0 text-xs text-text-mutedLight dark:text-text-mutedDark"
+              >
+                Jesal Gadhia · Practical guide
+              </span>
+            </div>
+          </li>
+          <li>
+            <div class="flex items-start justify-between gap-4">
+              <a
+                href="http://www.aaronsw.com/weblog/hiring.en"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 text-sm text-accent hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm"
+              >
+                How I Hire Programmers
+                <ExternalLink class="h-5 w-5" aria-hidden="true" />
+              </a>
+              <span
+                class="shrink-0 text-xs text-text-mutedLight dark:text-text-mutedDark"
+              >
+                Aaron Swartz · Classic essay
+              </span>
+            </div>
           </li>
         </ul>
-      </div>
-    </div>
+      </AccordionItem>
+    </Accordion>
   </section>
 </Layout>

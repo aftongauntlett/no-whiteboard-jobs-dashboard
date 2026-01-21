@@ -31,7 +31,7 @@ const interviewId = `interview-${Math.abs(hashString(interviewIdBase))}`;
 ---
 
 <li
-  class="group relative px-4 py-3 pr-12 sm:px-5 sm:py-4 sm:pr-14 md:pr-5 hover:bg-bg-light/60 dark:hover:bg-black/25 focus-within:bg-bg-light/60 dark:focus-within:bg-black/25 transition-colors md:col-span-4 md:grid md:grid-cols-subgrid md:gap-x-4 md:items-start"
+  class="company-list-item group relative px-4 py-3 pr-12 sm:px-5 sm:py-4 sm:pr-14 md:pr-5 transition-colors md:col-span-4 md:grid md:grid-cols-subgrid md:gap-x-4 md:items-start"
 >
   {
     company.careersUrl ? (
@@ -75,9 +75,7 @@ const interviewId = `interview-${Math.abs(hashString(interviewIdBase))}`;
                   )}
                 </>
               ) : (
-                <span class="inline-flex items-center rounded-md bg-bg-light/30 dark:bg-white/5 px-2 py-1 text-xs font-medium text-text-mutedLight dark:text-text-mutedDark border border-border-light/60 dark:border-border-dark/60">
-                  Not Available
-                </span>
+                <LocationChip location="Not Available" />
               )}
             </div>
           </div>
@@ -95,15 +93,17 @@ const interviewId = `interview-${Math.abs(hashString(interviewIdBase))}`;
                   >
                     {company.interviewProcess}
                   </p>
-                  <button
-                    type="button"
-                    data-readmore-toggle
-                    class="mt-1 hidden text-xs font-medium text-accent hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/30 rounded"
-                    aria-expanded="false"
-                    aria-controls={interviewId}
-                  >
-                    Read more
-                  </button>
+                  <div class="text-right">
+                    <button
+                      type="button"
+                      data-readmore-toggle
+                      class="mt-1 hidden text-xs font-medium text-accent hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/30 rounded"
+                      aria-expanded="false"
+                      aria-controls={interviewId}
+                    >
+                      Read more
+                    </button>
+                  </div>
                 </div>
               ) : (
                 <div class="relative z-30">
@@ -177,9 +177,7 @@ const interviewId = `interview-${Math.abs(hashString(interviewIdBase))}`;
                 )}
               </>
             ) : (
-              <span class="inline-flex items-center rounded-md bg-bg-light/30 dark:bg-white/5 px-2 py-1 text-xs font-medium text-text-mutedLight dark:text-text-mutedDark border border-border-light/60 dark:border-border-dark/60">
-                Not Available
-              </span>
+              <LocationChip location="Not Available" />
             )}
           </div>
         </div>
@@ -197,15 +195,17 @@ const interviewId = `interview-${Math.abs(hashString(interviewIdBase))}`;
                 >
                   {company.interviewProcess}
                 </p>
-                <button
-                  type="button"
-                  data-readmore-toggle
-                  class="mt-1 hidden text-xs font-medium text-accent hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/30 rounded"
-                  aria-expanded="false"
-                  aria-controls={interviewId}
-                >
-                  Read more
-                </button>
+                <div class="text-right">
+                  <button
+                    type="button"
+                    data-readmore-toggle
+                    class="mt-1 hidden text-xs font-medium text-accent hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/30 rounded"
+                    aria-expanded="false"
+                    aria-controls={interviewId}
+                  >
+                    Read more
+                  </button>
+                </div>
               </div>
             ) : (
               <div class="relative z-30">

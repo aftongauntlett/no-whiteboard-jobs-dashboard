@@ -6,6 +6,11 @@ import tailwindcss from "@tailwindcss/vite";
 
 // https://astro.build/config
 export default defineConfig({
+  build: {
+    // Avoid brief unstyled flashes on navigation by embedding critical CSS.
+    // This is especially noticeable with dark mode + background tokens.
+    inlineStylesheets: "always",
+  },
   vite: {
     plugins: [tailwindcss()],
     resolve: {
