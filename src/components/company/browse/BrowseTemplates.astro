@@ -1,0 +1,383 @@
+<template data-companies-template="card-interactive">
+  <article
+    class="company-card company-card--interactive group relative focus-within:ring-2 focus-within:ring-accent/30 focus-within:ring-offset-2 focus-within:ring-offset-bg-light dark:focus-within:ring-offset-bg-dark"
+  >
+    <a
+      data-company-link
+      target="_blank"
+      rel="noopener noreferrer"
+      class="absolute inset-0 z-20 rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/30"
+    ></a>
+
+    <div class="relative flex flex-col">
+      <header class="flex items-start justify-between gap-3">
+        <div class="min-w-0 flex items-center gap-2">
+          <h3
+            class="text-base font-semibold leading-tight text-text-light dark:text-text-dark min-w-0"
+          >
+            <span data-company-name class="group-hover:text-accent"></span>
+          </h3>
+          <span data-company-employment class="ui-badge"></span>
+        </div>
+
+        <span
+          data-company-external-icon
+          class="inline-flex h-8 w-8 items-center justify-center rounded-md text-accent opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity"
+          aria-hidden="true"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="h-4 w-4"
+          >
+            <path d="M14 3h7v7"></path>
+            <path d="M10 14L21 3"></path>
+            <path d="M21 14v7h-7"></path>
+            <path d="M3 10v11h11"></path>
+          </svg>
+        </span>
+      </header>
+
+      <div
+        data-company-locations
+        class="mt-1 flex flex-wrap gap-2"
+        aria-label="Company locations"
+      >
+      </div>
+
+      <div data-company-interview class="relative z-30 mt-3">
+        <p
+          data-company-interview-text
+          data-readmore-text
+          data-readmore-clamp="line-clamp-3"
+          class="text-sm text-text-mutedLight dark:text-text-mutedDark group-hover:text-text-light dark:group-hover:text-text-dark group-focus-within:text-text-light dark:group-focus-within:text-text-dark transition-colors line-clamp-3"
+        >
+        </p>
+        <div class="text-right">
+          <button
+            type="button"
+            data-company-interview-toggle
+            data-readmore-toggle
+            class="mt-1 hidden text-xs font-medium text-accent hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/30 rounded"
+            aria-expanded="false"
+          >
+            Read more
+          </button>
+        </div>
+      </div>
+    </div>
+  </article>
+</template>
+
+<template data-companies-template="card-static">
+  <article class="company-card group">
+    <header class="flex items-start justify-between gap-3">
+      <div class="min-w-0 flex items-center gap-2">
+        <h3
+          class="text-base font-semibold leading-tight text-text-light dark:text-text-dark min-w-0"
+        >
+          <span data-company-name></span>
+        </h3>
+        <span data-company-employment class="ui-badge"></span>
+      </div>
+    </header>
+
+    <div
+      data-company-locations
+      class="mt-1 flex flex-wrap gap-2"
+      aria-label="Company locations"
+    >
+    </div>
+
+    <div data-company-interview class="relative z-30 mt-3">
+      <p
+        data-company-interview-text
+        data-readmore-text
+        data-readmore-clamp="line-clamp-3"
+        class="text-sm text-text-mutedLight dark:text-text-mutedDark group-hover:text-text-light dark:group-hover:text-text-dark group-focus-within:text-text-light dark:group-focus-within:text-text-dark transition-colors line-clamp-3"
+      >
+      </p>
+      <div class="text-right">
+        <button
+          type="button"
+          data-company-interview-toggle
+          data-readmore-toggle
+          class="mt-1 hidden text-xs font-medium text-accent hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/30 rounded"
+          aria-expanded="false"
+        >
+          Read more
+        </button>
+      </div>
+    </div>
+  </article>
+</template>
+
+<template data-companies-template="list-interactive">
+  <li
+    class="company-list-item group relative px-4 py-3 pr-12 sm:px-5 sm:py-4 sm:pr-14 md:pr-5 transition-colors md:col-span-4 md:grid md:grid-cols-subgrid md:gap-x-4 md:items-start"
+  >
+    <a
+      data-company-link
+      target="_blank"
+      rel="noopener noreferrer"
+      class="absolute inset-0 z-20 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/30 focus-visible:ring-offset-2 focus-visible:ring-offset-bg-light dark:focus-visible:ring-offset-bg-dark"
+    ></a>
+
+    <div class="grid grid-cols-1 gap-3 md:contents">
+      <div class="min-w-0">
+        <h3
+          class="min-w-0 text-sm font-semibold leading-snug text-text-light dark:text-text-dark"
+        >
+          <span
+            data-company-name
+            class="block whitespace-nowrap truncate group-hover:text-accent group-focus-within:text-accent"
+          ></span>
+        </h3>
+      </div>
+
+      <div
+        class="min-w-0 md:border-l-2 md:border-border-light/80 dark:md:border-border-dark/80 md:pl-4"
+      >
+        <div class="flex items-start">
+          <span data-company-employment class="ui-badge"></span>
+        </div>
+        <div
+          data-company-locations
+          class="mt-2 flex flex-wrap items-center gap-2"
+          aria-label="Company locations"
+        >
+        </div>
+      </div>
+
+      <div
+        class="min-w-0 md:border-l-2 md:border-border-light/80 dark:md:border-border-dark/80 md:pl-4 md:max-w-prose md:justify-self-start"
+      >
+        <div data-company-interview class="relative z-30">
+          <p
+            data-company-interview-text
+            data-readmore-text
+            data-readmore-clamp="line-clamp-3"
+            class="text-xs sm:text-sm text-text-mutedLight dark:text-text-mutedDark group-hover:text-text-light dark:group-hover:text-text-dark group-focus-within:text-text-light dark:group-focus-within:text-text-dark line-clamp-3"
+          >
+          </p>
+          <div class="text-right">
+            <button
+              type="button"
+              data-company-interview-toggle
+              data-readmore-toggle
+              class="mt-1 hidden text-xs font-medium text-accent hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/30 rounded"
+              aria-expanded="false"
+            >
+              Read more
+            </button>
+          </div>
+        </div>
+
+        <div data-company-no-interview class="relative z-30">
+          <p
+            class="text-xs text-text-mutedLight dark:text-text-mutedDark group-hover:text-text-light dark:group-hover:text-text-dark group-focus-within:text-text-light dark:group-focus-within:text-text-dark"
+          >
+            No interview notes provided.
+          </p>
+        </div>
+      </div>
+
+      <div
+        class="z-30 absolute right-4 top-3 sm:right-5 sm:top-4 md:static md:justify-self-end md:self-start"
+      >
+        <a
+          data-company-action-link
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex h-8 w-8 items-center justify-center rounded-md text-accent opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/30"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="h-4 w-4"
+            aria-hidden="true"
+          >
+            <path d="M14 3h7v7"></path>
+            <path d="M10 14L21 3"></path>
+            <path d="M21 14v7h-7"></path>
+            <path d="M3 10v11h11"></path>
+          </svg>
+        </a>
+
+        <span
+          data-company-action-disabled
+          class="inline-flex h-8 w-8 items-center justify-center rounded-md text-text-mutedLight dark:text-text-mutedDark opacity-50"
+          aria-hidden="true"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="h-4 w-4"
+          >
+            <path d="M14 3h7v7"></path>
+            <path d="M10 14L21 3"></path>
+            <path d="M21 14v7h-7"></path>
+            <path d="M3 10v11h11"></path>
+          </svg>
+        </span>
+      </div>
+    </div>
+  </li>
+</template>
+
+<template data-companies-template="list-static">
+  <li
+    class="company-list-item group relative px-4 py-3 pr-12 sm:px-5 sm:py-4 sm:pr-14 md:pr-5 transition-colors md:col-span-4 md:grid md:grid-cols-subgrid md:gap-x-4 md:items-start"
+  >
+    <div class="grid grid-cols-1 gap-3 md:contents">
+      <div class="min-w-0">
+        <h3
+          class="min-w-0 text-sm font-semibold leading-snug text-text-light dark:text-text-dark"
+        >
+          <span
+            data-company-name
+            class="block whitespace-nowrap truncate group-hover:text-accent group-focus-within:text-accent"
+          ></span>
+        </h3>
+      </div>
+
+      <div
+        class="min-w-0 md:border-l-2 md:border-border-light/80 dark:md:border-border-dark/80 md:pl-4"
+      >
+        <div class="flex items-start">
+          <span data-company-employment class="ui-badge"></span>
+        </div>
+        <div
+          data-company-locations
+          class="mt-2 flex flex-wrap items-center gap-2"
+          aria-label="Company locations"
+        >
+        </div>
+      </div>
+
+      <div
+        class="min-w-0 md:border-l-2 md:border-border-light/80 dark:md:border-border-dark/80 md:pl-4 md:max-w-prose md:justify-self-start"
+      >
+        <div data-company-interview class="relative z-30">
+          <p
+            data-company-interview-text
+            data-readmore-text
+            data-readmore-clamp="line-clamp-3"
+            class="text-xs sm:text-sm text-text-mutedLight dark:text-text-mutedDark group-hover:text-text-light dark:group-hover:text-text-dark group-focus-within:text-text-light dark:group-focus-within:text-text-dark line-clamp-3"
+          >
+          </p>
+          <div class="text-right">
+            <button
+              type="button"
+              data-company-interview-toggle
+              data-readmore-toggle
+              class="mt-1 hidden text-xs font-medium text-accent hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/30 rounded"
+              aria-expanded="false"
+            >
+              Read more
+            </button>
+          </div>
+        </div>
+
+        <div data-company-no-interview class="relative z-30">
+          <p
+            class="text-xs text-text-mutedLight dark:text-text-mutedDark group-hover:text-text-light dark:group-hover:text-text-dark group-focus-within:text-text-light dark:group-focus-within:text-text-dark"
+          >
+            No interview notes provided.
+          </p>
+        </div>
+      </div>
+
+      <div
+        class="z-30 absolute right-4 top-3 sm:right-5 sm:top-4 md:static md:justify-self-end md:self-start"
+      >
+        <span
+          data-company-action-disabled
+          class="inline-flex h-8 w-8 items-center justify-center rounded-md text-text-mutedLight dark:text-text-mutedDark opacity-50"
+          aria-hidden="true"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="h-4 w-4"
+          >
+            <path d="M14 3h7v7"></path>
+            <path d="M10 14L21 3"></path>
+            <path d="M21 14v7h-7"></path>
+            <path d="M3 10v11h11"></path>
+          </svg>
+        </span>
+      </div>
+    </div>
+  </li>
+</template>
+
+<template data-companies-template="location-chip">
+  <span class="location-chip"></span>
+</template>
+
+<template data-companies-template="location-overflow">
+  <button
+    type="button"
+    class="location-chip group/loc relative z-30 hover:border-accent/30 focus:outline-none focus:ring-2 focus:ring-accent"
+    data-location-overflow
+  >
+    <span data-location-overflow-count></span>
+    <div
+      class="absolute top-0 left-full ml-2 invisible group-hover/loc:visible group-focus/loc:visible group-focus-within/loc:visible pointer-events-none bg-surface-light dark:bg-surface-dark border border-border-light dark:border-border-dark rounded-lg p-3 text-xs text-text-light dark:text-text-dark shadow-lg ring-1 ring-black/5 dark:ring-white/10 max-w-104 z-10 text-left"
+      role="tooltip"
+      data-location-overflow-tooltip
+    >
+      <div class="flex flex-col space-y-1" data-location-overflow-items></div>
+    </div>
+  </button>
+</template>
+
+<template data-companies-template="pagination-nav">
+  <nav
+    aria-label="Pagination"
+    class="mt-6 rounded-lg border border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark p-3 flex items-center justify-center gap-2"
+  >
+    <button type="button" data-pagination-prev class="pagination-button">
+      ← Previous
+    </button>
+
+    <div class="flex items-center gap-1" data-pagination-pages></div>
+
+    <button type="button" data-pagination-next class="pagination-button">
+      Next →
+    </button>
+  </nav>
+</template>
+
+<template data-companies-template="pagination-page">
+  <button type="button" class="pagination-button"></button>
+</template>
+
+<template data-companies-template="pagination-current">
+  <span aria-current="page" class="pagination-current"></span>
+</template>
+
+<template data-companies-template="pagination-ellipsis">
+  <span class="pagination-ellipsis" aria-hidden="true">…</span>
+</template>

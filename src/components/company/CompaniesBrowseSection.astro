@@ -1,7 +1,10 @@
 ---
-import CompanyCard from "./CompanyCard.astro";
-import CompanyListItem from "./CompanyListItem.astro";
-import Pagination from "../ui/Pagination.astro";
+import BrowseToolbar from "./browse/BrowseToolbar.astro";
+import BrowseViewToggle from "./browse/BrowseViewToggle.astro";
+import BrowsePerPageControls from "./browse/BrowsePerPageControls.astro";
+import BrowseResultsPanels from "./browse/BrowseResultsPanels.astro";
+import BrowsePaginationControls from "./browse/BrowsePaginationControls.astro";
+import BrowseTemplates from "./browse/BrowseTemplates.astro";
 import type { Company } from "@data/types";
 
 export interface Props {
@@ -25,6 +28,44 @@ const {
   companiesViewToggleUrl,
   companiesBrowseClientUrl,
 } = Astro.props as Props;
+
+const toolbarProps = {
+  scrimProps: {
+    "data-companies-menu-scrim": true,
+  },
+  searchInputProps: {
+    "data-companies-search": true,
+  },
+  menuRootProps: {
+    "data-companies-menu": true,
+  },
+  menuButtonProps: {
+    "data-companies-menu-button": true,
+    "aria-label": "Filter & sort",
+    "aria-expanded": "false",
+    "aria-controls": "companies-menu-panel",
+  },
+  menuPanelProps: {
+    id: "companies-menu-panel",
+    "data-companies-menu-panel": true,
+  },
+  resetButtonProps: {
+    "data-companies-reset": true,
+  },
+};
+
+const viewToggleProps = {
+  cardButtonProps: {
+    "data-companies-view-button": "card",
+    role: "radio",
+    "aria-checked": "true",
+  },
+  listButtonProps: {
+    "data-companies-view-button": "list",
+    role: "radio",
+    "aria-checked": "false",
+  },
+};
 ---
 
 <section
@@ -33,374 +74,21 @@ const {
   aria-live="polite"
   data-companies-view="card"
 >
-  <div
-    data-companies-menu-scrim
-    class="hidden fixed inset-0 bg-black/20 dark:bg-black/50 backdrop-blur-[1px] z-30"
-    aria-hidden="true"
-  >
-  </div>
   <div class="flex flex-nowrap items-center gap-3 min-w-0">
-    <div class="flex flex-1 min-w-0 items-center gap-2 md:gap-0">
-      <div class="relative flex-1 min-w-0 md:max-w-[min(28rem,60vw)]">
-        <label class="sr-only" for="company-search">Search companies</label>
-        <span
-          class="pointer-events-none absolute inset-y-0 left-4 flex items-center text-text-mutedLight dark:text-text-mutedDark"
-          aria-hidden="true"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="h-4 w-4"
-          >
-            <circle cx="11" cy="11" r="8"></circle>
-            <path d="m21 21-4.3-4.3"></path>
-          </svg>
-        </span>
-        <input
-          id="company-search"
-          data-companies-search
-          type="search"
-          placeholder="Search companies…"
-          class="w-full rounded-full md:rounded-r-none border border-border-light dark:border-border-dark bg-surface-light/70 dark:bg-surface-dark/60 py-2.5 pl-10 pr-4 text-sm text-text-light dark:text-text-dark shadow-sm placeholder:text-text-mutedLight/80 dark:placeholder:text-text-mutedDark/80 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-        />
-      </div>
-
-      <div class="relative md:z-40 md:-ml-px shrink-0" data-companies-menu>
-        <button
-          type="button"
-          data-companies-menu-button
-          aria-label="Filter & sort"
-          aria-expanded="false"
-          aria-controls="companies-menu-panel"
-          class="cursor-pointer inline-flex w-auto shrink-0 items-center justify-center gap-0 md:gap-3 rounded-full md:rounded-l-none border border-border-light dark:border-border-dark bg-surface-light/70 dark:bg-surface-dark/60 p-2.5 md:px-4 md:py-2.5 text-sm text-text-light dark:text-text-dark shadow-sm hover:bg-surface-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-        >
-          <span
-            class="shrink-0 text-text-mutedLight dark:text-text-mutedDark"
-            aria-hidden="true"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="h-4 w-4"
-            >
-              <path d="M21 4H14"></path>
-              <path d="M10 4H3"></path>
-              <path d="M21 12H12"></path>
-              <path d="M8 12H3"></path>
-              <path d="M21 20H16"></path>
-              <path d="M12 20H3"></path>
-              <path d="M14 2v4"></path>
-              <path d="M8 10v4"></path>
-              <path d="M16 18v4"></path>
-            </svg>
-          </span>
-          <span
-            class="hidden md:inline text-left text-text-mutedLight dark:text-text-mutedDark"
-          >
-            Filter &amp; sort
-          </span>
-        </button>
-
-        <div
-          id="companies-menu-panel"
-          data-companies-menu-panel
-          class="hidden absolute right-0 mt-2 w-[min(92vw,22rem)] rounded-xl border border-border-light dark:border-border-dark bg-surface-light/95 dark:bg-surface-dark/95 shadow-lg ring-1 ring-black/5 dark:ring-white/10 z-50"
-          role="dialog"
-          aria-label="Filter and sort companies"
-        >
-          <div class="p-4 space-y-4">
-            <div class="pt-1">
-              <div
-                class="text-xs font-semibold tracking-wide text-text-mutedLight dark:text-text-mutedDark mb-2"
-              >
-                Sort
-              </div>
-              <div class="grid gap-1" role="radiogroup" aria-label="Sort">
-                <button
-                  type="button"
-                  data-companies-sort-option="name-asc"
-                  role="radio"
-                  aria-checked="true"
-                  class="cursor-pointer flex items-center justify-between rounded-md px-3 py-2 text-sm hover:bg-surface-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-                >
-                  <span>Company name (A–Z)</span>
-                  <span
-                    data-companies-sort-check
-                    aria-hidden="true"
-                    class="text-accent hidden">✓</span
-                  >
-                </button>
-                <button
-                  type="button"
-                  data-companies-sort-option="name-desc"
-                  role="radio"
-                  aria-checked="false"
-                  class="cursor-pointer flex items-center justify-between rounded-md px-3 py-2 text-sm hover:bg-surface-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-                >
-                  <span>Company name (Z–A)</span>
-                  <span
-                    data-companies-sort-check
-                    aria-hidden="true"
-                    class="text-accent hidden">✓</span
-                  >
-                </button>
-                <button
-                  type="button"
-                  data-companies-sort-option="employment"
-                  role="radio"
-                  aria-checked="false"
-                  class="cursor-pointer flex items-center justify-between rounded-md px-3 py-2 text-sm hover:bg-surface-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-                >
-                  <span>Employment type</span>
-                  <span
-                    data-companies-sort-check
-                    aria-hidden="true"
-                    class="text-accent hidden">✓</span
-                  >
-                </button>
-              </div>
-            </div>
-
-            <div
-              class="border-t border-border-light/70 dark:border-border-dark/70 pt-4"
-            >
-              <div
-                class="text-xs font-semibold tracking-wide text-text-mutedLight dark:text-text-mutedDark mb-2"
-              >
-                Employment type
-              </div>
-              <div class="grid gap-1" role="group" aria-label="Employment type">
-                <button
-                  type="button"
-                  data-companies-employment-option="Remote"
-                  aria-pressed="false"
-                  class="cursor-pointer flex items-center justify-between rounded-md px-3 py-2 text-sm hover:bg-surface-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-                >
-                  <span>Remote</span>
-                  <span
-                    data-companies-employment-check
-                    aria-hidden="true"
-                    class="text-accent hidden">✓</span
-                  >
-                </button>
-                <button
-                  type="button"
-                  data-companies-employment-option="Hybrid"
-                  aria-pressed="false"
-                  class="cursor-pointer flex items-center justify-between rounded-md px-3 py-2 text-sm hover:bg-surface-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-                >
-                  <span>Hybrid</span>
-                  <span
-                    data-companies-employment-check
-                    aria-hidden="true"
-                    class="text-accent hidden">✓</span
-                  >
-                </button>
-                <button
-                  type="button"
-                  data-companies-employment-option="In-office"
-                  aria-pressed="false"
-                  class="cursor-pointer flex items-center justify-between rounded-md px-3 py-2 text-sm hover:bg-surface-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-                >
-                  <span>In-office</span>
-                  <span
-                    data-companies-employment-check
-                    aria-hidden="true"
-                    class="text-accent hidden">✓</span
-                  >
-                </button>
-              </div>
-            </div>
-
-            <div
-              class="border-t border-border-light/70 dark:border-border-dark/70 pt-4 flex items-center justify-end"
-            >
-              <button
-                type="button"
-                data-companies-reset
-                class="cursor-pointer text-sm text-accent hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm"
-              >
-                Reset
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div
-      class="hidden md:inline-flex items-center shrink-0 rounded-lg border border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark p-1 md:ml-auto"
-      role="radiogroup"
-      aria-label="Company view"
-    >
-      <button
-        type="button"
-        data-companies-view-button="card"
-        role="radio"
-        aria-checked="true"
-        class="cursor-pointer rounded-md px-3 py-1.5 text-sm font-medium text-text-light dark:text-text-dark hover:text-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-      >
-        Cards
-      </button>
-      <button
-        type="button"
-        data-companies-view-button="list"
-        role="radio"
-        aria-checked="false"
-        class="cursor-pointer rounded-md px-3 py-1.5 text-sm font-medium text-text-light dark:text-text-dark hover:text-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-      >
-        List
-      </button>
-    </div>
+    <BrowseToolbar {...toolbarProps} />
+    <BrowseViewToggle {...viewToggleProps} />
   </div>
+  <BrowsePerPageControls
+    startIndex={startIndex}
+    endIndex={endIndex}
+    totalItems={totalItems}
+  />
 
-  <div class="flex items-center justify-between gap-3">
-    <p
-      class="text-sm text-text-mutedLight dark:text-text-mutedDark"
-      data-companies-count
-    >
-      Showing {startIndex}–{endIndex} of {totalItems} companies
-    </p>
-    <div class="hidden md:flex items-center gap-2">
-      <span
-        class="hidden md:inline text-xs text-text-mutedLight dark:text-text-mutedDark"
-      >
-        Per page
-      </span>
-      <div class="inline-flex items-center">
-        <div
-          data-companies-per-page-group="card"
-          class="rounded-lg border border-border-light dark:border-border-dark bg-surface-muted p-1"
-          role="radiogroup"
-          aria-label="Companies per page (grid)"
-        >
-          <button
-            type="button"
-            data-companies-per-page-option="12"
-            role="radio"
-            aria-checked="false"
-            class="cursor-pointer rounded-md px-2.5 py-1 text-xs font-medium text-text-mutedLight dark:text-text-mutedDark hover:text-text-light dark:hover:text-text-dark focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-          >
-            12
-          </button>
-          <button
-            type="button"
-            data-companies-per-page-option="24"
-            role="radio"
-            aria-checked="true"
-            class="cursor-pointer rounded-md px-2.5 py-1 text-xs font-medium text-text-mutedLight dark:text-text-mutedDark hover:text-text-light dark:hover:text-text-dark focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-          >
-            24
-          </button>
-          <button
-            type="button"
-            data-companies-per-page-option="48"
-            role="radio"
-            aria-checked="false"
-            class="cursor-pointer rounded-md px-2.5 py-1 text-xs font-medium text-text-mutedLight dark:text-text-mutedDark hover:text-text-light dark:hover:text-text-dark focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-          >
-            48
-          </button>
-          <button
-            type="button"
-            data-companies-per-page-option="96"
-            role="radio"
-            aria-checked="false"
-            class="cursor-pointer rounded-md px-2.5 py-1 text-xs font-medium text-text-mutedLight dark:text-text-mutedDark hover:text-text-light dark:hover:text-text-dark focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-          >
-            96
-          </button>
-        </div>
-        <div
-          data-companies-per-page-group="list"
-          class="hidden rounded-lg border border-border-light dark:border-border-dark bg-surface-muted p-1"
-          role="radiogroup"
-          aria-label="Companies per page (list)"
-        >
-          <button
-            type="button"
-            data-companies-per-page-option="10"
-            role="radio"
-            aria-checked="false"
-            class="cursor-pointer rounded-md px-2.5 py-1 text-xs font-medium text-text-mutedLight dark:text-text-mutedDark hover:text-text-light dark:hover:text-text-dark focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-          >
-            10
-          </button>
-          <button
-            type="button"
-            data-companies-per-page-option="25"
-            role="radio"
-            aria-checked="true"
-            class="cursor-pointer rounded-md px-2.5 py-1 text-xs font-medium text-text-mutedLight dark:text-text-mutedDark hover:text-text-light dark:hover:text-text-dark focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-          >
-            25
-          </button>
-          <button
-            type="button"
-            data-companies-per-page-option="50"
-            role="radio"
-            aria-checked="false"
-            class="cursor-pointer rounded-md px-2.5 py-1 text-xs font-medium text-text-mutedLight dark:text-text-mutedDark hover:text-text-light dark:hover:text-text-dark focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-          >
-            50
-          </button>
-          <button
-            type="button"
-            data-companies-per-page-option="100"
-            role="radio"
-            aria-checked="false"
-            class="cursor-pointer rounded-md px-2.5 py-1 text-xs font-medium text-text-mutedLight dark:text-text-mutedDark hover:text-text-light dark:hover:text-text-dark focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-          >
-            100
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
+  <BrowseResultsPanels paginatedItems={paginatedItems} />
 
-  <div
-    data-companies-view-panel="card"
-    class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3"
-  >
-    {paginatedItems.map((company) => <CompanyCard company={company} />)}
-  </div>
+  <BrowsePaginationControls currentPage={currentPage} totalPages={totalPages} />
 
-  <div data-companies-view-panel="list" class="hidden">
-    <ul
-      class="rounded-xl border border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark divide-y divide-border-light dark:divide-border-dark md:grid md:gap-x-4 md:items-start md:grid-cols-[fit-content(18rem)_minmax(0,12rem)_minmax(0,1fr)_2.5rem]"
-      aria-label="Companies"
-    >
-      {paginatedItems.map((company) => <CompanyListItem company={company} />)}
-    </ul>
-  </div>
-
-  <div data-companies-client-pagination class="hidden md:block"></div>
-  <div
-    data-companies-mobile-pagination
-    class="md:hidden mt-6 flex justify-center"
-  >
-    <button
-      type="button"
-      data-companies-show-more
-      class="cursor-pointer inline-flex items-center justify-center rounded-full border border-border-light dark:border-border-dark bg-surface-light/70 dark:bg-surface-dark/60 px-6 py-2.5 text-sm text-text-light dark:text-text-dark shadow-sm hover:bg-surface-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-    >
-      Show more
-    </button>
-  </div>
-
-  <div data-companies-fallback-pagination class="hidden md:block">
-    <Pagination currentPage={currentPage} totalPages={totalPages} />
-  </div>
+  <BrowseTemplates />
 </section>
 
 <script type="module" src={companiesViewToggleUrl} is:inline></script>

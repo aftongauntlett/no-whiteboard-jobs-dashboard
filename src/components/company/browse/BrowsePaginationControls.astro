@@ -1,0 +1,39 @@
+---
+import Button from "../../ui/Button.astro";
+import Pagination from "../../ui/Pagination.astro";
+
+export interface Props {
+  currentPage: number;
+  totalPages: number;
+  showMoreButtonProps?: Record<string, any>;
+}
+
+const {
+  currentPage,
+  totalPages,
+  showMoreButtonProps = {},
+} = Astro.props as Props;
+---
+
+<div data-companies-client-pagination class="hidden md:block"></div>
+
+<div
+  data-companies-mobile-pagination
+  class="md:hidden mt-6 flex justify-center"
+>
+  <Button
+    type="button"
+    variant="secondary"
+    style="soft"
+    shape="pill"
+    class="cursor-pointer inline-flex items-center justify-center px-6 py-2.5 text-sm"
+    data-companies-show-more
+    {...showMoreButtonProps}
+  >
+    Show more
+  </Button>
+</div>
+
+<div data-companies-fallback-pagination class="hidden md:block">
+  <Pagination currentPage={currentPage} totalPages={totalPages} />
+</div>
