@@ -1,4 +1,10 @@
 ---
+import {
+  COMPANY_INTERVIEW_TEXT_CLASS_CARD,
+  COMPANY_INTERVIEW_TEXT_CLASS_LIST,
+  COMPANY_INTERVIEW_TOGGLE_CLASS,
+} from "./companyStyles";
+
 export interface Props {
   interviewProcessHtml?: string | null;
   interviewId: string;
@@ -9,8 +15,8 @@ const { interviewProcessHtml, interviewId, variant } = Astro.props as Props;
 
 const textClass =
   variant === "card"
-    ? "text-sm text-text-mutedLight dark:text-text-mutedDark group-hover:text-text-light dark:group-hover:text-text-dark group-focus-within:text-text-light dark:group-focus-within:text-text-dark transition-colors line-clamp-3"
-    : "text-xs sm:text-sm text-text-mutedLight dark:text-text-mutedDark group-hover:text-text-light dark:group-hover:text-text-dark group-focus-within:text-text-light dark:group-focus-within:text-text-dark line-clamp-3";
+    ? COMPANY_INTERVIEW_TEXT_CLASS_CARD
+    : COMPANY_INTERVIEW_TEXT_CLASS_LIST;
 ---
 
 {
@@ -27,7 +33,7 @@ const textClass =
         <button
           type="button"
           data-readmore-toggle
-          class="mt-1 hidden text-xs font-medium text-accent hover:underline cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/30 rounded"
+          class={COMPANY_INTERVIEW_TOGGLE_CLASS}
           aria-expanded="false"
           aria-controls={interviewId}
         >

@@ -1,14 +1,8 @@
-import type { Company, EmploymentType } from "@data/types";
+import type { Company } from "@data/types";
 import { createInterviewId, getActualLocations } from "../../utils/company";
+import { employmentBadgeClasses } from "../../components/company/companyStyles";
 import { cloneTemplateRoot } from "./templates";
 import type { CompaniesBrowseTemplates } from "./templates";
-
-function employmentBadgeClasses(type: EmploymentType): string {
-  const base = "ui-badge";
-  if (type === "Remote") return `${base} bg-info-bg/20 text-info-text`;
-  if (type === "Hybrid") return `${base} bg-warning-bg/20 text-warning-text`;
-  return `${base} bg-success-bg/20 text-success-text`;
-}
 
 function renderLocations(
   templates: CompaniesBrowseTemplates,

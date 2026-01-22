@@ -5,6 +5,17 @@ import CurationIndicator from "../ui/CurationIndicator.astro";
 import CompanyLocations from "./CompanyLocations.astro";
 import CompanyInterviewPreview from "./CompanyInterviewPreview.astro";
 import { createInterviewId } from "../../utils/company";
+import {
+  COMPANY_CARD_EXTERNAL_ICON_CLASS,
+  COMPANY_CARD_HEADER_CLASS,
+  COMPANY_CARD_INTERACTIVE_CLASS,
+  COMPANY_CARD_LINK_CLASS,
+  COMPANY_CARD_NAME_HOVER_CLASS,
+  COMPANY_CARD_STATIC_CLASS,
+  COMPANY_CARD_TITLE_CLASS,
+  COMPANY_CARD_TITLE_INLINE_CLASS,
+  COMPANY_LOCATIONS_CLASS_CARD,
+} from "./companyStyles";
 
 type Props = {
   company: Company;
@@ -17,25 +28,25 @@ const interviewId = createInterviewId(company);
 {
   company.careersUrl ? (
     <article
-      class="company-card company-card--interactive group relative focus-within:ring-2 focus-within:ring-accent/30 focus-within:ring-offset-2 focus-within:ring-offset-bg-light dark:focus-within:ring-offset-bg-dark"
+      class={COMPANY_CARD_INTERACTIVE_CLASS}
     >
       <a
         href={company.careersUrl}
         target="_blank"
         rel="noopener noreferrer"
-        class="absolute inset-0 z-20 rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/30"
+        class={COMPANY_CARD_LINK_CLASS}
         aria-label={`Open ${company.name} careers page in a new tab`}
       ></a>
 
       <div class="relative flex flex-col">
         <!-- Header -->
-        <header class="flex items-start justify-between gap-3">
+        <header class={COMPANY_CARD_HEADER_CLASS}>
           <div class="min-w-0 flex items-center gap-2">
             <h3
-              class="text-base font-semibold leading-tight text-text-light dark:text-text-dark min-w-0"
+              class={COMPANY_CARD_TITLE_CLASS}
             >
-              <span class="inline-flex items-center gap-2 min-w-0">
-                <span class="group-hover:text-accent">
+              <span class={COMPANY_CARD_TITLE_INLINE_CLASS}>
+                <span class={COMPANY_CARD_NAME_HOVER_CLASS}>
                   {company.name}
                 </span>
                 {
@@ -50,7 +61,7 @@ const interviewId = createInterviewId(company);
 
           <!-- Reserved top-right slot for hover icon -->
           <span
-            class="invisible inline-flex h-8 w-8 items-center justify-center rounded-md text-accent opacity-0 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100 transition-opacity"
+            class={COMPANY_CARD_EXTERNAL_ICON_CLASS}
             aria-hidden="true"
           >
             <svg
@@ -74,7 +85,7 @@ const interviewId = createInterviewId(company);
         <!-- Locations -->
         <CompanyLocations
           locations={company.locations}
-          class="mt-0.5 flex flex-wrap gap-2"
+          class={COMPANY_LOCATIONS_CLASS_CARD}
         />
 
         <!-- Interview process -->
@@ -87,14 +98,14 @@ const interviewId = createInterviewId(company);
     </article>
   ) : (
     <article
-      class="company-card group"
+      class={COMPANY_CARD_STATIC_CLASS}
     >
-      <header class="flex items-start justify-between gap-3">
+      <header class={COMPANY_CARD_HEADER_CLASS}>
         <div class="min-w-0 flex items-center gap-2">
           <h3
-            class="text-base font-semibold leading-tight text-text-light dark:text-text-dark min-w-0"
+            class={COMPANY_CARD_TITLE_CLASS}
           >
-            <span class="inline-flex items-center gap-2 min-w-0">
+            <span class={COMPANY_CARD_TITLE_INLINE_CLASS}>
               <span>{company.name}</span>
               {
                 company.source === "local" ? (
@@ -109,7 +120,7 @@ const interviewId = createInterviewId(company);
 
       <CompanyLocations
         locations={company.locations}
-        class="mt-0.5 flex flex-wrap gap-2"
+        class={COMPANY_LOCATIONS_CLASS_CARD}
       />
 
       <CompanyInterviewPreview
