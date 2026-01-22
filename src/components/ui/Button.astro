@@ -1,37 +1,60 @@
 ---
+import type { HTMLAttributes } from "astro/types";
+
 type Variant = "primary" | "secondary" | "muted";
-type Style = "solid" | "outline" | "ghost" | "soft";
+type Tone = "solid" | "outline" | "ghost" | "soft";
 type Shape = "default" | "pill";
 type Size = "sm" | "md";
 
-interface Props {
+type AnchorAttrs = HTMLAttributes<"a">;
+type ButtonAttrs = HTMLAttributes<"button">;
+
+type CommonProps = {
   variant?: Variant;
-  style?: Style;
+  tone?: Tone;
   shape?: Shape;
   size?: Size;
   iconOnly?: boolean;
-  href?: string;
-  target?: string;
-  rel?: string;
-  type?: "button" | "submit" | "reset";
-  disabled?: boolean;
-  class?: string;
+  disabled?: boolean | string | null;
+  class?: string | null;
+};
+
+type AnchorRest = Omit<AnchorAttrs, "href" | "target" | "rel" | "class">;
+
+interface AnchorProps extends CommonProps, AnchorRest {
+  href: string;
+  target?: AnchorAttrs["target"];
+  rel?: AnchorAttrs["rel"];
 }
 
-const {
-  variant = "primary",
-  style = "solid",
-  shape = "default",
-  size = "md",
-  iconOnly = false,
-  href,
-  target,
-  rel,
-  type = "button",
-  disabled = false,
-  class: className,
-  ...rest
-} = Astro.props as Props & Record<string, any>;
+type NativeButtonRest = Omit<ButtonAttrs, "type" | "disabled" | "class">;
+
+interface NativeButtonProps extends CommonProps, NativeButtonRest {
+  href?: undefined;
+  type?: "button" | "submit" | "reset" | null;
+}
+
+export type Props = AnchorProps | NativeButtonProps;
+
+const props = Astro.props as Props;
+
+const variant = props.variant ?? "primary";
+const tone = props.tone ?? "solid";
+const shape = props.shape ?? "default";
+const size = props.size ?? "md";
+const iconOnly = props.iconOnly ?? false;
+const disabledProp = props.disabled;
+const disabled =
+  disabledProp === true ||
+  disabledProp === "" ||
+  disabledProp === "true" ||
+  disabledProp === "disabled";
+const className = props.class;
+
+const href = "href" in props ? props.href : undefined;
+const target = "target" in props ? props.target : undefined;
+const rel = "rel" in props ? props.rel : undefined;
+const type = "type" in props ? (props.type ?? "button") : "button";
 
 const resolvedRel =
   href && target === "_blank" ? (rel ?? "noopener noreferrer") : rel;
@@ -53,7 +76,7 @@ const sizeClass = iconOnly
 /**
  * Variant + style combinations
  */
-const variants: Record<Variant, Record<Style, string>> = {
+const variants: Record<Variant, Record<Tone, string>> = {
   primary: {
     solid: "bg-accent text-white dark:text-bg-dark hover:bg-accent/90",
     outline: "border border-accent text-accent hover:bg-accent/10",
@@ -81,25 +104,57 @@ const variants: Record<Variant, Record<Style, string>> = {
 };
 
 const classes =
-  `${base} ${shapeClass} ${sizeClass} ${variants[variant][style]} ${className ?? ""}`.trim();
+  `${base} ${shapeClass} ${sizeClass} ${variants[variant][tone]} ${className ?? ""}`.trim();
 ---
 
 {
-  href ? (
-    <a
-      href={href}
-      target={target}
-      rel={resolvedRel}
-      class={classes}
-      tabindex={disabled ? -1 : undefined}
-      aria-disabled={disabled ? "true" : undefined}
-      {...rest}
-    >
-      <slot />
-    </a>
-  ) : (
-    <button type={type} class={classes} disabled={disabled} {...rest}>
-      <slot />
-    </button>
-  )
+  href
+    ? (() => {
+        const {
+          href,
+          target,
+          rel,
+          class: _class,
+          variant: _variant,
+          tone: _tone,
+          shape: _shape,
+          size: _size,
+          iconOnly: _iconOnly,
+          disabled: _disabled,
+          ...rest
+        } = props as AnchorProps;
+
+        return (
+          <a
+            href={href}
+            target={target}
+            rel={resolvedRel}
+            class={classes}
+            tabindex={disabled ? -1 : undefined}
+            aria-disabled={disabled ? "true" : undefined}
+            {...rest}
+          >
+            <slot />
+          </a>
+        );
+      })()
+    : (() => {
+        const {
+          type,
+          class: _class,
+          variant: _variant,
+          tone: _tone,
+          shape: _shape,
+          size: _size,
+          iconOnly: _iconOnly,
+          href: _href,
+          ...rest
+        } = props as NativeButtonProps;
+
+        return (
+          <button type={type} class={classes} disabled={disabled} {...rest}>
+            <slot />
+          </button>
+        );
+      })()
 }
