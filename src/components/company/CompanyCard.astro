@@ -1,6 +1,7 @@
 ---
 import type { Company } from "@data/types";
 import EmploymentBadge from "../ui/EmploymentBadge.astro";
+import CurationIndicator from "../ui/CurationIndicator.astro";
 import CompanyLocations from "./CompanyLocations.astro";
 import CompanyInterviewPreview from "./CompanyInterviewPreview.astro";
 import { createInterviewId } from "../../utils/company";
@@ -33,8 +34,15 @@ const interviewId = createInterviewId(company);
             <h3
               class="text-base font-semibold leading-tight text-text-light dark:text-text-dark min-w-0"
             >
-              <span class="group-hover:text-accent">
-                {company.name}
+              <span class="inline-flex items-center gap-2 min-w-0">
+                <span class="group-hover:text-accent">
+                  {company.name}
+                </span>
+                {
+                  company.source === "local" ? (
+                    <CurationIndicator status={company.curationStatus ?? "edited"} />
+                  ) : null
+                }
               </span>
             </h3>
             <EmploymentBadge employmentType={company.employmentType} />
@@ -42,7 +50,7 @@ const interviewId = createInterviewId(company);
 
           <!-- Reserved top-right slot for hover icon -->
           <span
-            class="inline-flex h-8 w-8 items-center justify-center rounded-md text-accent opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity"
+            class="invisible inline-flex h-8 w-8 items-center justify-center rounded-md text-accent opacity-0 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100 transition-opacity"
             aria-hidden="true"
           >
             <svg
@@ -66,12 +74,12 @@ const interviewId = createInterviewId(company);
         <!-- Locations -->
         <CompanyLocations
           locations={company.locations}
-          class="mt-1 flex flex-wrap gap-2"
+          class="mt-0.5 flex flex-wrap gap-2"
         />
 
         <!-- Interview process -->
         <CompanyInterviewPreview
-          interviewProcess={company.interviewProcess}
+          interviewProcessHtml={company.interviewProcessHtml}
           interviewId={interviewId}
           variant="card"
         />
@@ -86,7 +94,14 @@ const interviewId = createInterviewId(company);
           <h3
             class="text-base font-semibold leading-tight text-text-light dark:text-text-dark min-w-0"
           >
-            <span>{company.name}</span>
+            <span class="inline-flex items-center gap-2 min-w-0">
+              <span>{company.name}</span>
+              {
+                company.source === "local" ? (
+                  <CurationIndicator status={company.curationStatus ?? "edited"} />
+                ) : null
+              }
+            </span>
           </h3>
           <EmploymentBadge employmentType={company.employmentType} />
         </div>
@@ -94,11 +109,11 @@ const interviewId = createInterviewId(company);
 
       <CompanyLocations
         locations={company.locations}
-        class="mt-1 flex flex-wrap gap-2"
+        class="mt-0.5 flex flex-wrap gap-2"
       />
 
       <CompanyInterviewPreview
-        interviewProcess={company.interviewProcess}
+        interviewProcessHtml={company.interviewProcessHtml}
         interviewId={interviewId}
         variant="card"
       />

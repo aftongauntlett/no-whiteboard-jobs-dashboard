@@ -1,11 +1,11 @@
 ---
 export interface Props {
-  interviewProcess?: string | null;
+  interviewProcessHtml?: string | null;
   interviewId: string;
   variant: "card" | "list";
 }
 
-const { interviewProcess, interviewId, variant } = Astro.props as Props;
+const { interviewProcessHtml, interviewId, variant } = Astro.props as Props;
 
 const textClass =
   variant === "card"
@@ -14,21 +14,20 @@ const textClass =
 ---
 
 {
-  interviewProcess ? (
+  interviewProcessHtml ? (
     <div class={variant === "card" ? "relative z-30 mt-3" : "relative z-30"}>
-      <p
+      <div
         id={interviewId}
         data-readmore-text
         data-readmore-clamp="line-clamp-3"
-        class={textClass}
-      >
-        {interviewProcess}
-      </p>
+        class={`${textClass} interview-markdown`}
+        set:html={interviewProcessHtml}
+      />
       <div class="text-right">
         <button
           type="button"
           data-readmore-toggle
-          class="mt-1 hidden text-xs font-medium text-accent hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/30 rounded"
+          class="mt-1 hidden text-xs font-medium text-accent hover:underline cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/30 rounded"
           aria-expanded="false"
           aria-controls={interviewId}
         >

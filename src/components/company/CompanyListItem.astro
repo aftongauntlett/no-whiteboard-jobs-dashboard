@@ -1,6 +1,7 @@
 ---
 import type { Company } from "@data/types";
 import EmploymentBadge from "../ui/EmploymentBadge.astro";
+import CurationIndicator from "../ui/CurationIndicator.astro";
 import CompanyLocations from "./CompanyLocations.astro";
 import CompanyInterviewPreview from "./CompanyInterviewPreview.astro";
 import { createInterviewId } from "../../utils/company";
@@ -16,7 +17,7 @@ const interviewId = createInterviewId(company);
 ---
 
 <li
-  class="company-list-item group relative px-4 py-3 pr-12 sm:px-5 sm:py-4 sm:pr-14 md:pr-5 transition-colors md:col-span-4 md:grid md:grid-cols-subgrid md:gap-x-4 md:items-start"
+  class="company-list-item group relative px-4 py-3 pr-12 sm:px-5 sm:py-4 sm:pr-14 md:pr-5 transition-colors md:col-span-4 md:grid md:grid-cols-subgrid md:gap-x-4 md:items-stretch"
 >
   {
     company.careersUrl ? (
@@ -32,14 +33,21 @@ const interviewId = createInterviewId(company);
           <!-- Column A: Company -->
           <div class="min-w-0">
             <h3 class="min-w-0 text-sm font-semibold leading-snug text-text-light dark:text-text-dark">
-              <span class="block whitespace-nowrap truncate group-hover:text-accent group-focus-within:text-accent">
-                {company.name}
+              <span class="flex items-center gap-2 min-w-0">
+                <span class="block whitespace-nowrap truncate group-hover:text-accent group-focus-within:text-accent">
+                  {company.name}
+                </span>
+                {
+                  company.source === "local" ? (
+                    <CurationIndicator status={company.curationStatus ?? "edited"} />
+                  ) : null
+                }
               </span>
             </h3>
           </div>
 
           <!-- Column B: Employment + locations -->
-          <div class="min-w-0 md:border-l-2 md:border-border-light/80 dark:md:border-border-dark/80 md:pl-4">
+          <div class="min-w-0 md:border-l md:border-border-light/80 dark:md:border-border-dark/80 md:pl-4">
             <div class="flex items-start">
               <EmploymentBadge employmentType={company.employmentType} />
             </div>
@@ -51,9 +59,9 @@ const interviewId = createInterviewId(company);
           </div>
 
           <!-- Column C: Interview -->
-          <div class="min-w-0 md:border-l-2 md:border-border-light/80 dark:md:border-border-dark/80 md:pl-4 md:max-w-prose md:justify-self-start">
+          <div class="min-w-0 md:border-l md:border-border-light/80 dark:md:border-border-dark/80 md:pl-4 md:max-w-prose md:justify-self-start">
             <CompanyInterviewPreview
-              interviewProcess={company.interviewProcess}
+              interviewProcessHtml={company.interviewProcessHtml}
               interviewId={interviewId}
               variant="list"
             />
@@ -65,7 +73,7 @@ const interviewId = createInterviewId(company);
               href={company.careersUrl}
               target="_blank"
               rel="noopener noreferrer"
-              class="inline-flex h-8 w-8 items-center justify-center rounded-md text-accent opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/30"
+              class="invisible inline-flex h-8 w-8 items-center justify-center rounded-md text-accent opacity-0 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100 transition-opacity focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/30"
               aria-label={`Open ${company.name} careers page in a new tab`}
             >
               <svg
@@ -93,14 +101,21 @@ const interviewId = createInterviewId(company);
         <!-- Column A: Company -->
         <div class="min-w-0">
           <h3 class="min-w-0 text-sm font-semibold leading-snug text-text-light dark:text-text-dark">
-            <span class="block whitespace-nowrap truncate group-hover:text-accent group-focus-within:text-accent">
-              {company.name}
+            <span class="flex items-center gap-2 min-w-0">
+              <span class="block whitespace-nowrap truncate group-hover:text-accent group-focus-within:text-accent">
+                {company.name}
+              </span>
+              {
+                company.source === "local" ? (
+                  <CurationIndicator status={company.curationStatus ?? "edited"} />
+                ) : null
+              }
             </span>
           </h3>
         </div>
 
         <!-- Column B: Employment + locations -->
-        <div class="min-w-0 md:border-l-2 md:border-border-light/80 dark:md:border-border-dark/80 md:pl-4">
+        <div class="min-w-0 md:border-l md:border-border-light/80 dark:md:border-border-dark/80 md:pl-4">
           <div class="flex items-start">
             <EmploymentBadge employmentType={company.employmentType} />
           </div>
@@ -112,37 +127,14 @@ const interviewId = createInterviewId(company);
         </div>
 
         <!-- Column C: Interview -->
-        <div class="min-w-0 md:border-l-2 md:border-border-light/80 dark:md:border-border-dark/80 md:pl-4 md:max-w-prose md:justify-self-start">
+        <div class="min-w-0 md:border-l md:border-border-light/80 dark:md:border-border-dark/80 md:pl-4 md:max-w-prose md:justify-self-start">
           <CompanyInterviewPreview
-            interviewProcess={company.interviewProcess}
+            interviewProcessHtml={company.interviewProcessHtml}
             interviewId={interviewId}
             variant="list"
           />
         </div>
 
-        <!-- Far right action (disabled) -->
-        <div class="z-30 absolute right-4 top-3 sm:right-5 sm:top-4 md:static md:justify-self-end md:self-start">
-          <span
-            class="inline-flex h-8 w-8 items-center justify-center rounded-md text-text-mutedLight dark:text-text-mutedDark opacity-50"
-            aria-hidden="true"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="h-4 w-4"
-            >
-              <path d="M14 3h7v7" />
-              <path d="M10 14L21 3" />
-              <path d="M21 14v7h-7" />
-              <path d="M3 10v11h11" />
-            </svg>
-          </span>
-        </div>
       </div>
     )
   }

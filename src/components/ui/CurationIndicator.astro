@@ -1,0 +1,21 @@
+---
+export type CurationStatus = "new" | "edited";
+
+interface Props {
+  status: CurationStatus;
+  class?: string;
+}
+
+const { status, class: className } = Astro.props as Props;
+
+const tooltip =
+  status === "new"
+    ? "New entry (added locally)"
+    : "Edited entry (updated locally)";
+
+const tone = status === "new" ? "bg-success-bg" : "bg-info-bg";
+
+const classes = `inline-block h-2 w-2 rounded-full ring-1 ring-black/10 dark:ring-white/20 ${tone} ${className ?? ""}`;
+---
+
+<span class={classes} title={tooltip} aria-label={tooltip}></span>

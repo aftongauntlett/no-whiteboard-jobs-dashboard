@@ -1,6 +1,6 @@
 import type { Company, EmploymentType } from "@data/types";
 import { isEmploymentType } from "@data/types";
-import companies from "../../data/companies.json";
+import companies from "../../data/companies";
 
 import { MD_QUERY, isMdUp, qs, qsa } from "./dom";
 import { normalizeText } from "./text";

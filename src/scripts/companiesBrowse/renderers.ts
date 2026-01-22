@@ -70,7 +70,7 @@ function renderLocations(
 
 function applyInterview(
   root: ParentNode,
-  interviewProcess: string | null | undefined,
+  interviewProcessHtml: string | null | undefined,
   interviewId: string,
   variant: "card" | "list",
 ) {
@@ -84,14 +84,14 @@ function applyInterview(
 
   if (textEl instanceof HTMLElement) {
     textEl.id = interviewId;
-    textEl.textContent = interviewProcess ?? "";
+    textEl.innerHTML = interviewProcessHtml ?? "";
   }
 
   if (toggle instanceof HTMLButtonElement) {
     toggle.setAttribute("aria-controls", interviewId);
   }
 
-  if (!interviewProcess) {
+  if (!interviewProcessHtml) {
     if (variant === "card") {
       interview.remove();
       return;
@@ -105,6 +105,36 @@ function applyInterview(
 
   interview.classList.remove("hidden");
   if (noInterview instanceof HTMLElement) noInterview.classList.add("hidden");
+}
+
+function applySourceIndicator(
+  root: ParentNode,
+  source: Company["source"],
+  curationStatus: Company["curationStatus"],
+) {
+  const el = root.querySelector("[data-company-source]");
+  if (!(el instanceof HTMLElement)) return;
+
+  const isLocal = source === "local";
+  el.classList.toggle("hidden", !isLocal);
+  if (!isLocal) return;
+
+  const status = curationStatus ?? "edited";
+  const tooltip =
+    status === "new"
+      ? "New entry (added locally)"
+      : "Edited entry (updated locally)";
+
+  el.setAttribute("title", tooltip);
+  el.setAttribute("aria-label", tooltip);
+
+  el.classList.remove("bg-success-bg", "bg-info-bg");
+
+  if (status === "new") {
+    el.classList.add("bg-success-bg");
+  } else {
+    el.classList.add("bg-info-bg");
+  }
 }
 
 export function createCompanyCardElement(
@@ -123,13 +153,15 @@ export function createCompanyCardElement(
     employment.textContent = company.employmentType;
   }
 
+  applySourceIndicator(el, company.source, company.curationStatus);
+
   const locations = el.querySelector("[data-company-locations]");
   if (locations instanceof HTMLElement) {
     renderLocations(templates, locations, company.locations);
   }
 
   const interviewId = createInterviewId(company);
-  applyInterview(el, company.interviewProcess, interviewId, "card");
+  applyInterview(el, company.interviewProcessHtml, interviewId, "card");
 
   if (company.careersUrl) {
     const link = el.querySelector("[data-company-link]");
@@ -161,13 +193,15 @@ export function createCompanyListItemElement(
     employment.textContent = company.employmentType;
   }
 
+  applySourceIndicator(el, company.source, company.curationStatus);
+
   const locations = el.querySelector("[data-company-locations]");
   if (locations instanceof HTMLElement) {
     renderLocations(templates, locations, company.locations);
   }
 
   const interviewId = createInterviewId(company);
-  applyInterview(el, company.interviewProcess, interviewId, "list");
+  applyInterview(el, company.interviewProcessHtml, interviewId, "list");
 
   if (company.careersUrl) {
     const link = el.querySelector("[data-company-link]");
@@ -187,9 +221,6 @@ export function createCompanyListItemElement(
         `Open ${company.name} careers page in a new tab`,
       );
     }
-
-    const disabled = el.querySelector("[data-company-action-disabled]");
-    if (disabled instanceof HTMLElement) disabled.classList.add("hidden");
   }
 
   return el;
