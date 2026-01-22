@@ -1,35 +1,33 @@
-type CompaniesView = "card" | "list";
+import {
+  MD_QUERY,
+  isMdUp,
+  VIEW_MODE_STORAGE_KEY,
+  type ViewMode,
+} from "../utils/viewMode";
 
-const STORAGE_KEY = "companies-view";
-const MD_QUERY = "(min-width: 768px)";
-
-function isMdUp(): boolean {
-  return window.matchMedia(MD_QUERY).matches;
-}
-
-function getStoredView(): CompaniesView {
+function getStoredView(): ViewMode {
   try {
-    const value = localStorage.getItem(STORAGE_KEY);
+    const value = localStorage.getItem(VIEW_MODE_STORAGE_KEY);
     return value === "list" ? "list" : "card";
   } catch {
     return "card";
   }
 }
 
-function setStoredView(view: CompaniesView) {
+function setStoredView(view: ViewMode) {
   try {
-    localStorage.setItem(STORAGE_KEY, view);
+    localStorage.setItem(VIEW_MODE_STORAGE_KEY, view);
   } catch {
     // ignore
   }
 }
 
-function setGlobalListViewClass(view: CompaniesView) {
+function setGlobalListViewClass(view: ViewMode) {
   const target = document.getElementById("main") ?? document.body;
   target.classList.toggle("companies-list-view", view === "list");
 }
 
-function applyView(root: HTMLElement, next: CompaniesView) {
+function applyView(root: HTMLElement, next: ViewMode) {
   const cardPanel = root.querySelector<HTMLElement>(
     '[data-companies-view-panel="card"]',
   );
@@ -49,7 +47,7 @@ function applyView(root: HTMLElement, next: CompaniesView) {
   for (const btn of buttons) {
     const btnView = btn.getAttribute(
       "data-companies-view-button",
-    ) as CompaniesView | null;
+    ) as ViewMode | null;
     const active = btnView === next;
 
     btn.setAttribute("aria-checked", active ? "true" : "false");
@@ -70,7 +68,7 @@ function init() {
   );
   if (roots.length === 0) return;
 
-  const initial: CompaniesView = isMdUp() ? getStoredView() : "card";
+  const initial: ViewMode = isMdUp() ? getStoredView() : "card";
 
   for (const root of roots) {
     applyView(root, initial);
@@ -97,7 +95,7 @@ function init() {
         }
         const view = btn.getAttribute(
           "data-companies-view-button",
-        ) as CompaniesView | null;
+        ) as ViewMode | null;
         applyView(root, view === "list" ? "list" : "card");
       });
     }

@@ -1,9 +1,4 @@
-export const MD_QUERY = "(min-width: 768px)";
-
-export function isMdUp(): boolean {
-  if (typeof window === "undefined") return true;
-  return window.matchMedia(MD_QUERY).matches;
-}
+export { MD_QUERY, isMdUp } from "../../utils/viewMode";
 
 export function qs<T extends Element>(
   root: ParentNode,
