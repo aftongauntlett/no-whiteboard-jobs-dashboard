@@ -1,18 +1,15 @@
 ---
 import type { Company } from "@data/types";
 import EmploymentBadge from "../ui/EmploymentBadge.astro";
-import LocationChip from "../ui/LocationChip.astro";
-import LocationOverflowTooltip from "../ui/LocationOverflowTooltip.astro";
-import { createInterviewId, getActualLocations } from "../../utils/company";
+import CompanyLocations from "./CompanyLocations.astro";
+import CompanyInterviewPreview from "./CompanyInterviewPreview.astro";
+import { createInterviewId } from "../../utils/company";
 
 type Props = {
   company: Company;
 };
 
 const { company } = Astro.props as Props;
-
-const actualLocations = getActualLocations(company.locations);
-
 const maxVisibleLocations = 1;
 
 const interviewId = createInterviewId(company);
@@ -46,63 +43,20 @@ const interviewId = createInterviewId(company);
             <div class="flex items-start">
               <EmploymentBadge employmentType={company.employmentType} />
             </div>
-            <div
+            <CompanyLocations
+              locations={company.locations}
+              maxVisibleLocations={maxVisibleLocations}
               class="mt-2 flex flex-wrap items-center gap-2"
-              aria-label="Company locations"
-            >
-              {actualLocations.length > 0 ? (
-                <>
-                  {actualLocations
-                    .slice(0, maxVisibleLocations)
-                    .map((location) => (
-                    <LocationChip location={location} />
-                  ))}
-                  {actualLocations.length > maxVisibleLocations && (
-                    <LocationOverflowTooltip
-                      remainingLocations={actualLocations.slice(maxVisibleLocations)}
-                      count={actualLocations.length - maxVisibleLocations}
-                    />
-                  )}
-                </>
-              ) : (
-                <LocationChip location="Not Available" />
-              )}
-            </div>
+            />
           </div>
 
           <!-- Column C: Interview -->
           <div class="min-w-0 md:border-l-2 md:border-border-light/80 dark:md:border-border-dark/80 md:pl-4 md:max-w-prose md:justify-self-start">
-            {
-              company.interviewProcess ? (
-                <div class="relative z-30">
-                  <p
-                    id={interviewId}
-                    data-readmore-text
-                    data-readmore-clamp="line-clamp-3"
-                    class="text-xs sm:text-sm text-text-mutedLight dark:text-text-mutedDark group-hover:text-text-light dark:group-hover:text-text-dark group-focus-within:text-text-light dark:group-focus-within:text-text-dark line-clamp-3"
-                  >
-                    {company.interviewProcess}
-                  </p>
-                  <div class="text-right">
-                    <button
-                      type="button"
-                      data-readmore-toggle
-                      class="mt-1 hidden text-xs font-medium text-accent hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/30 rounded"
-                      aria-expanded="false"
-                      aria-controls={interviewId}
-                    >
-                      Read more
-                    </button>
-                  </div>
-                </div>
-              ) : (
-                <div class="relative z-30">
-                  <p class="text-xs text-text-mutedLight dark:text-text-mutedDark group-hover:text-text-light dark:group-hover:text-text-dark group-focus-within:text-text-light dark:group-focus-within:text-text-dark">
-                    No interview notes provided.
-                  </p>
-                </div>
-              )
-            }
+            <CompanyInterviewPreview
+              interviewProcess={company.interviewProcess}
+              interviewId={interviewId}
+              variant="list"
+            />
           </div>
 
           <!-- Far right action -->
@@ -150,63 +104,20 @@ const interviewId = createInterviewId(company);
           <div class="flex items-start">
             <EmploymentBadge employmentType={company.employmentType} />
           </div>
-          <div
+          <CompanyLocations
+            locations={company.locations}
+            maxVisibleLocations={maxVisibleLocations}
             class="mt-2 flex flex-wrap items-center gap-2"
-            aria-label="Company locations"
-          >
-            {actualLocations.length > 0 ? (
-              <>
-                {actualLocations
-                  .slice(0, maxVisibleLocations)
-                  .map((location) => (
-                  <LocationChip location={location} />
-                ))}
-                {actualLocations.length > maxVisibleLocations && (
-                  <LocationOverflowTooltip
-                    remainingLocations={actualLocations.slice(maxVisibleLocations)}
-                    count={actualLocations.length - maxVisibleLocations}
-                  />
-                )}
-              </>
-            ) : (
-              <LocationChip location="Not Available" />
-            )}
-          </div>
+          />
         </div>
 
         <!-- Column C: Interview -->
         <div class="min-w-0 md:border-l-2 md:border-border-light/80 dark:md:border-border-dark/80 md:pl-4 md:max-w-prose md:justify-self-start">
-          {
-            company.interviewProcess ? (
-              <div class="relative z-30">
-                <p
-                  id={interviewId}
-                  data-readmore-text
-                  data-readmore-clamp="line-clamp-3"
-                  class="text-xs sm:text-sm text-text-mutedLight dark:text-text-mutedDark group-hover:text-text-light dark:group-hover:text-text-dark group-focus-within:text-text-light dark:group-focus-within:text-text-dark line-clamp-3"
-                >
-                  {company.interviewProcess}
-                </p>
-                <div class="text-right">
-                  <button
-                    type="button"
-                    data-readmore-toggle
-                    class="mt-1 hidden text-xs font-medium text-accent hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/30 rounded"
-                    aria-expanded="false"
-                    aria-controls={interviewId}
-                  >
-                    Read more
-                  </button>
-                </div>
-              </div>
-            ) : (
-              <div class="relative z-30">
-                <p class="text-xs text-text-mutedLight dark:text-text-mutedDark group-hover:text-text-light dark:group-hover:text-text-dark group-focus-within:text-text-light dark:group-focus-within:text-text-dark">
-                  No interview notes provided.
-                </p>
-              </div>
-            )
-          }
+          <CompanyInterviewPreview
+            interviewProcess={company.interviewProcess}
+            interviewId={interviewId}
+            variant="list"
+          />
         </div>
 
         <!-- Far right action (disabled) -->

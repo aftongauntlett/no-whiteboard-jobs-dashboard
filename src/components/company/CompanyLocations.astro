@@ -1,0 +1,41 @@
+---
+import LocationChip from "../ui/LocationChip.astro";
+import LocationOverflowTooltip from "../ui/LocationOverflowTooltip.astro";
+import { getActualLocations } from "../../utils/company";
+
+export interface Props {
+  locations: readonly string[];
+  maxVisibleLocations?: number;
+  ariaLabel?: string;
+  class?: string;
+}
+
+const {
+  locations,
+  maxVisibleLocations = 1,
+  ariaLabel = "Company locations",
+  class: className,
+} = Astro.props as Props;
+
+const actualLocations = getActualLocations(locations);
+---
+
+<div class={className} aria-label={ariaLabel}>
+  {
+    actualLocations.length > 0 ? (
+      <>
+        {actualLocations.slice(0, maxVisibleLocations).map((location) => (
+          <LocationChip location={location} />
+        ))}
+        {actualLocations.length > maxVisibleLocations && (
+          <LocationOverflowTooltip
+            remainingLocations={actualLocations.slice(maxVisibleLocations)}
+            count={actualLocations.length - maxVisibleLocations}
+          />
+        )}
+      </>
+    ) : (
+      <LocationChip location="Not Available" />
+    )
+  }
+</div>

@@ -1,17 +1,15 @@
 ---
 import type { Company } from "@data/types";
 import EmploymentBadge from "../ui/EmploymentBadge.astro";
-import LocationChip from "../ui/LocationChip.astro";
-import LocationOverflowTooltip from "../ui/LocationOverflowTooltip.astro";
-import { createInterviewId, getActualLocations } from "../../utils/company";
+import CompanyLocations from "./CompanyLocations.astro";
+import CompanyInterviewPreview from "./CompanyInterviewPreview.astro";
+import { createInterviewId } from "../../utils/company";
 
 type Props = {
   company: Company;
 };
 
 const { company } = Astro.props as Props;
-
-const actualLocations = getActualLocations(company.locations);
 const interviewId = createInterviewId(company);
 ---
 
@@ -66,48 +64,17 @@ const interviewId = createInterviewId(company);
         </header>
 
         <!-- Locations -->
-        <div class="mt-1 flex flex-wrap gap-2" aria-label="Company locations">
-          {actualLocations.length > 0 ? (
-            <>
-              {actualLocations.slice(0, 1).map((location) => (
-                <LocationChip location={location} />
-              ))}
-              {actualLocations.length > 1 && (
-                <LocationOverflowTooltip
-                  remainingLocations={actualLocations.slice(1)}
-                  count={actualLocations.length - 1}
-                />
-              )}
-            </>
-          ) : (
-            <LocationChip location="Not Available" />
-          )}
-        </div>
+        <CompanyLocations
+          locations={company.locations}
+          class="mt-1 flex flex-wrap gap-2"
+        />
 
         <!-- Interview process -->
-        {company.interviewProcess && (
-          <div class="relative z-30 mt-3">
-            <p
-              id={interviewId}
-              data-readmore-text
-              data-readmore-clamp="line-clamp-3"
-              class="text-sm text-text-mutedLight dark:text-text-mutedDark group-hover:text-text-light dark:group-hover:text-text-dark group-focus-within:text-text-light dark:group-focus-within:text-text-dark transition-colors line-clamp-3"
-            >
-              {company.interviewProcess}
-            </p>
-            <div class="text-right">
-              <button
-                type="button"
-                data-readmore-toggle
-                class="mt-1 hidden text-xs font-medium text-accent hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/30 rounded"
-                aria-expanded="false"
-                aria-controls={interviewId}
-              >
-                Read more
-              </button>
-            </div>
-          </div>
-        )}
+        <CompanyInterviewPreview
+          interviewProcess={company.interviewProcess}
+          interviewId={interviewId}
+          variant="card"
+        />
       </div>
     </article>
   ) : (
@@ -125,47 +92,16 @@ const interviewId = createInterviewId(company);
         </div>
       </header>
 
-      <div class="mt-1 flex flex-wrap gap-2" aria-label="Company locations">
-        {actualLocations.length > 0 ? (
-          <>
-            {actualLocations.slice(0, 1).map((location) => (
-              <LocationChip location={location} />
-            ))}
-            {actualLocations.length > 1 && (
-              <LocationOverflowTooltip
-                remainingLocations={actualLocations.slice(1)}
-                count={actualLocations.length - 1}
-              />
-            )}
-          </>
-        ) : (
-          <LocationChip location="Not Available" />
-        )}
-      </div>
+      <CompanyLocations
+        locations={company.locations}
+        class="mt-1 flex flex-wrap gap-2"
+      />
 
-      {company.interviewProcess && (
-        <div class="relative z-30 mt-3">
-          <p
-            id={interviewId}
-            data-readmore-text
-            data-readmore-clamp="line-clamp-3"
-            class="text-sm text-text-mutedLight dark:text-text-mutedDark group-hover:text-text-light dark:group-hover:text-text-dark group-focus-within:text-text-light dark:group-focus-within:text-text-dark transition-colors line-clamp-3"
-          >
-            {company.interviewProcess}
-          </p>
-          <div class="text-right">
-            <button
-              type="button"
-              data-readmore-toggle
-              class="mt-1 hidden text-xs font-medium text-accent hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/30 rounded"
-              aria-expanded="false"
-              aria-controls={interviewId}
-            >
-              Read more
-            </button>
-          </div>
-        </div>
-      )}
+      <CompanyInterviewPreview
+        interviewProcess={company.interviewProcess}
+        interviewId={interviewId}
+        variant="card"
+      />
     </article>
   )
 }

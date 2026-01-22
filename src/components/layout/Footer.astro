@@ -1,4 +1,6 @@
 ---
+import Button from "../ui/Button.astro";
+import NavLinks from "./NavLinks.astro";
 const year = new Date().getFullYear();
 const portfolioUrl = "https://www.aftongauntlett.com/";
 ---
@@ -9,33 +11,7 @@ const portfolioUrl = "https://www.aftongauntlett.com/";
       class="mx-2 border-t border-border-light/80 dark:border-border-dark/80"
     >
       <div class="py-6 grid gap-4 md:grid-cols-3 md:items-center">
-        <nav aria-label="Footer navigation" class="md:justify-self-start">
-          <ul
-            class="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-text-mutedLight dark:text-text-mutedDark"
-          >
-            <li>
-              <a
-                href="/"
-                class="underline-offset-4 hover:text-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-                >Browse Companies</a
-              >
-            </li>
-            <li>
-              <a
-                href="/hiring-tips"
-                class="underline-offset-4 hover:text-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-                >Hiring Tips</a
-              >
-            </li>
-            <li>
-              <a
-                href="/about"
-                class="underline-offset-4 hover:text-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-                >About</a
-              >
-            </li>
-          </ul>
-        </nav>
+        <NavLinks variant="footer" />
 
         <p
           class="text-xs text-text-mutedLight dark:text-text-mutedDark md:justify-self-center md:text-center"
@@ -51,14 +27,18 @@ const portfolioUrl = "https://www.aftongauntlett.com/";
         </p>
 
         <div class="flex items-center gap-4 md:justify-self-end">
-          <button
+          <Button
             type="button"
+            variant="secondary"
+            style="soft"
+            shape="pill"
+            size="sm"
             data-scroll-top
-            class="cursor-pointer inline-flex items-center justify-center rounded-full border border-border-light dark:border-border-dark bg-surface-light/70 dark:bg-surface-dark/60 px-4 py-2 text-xs text-text-light dark:text-text-dark shadow-sm hover:bg-surface-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
             aria-label="Scroll to top"
+            class="cursor-pointer px-4 py-2 text-xs"
           >
             ↑ Top
-          </button>
+          </Button>
         </div>
       </div>
     </div>

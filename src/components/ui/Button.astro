@@ -1,26 +1,37 @@
 ---
 type Variant = "primary" | "secondary" | "muted";
-type Style = "solid" | "outline";
+type Style = "solid" | "outline" | "ghost" | "soft";
+type Shape = "default" | "pill";
+type Size = "sm" | "md";
 
 interface Props {
   variant?: Variant;
   style?: Style;
+  shape?: Shape;
+  size?: Size;
+  iconOnly?: boolean;
   href?: string;
   target?: string;
   rel?: string;
   type?: "button" | "submit" | "reset";
   disabled?: boolean;
+  class?: string;
 }
 
 const {
   variant = "primary",
   style = "solid",
+  shape = "default",
+  size = "md",
+  iconOnly = false,
   href,
   target,
   rel,
   type = "button",
   disabled = false,
-} = Astro.props;
+  class: className,
+  ...rest
+} = Astro.props as Props & Record<string, any>;
 
 const resolvedRel =
   href && target === "_blank" ? (rel ?? "noopener noreferrer") : rel;
@@ -29,7 +40,15 @@ const resolvedRel =
  * Base button styles
  */
 const base =
-  "inline-flex items-center justify-center rounded-md px-3 py-1.5 text-sm font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-accent disabled:pointer-events-none disabled:opacity-50";
+  "inline-flex items-center justify-center text-sm font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-accent disabled:pointer-events-none disabled:opacity-50";
+
+const shapeClass = shape === "pill" ? "rounded-full" : "rounded-md";
+
+const sizeClass = iconOnly
+  ? "p-2"
+  : size === "sm"
+    ? "px-3 py-2"
+    : "px-3 py-1.5";
 
 /**
  * Variant + style combinations
@@ -38,22 +57,31 @@ const variants: Record<Variant, Record<Style, string>> = {
   primary: {
     solid: "bg-accent text-white dark:text-bg-dark hover:bg-accent/90",
     outline: "border border-accent text-accent hover:bg-accent/10",
+    ghost: "text-accent hover:bg-accent/10",
+    soft: "border border-accent/30 text-accent bg-accent/10 hover:bg-accent/15",
   },
   secondary: {
     solid:
       "bg-surface-light dark:bg-surface-dark text-text-light dark:text-text-dark hover:bg-surface-light/90 dark:hover:bg-surface-dark/90",
     outline:
       "border border-border-light dark:border-border-dark text-text-light dark:text-text-dark hover:bg-surface-light/10 dark:hover:bg-surface-dark/10 hover:text-accent dark:hover:text-accent",
+    ghost:
+      "text-text-light dark:text-text-dark hover:bg-surface-hover hover:text-accent dark:hover:text-accent",
+    soft: "border border-border-light dark:border-border-dark bg-surface-light/70 dark:bg-surface-dark/60 text-text-light dark:text-text-dark shadow-sm hover:bg-surface-hover",
   },
   muted: {
     solid:
       "bg-bg-light dark:bg-bg-dark text-text-mutedLight dark:text-text-mutedDark hover:bg-bg-light/90 dark:hover:bg-bg-dark/90",
     outline:
       "border border-border-light dark:border-border-dark text-text-mutedLight dark:text-text-mutedDark hover:bg-bg-light/10 dark:hover:bg-bg-dark/10",
+    ghost:
+      "text-text-mutedLight dark:text-text-mutedDark hover:bg-bg-light/10 dark:hover:bg-bg-dark/10",
+    soft: "border border-border-light dark:border-border-dark bg-bg-light/70 dark:bg-bg-dark/60 text-text-mutedLight dark:text-text-mutedDark shadow-sm hover:bg-surface-hover",
   },
 };
 
-const classes = `${base} ${variants[variant][style]}`;
+const classes =
+  `${base} ${shapeClass} ${sizeClass} ${variants[variant][style]} ${className ?? ""}`.trim();
 ---
 
 {
@@ -63,12 +91,14 @@ const classes = `${base} ${variants[variant][style]}`;
       target={target}
       rel={resolvedRel}
       class={classes}
+      tabindex={disabled ? -1 : undefined}
       aria-disabled={disabled ? "true" : undefined}
+      {...rest}
     >
       <slot />
     </a>
   ) : (
-    <button type={type} class={classes} disabled={disabled}>
+    <button type={type} class={classes} disabled={disabled} {...rest}>
       <slot />
     </button>
   )

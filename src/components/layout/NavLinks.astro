@@ -1,0 +1,102 @@
+---
+import type { NavItem } from "../../config/nav";
+import { NAV_LINKS } from "../../config/nav";
+
+import Search from "lucide-astro/Search";
+import Lightbulb from "lucide-astro/Lightbulb";
+import HelpCircle from "lucide-astro/HelpCircle";
+
+export interface Props {
+  variant: "sidebar" | "mobile" | "footer";
+  items?: readonly NavItem[];
+  pathname?: string;
+  firstLinkProps?: Record<string, any>;
+}
+
+const {
+  variant,
+  items = NAV_LINKS,
+  pathname = Astro.url.pathname,
+  firstLinkProps = {},
+} = Astro.props as Props;
+
+const isActive = (path: string) => pathname === path;
+
+const iconForHref = (href: string) => {
+  if (href === "/") return Search;
+  if (href === "/hiring-tips") return Lightbulb;
+  if (href === "/about") return HelpCircle;
+  return null;
+};
+
+const linkClass = (href: string) => {
+  if (variant === "footer") {
+    return "underline-offset-4 hover:text-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-accent";
+  }
+
+  const base =
+    "group flex items-center rounded px-3 py-2 text-sm font-medium border-l-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent";
+
+  const active =
+    "border-accent text-accent bg-surface-light dark:bg-surface-dark";
+
+  const inactive =
+    "border-transparent text-text-mutedLight dark:text-text-mutedDark hover:text-text-light dark:hover:text-text-dark hover:bg-surface-light dark:hover:bg-surface-dark";
+
+  return `${base} ${isActive(href) ? active : inactive}`;
+};
+---
+
+{
+  variant === "sidebar" ? (
+    <nav aria-label="Primary navigation">
+      <ul class="space-y-1">
+        {items.map((item, idx) => {
+          const Icon = iconForHref(item.href);
+          return (
+            <li>
+              <a
+                href={item.href}
+                aria-current={isActive(item.href) ? "page" : undefined}
+                class={linkClass(item.href)}
+                {...(idx === 0 ? firstLinkProps : {})}
+              >
+                {Icon && <Icon class="h-4 w-4 mr-2" aria-hidden="true" />}
+                <span class="sidebar-text">{item.label}</span>
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+    </nav>
+  ) : variant === "mobile" ? (
+    <nav class="mt-4" aria-label="Mobile navigation">
+      <ul class="space-y-1">
+        {items.map((item, idx) => (
+          <li>
+            <a
+              href={item.href}
+              aria-current={isActive(item.href) ? "page" : undefined}
+              class={linkClass(item.href)}
+              {...(idx === 0 ? firstLinkProps : {})}
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  ) : (
+    <nav aria-label="Footer navigation" class="md:justify-self-start">
+      <ul class="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-text-mutedLight dark:text-text-mutedDark">
+        {items.map((item) => (
+          <li>
+            <a href={item.href} class={linkClass(item.href)}>
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  )
+}

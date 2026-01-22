@@ -1,9 +1,6 @@
 ---
-const { pathname } = Astro.url;
-const isActive = (path: string) => pathname === path;
-import Search from "lucide-astro/Search";
-import Lightbulb from "lucide-astro/Lightbulb";
-import HelpCircle from "lucide-astro/HelpCircle";
+import NavLinks from "./NavLinks.astro";
+import ThemeToggle from "./ThemeToggle.astro";
 import Sun from "lucide-astro/Sun";
 import Moon from "lucide-astro/Moon";
 import ChevronLeft from "lucide-astro/ChevronLeft";
@@ -43,83 +40,22 @@ import ChevronLeft from "lucide-astro/ChevronLeft";
       </div>
 
       <!-- Primary navigation -->
-      <nav aria-label="Primary navigation">
-        <ul class="space-y-1">
-          <li>
-            <a
-              href="/"
-              aria-current={isActive("/") ? "page" : undefined}
-              class={`group flex items-center rounded px-3 py-2 text-sm font-medium
-                border-l-2
-                ${
-                  isActive("/")
-                    ? "border-accent text-accent bg-surface-light dark:bg-surface-dark"
-                    : "border-transparent text-text-mutedLight dark:text-text-mutedDark hover:text-text-light dark:hover:text-text-dark hover:bg-surface-light dark:hover:bg-surface-dark"
-                }
-                focus:outline-none focus-visible:ring-2 focus-visible:ring-accent`}
-            >
-              <Search class="h-4 w-4 mr-2" aria-hidden="true" />
-              <span class="sidebar-text">Browse Companies</span>
-            </a>
-          </li>
-
-          <li>
-            <a
-              href="/hiring-tips"
-              aria-current={isActive("/hiring-tips") ? "page" : undefined}
-              class={`group flex items-center rounded px-3 py-2 text-sm font-medium
-                border-l-2
-                ${
-                  isActive("/hiring-tips")
-                    ? "border-accent text-accent bg-surface-light dark:bg-surface-dark"
-                    : "border-transparent text-text-mutedLight dark:text-text-mutedDark hover:text-text-light dark:hover:text-text-dark hover:bg-surface-light dark:hover:bg-surface-dark"
-                }
-                focus:outline-none focus-visible:ring-2 focus-visible:ring-accent`}
-            >
-              <Lightbulb class="h-4 w-4 mr-2" aria-hidden="true" />
-              <span class="sidebar-text">Hiring Tips</span>
-            </a>
-          </li>
-
-          <li>
-            <a
-              href="/about"
-              aria-current={isActive("/about") ? "page" : undefined}
-              class={`group flex items-center rounded px-3 py-2 text-sm font-medium
-                border-l-2
-                ${
-                  isActive("/about")
-                    ? "border-accent text-accent bg-surface-light dark:bg-surface-dark"
-                    : "border-transparent text-text-mutedLight dark:text-text-mutedDark hover:text-text-light dark:hover:text-text-dark hover:bg-surface-light dark:hover:bg-surface-dark"
-                }
-                focus:outline-none focus-visible:ring-2 focus-visible:ring-accent`}
-            >
-              <HelpCircle class="h-4 w-4 mr-2" aria-hidden="true" />
-              <span class="sidebar-text">About</span>
-            </a>
-          </li>
-        </ul>
-      </nav>
+      <NavLinks variant="sidebar" />
     </div>
 
     <!-- Bottom actions (pinned) -->
     <div class="pt-4" data-sidebar-footer>
       <!-- Theme toggle -->
-      <button
+      <ThemeToggle
         id="theme-toggle"
-        type="button"
-        aria-label="Toggle theme"
-        class="flex self-stretch items-center justify-start gap-2 rounded p-2 border border-border-light dark:border-border-dark text-text-light dark:text-text-dark cursor-pointer
-               hover:bg-surface-light/10 dark:hover:bg-surface-dark/10 hover:text-accent
-               focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+        class="flex self-stretch items-center justify-start gap-2 rounded p-2 border border-border-light dark:border-border-dark text-text-light dark:text-text-dark cursor-pointer hover:bg-surface-light/10 dark:hover:bg-surface-dark/10 hover:text-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
       >
-        <!-- Action icon: moon in light mode, sun in dark mode -->
         <Moon class="h-4 w-4 dark:hidden" aria-hidden="true" />
         <Sun class="h-4 w-4 hidden dark:block" aria-hidden="true" />
 
         <span class="text-sm sidebar-text dark:hidden">Dark Mode</span>
         <span class="text-sm sidebar-text hidden dark:inline">Light Mode</span>
-      </button>
+      </ThemeToggle>
 
       <div
         class="mx-2 border-t border-border-light/80 dark:border-border-dark/80 mt-4"
@@ -143,44 +79,6 @@ import ChevronLeft from "lucide-astro/ChevronLeft";
 </aside>
 
 <script is:inline>
-  const button = document.getElementById("theme-toggle");
-
-  if (button) {
-    const root = document.documentElement;
-
-    const updateThemeToggleLabel = () => {
-      const isDark = root.classList.contains("dark");
-      button.setAttribute(
-        "aria-label",
-        isDark ? "Switch to light mode" : "Switch to dark mode",
-      );
-      button.setAttribute("aria-pressed", isDark ? "true" : "false");
-    };
-
-    updateThemeToggleLabel();
-
-    button.addEventListener("click", () => {
-      // Layout initializes theme CSS variables and exposes helpers.
-      // Use them so the visual theme actually changes (not just the class).
-      let nextTheme;
-      if (typeof window.__toggleTheme === "function") {
-        nextTheme = window.__toggleTheme();
-      } else {
-        const isDark = root.classList.contains("dark");
-        nextTheme = isDark ? "light" : "dark";
-        root.classList.toggle("dark", nextTheme === "dark");
-        try {
-          localStorage.setItem("theme", nextTheme);
-        } catch {
-          // ignore
-        }
-      }
-
-      // aria-pressed reflects whether dark mode is active
-      updateThemeToggleLabel();
-    });
-  }
-
   // Sidebar collapse functionality
   const sidebar = document.getElementById("sidebar");
   const toggleButton = document.getElementById("sidebar-toggle");

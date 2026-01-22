@@ -1,6 +1,7 @@
 ---
-const { pathname } = Astro.url;
-const isActive = (path: string) => pathname === path;
+import Button from "../ui/Button.astro";
+import NavLinks from "./NavLinks.astro";
+import ThemeToggle from "./ThemeToggle.astro";
 ---
 
 <header
@@ -26,13 +27,16 @@ const isActive = (path: string) => pathname === path;
         </div>
       </a>
 
-      <button
+      <Button
         type="button"
+        variant="secondary"
+        style="soft"
+        size="sm"
         data-mobile-nav-toggle
         aria-label="Open navigation menu"
         aria-expanded="false"
         aria-controls="mobile-nav-panel"
-        class="inline-flex items-center justify-center rounded-md border border-border-light dark:border-border-dark bg-surface-light/70 dark:bg-surface-dark/60 px-3 py-2 text-sm text-text-light dark:text-text-dark shadow-sm hover:bg-surface-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+        class="shadow-sm"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -50,7 +54,7 @@ const isActive = (path: string) => pathname === path;
           <path d="M4 12h16"></path>
           <path d="M4 18h16"></path>
         </svg>
-      </button>
+      </Button>
     </div>
   </div>
 </header>
@@ -78,11 +82,14 @@ const isActive = (path: string) => pathname === path;
     <div class="p-4">
       <div class="flex items-center justify-between">
         <div class="text-sm font-semibold">Menu</div>
-        <button
+        <Button
           type="button"
+          variant="secondary"
+          style="soft"
+          size="sm"
           data-mobile-nav-close
           aria-label="Close navigation menu"
-          class="inline-flex items-center justify-center rounded-md border border-border-light dark:border-border-dark bg-surface-light/70 dark:bg-surface-dark/60 px-3 py-2 text-sm text-text-light dark:text-text-dark shadow-sm hover:bg-surface-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+          class="shadow-sm"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -98,7 +105,7 @@ const isActive = (path: string) => pathname === path;
             <path d="M18 6 6 18"></path>
             <path d="M6 6l12 12"></path>
           </svg>
-        </button>
+        </Button>
       </div>
 
       <div
@@ -106,69 +113,18 @@ const isActive = (path: string) => pathname === path;
       >
       </div>
 
-      <nav class="mt-4" aria-label="Mobile navigation">
-        <ul class="space-y-1">
-          <li>
-            <a
-              href="/"
-              aria-current={isActive("/") ? "page" : undefined}
-              data-mobile-nav-first-focus
-              class={`group flex items-center rounded px-3 py-2 text-sm font-medium
-                border-l-2
-                ${
-                  isActive("/")
-                    ? "border-accent text-accent bg-surface-light dark:bg-surface-dark"
-                    : "border-transparent text-text-mutedLight dark:text-text-mutedDark hover:text-text-light dark:hover:text-text-dark hover:bg-surface-light dark:hover:bg-surface-dark"
-                }
-                focus:outline-none focus-visible:ring-2 focus-visible:ring-accent`}
-            >
-              Browse Companies
-            </a>
-          </li>
-          <li>
-            <a
-              href="/hiring-tips"
-              aria-current={isActive("/hiring-tips") ? "page" : undefined}
-              class={`group flex items-center rounded px-3 py-2 text-sm font-medium
-                border-l-2
-                ${
-                  isActive("/hiring-tips")
-                    ? "border-accent text-accent bg-surface-light dark:bg-surface-dark"
-                    : "border-transparent text-text-mutedLight dark:text-text-mutedDark hover:text-text-light dark:hover:text-text-dark hover:bg-surface-light dark:hover:bg-surface-dark"
-                }
-                focus:outline-none focus-visible:ring-2 focus-visible:ring-accent`}
-            >
-              Hiring Tips
-            </a>
-          </li>
-          <li>
-            <a
-              href="/about"
-              aria-current={isActive("/about") ? "page" : undefined}
-              class={`group flex items-center rounded px-3 py-2 text-sm font-medium
-                border-l-2
-                ${
-                  isActive("/about")
-                    ? "border-accent text-accent bg-surface-light dark:bg-surface-dark"
-                    : "border-transparent text-text-mutedLight dark:text-text-mutedDark hover:text-text-light dark:hover:text-text-dark hover:bg-surface-light dark:hover:bg-surface-dark"
-                }
-                focus:outline-none focus-visible:ring-2 focus-visible:ring-accent`}
-            >
-              About
-            </a>
-          </li>
-        </ul>
-      </nav>
+      <NavLinks
+        variant="mobile"
+        firstLinkProps={{ "data-mobile-nav-first-focus": true }}
+      />
 
       <div
         class="mt-4 border-t border-border-light/80 dark:border-border-dark/80"
       >
       </div>
 
-      <button
-        type="button"
+      <ThemeToggle
         data-mobile-theme-toggle
-        aria-label="Toggle theme"
         class="mt-4 flex self-stretch items-center justify-start gap-2 rounded-md border border-border-light dark:border-border-dark bg-surface-light/70 dark:bg-surface-dark/60 px-4 py-2 text-sm text-text-light dark:text-text-dark shadow-sm hover:bg-surface-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
       >
         <!-- Action icon: moon in light mode, sun in dark mode -->
@@ -210,7 +166,7 @@ const isActive = (path: string) => pathname === path;
 
         <span class="dark:hidden">Dark Mode</span>
         <span class="hidden dark:inline">Light Mode</span>
-      </button>
+      </ThemeToggle>
     </div>
   </div>
 </div>
@@ -224,18 +180,6 @@ const isActive = (path: string) => pathname === path;
     const overlay = document.querySelector("[data-mobile-nav-overlay]");
     const panel = document.querySelector("[data-mobile-nav-panel]");
     const firstFocus = document.querySelector("[data-mobile-nav-first-focus]");
-    const themeToggleButton = document.querySelector(
-      "[data-mobile-theme-toggle]",
-    );
-
-    const updateThemeToggleLabel = () => {
-      if (!themeToggleButton) return;
-      const isDark = document.documentElement.classList.contains("dark");
-      themeToggleButton.setAttribute(
-        "aria-label",
-        isDark ? "Switch to light mode" : "Switch to dark mode",
-      );
-    };
 
     let lastTrigger = null;
 
@@ -373,17 +317,6 @@ const isActive = (path: string) => pathname === path;
     if ("addEventListener" in mq) mq.addEventListener("change", onMq);
     else mq.addListener(onMq);
 
-    updateThemeToggleLabel();
-
-    themeToggleButton?.addEventListener("click", () => {
-      if (typeof window.__toggleTheme === "function") {
-        window.__toggleTheme();
-      } else {
-        const root = document.documentElement;
-        root.classList.toggle("dark");
-      }
-
-      updateThemeToggleLabel();
-    });
+    // Theme toggle behavior/aria-label is handled by the shared ThemeToggle component.
   })();
 </script>

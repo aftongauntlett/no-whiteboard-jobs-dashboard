@@ -1,0 +1,71 @@
+---
+export interface Props {
+  id?: string;
+  class?: string;
+}
+
+const {
+  id,
+  class: className,
+  ...rest
+} = Astro.props as Props & Record<string, any>;
+---
+
+<button
+  id={id}
+  type="button"
+  class={className}
+  aria-label="Toggle theme"
+  data-theme-toggle
+  {...rest}
+>
+  <slot />
+</button>
+
+<script is:inline>
+  (() => {
+    // This component can be rendered multiple times (sidebar + mobile panel).
+    // Guard so we only register one click handler per page.
+    if (window.__themeToggleInitialized) return;
+    window.__themeToggleInitialized = true;
+
+    const root = document.documentElement;
+
+    const updateAllLabels = () => {
+      const isDark = root.classList.contains("dark");
+      const label = isDark ? "Switch to light mode" : "Switch to dark mode";
+      const pressed = isDark ? "true" : "false";
+
+      for (const el of document.querySelectorAll("[data-theme-toggle]")) {
+        if (!(el instanceof HTMLButtonElement)) continue;
+        el.setAttribute("aria-label", label);
+        el.setAttribute("aria-pressed", pressed);
+      }
+    };
+
+    updateAllLabels();
+
+    document.addEventListener("click", (e) => {
+      const target = e.target;
+      if (!(target instanceof Element)) return;
+
+      const btn = target.closest("[data-theme-toggle]");
+      if (!(btn instanceof HTMLButtonElement)) return;
+
+      if (typeof window.__toggleTheme === "function") {
+        window.__toggleTheme();
+      } else {
+        const isDark = root.classList.contains("dark");
+        const nextTheme = isDark ? "light" : "dark";
+        root.classList.toggle("dark", nextTheme === "dark");
+        try {
+          localStorage.setItem("theme", nextTheme);
+        } catch {
+          // ignore
+        }
+      }
+
+      updateAllLabels();
+    });
+  })();
+</script>

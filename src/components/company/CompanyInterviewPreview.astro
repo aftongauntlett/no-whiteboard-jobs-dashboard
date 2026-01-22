@@ -1,0 +1,46 @@
+---
+export interface Props {
+  interviewProcess?: string | null;
+  interviewId: string;
+  variant: "card" | "list";
+}
+
+const { interviewProcess, interviewId, variant } = Astro.props as Props;
+
+const textClass =
+  variant === "card"
+    ? "text-sm text-text-mutedLight dark:text-text-mutedDark group-hover:text-text-light dark:group-hover:text-text-dark group-focus-within:text-text-light dark:group-focus-within:text-text-dark transition-colors line-clamp-3"
+    : "text-xs sm:text-sm text-text-mutedLight dark:text-text-mutedDark group-hover:text-text-light dark:group-hover:text-text-dark group-focus-within:text-text-light dark:group-focus-within:text-text-dark line-clamp-3";
+---
+
+{
+  interviewProcess ? (
+    <div class={variant === "card" ? "relative z-30 mt-3" : "relative z-30"}>
+      <p
+        id={interviewId}
+        data-readmore-text
+        data-readmore-clamp="line-clamp-3"
+        class={textClass}
+      >
+        {interviewProcess}
+      </p>
+      <div class="text-right">
+        <button
+          type="button"
+          data-readmore-toggle
+          class="mt-1 hidden text-xs font-medium text-accent hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/30 rounded"
+          aria-expanded="false"
+          aria-controls={interviewId}
+        >
+          Read more
+        </button>
+      </div>
+    </div>
+  ) : variant === "list" ? (
+    <div class="relative z-30">
+      <p class="text-xs text-text-mutedLight dark:text-text-mutedDark group-hover:text-text-light dark:group-hover:text-text-dark group-focus-within:text-text-light dark:group-focus-within:text-text-dark">
+        No interview notes provided.
+      </p>
+    </div>
+  ) : null
+}
