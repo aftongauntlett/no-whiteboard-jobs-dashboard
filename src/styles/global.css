@@ -161,6 +161,14 @@ html.theme-transitioning .accordion-summary {
    Theme changes are driven by animating CSS variables on html. If the card/list
    elements also transition colors, they can appear to 'lag' behind the theme.
    Disable those per-element transitions only while the theme is transitioning. */
+html.theme-transitioning .transition-colors {
+  transition-property: none !important;
+}
+
+html.theme-transitioning .pagination-button {
+  transition-property: none !important;
+}
+
 html.theme-transitioning .company-card--interactive,
 html.theme-transitioning .company-list-item,
 html.theme-transitioning .company-card .transition-colors {

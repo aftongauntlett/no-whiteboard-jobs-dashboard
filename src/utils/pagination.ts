@@ -96,3 +96,29 @@ export function buildPageUrl(
 
   return `${path}?${preserveParams.toString()}`;
 }
+
+export type PageNumberToken = number | "ellipsis";
+
+export function generatePageNumbers(
+  current: number,
+  total: number,
+): PageNumberToken[] {
+  const pages: PageNumberToken[] = [];
+
+  if (total <= 7) {
+    for (let i = 1; i <= total; i++) pages.push(i);
+    return pages;
+  }
+
+  pages.push(1);
+
+  const start = Math.max(2, current - 1);
+  const end = Math.min(total - 1, current + 1);
+
+  if (start > 2) pages.push("ellipsis");
+  for (let i = start; i <= end; i++) pages.push(i);
+  if (end < total - 1) pages.push("ellipsis");
+
+  pages.push(total);
+  return pages;
+}
