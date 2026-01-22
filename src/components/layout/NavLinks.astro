@@ -2,6 +2,8 @@
 import type { NavItem } from "../../config/nav";
 import { NAV_LINKS } from "../../config/nav";
 
+import type { HTMLAttributes } from "astro/types";
+
 import Search from "lucide-astro/Search";
 import Lightbulb from "lucide-astro/Lightbulb";
 import HelpCircle from "lucide-astro/HelpCircle";
@@ -10,7 +12,7 @@ export interface Props {
   variant: "sidebar" | "mobile" | "footer";
   items?: readonly NavItem[];
   pathname?: string;
-  firstLinkProps?: Record<string, any>;
+  firstLinkProps?: Omit<HTMLAttributes<"a">, "href" | "class" | "aria-current">;
 }
 
 const {

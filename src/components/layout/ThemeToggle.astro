@@ -1,14 +1,15 @@
 ---
+import type { HTMLAttributes } from "astro/types";
+
 export interface Props {
   id?: string;
   class?: string;
 }
 
-const {
-  id,
-  class: className,
-  ...rest
-} = Astro.props as Props & Record<string, any>;
+type ButtonProps = Props &
+  Omit<HTMLAttributes<"button">, "id" | "class" | "type">;
+
+const { id, class: className, ...rest } = Astro.props as ButtonProps;
 ---
 
 <button

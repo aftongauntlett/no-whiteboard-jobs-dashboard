@@ -365,7 +365,7 @@ html.theme-transitioning .accordion-icon {
     border-radius: 0.75rem;
     border: 1px solid var(--border);
     background: var(--surface);
-    padding: 1.25rem;
+    padding: 1.125rem;
   }
 
   .company-card--interactive {

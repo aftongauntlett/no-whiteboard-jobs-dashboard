@@ -12,12 +12,12 @@ const { paginatedItems } = Astro.props as Props;
 
 <div
   data-companies-view-panel="card"
-  class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3"
+  class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3"
 >
   {paginatedItems.map((company) => <CompanyCard company={company} />)}
 </div>
 
-<div data-companies-view-panel="list" class="hidden">
+<div data-companies-view-panel="list" class="hidden mt-4">
   <ul
     class="rounded-xl border border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark divide-y divide-border-light dark:divide-border-dark md:grid md:gap-x-4 md:items-start md:grid-cols-[fit-content(18rem)_minmax(0,12rem)_minmax(0,1fr)_2.5rem]"
     aria-label="Companies"

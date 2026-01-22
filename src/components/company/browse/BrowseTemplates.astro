@@ -1,22 +1,46 @@
+---
+import {
+  COMPANY_CARD_EXTERNAL_ICON_CLASS,
+  COMPANY_CARD_HEADER_CLASS,
+  COMPANY_CARD_INTERACTIVE_CLASS,
+  COMPANY_CARD_LINK_CLASS,
+  COMPANY_CARD_NAME_HOVER_CLASS,
+  COMPANY_CARD_STATIC_CLASS,
+  COMPANY_CARD_TITLE_CLASS,
+  COMPANY_CARD_TITLE_INLINE_CLASS,
+  COMPANY_INTERVIEW_TEXT_CLASS_CARD,
+  COMPANY_INTERVIEW_TEXT_CLASS_LIST,
+  COMPANY_INTERVIEW_TOGGLE_CLASS,
+  COMPANY_LIST_ACTION_LINK_CLASS,
+  COMPANY_LIST_ACTION_WRAPPER_CLASS,
+  COMPANY_LIST_COL_B_CLASS,
+  COMPANY_LIST_COL_C_CLASS,
+  COMPANY_LIST_GRID_CLASS,
+  COMPANY_LIST_ITEM_CLASS,
+  COMPANY_LIST_LINK_CLASS,
+  COMPANY_LIST_NAME_CLASS,
+  COMPANY_LIST_TITLE_CLASS,
+} from "../companyStyles";
+---
+
 <template data-companies-template="card-interactive">
-  <article
-    class="company-card company-card--interactive group relative focus-within:ring-2 focus-within:ring-accent/30 focus-within:ring-offset-2 focus-within:ring-offset-bg-light dark:focus-within:ring-offset-bg-dark"
-  >
+  <article class={COMPANY_CARD_INTERACTIVE_CLASS}>
     <a
       data-company-link
       target="_blank"
       rel="noopener noreferrer"
-      class="absolute inset-0 z-20 rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/30"
-    ></a>
+      class={COMPANY_CARD_LINK_CLASS}></a>
 
     <div class="relative flex flex-col">
-      <header class="flex items-start justify-between gap-3">
+      <header class={COMPANY_CARD_HEADER_CLASS}>
         <div class="min-w-0 flex items-center gap-2">
-          <h3
-            class="text-base font-semibold leading-tight text-text-light dark:text-text-dark min-w-0"
-          >
-            <span class="inline-flex items-center gap-2">
-              <span data-company-name class="group-hover:text-accent"></span>
+          <h3 class={COMPANY_CARD_TITLE_CLASS}>
+            <span
+              class={"inline-flex items-center gap-2 " +
+                COMPANY_CARD_TITLE_INLINE_CLASS}
+            >
+              <span data-company-name class={COMPANY_CARD_NAME_HOVER_CLASS}
+              ></span>
               <span data-company-source class="hidden curation-dot"></span>
             </span>
           </h3>
@@ -25,7 +49,7 @@
 
         <span
           data-company-external-icon
-          class="invisible inline-flex h-8 w-8 items-center justify-center rounded-md text-accent opacity-0 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100 transition-opacity"
+          class={COMPANY_CARD_EXTERNAL_ICON_CLASS}
           aria-hidden="true"
         >
           <svg
@@ -58,7 +82,7 @@
           data-company-interview-text
           data-readmore-text
           data-readmore-clamp="line-clamp-3"
-          class="text-sm text-text-mutedLight dark:text-text-mutedDark group-hover:text-text-light dark:group-hover:text-text-dark group-focus-within:text-text-light dark:group-focus-within:text-text-dark transition-colors line-clamp-3 interview-markdown"
+          class={COMPANY_INTERVIEW_TEXT_CLASS_CARD + " interview-markdown"}
         >
         </div>
         <div class="text-right">
@@ -66,7 +90,7 @@
             type="button"
             data-company-interview-toggle
             data-readmore-toggle
-            class="mt-1 hidden text-xs font-medium text-accent hover:underline cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/30 rounded"
+            class={COMPANY_INTERVIEW_TOGGLE_CLASS}
             aria-expanded="false"
           >
             Read more
@@ -78,13 +102,14 @@
 </template>
 
 <template data-companies-template="card-static">
-  <article class="company-card group">
-    <header class="flex items-start justify-between gap-3">
+  <article class={COMPANY_CARD_STATIC_CLASS}>
+    <header class={COMPANY_CARD_HEADER_CLASS}>
       <div class="min-w-0 flex items-center gap-2">
-        <h3
-          class="text-base font-semibold leading-tight text-text-light dark:text-text-dark min-w-0"
-        >
-          <span class="inline-flex items-center gap-2">
+        <h3 class={COMPANY_CARD_TITLE_CLASS}>
+          <span
+            class={"inline-flex items-center gap-2 " +
+              COMPANY_CARD_TITLE_INLINE_CLASS}
+          >
             <span data-company-name></span>
             <span data-company-source class="hidden curation-dot"></span>
           </span>
@@ -105,7 +130,7 @@
         data-company-interview-text
         data-readmore-text
         data-readmore-clamp="line-clamp-3"
-        class="text-sm text-text-mutedLight dark:text-text-mutedDark group-hover:text-text-light dark:group-hover:text-text-dark group-focus-within:text-text-light dark:group-focus-within:text-text-dark transition-colors line-clamp-3 interview-markdown"
+        class={COMPANY_INTERVIEW_TEXT_CLASS_CARD + " interview-markdown"}
       >
       </div>
       <div class="text-right">
@@ -113,7 +138,7 @@
           type="button"
           data-company-interview-toggle
           data-readmore-toggle
-          class="mt-1 hidden text-xs font-medium text-accent hover:underline cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/30 rounded"
+          class={COMPANY_INTERVIEW_TOGGLE_CLASS}
           aria-expanded="false"
         >
           Read more
@@ -124,34 +149,24 @@
 </template>
 
 <template data-companies-template="list-interactive">
-  <li
-    class="company-list-item group relative px-4 py-3 pr-12 sm:px-5 sm:py-4 sm:pr-14 md:pr-5 transition-colors md:col-span-4 md:grid md:grid-cols-subgrid md:gap-x-4 md:items-stretch"
-  >
+  <li class={COMPANY_LIST_ITEM_CLASS}>
     <a
       data-company-link
       target="_blank"
       rel="noopener noreferrer"
-      class="absolute inset-0 z-20 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/30 focus-visible:ring-offset-2 focus-visible:ring-offset-bg-light dark:focus-visible:ring-offset-bg-dark"
-    ></a>
+      class={COMPANY_LIST_LINK_CLASS}></a>
 
-    <div class="grid grid-cols-1 gap-3 md:contents">
+    <div class={COMPANY_LIST_GRID_CLASS}>
       <div class="min-w-0">
-        <h3
-          class="min-w-0 text-sm font-semibold leading-snug text-text-light dark:text-text-dark"
-        >
+        <h3 class={COMPANY_LIST_TITLE_CLASS}>
           <span class="flex items-center gap-2 min-w-0">
-            <span
-              data-company-name
-              class="block whitespace-nowrap truncate group-hover:text-accent group-focus-within:text-accent"
-            ></span>
+            <span data-company-name class={COMPANY_LIST_NAME_CLASS}></span>
             <span data-company-source class="hidden curation-dot"></span>
           </span>
         </h3>
       </div>
 
-      <div
-        class="min-w-0 md:border-l md:border-border-light/80 dark:md:border-border-dark/80 md:pl-4"
-      >
+      <div class={COMPANY_LIST_COL_B_CLASS}>
         <div class="flex items-start">
           <span data-company-employment class="ui-badge"></span>
         </div>
@@ -163,15 +178,13 @@
         </div>
       </div>
 
-      <div
-        class="min-w-0 md:border-l md:border-border-light/80 dark:md:border-border-dark/80 md:pl-4 md:max-w-prose md:justify-self-start"
-      >
+      <div class={COMPANY_LIST_COL_C_CLASS}>
         <div data-company-interview class="relative z-30">
           <div
             data-company-interview-text
             data-readmore-text
             data-readmore-clamp="line-clamp-3"
-            class="text-xs sm:text-sm text-text-mutedLight dark:text-text-mutedDark group-hover:text-text-light dark:group-hover:text-text-dark group-focus-within:text-text-light dark:group-focus-within:text-text-dark line-clamp-3 interview-markdown"
+            class={COMPANY_INTERVIEW_TEXT_CLASS_LIST + " interview-markdown"}
           >
           </div>
           <div class="text-right">
@@ -179,7 +192,7 @@
               type="button"
               data-company-interview-toggle
               data-readmore-toggle
-              class="mt-1 hidden text-xs font-medium text-accent hover:underline cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/30 rounded"
+              class={COMPANY_INTERVIEW_TOGGLE_CLASS}
               aria-expanded="false"
             >
               Read more
@@ -196,14 +209,12 @@
         </div>
       </div>
 
-      <div
-        class="z-30 absolute right-4 top-3 sm:right-5 sm:top-4 md:static md:justify-self-end md:self-start"
-      >
+      <div class={COMPANY_LIST_ACTION_WRAPPER_CLASS}>
         <a
           data-company-action-link
           target="_blank"
           rel="noopener noreferrer"
-          class="invisible inline-flex h-8 w-8 items-center justify-center rounded-md text-accent opacity-0 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100 transition-opacity focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/30"
+          class={COMPANY_LIST_ACTION_LINK_CLASS}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -228,27 +239,18 @@
 </template>
 
 <template data-companies-template="list-static">
-  <li
-    class="company-list-item group relative px-4 py-3 pr-12 sm:px-5 sm:py-4 sm:pr-14 md:pr-5 transition-colors md:col-span-4 md:grid md:grid-cols-subgrid md:gap-x-4 md:items-stretch"
-  >
-    <div class="grid grid-cols-1 gap-3 md:contents">
+  <li class={COMPANY_LIST_ITEM_CLASS}>
+    <div class={COMPANY_LIST_GRID_CLASS}>
       <div class="min-w-0">
-        <h3
-          class="min-w-0 text-sm font-semibold leading-snug text-text-light dark:text-text-dark"
-        >
+        <h3 class={COMPANY_LIST_TITLE_CLASS}>
           <span class="flex items-center gap-2 min-w-0">
-            <span
-              data-company-name
-              class="block whitespace-nowrap truncate group-hover:text-accent group-focus-within:text-accent"
-            ></span>
+            <span data-company-name class={COMPANY_LIST_NAME_CLASS}></span>
             <span data-company-source class="hidden curation-dot"></span>
           </span>
         </h3>
       </div>
 
-      <div
-        class="min-w-0 md:border-l md:border-border-light/80 dark:md:border-border-dark/80 md:pl-4"
-      >
+      <div class={COMPANY_LIST_COL_B_CLASS}>
         <div class="flex items-start">
           <span data-company-employment class="ui-badge"></span>
         </div>
@@ -260,15 +262,13 @@
         </div>
       </div>
 
-      <div
-        class="min-w-0 md:border-l md:border-border-light/80 dark:md:border-border-dark/80 md:pl-4 md:max-w-prose md:justify-self-start"
-      >
+      <div class={COMPANY_LIST_COL_C_CLASS}>
         <div data-company-interview class="relative z-30">
           <div
             data-company-interview-text
             data-readmore-text
             data-readmore-clamp="line-clamp-3"
-            class="text-xs sm:text-sm text-text-mutedLight dark:text-text-mutedDark group-hover:text-text-light dark:group-hover:text-text-dark group-focus-within:text-text-light dark:group-focus-within:text-text-dark line-clamp-3 interview-markdown"
+            class={COMPANY_INTERVIEW_TEXT_CLASS_LIST + " interview-markdown"}
           >
           </div>
           <div class="text-right">
@@ -276,7 +276,7 @@
               type="button"
               data-company-interview-toggle
               data-readmore-toggle
-              class="mt-1 hidden text-xs font-medium text-accent hover:underline cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/30 rounded"
+              class={COMPANY_INTERVIEW_TOGGLE_CLASS}
               aria-expanded="false"
             >
               Read more

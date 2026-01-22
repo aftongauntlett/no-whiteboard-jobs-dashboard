@@ -45,7 +45,7 @@ export default [
       ...tsPlugin.configs.recommended.rules,
       // Customize rules as needed
       "@typescript-eslint/no-unused-vars": "warn",
-      "@typescript-eslint/no-explicit-any": "off",
+      "@typescript-eslint/no-explicit-any": "error",
     },
   },
 

@@ -28,19 +28,19 @@ const canonicalUrl = Astro.url?.href;
     <!-- Pre-paint background + color-scheme to avoid white flash during navigation -->
     <style is:inline>
       html {
-        background-color: #f4f7f8;
+        background-color: var(--bg);
         color-scheme: light;
       }
 
       @media (prefers-color-scheme: dark) {
         html {
-          background-color: #0a0a0a;
+          background-color: var(--bg);
           color-scheme: dark;
         }
       }
 
       html.dark {
-        background-color: #0a0a0a;
+        background-color: var(--bg);
         color-scheme: dark;
       }
     </style>

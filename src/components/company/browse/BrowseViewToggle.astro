@@ -1,12 +1,15 @@
 ---
 import Button from "../../ui/Button.astro";
 
-type Attrs = Record<string, any>;
+import type { HTMLAttributes } from "astro/types";
+
+type DivAttrs = HTMLAttributes<"div">;
+type ButtonAttrs = HTMLAttributes<"button">;
 
 export interface Props {
-  wrapperProps?: Attrs;
-  cardButtonProps?: Attrs;
-  listButtonProps?: Attrs;
+  wrapperProps?: DivAttrs;
+  cardButtonProps?: ButtonAttrs;
+  listButtonProps?: ButtonAttrs;
 }
 
 const {
@@ -25,8 +28,8 @@ const {
   <Button
     type="button"
     variant="secondary"
-    style="ghost"
-    class="cursor-pointer rounded-md px-3 py-1.5 text-sm font-medium"
+    tone="ghost"
+    class={"cursor-pointer rounded-md px-3 py-1.5 text-sm font-medium"}
     {...cardButtonProps}
   >
     Cards
@@ -34,8 +37,8 @@ const {
   <Button
     type="button"
     variant="secondary"
-    style="ghost"
-    class="cursor-pointer rounded-md px-3 py-1.5 text-sm font-medium"
+    tone="ghost"
+    class={"cursor-pointer rounded-md px-3 py-1.5 text-sm font-medium"}
     {...listButtonProps}
   >
     List

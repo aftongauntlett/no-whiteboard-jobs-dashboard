@@ -2,10 +2,12 @@
 import Button from "../../ui/Button.astro";
 import Pagination from "../../ui/Pagination.astro";
 
+import type { HTMLAttributes } from "astro/types";
+
 export interface Props {
   currentPage: number;
   totalPages: number;
-  showMoreButtonProps?: Record<string, any>;
+  showMoreButtonProps?: HTMLAttributes<"button">;
 }
 
 const {
@@ -24,9 +26,9 @@ const {
   <Button
     type="button"
     variant="secondary"
-    style="soft"
+    tone="soft"
     shape="pill"
-    class="cursor-pointer inline-flex items-center justify-center px-6 py-2.5 text-sm"
+    class={"cursor-pointer inline-flex items-center justify-center px-6 py-2.5 text-sm"}
     data-companies-show-more
     {...showMoreButtonProps}
   >

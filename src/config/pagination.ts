@@ -11,7 +11,9 @@
  */
 export const COMPANIES_PER_PAGE = 24;
 
-export type CompaniesViewMode = "card" | "list";
+import type { ViewMode } from "../utils/viewMode";
+
+export type CompaniesViewMode = ViewMode;
 
 export const COMPANIES_PER_PAGE_OPTIONS: Record<CompaniesViewMode, number[]> = {
   card: [12, 24, 48, 96],
