@@ -22,7 +22,7 @@ const nextUrl =
 
 function generatePageNumbers(
   current: number,
-  total: number
+  total: number,
 ): Array<number | "ellipsis"> {
   const pages: Array<number | "ellipsis"> = [];
 
@@ -50,6 +50,7 @@ const pageNumbers = generatePageNumbers(currentPage, totalPages);
 {totalPages > 1 && (
   <nav
     aria-label="Pagination"
+    data-pagination-nav
     class="mt-8 rounded-lg border border-border-light dark:border-border-dark
            bg-surface-light dark:bg-surface-dark
            p-3 flex items-center justify-center gap-2"
@@ -98,7 +99,7 @@ const pageNumbers = generatePageNumbers(currentPage, totalPages);
           >
             {page}
           </a>
-        )
+        ),
       )}
     </div>
 
@@ -123,24 +124,41 @@ const pageNumbers = generatePageNumbers(currentPage, totalPages);
   </nav>
 )}
 
-<script>
-  // Keyboard pagination: ← / →
-  document.addEventListener("keydown", (e) => {
-    if (
-      e.target instanceof HTMLElement &&
-      ["INPUT", "TEXTAREA"].includes(e.target.tagName)
-    ) {
-      return;
-    }
+{totalPages > 1 && (
+  <script>
+    // Keyboard pagination: ← / →
+    (() => {
+      const nav = document.querySelector("[data-pagination-nav]");
+      if (!(nav instanceof HTMLElement)) return;
 
-    if (e.key === "ArrowLeft") {
-      const prev = document.querySelector("[data-pagination-prev]");
-      if (prev instanceof HTMLElement) prev.click();
-    }
+      const isVisible = (el: HTMLElement) => {
+        const style = window.getComputedStyle(el);
+        if (style.display === "none" || style.visibility === "hidden") return false;
+        return !!(el.offsetWidth || el.offsetHeight || el.getClientRects().length);
+      };
 
-    if (e.key === "ArrowRight") {
-      const next = document.querySelector("[data-pagination-next]");
-      if (next instanceof HTMLElement) next.click();
-    }
-  });
-</script>
+      document.addEventListener("keydown", (e) => {
+        if (
+          e.target instanceof HTMLElement &&
+          ["INPUT", "TEXTAREA"].includes(e.target.tagName)
+        ) {
+          return;
+        }
+
+        // Client-side pagination can hide the fallback pagination container.
+        // Only handle arrow keys when this pagination nav is actually visible.
+        if (!isVisible(nav)) return;
+
+        if (e.key === "ArrowLeft") {
+          const prev = nav.querySelector("[data-pagination-prev]");
+          if (prev instanceof HTMLElement) prev.click();
+        }
+
+        if (e.key === "ArrowRight") {
+          const next = nav.querySelector("[data-pagination-next]");
+          if (next instanceof HTMLElement) next.click();
+        }
+      });
+    })();
+  </script>
+)}

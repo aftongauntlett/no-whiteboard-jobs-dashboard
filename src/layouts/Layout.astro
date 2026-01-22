@@ -4,7 +4,12 @@ import MobileHeader from "../components/layout/MobileHeader.astro";
 import Sidebar from "../components/layout/Sidebar.astro";
 import "../styles/global.css";
 
-const { title = "No Whiteboard Jobs" } = Astro.props;
+const {
+  title = "No Whiteboard Jobs",
+  description = "Browse companies that hire without whiteboard-style interviews.",
+} = Astro.props;
+
+const canonicalUrl = Astro.url?.href;
 ---
 
 <!doctype html>
@@ -13,6 +18,12 @@ const { title = "No Whiteboard Jobs" } = Astro.props;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    {canonicalUrl && <meta property="og:url" content={canonicalUrl} />}
 
     <!-- Pre-paint background + color-scheme to avoid white flash during navigation -->
     <style is:inline>

@@ -1,9 +1,8 @@
-import type { Company } from "@data/types";
+import type { Company, EmploymentType } from "@data/types";
+import { isEmploymentType } from "@data/types";
 import companies from "../data/companies.json";
 
 type SortKey = "name-asc" | "name-desc" | "employment";
-
-type EmploymentType = Company["employmentType"];
 
 type ViewMode = "card" | "list";
 
@@ -15,6 +14,11 @@ const EMPLOYMENT_ORDER: Record<EmploymentType, number> = {
 
 const STORAGE_VIEW_KEY = "companies-view";
 const MD_QUERY = "(min-width: 768px)";
+
+type IndexedCompany = {
+  company: Company;
+  searchText: string;
+};
 
 function isMdUp(): boolean {
   if (typeof window === "undefined") return true;
@@ -512,7 +516,7 @@ function init() {
   const selectedEmployment = new Set<EmploymentType>();
   const typesParam = params.get("employment") ?? "";
   for (const t of typesParam.split(",").map((s) => s.trim())) {
-    if (t === "Remote" || t === "Hybrid" || t === "In-office") {
+    if (isEmploymentType(t)) {
       selectedEmployment.add(t);
     }
   }
@@ -609,6 +613,21 @@ function init() {
 
   if (searchInput) searchInput.value = query;
 
+  const allCompanies = companies as Company[];
+  const indexedCompanies: IndexedCompany[] = allCompanies.map((c) => ({
+    company: c,
+    searchText: normalizeText(
+      [
+        c.name,
+        c.employmentType,
+        ...(c.locations ?? []),
+        c.interviewProcess ?? "",
+      ].join(" "),
+    ),
+  }));
+
+  const resultsCache = new Map<string, Company[]>();
+
   function syncControls() {
     const view = getView();
     if (perPageGroupCard && perPageGroupList) {
@@ -642,6 +661,7 @@ function init() {
         10,
       );
       const active = value === perPage;
+      btn.setAttribute("aria-checked", active ? "true" : "false");
       btn.classList.toggle("bg-surface-light", active);
       btn.classList.toggle("dark:bg-surface-dark", active);
       btn.classList.toggle("text-text-light", active);
@@ -651,11 +671,9 @@ function init() {
     }
 
     for (const btn of employmentButtons) {
-      const value = btn.getAttribute(
-        "data-companies-employment-option",
-      ) as EmploymentType | null;
-      const active = !!value && selectedEmployment.has(value);
-      btn.setAttribute("aria-checked", active ? "true" : "false");
+      const value = btn.getAttribute("data-companies-employment-option");
+      const active = isEmploymentType(value) && selectedEmployment.has(value);
+      btn.setAttribute("aria-pressed", active ? "true" : "false");
       const check = qs<HTMLElement>(btn, "[data-companies-employment-check]");
       if (check) check.classList.toggle("hidden", !active);
       btn.classList.toggle("text-accent", active);
@@ -734,43 +752,50 @@ function init() {
     window.history.replaceState({}, "", next);
   }
 
-  function computeResults(all: Company[]) {
+  function computeResults(all: IndexedCompany[]): Company[] {
     const q = normalizeText(query);
+    const employmentKey =
+      selectedEmployment.size > 0
+        ? Array.from(selectedEmployment).sort().join(",")
+        : "";
+    const cacheKey = `${q}\u0001${sort}\u0001${employmentKey}`;
+
+    const cached = resultsCache.get(cacheKey);
+    if (cached) return cached;
+
+    // Keep the cache from growing without bound.
+    if (resultsCache.size > 50) resultsCache.clear();
 
     let result = all;
 
     if (selectedEmployment.size > 0) {
-      result = result.filter((c) => selectedEmployment.has(c.employmentType));
+      result = result.filter((c) =>
+        selectedEmployment.has(c.company.employmentType),
+      );
     }
 
     if (q) {
-      result = result.filter((c) => {
-        const haystack = normalizeText(
-          [
-            c.name,
-            c.employmentType,
-            ...(c.locations ?? []),
-            c.interviewProcess ?? "",
-          ].join(" "),
-        );
-        return haystack.includes(q);
-      });
+      result = result.filter((c) => c.searchText.includes(q));
     }
 
     const sorted = [...result];
 
     sorted.sort((a, b) => {
-      if (sort === "name-asc") return a.name.localeCompare(b.name);
-      if (sort === "name-desc") return b.name.localeCompare(a.name);
+      if (sort === "name-asc")
+        return a.company.name.localeCompare(b.company.name);
+      if (sort === "name-desc")
+        return b.company.name.localeCompare(a.company.name);
 
       // employment
-      const ea = EMPLOYMENT_ORDER[a.employmentType];
-      const eb = EMPLOYMENT_ORDER[b.employmentType];
+      const ea = EMPLOYMENT_ORDER[a.company.employmentType];
+      const eb = EMPLOYMENT_ORDER[b.company.employmentType];
       if (ea !== eb) return ea - eb;
-      return a.name.localeCompare(b.name);
+      return a.company.name.localeCompare(b.company.name);
     });
 
-    return sorted;
+    const output = sorted.map((c) => c.company);
+    resultsCache.set(cacheKey, output);
+    return output;
   }
 
   let lastTotalPages = 1;
@@ -796,9 +821,8 @@ function init() {
   function render(options?: { append?: boolean }) {
     const mdUp = isMdUp();
     const view = getView();
-    const all = companies as Company[];
 
-    const filtered = computeResults(all);
+    const filtered = computeResults(indexedCompanies);
     const total = filtered.length;
     const totalPages = Math.max(1, Math.ceil(total / perPage));
 
@@ -882,10 +906,7 @@ function init() {
 
   // Keep pagination mode in sync when resizing across the md breakpoint.
   // Without this, the UI can drift (e.g., mobile "Show more" state vs desktop numbered pagination).
-  type MediaQueryListLegacy = MediaQueryList & {
-    addListener?: (listener: (e: MediaQueryListEvent) => void) => void;
-  };
-  const mdMq = window.matchMedia(MD_QUERY) as MediaQueryListLegacy;
+  const mdMq = window.matchMedia(MD_QUERY);
   let lastMdUp = mdMq.matches;
   const onMdChange = (e: MediaQueryListEvent) => {
     const nowMdUp = e.matches;
@@ -901,17 +922,30 @@ function init() {
 
     render();
   };
-  if (typeof mdMq.addListener === "function") mdMq.addListener(onMdChange);
-  else mdMq.addEventListener("change", onMdChange);
+  mdMq.addEventListener("change", onMdChange);
 
   // Events
   if (searchInput) {
-    const handler = () => {
-      query = searchInput.value;
-      page = 1;
-      render();
+    const SEARCH_DEBOUNCE_MS = 175;
+    let debounceId: number | null = null;
+
+    const schedule = () => {
+      if (debounceId) window.clearTimeout(debounceId);
+      debounceId = window.setTimeout(() => {
+        debounceId = null;
+        query = searchInput.value;
+        page = 1;
+        render();
+      }, SEARCH_DEBOUNCE_MS);
     };
-    searchInput.addEventListener("input", handler);
+
+    searchInput.addEventListener("input", schedule);
+
+    // Clear any pending debounce when reset is triggered.
+    resetButton?.addEventListener("click", () => {
+      if (debounceId) window.clearTimeout(debounceId);
+      debounceId = null;
+    });
   }
 
   for (const btn of sortButtons) {
@@ -950,10 +984,9 @@ function init() {
 
   for (const btn of employmentButtons) {
     btn.addEventListener("click", () => {
-      const value = btn.getAttribute(
-        "data-companies-employment-option",
-      ) as EmploymentType | null;
-      if (!value) return;
+      const raw = btn.getAttribute("data-companies-employment-option");
+      if (!isEmploymentType(raw)) return;
+      const value = raw;
       if (selectedEmployment.has(value)) {
         selectedEmployment.delete(value);
       } else {

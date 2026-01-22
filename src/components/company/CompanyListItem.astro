@@ -3,6 +3,7 @@ import type { Company } from "@data/types";
 import EmploymentBadge from "../ui/EmploymentBadge.astro";
 import LocationChip from "../ui/LocationChip.astro";
 import LocationOverflowTooltip from "../ui/LocationOverflowTooltip.astro";
+import { createInterviewId, getActualLocations } from "../../utils/company";
 
 type Props = {
   company: Company;
@@ -10,24 +11,11 @@ type Props = {
 
 const { company } = Astro.props as Props;
 
-const employmentTypes = ["Remote", "Hybrid", "In-office"];
-const actualLocations = company.locations.filter(
-  (loc: any) => !employmentTypes.includes(loc),
-);
+const actualLocations = getActualLocations(company.locations);
 
 const maxVisibleLocations = 1;
 
-function hashString(input: string): number {
-  let h = 0;
-  for (let i = 0; i < input.length; i++) {
-    h = (h << 5) - h + input.charCodeAt(i);
-    h |= 0;
-  }
-  return h;
-}
-
-const interviewIdBase = `${company.name}::${company.careersUrl ?? ""}`;
-const interviewId = `interview-${Math.abs(hashString(interviewIdBase))}`;
+const interviewId = createInterviewId(company);
 ---
 
 <li
@@ -64,7 +52,9 @@ const interviewId = `interview-${Math.abs(hashString(interviewIdBase))}`;
             >
               {actualLocations.length > 0 ? (
                 <>
-                  {actualLocations.slice(0, maxVisibleLocations).map((location: any) => (
+                  {actualLocations
+                    .slice(0, maxVisibleLocations)
+                    .map((location) => (
                     <LocationChip location={location} />
                   ))}
                   {actualLocations.length > maxVisibleLocations && (
@@ -166,7 +156,9 @@ const interviewId = `interview-${Math.abs(hashString(interviewIdBase))}`;
           >
             {actualLocations.length > 0 ? (
               <>
-                {actualLocations.slice(0, maxVisibleLocations).map((location: any) => (
+                {actualLocations
+                  .slice(0, maxVisibleLocations)
+                  .map((location) => (
                   <LocationChip location={location} />
                 ))}
                 {actualLocations.length > maxVisibleLocations && (

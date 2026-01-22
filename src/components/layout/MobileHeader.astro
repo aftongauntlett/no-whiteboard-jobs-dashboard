@@ -57,7 +57,7 @@ const isActive = (path: string) => pathname === path;
 
 <div
   data-mobile-nav-overlay
-  class="hidden fixed inset-0 z-[100]"
+  class="hidden fixed inset-0 z-100"
   aria-hidden="true"
 >
   <div
@@ -239,6 +239,82 @@ const isActive = (path: string) => pathname === path;
 
     let lastTrigger = null;
 
+    const focusableSelector = [
+      "a[href]",
+      "button:not([disabled])",
+      "input:not([disabled])",
+      "select:not([disabled])",
+      "textarea:not([disabled])",
+      "[tabindex]:not([tabindex='-1'])",
+    ].join(", ");
+
+    const getFocusableInPanel = () => {
+      if (!panel) return [];
+      const nodes = Array.from(panel.querySelectorAll(focusableSelector));
+      return nodes.filter((el) => {
+        if (!(el instanceof HTMLElement)) return false;
+        const style = window.getComputedStyle(el);
+        if (style.display === "none" || style.visibility === "hidden")
+          return false;
+        return !!(
+          el.offsetWidth ||
+          el.offsetHeight ||
+          el.getClientRects().length
+        );
+      });
+    };
+
+    const onPanelKeydown = (e) => {
+      if (e.key !== "Tab") return;
+      if (!panel) return;
+
+      const focusables = getFocusableInPanel();
+      if (focusables.length === 0) {
+        e.preventDefault();
+        panel.focus?.();
+        return;
+      }
+
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      if (!first || !last) {
+        e.preventDefault();
+        panel.focus?.();
+        return;
+      }
+      const active = document.activeElement;
+
+      const isShift = e.shiftKey;
+      const activeInPanel =
+        active instanceof HTMLElement && panel.contains(active);
+
+      // If focus somehow escapes, pull it back in.
+      if (!activeInPanel) {
+        e.preventDefault();
+        (isShift ? last : first).focus();
+        return;
+      }
+
+      if (isShift) {
+        if (active === first || active === panel) {
+          e.preventDefault();
+          last.focus();
+        }
+        return;
+      }
+
+      if (active === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
+
+    const setFocusTrapActive = (active) => {
+      if (!panel) return;
+      if (active) panel.addEventListener("keydown", onPanelKeydown);
+      else panel.removeEventListener("keydown", onPanelKeydown);
+    };
+
     const setOpen = (open) => {
       if (!toggle || !overlay || !panel) return;
 
@@ -254,9 +330,11 @@ const isActive = (path: string) => pathname === path;
       if (open) {
         lastTrigger = toggle;
         document.body.style.overflow = "hidden";
+        setFocusTrapActive(true);
         (firstFocus || panel).focus?.();
       } else {
         document.body.style.overflow = "";
+        setFocusTrapActive(false);
         if (lastTrigger && lastTrigger.focus) lastTrigger.focus();
         lastTrigger = null;
       }

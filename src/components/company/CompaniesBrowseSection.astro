@@ -183,8 +183,7 @@ const {
                 <button
                   type="button"
                   data-companies-employment-option="Remote"
-                  role="menuitemcheckbox"
-                  aria-checked="false"
+                  aria-pressed="false"
                   class="cursor-pointer flex items-center justify-between rounded-md px-3 py-2 text-sm hover:bg-surface-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
                 >
                   <span>Remote</span>
@@ -197,8 +196,7 @@ const {
                 <button
                   type="button"
                   data-companies-employment-option="Hybrid"
-                  role="menuitemcheckbox"
-                  aria-checked="false"
+                  aria-pressed="false"
                   class="cursor-pointer flex items-center justify-between rounded-md px-3 py-2 text-sm hover:bg-surface-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
                 >
                   <span>Hybrid</span>
@@ -211,8 +209,7 @@ const {
                 <button
                   type="button"
                   data-companies-employment-option="In-office"
-                  role="menuitemcheckbox"
-                  aria-checked="false"
+                  aria-pressed="false"
                   class="cursor-pointer flex items-center justify-between rounded-md px-3 py-2 text-sm hover:bg-surface-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
                 >
                   <span>In-office</span>
@@ -284,11 +281,14 @@ const {
         <div
           data-companies-per-page-group="card"
           class="rounded-lg border border-border-light dark:border-border-dark bg-surface-muted p-1"
+          role="radiogroup"
           aria-label="Companies per page (grid)"
         >
           <button
             type="button"
             data-companies-per-page-option="12"
+            role="radio"
+            aria-checked="false"
             class="cursor-pointer rounded-md px-2.5 py-1 text-xs font-medium text-text-mutedLight dark:text-text-mutedDark hover:text-text-light dark:hover:text-text-dark focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
           >
             12
@@ -296,6 +296,8 @@ const {
           <button
             type="button"
             data-companies-per-page-option="24"
+            role="radio"
+            aria-checked="true"
             class="cursor-pointer rounded-md px-2.5 py-1 text-xs font-medium text-text-mutedLight dark:text-text-mutedDark hover:text-text-light dark:hover:text-text-dark focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
           >
             24
@@ -303,6 +305,8 @@ const {
           <button
             type="button"
             data-companies-per-page-option="48"
+            role="radio"
+            aria-checked="false"
             class="cursor-pointer rounded-md px-2.5 py-1 text-xs font-medium text-text-mutedLight dark:text-text-mutedDark hover:text-text-light dark:hover:text-text-dark focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
           >
             48
@@ -310,6 +314,8 @@ const {
           <button
             type="button"
             data-companies-per-page-option="96"
+            role="radio"
+            aria-checked="false"
             class="cursor-pointer rounded-md px-2.5 py-1 text-xs font-medium text-text-mutedLight dark:text-text-mutedDark hover:text-text-light dark:hover:text-text-dark focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
           >
             96
@@ -318,11 +324,14 @@ const {
         <div
           data-companies-per-page-group="list"
           class="hidden rounded-lg border border-border-light dark:border-border-dark bg-surface-muted p-1"
+          role="radiogroup"
           aria-label="Companies per page (list)"
         >
           <button
             type="button"
             data-companies-per-page-option="10"
+            role="radio"
+            aria-checked="false"
             class="cursor-pointer rounded-md px-2.5 py-1 text-xs font-medium text-text-mutedLight dark:text-text-mutedDark hover:text-text-light dark:hover:text-text-dark focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
           >
             10
@@ -330,6 +339,8 @@ const {
           <button
             type="button"
             data-companies-per-page-option="25"
+            role="radio"
+            aria-checked="true"
             class="cursor-pointer rounded-md px-2.5 py-1 text-xs font-medium text-text-mutedLight dark:text-text-mutedDark hover:text-text-light dark:hover:text-text-dark focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
           >
             25
@@ -337,6 +348,8 @@ const {
           <button
             type="button"
             data-companies-per-page-option="50"
+            role="radio"
+            aria-checked="false"
             class="cursor-pointer rounded-md px-2.5 py-1 text-xs font-medium text-text-mutedLight dark:text-text-mutedDark hover:text-text-light dark:hover:text-text-dark focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
           >
             50
@@ -344,6 +357,8 @@ const {
           <button
             type="button"
             data-companies-per-page-option="100"
+            role="radio"
+            aria-checked="false"
             class="cursor-pointer rounded-md px-2.5 py-1 text-xs font-medium text-text-mutedLight dark:text-text-mutedDark hover:text-text-light dark:hover:text-text-dark focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
           >
             100

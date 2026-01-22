@@ -83,8 +83,7 @@ function init() {
       }
       applyView(root, getStoredView());
     };
-    if ("addEventListener" in mq) mq.addEventListener("change", onMqChange);
-    else mq.addListener(onMqChange);
+    mq.addEventListener("change", onMqChange);
 
     const buttons = Array.from(
       root.querySelectorAll<HTMLElement>("[data-companies-view-button]"),

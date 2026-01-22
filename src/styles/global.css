@@ -157,6 +157,16 @@ html.theme-transitioning .accordion-summary {
   transition-property: none !important;
 }
 
+/* Company browse view:
+   Theme changes are driven by animating CSS variables on html. If the card/list
+   elements also transition colors, they can appear to 'lag' behind the theme.
+   Disable those per-element transitions only while the theme is transitioning. */
+html.theme-transitioning .company-card--interactive,
+html.theme-transitioning .company-list-item,
+html.theme-transitioning .company-card .transition-colors {
+  transition-property: none !important;
+}
+
 html.theme-transitioning .accordion-icon {
   transition-property: opacity, transform !important;
 }
@@ -382,24 +392,12 @@ html.theme-transitioning .accordion-icon {
 }
 
 /* Lightweight line-clamp utilities (used by Read more / Read less). */
-.line-clamp-2,
-.line-clamp-3,
-.line-clamp-4 {
+.line-clamp-3 {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   overflow: hidden;
-}
-
-.line-clamp-2 {
-  -webkit-line-clamp: 2;
-}
-
-.line-clamp-3 {
   -webkit-line-clamp: 3;
-}
-
-.line-clamp-4 {
-  -webkit-line-clamp: 4;
+  line-clamp: 3;
 }
 
 .line-clamp-none {

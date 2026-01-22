@@ -1,7 +1,7 @@
 ---
 import companies from "../../data/companies.json";
 
-import { COMPANIES_PER_PAGE } from "../../config/pagination";
+import { COMPANIES_PER_PAGE, DEFAULT_PAGE } from "../../config/pagination";
 import { paginateArray } from "../../utils/pagination";
 
 export async function getStaticPaths() {
@@ -22,6 +22,7 @@ import companiesViewToggleUrl from "../../scripts/companiesViewToggle.ts?url";
 import companiesBrowseClientUrl from "../../scripts/companiesBrowseClient.ts?url";
 
 const pageNum = parseInt(Astro.params.page);
+const resolvedPageNum = Number.isFinite(pageNum) ? pageNum : DEFAULT_PAGE;
 
 const pageSize = COMPANIES_PER_PAGE;
 const totalItems = (companies as Company[]).length;
@@ -29,13 +30,16 @@ const {
   paginatedItems,
   totalPages,
   currentPage: validatedPage,
-} = paginateArray(companies as Company[], pageNum, pageSize);
+} = paginateArray(companies as Company[], resolvedPageNum, pageSize);
 
 const startIndex = (validatedPage - 1) * pageSize + 1;
 const endIndex = startIndex + paginatedItems.length - 1;
 ---
 
-<Layout title={`No Whiteboard Jobs - Page ${validatedPage}`}>
+<Layout
+  title={`No Whiteboard Jobs - Page ${validatedPage}`}
+  description={`Browse companies that hire without whiteboard-style interviews (page ${validatedPage}).`}
+>
   <PageHeader
     title="No Whiteboard Jobs"
     subtitle="Companies that hire without whiteboard-style interviews."

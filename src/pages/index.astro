@@ -5,7 +5,7 @@ import CompaniesBrowseSection from "../components/company/CompaniesBrowseSection
 import type { Company } from "@data/types";
 import companies from "../data/companies.json";
 
-import { COMPANIES_PER_PAGE } from "../config/pagination";
+import { COMPANIES_PER_PAGE, DEFAULT_PAGE } from "../config/pagination";
 import { paginateArray } from "../utils/pagination";
 
 import companiesViewToggleUrl from "../scripts/companiesViewToggle.ts?url";
@@ -18,13 +18,16 @@ const {
   paginatedItems,
   totalPages,
   currentPage: validatedPage,
-} = paginateArray(companies as Company[], 1, pageSize);
+} = paginateArray(companies as Company[], DEFAULT_PAGE, pageSize);
 
 const startIndex = (validatedPage - 1) * pageSize + 1;
 const endIndex = startIndex + paginatedItems.length - 1;
 ---
 
-<Layout title="No Whiteboard Jobs">
+<Layout
+  title="No Whiteboard Jobs"
+  description="Browse companies that hire without whiteboard-style interviews. Search, filter, and open careers pages quickly."
+>
   <PageHeader
     title="No Whiteboard Jobs"
     subtitle="Companies that hire without whiteboard-style interviews."
