@@ -4,6 +4,11 @@ import localOverrides from "./companies.local.json";
 import type { Company, CompanyLocalOverride } from "./types";
 import { renderInterviewProcessMarkdown } from "../utils/markdown";
 
+export type ClientCompany = Omit<
+  Company,
+  "interviewProcess" | "overrideReason" | "overrideDate"
+>;
+
 function isValidIsoDate(value: string): boolean {
   return /^\d{4}-\d{2}-\d{2}$/.test(value);
 }
@@ -171,5 +176,15 @@ for (const localEntry of localParsed) {
 }
 
 const mergedCompanies: Company[] = Array.from(mergedById.values());
+
+export const clientCompanies: ClientCompany[] = mergedCompanies.map(
+  (company) => {
+    const copy = { ...company } as Partial<Company>;
+    delete (copy as Record<string, unknown>).interviewProcess;
+    delete (copy as Record<string, unknown>).overrideReason;
+    delete (copy as Record<string, unknown>).overrideDate;
+    return copy as ClientCompany;
+  },
+);
 
 export default mergedCompanies;

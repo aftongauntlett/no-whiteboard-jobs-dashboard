@@ -1,5 +1,9 @@
 import type { Company } from "@data/types";
-import { createInterviewId, getActualLocations } from "../../utils/company";
+import {
+  createInterviewId,
+  createUniqueId,
+  getActualLocations,
+} from "../../utils/company";
 import { employmentBadgeClasses } from "../../components/company/companyStyles";
 import { cloneTemplateRoot } from "./templates";
 import type { CompaniesBrowseTemplates } from "./templates";
@@ -34,7 +38,7 @@ function renderLocations(
       templates["location-overflow"],
     );
 
-    const tooltipId = `locations-tooltip-${crypto.randomUUID()}`;
+    const tooltipId = createUniqueId("locations-tooltip");
     const count = remaining.length;
     const label = `Show ${count} more location${count === 1 ? "" : "s"}`;
 

@@ -1,5 +1,5 @@
 import type { Company } from "@data/types";
-import companies from "../../data/companies";
+import { clientCompanies } from "../../data/companies";
 
 import { qs, qsa } from "./dom";
 import { normalizeText } from "./text";
@@ -99,7 +99,9 @@ function init() {
 
   if (searchInput) searchInput.value = state.query;
 
-  const allCompanies = companies as Company[];
+  const stripHtml = (html: string) => html.replace(/<[^>]*>/g, " ");
+
+  const allCompanies = clientCompanies as Company[];
   const indexedCompanies: IndexedCompany[] = allCompanies.map((c) => ({
     company: c,
     searchText: normalizeText(
@@ -107,7 +109,7 @@ function init() {
         c.name,
         c.employmentType,
         ...(c.locations ?? []),
-        c.interviewProcess ?? "",
+        stripHtml(c.interviewProcessHtml ?? ""),
       ].join(" "),
     ),
   }));
