@@ -17,6 +17,8 @@ const textClass =
   variant === "card"
     ? COMPANY_INTERVIEW_TEXT_CLASS_CARD
     : COMPANY_INTERVIEW_TEXT_CLASS_LIST;
+
+const clampClass = variant === "card" ? "line-clamp-3" : "line-clamp-2";
 ---
 
 {
@@ -25,8 +27,8 @@ const textClass =
       <div
         id={interviewId}
         data-readmore-text
-        data-readmore-clamp="line-clamp-3"
-        class={`${textClass} interview-markdown`}
+        data-readmore-clamp={clampClass}
+        class={`${textClass} ${clampClass} interview-markdown`}
         set:html={interviewProcessHtml}
       />
       <div class="text-right">

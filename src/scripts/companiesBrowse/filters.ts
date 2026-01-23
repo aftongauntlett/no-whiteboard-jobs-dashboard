@@ -1,12 +1,6 @@
 import type { Company, EmploymentType } from "@data/types";
 
-export type SortKey = "name-asc" | "name-desc" | "employment";
-
-const EMPLOYMENT_ORDER: Record<EmploymentType, number> = {
-  Remote: 0,
-  Hybrid: 1,
-  "In-office": 2,
-};
+export type SortKey = "name-asc" | "name-desc" | "last-updated";
 
 export type IndexedCompany = {
   company: Company;
@@ -52,9 +46,9 @@ export function computeResults(args: {
     if (args.sort === "name-desc")
       return b.company.name.localeCompare(a.company.name);
 
-    const ea = EMPLOYMENT_ORDER[a.company.employmentType];
-    const eb = EMPLOYMENT_ORDER[b.company.employmentType];
-    if (ea !== eb) return ea - eb;
+    const da = a.company.lastUpdated ?? "";
+    const db = b.company.lastUpdated ?? "";
+    if (da !== db) return db.localeCompare(da);
     return a.company.name.localeCompare(b.company.name);
   });
 

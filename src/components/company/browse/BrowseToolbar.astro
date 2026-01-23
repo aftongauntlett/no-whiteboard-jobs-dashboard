@@ -51,7 +51,7 @@ const { searchInputProps = {}, menuButtonProps = {} } = Astro.props;
       variant="secondary"
       tone="soft"
       shape="pill"
-      class="cursor-pointer inline-flex w-auto shrink-0 items-center justify-center gap-0 md:gap-3 md:rounded-l-none p-2.5 md:px-4 md:py-2.5"
+      class="relative cursor-pointer inline-flex w-auto shrink-0 items-center justify-center gap-0 md:gap-3 md:rounded-l-none p-2.5 md:px-4 md:py-2.5"
       {...menuButtonProps}
     >
       <span
@@ -83,8 +83,13 @@ const { searchInputProps = {}, menuButtonProps = {} } = Astro.props;
       <span
         class="hidden md:inline text-left text-text-mutedLight dark:text-text-mutedDark"
       >
-        Filter &amp; sort
+        Filter &amp; Sort
       </span>
+
+      <span
+        data-companies-active-filter-dot
+        class="hidden absolute -top-0.5 -right-0.5 h-2.5 w-2.5 rounded-full bg-accent ring-2 ring-surface-light dark:ring-surface-dark"
+        aria-hidden="true"></span>
     </Button>
   </div>
 </div>

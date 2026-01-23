@@ -57,10 +57,10 @@ export const COMPANY_LOCATIONS_CLASS_LIST =
   "mt-1.5 flex flex-wrap items-center gap-2";
 
 export const COMPANY_INTERVIEW_TEXT_CLASS_CARD =
-  "text-sm text-text-mutedLight dark:text-text-mutedDark group-hover:text-text-light dark:group-hover:text-text-dark group-focus-within:text-text-light dark:group-focus-within:text-text-dark transition-colors line-clamp-3";
+  "text-sm text-text-mutedLight dark:text-text-mutedDark group-hover:text-text-light dark:group-hover:text-text-dark group-focus-within:text-text-light dark:group-focus-within:text-text-dark transition-colors";
 
 export const COMPANY_INTERVIEW_TEXT_CLASS_LIST =
-  "text-xs sm:text-sm text-text-mutedLight dark:text-text-mutedDark group-hover:text-text-light dark:group-hover:text-text-dark group-focus-within:text-text-light dark:group-focus-within:text-text-dark line-clamp-3";
+  "text-xs sm:text-sm text-text-mutedLight dark:text-text-mutedDark group-hover:text-text-light dark:group-hover:text-text-dark group-focus-within:text-text-light dark:group-focus-within:text-text-dark";
 
 export const COMPANY_INTERVIEW_TOGGLE_CLASS =
   "mt-1 hidden text-xs font-medium text-accent hover:underline cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/30 rounded";

@@ -29,6 +29,7 @@ export function createBrowseRenderController(args: {
   perPageGroupList: HTMLElement | null;
 
   countEl: HTMLElement | null;
+  menuButton: HTMLButtonElement | null;
   sortButtons: HTMLButtonElement[];
   perPageButtons: HTMLButtonElement[];
   employmentButtons: HTMLButtonElement[];
@@ -50,6 +51,7 @@ export function createBrowseRenderController(args: {
     perPageGroupCard,
     perPageGroupList,
     countEl,
+    menuButton,
     sortButtons,
     perPageButtons,
     employmentButtons,
@@ -85,6 +87,22 @@ export function createBrowseRenderController(args: {
 
   const syncControls = () => {
     const view = getView();
+
+    if (menuButton) {
+      const filterDot = menuButton.querySelector<HTMLElement>(
+        "[data-companies-active-filter-dot]",
+      );
+      const filters = Array.from(selectedEmployment);
+      const hasFilters = filters.length > 0;
+      if (filterDot) filterDot.classList.toggle("hidden", !hasFilters);
+
+      // Optional a11y hint; does not indicate sort state.
+      const a11yLabel = hasFilters
+        ? `Filter & Sort (filters active: ${filters.join(", ")})`
+        : "Filter & Sort";
+      menuButton.setAttribute("aria-label", a11yLabel);
+      menuButton.setAttribute("title", a11yLabel);
+    }
 
     if (perPageGroupCard && perPageGroupList) {
       const showCard = view === "card";

@@ -137,6 +137,13 @@ html {
   background-color: var(--bg);
 }
 
+/* Slightly crisper text rendering on macOS browsers. */
+html,
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 html.theme-transitioning {
   transition:
     --bg 200ms ease-in-out,
@@ -209,7 +216,7 @@ html.theme-transitioning .accordion-icon {
 :root {
   /* Backgrounds */
   --bg: #f4f7f8;
-  --surface: #eef3f5;
+  --surface: #f3f4f5;
   --surface-muted: color-mix(in srgb, var(--surface) 70%, var(--bg));
   --surface-hover: color-mix(in srgb, var(--surface) 88%, black 6%);
 
@@ -221,19 +228,19 @@ html.theme-transitioning .accordion-icon {
   --border: #e5e7eb;
 
   /* Accent */
-  --accent: #672d86;
+  --accent: #4987d9;
 
   /* Brand accents (icons, highlights) */
-  --primary: #0f766e;
+  --primary: #36c5b9;
   --secondary: #0369a1;
 
   /* Brand accent (coral) */
-  --coral: #ff7f50;
+  --coral: #f48962;
 
   /* Status: success */
-  --success-bg: #059669;
-  --success-text: #347058;
-  --success-border: #10b981;
+  --success-bg: #6997d2;
+  --success-text: #20232c;
+  --success-border: #5b7cb2;
 
   /* Status: warning */
   --warning-bg: #d97706;
@@ -241,9 +248,9 @@ html.theme-transitioning .accordion-icon {
   --warning-border: #f59e0b;
 
   /* Status: info */
-  --info-bg: #0284c7;
-  --info-text: #224150;
-  --info-border: #0ea5e9;
+  --info-bg: #5cf33a;
+  --info-text: #292b2a;
+  --info-border: #a9ed9a;
 
   /* Company curation indicators */
   --curation-new: #0f766e;

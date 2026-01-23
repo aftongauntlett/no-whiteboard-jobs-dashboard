@@ -18,6 +18,16 @@ export type Company = {
   employmentType: EmploymentType;
   interviewProcess?: string;
 
+  /**
+   * Derived field used for client-side sorting.
+   *
+   * - For locally edited/added entries, this is set from overrideDate.
+   * - For upstream entries, this is typically undefined.
+   *
+   * Format: YYYY-MM-DD
+   */
+  lastUpdated?: string;
+
   /** Indicates whether this entry comes from upstream data or is maintained locally. */
   source: CompanySource;
 

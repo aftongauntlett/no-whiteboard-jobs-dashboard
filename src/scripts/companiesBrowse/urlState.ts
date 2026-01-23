@@ -36,7 +36,7 @@ export function readInitialStateFromUrl(initialView: ViewMode): {
   let query = params.get("q") ?? "";
 
   let sort: SortKey = (params.get("sort") as SortKey) ?? "name-asc";
-  if (!(["name-asc", "name-desc", "employment"] as const).includes(sort)) {
+  if (!(["name-asc", "name-desc", "last-updated"] as const).includes(sort)) {
     sort = "name-asc";
   }
 

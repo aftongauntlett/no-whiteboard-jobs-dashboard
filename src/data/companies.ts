@@ -103,6 +103,7 @@ function mergeCompany(args: {
   merged.curationStatus = args.curationStatus;
   merged.overrideReason = args.local.overrideReason;
   merged.overrideDate = args.local.overrideDate;
+  merged.lastUpdated = args.local.overrideDate;
 
   const interviewProcess = merged.interviewProcess ?? "";
   merged.interviewProcessHtml = interviewProcess
@@ -120,6 +121,7 @@ const upstream: Company[] = (
 ).map((c) => ({
   ...c,
   source: "upstream" as const,
+  lastUpdated: undefined,
   interviewProcessHtml: c.interviewProcess
     ? renderInterviewProcessMarkdown(c.interviewProcess)
     : "",

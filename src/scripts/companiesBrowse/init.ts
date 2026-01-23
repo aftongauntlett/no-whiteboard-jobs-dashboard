@@ -49,6 +49,10 @@ function init() {
 
   const countEl = qs<HTMLElement>(section, "[data-companies-count]");
   const searchInput = qs<HTMLInputElement>(section, "[data-companies-search]");
+  const menuButton = qs<HTMLButtonElement>(
+    section,
+    "[data-companies-menu-button]",
+  );
 
   const sortButtons = qsa<HTMLButtonElement>(
     section,
@@ -128,6 +132,7 @@ function init() {
     perPageGroupCard,
     perPageGroupList,
     countEl,
+    menuButton,
     sortButtons,
     perPageButtons,
     employmentButtons,
