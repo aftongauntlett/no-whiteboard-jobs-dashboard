@@ -80,10 +80,10 @@ export const COMPANY_LIST_NAME_CLASS =
   "block whitespace-nowrap truncate group-hover:text-accent group-focus-within:text-accent";
 
 export const COMPANY_LIST_COL_B_CLASS =
-  "min-w-0 md:border-l md:border-border-light/80 dark:md:border-border-dark/80 md:pl-4";
+  "min-w-0 md:border-l md:border-border-light/80 dark:md:border-border-dark/80 md:px-4";
 
 export const COMPANY_LIST_COL_C_CLASS =
-  "min-w-0 md:border-l md:border-border-light/80 dark:md:border-border-dark/80 md:pl-4 md:max-w-prose md:justify-self-start";
+  "min-w-0 md:border-l md:border-border-light/80 dark:md:border-border-dark/80 md:pl-4";
 
 export const COMPANY_LIST_ACTION_WRAPPER_CLASS =
   "z-30 absolute right-4 top-3 sm:right-5 sm:top-4 md:static md:justify-self-end md:self-start";

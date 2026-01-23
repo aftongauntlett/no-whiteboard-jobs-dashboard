@@ -1,6 +1,4 @@
 ---
-import Button from "../../ui/Button.astro";
-
 import type { HTMLAttributes } from "astro/types";
 
 type DivAttrs = HTMLAttributes<"div">;
@@ -20,27 +18,25 @@ const {
 ---
 
 <div
-  class="hidden md:inline-flex items-center shrink-0 rounded-lg border border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark p-1 md:ml-auto"
+  class="companies-view-toggle hidden md:inline-grid items-center shrink-0 md:ml-auto"
   role="radiogroup"
   aria-label="Company view"
+  data-companies-view-toggle
+  data-view="card"
   {...wrapperProps}
 >
-  <Button
+  <button
     type="button"
-    variant="secondary"
-    tone="ghost"
-    class={"cursor-pointer rounded-md px-3 py-1.5 text-sm font-medium"}
+    class="companies-view-toggle-button"
     {...cardButtonProps}
   >
     Cards
-  </Button>
-  <Button
+  </button>
+  <button
     type="button"
-    variant="secondary"
-    tone="ghost"
-    class={"cursor-pointer rounded-md px-3 py-1.5 text-sm font-medium"}
+    class="companies-view-toggle-button"
     {...listButtonProps}
   >
     List
-  </Button>
+  </button>
 </div>

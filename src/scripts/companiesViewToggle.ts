@@ -34,6 +34,9 @@ function applyView(root: HTMLElement, next: ViewMode) {
   const listPanel = root.querySelector<HTMLElement>(
     '[data-companies-view-panel="list"]',
   );
+  const viewToggle = root.querySelector<HTMLElement>(
+    "[data-companies-view-toggle]",
+  );
   const buttons = Array.from(
     root.querySelectorAll<HTMLElement>("[data-companies-view-button]"),
   );
@@ -43,6 +46,7 @@ function applyView(root: HTMLElement, next: ViewMode) {
   root.setAttribute("data-companies-view", next);
   cardPanel.classList.toggle("hidden", next !== "card");
   listPanel.classList.toggle("hidden", next !== "list");
+  if (viewToggle) viewToggle.dataset.view = next;
 
   for (const btn of buttons) {
     const btnView = btn.getAttribute(
@@ -51,10 +55,6 @@ function applyView(root: HTMLElement, next: ViewMode) {
     const active = btnView === next;
 
     btn.setAttribute("aria-checked", active ? "true" : "false");
-
-    btn.classList.toggle("bg-bg-light", active);
-    btn.classList.toggle("dark:bg-bg-dark", active);
-    btn.classList.toggle("text-accent", active);
   }
 
   setGlobalListViewClass(next);

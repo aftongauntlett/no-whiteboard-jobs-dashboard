@@ -1,5 +1,6 @@
 ---
 import type { HTMLAttributes } from "astro/types";
+import CurationIndicator from "../../ui/CurationIndicator.astro";
 import {
   COMPANIES_PER_PAGE_OPTIONS,
   DEFAULT_COMPANIES_PER_PAGE,
@@ -21,13 +22,67 @@ const {
 ---
 
 <div class="flex items-center justify-between gap-3">
-  <p
-    class="text-sm text-text-mutedLight dark:text-text-mutedDark"
-    data-companies-count
-    {...countProps}
-  >
-    Showing {startIndex}–{endIndex} of {totalItems} companies
-  </p>
+  <div class="flex items-center gap-4 min-w-0">
+    <p
+      class="text-sm text-text-mutedLight dark:text-text-mutedDark"
+      data-companies-count
+      {...countProps}
+    >
+      Showing {startIndex}–{endIndex} of {totalItems} companies
+    </p>
+
+    <div
+      class="hidden md:flex items-center gap-3 text-xs text-text-mutedLight dark:text-text-mutedDark"
+    >
+      <div
+        class="group relative inline-flex items-center focus:outline-none"
+        tabindex="0"
+      >
+        <div class="inline-flex items-center gap-2">
+          <CurationIndicator status="new" class="shrink-0" />
+          <span>New</span>
+        </div>
+        <span
+          role="tooltip"
+          class="pointer-events-none opacity-0 translate-y-1 transition
+                 absolute left-1/2 -translate-x-1/2 top-full mt-2 z-20
+                 w-max max-w-[22rem]
+                 rounded-lg border border-border-light dark:border-border-dark
+                 bg-surface-light/95 dark:bg-surface-dark/95
+                 px-3 py-2 text-xs leading-relaxed text-text-light dark:text-text-dark
+                 shadow-lg ring-1 ring-black/5 dark:ring-white/10
+                 group-hover:opacity-100 group-hover:translate-y-0
+                 group-focus-within:opacity-100 group-focus-within:translate-y-0"
+        >
+          Added locally. Not in the upstream dataset.
+        </span>
+      </div>
+
+      <div
+        class="group relative inline-flex items-center focus:outline-none"
+        tabindex="0"
+      >
+        <div class="inline-flex items-center gap-2">
+          <CurationIndicator status="edited" class="shrink-0" />
+          <span>Updated</span>
+        </div>
+        <span
+          role="tooltip"
+          class="pointer-events-none opacity-0 translate-y-1 transition
+                 absolute left-1/2 -translate-x-1/2 top-full mt-2 z-20
+                 w-max max-w-[22rem]
+                 rounded-lg border border-border-light dark:border-border-dark
+                 bg-surface-light/95 dark:bg-surface-dark/95
+                 px-3 py-2 text-xs leading-relaxed text-text-light dark:text-text-dark
+                 shadow-lg ring-1 ring-black/5 dark:ring-white/10
+                 group-hover:opacity-100 group-hover:translate-y-0
+                 group-focus-within:opacity-100 group-focus-within:translate-y-0"
+        >
+          Edited locally. May differ from the upstream dataset.
+        </span>
+      </div>
+    </div>
+  </div>
 
   <div class="hidden md:flex items-center gap-2">
     <span

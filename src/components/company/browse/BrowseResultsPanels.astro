@@ -19,7 +19,7 @@ const { paginatedItems } = Astro.props as Props;
 
 <div data-companies-view-panel="list" class="hidden mt-4">
   <ul
-    class="rounded-xl border border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark divide-y divide-border-light dark:divide-border-dark md:grid md:gap-x-4 md:items-start md:grid-cols-[fit-content(18rem)_minmax(0,12rem)_minmax(0,1fr)_2.5rem]"
+    class="rounded-xl border border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark divide-y divide-border-light dark:divide-border-dark md:grid md:gap-x-4 md:items-start md:grid-cols-[fit-content(18rem)_fit-content(20ch)_minmax(0,1fr)_3rem]"
     aria-label="Companies"
   >
     {paginatedItems.map((company) => <CompanyListItem company={company} />)}

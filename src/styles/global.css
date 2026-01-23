@@ -121,6 +121,18 @@
   initial-value: #0ea5e9;
 }
 
+@property --curation-new {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #0f766e;
+}
+
+@property --curation-updated {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #fb923c;
+}
+
 html {
   background-color: var(--bg);
 }
@@ -146,7 +158,9 @@ html.theme-transitioning {
     --warning-border 200ms ease-in-out,
     --info-bg 200ms ease-in-out,
     --info-text 200ms ease-in-out,
-    --info-border 200ms ease-in-out;
+    --info-border 200ms ease-in-out,
+    --curation-new 200ms ease-in-out,
+    --curation-updated 200ms ease-in-out;
 }
 
 /* During theme transitions, avoid per-element background-color transitions on the
@@ -172,6 +186,13 @@ html.theme-transitioning .pagination-button {
 html.theme-transitioning .company-card--interactive,
 html.theme-transitioning .company-list-item,
 html.theme-transitioning .company-card .transition-colors {
+  transition-property: none !important;
+}
+
+html.theme-transitioning .companies-view-toggle,
+html.theme-transitioning .companies-view-toggle::before,
+html.theme-transitioning .companies-view-toggle::after,
+html.theme-transitioning .companies-view-toggle-button {
   transition-property: none !important;
 }
 
@@ -223,6 +244,10 @@ html.theme-transitioning .accordion-icon {
   --info-bg: #0284c7;
   --info-text: #224150;
   --info-border: #0ea5e9;
+
+  /* Company curation indicators */
+  --curation-new: #0f766e;
+  --curation-updated: #fb923c;
 }
 
 .dark {
@@ -263,6 +288,10 @@ html.theme-transitioning .accordion-icon {
   --info-bg: #02c7a0;
   --info-text: #8af4e1;
   --info-border: #0ee9e9;
+
+  /* Company curation indicators */
+  --curation-new: #2dd4bf;
+  --curation-updated: #fdba74;
 }
 
 @layer components {
@@ -285,12 +314,6 @@ html.theme-transitioning .accordion-icon {
     }
   }
 
-  /* Allow a fluid layout specifically when list view is active on the browse page.
-     This is class-driven (vs :has()) for broader browser support. */
-  .companies-list-view .app-container {
-    max-width: none;
-  }
-
   .ui-badge {
     display: inline-flex;
     align-items: center;
@@ -299,6 +322,83 @@ html.theme-transitioning .accordion-icon {
     font-size: 0.75rem;
     font-weight: 500;
     line-height: 1rem;
+  }
+
+  .companies-view-toggle {
+    position: relative;
+    isolation: isolate;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    border-radius: 9999px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    padding: 0.25rem;
+    overflow: hidden;
+  }
+
+  /* Sliding active segment background */
+  .companies-view-toggle::before {
+    content: "";
+    position: absolute;
+    top: 0.25rem;
+    bottom: 0.25rem;
+    left: 0.25rem;
+    width: calc(50% - 0.25rem);
+    border-radius: 9999px 0 0 9999px;
+    background: var(--surface-hover);
+    transform: translateX(0);
+    transition: transform 160ms ease;
+    z-index: 0;
+  }
+
+  .companies-view-toggle[data-view="list"]::before {
+    transform: translateX(100%);
+    border-radius: 0 9999px 9999px 0;
+  }
+
+  /* Straight divider between segments */
+  .companies-view-toggle::after {
+    content: "";
+    position: absolute;
+    top: 0.25rem;
+    bottom: 0.25rem;
+    left: 50%;
+    width: 1px;
+    background: var(--border);
+    transform: translateX(-0.5px);
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  .companies-view-toggle-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-width: 0;
+    border-radius: 9999px;
+    cursor: pointer;
+    padding: 0.375rem 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1.25rem;
+    color: var(--text-muted);
+    background: transparent;
+    transition: color 150ms ease;
+    z-index: 1;
+  }
+
+  .companies-view-toggle-button:hover {
+    color: var(--text);
+  }
+
+  .companies-view-toggle-button:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--accent);
+  }
+
+  .companies-view-toggle-button[aria-checked="true"] {
+    color: var(--accent);
   }
 
   .pagination-button {
@@ -388,7 +488,7 @@ html.theme-transitioning .accordion-icon {
   .location-chip {
     display: inline-flex;
     flex: none;
-    max-width: 100%;
+    max-width: min(20ch, 100%);
     align-items: center;
     border-radius: 0.375rem;
     border: 1px solid var(--border);

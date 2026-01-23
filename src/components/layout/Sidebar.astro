@@ -17,12 +17,23 @@ import ChevronLeft from "lucide-astro/ChevronLeft";
         href="/"
         class="mb-8 flex items-center gap-3 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
       >
-        <div class="leading-tight sidebar-text">
-          <div class="text-sm font-semibold">No Whiteboard Jobs</div>
-          <div class="text-xs text-text-mutedLight dark:text-text-mutedDark">
-            Dashboard
-          </div>
-        </div>
+        <span class="sidebar-logo-frame" aria-hidden="true">
+          <img
+            src="/no-wb-logo-light.png"
+            alt=""
+            class="sidebar-logo-img dark:hidden"
+            loading="eager"
+            decoding="async"
+          />
+          <img
+            src="/no-wb-logo-dark.png"
+            alt=""
+            class="sidebar-logo-img hidden dark:block"
+            loading="eager"
+            decoding="async"
+          />
+        </span>
+        <span class="sr-only">No Whiteboard Jobs</span>
       </a>
 
       <!-- Divider -->
@@ -138,6 +149,28 @@ import ChevronLeft from "lucide-astro/ChevronLeft";
 </script>
 
 <style>
+  .sidebar-logo-frame {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 3.5rem;
+    width: 9.5rem;
+    overflow: hidden;
+  }
+
+  .sidebar-logo-img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    object-position: left center;
+    flex: none;
+  }
+
+  #sidebar.collapsed .sidebar-logo-frame {
+    height: 2rem;
+    width: 2.75rem;
+  }
+
   .icon-only {
     border: 0;
     padding: 0.25rem;
