@@ -29,9 +29,10 @@ export function employmentBadgeClasses(type: EmploymentType): string {
 }
 
 export const COMPANY_CARD_INTERACTIVE_CLASS =
-  "company-card company-card--interactive group relative focus-within:ring-2 focus-within:ring-accent/30 focus-within:ring-offset-2 focus-within:ring-offset-bg-light dark:focus-within:ring-offset-bg-dark";
+  "company-card company-card--interactive ui-hover-brighten-body group relative focus-within:ring-2 focus-within:ring-accent/30 focus-within:ring-offset-2 focus-within:ring-offset-bg-light dark:focus-within:ring-offset-bg-dark";
 
-export const COMPANY_CARD_STATIC_CLASS = "company-card group";
+export const COMPANY_CARD_STATIC_CLASS =
+  "company-card ui-hover-brighten-body group";
 
 export const COMPANY_CARD_LINK_CLASS =
   "absolute inset-0 z-20 rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/30";
@@ -57,16 +58,16 @@ export const COMPANY_LOCATIONS_CLASS_LIST =
   "mt-1.5 flex flex-wrap items-center gap-2";
 
 export const COMPANY_INTERVIEW_TEXT_CLASS_CARD =
-  "text-sm text-text-mutedLight dark:text-text-mutedDark group-hover:text-text-light dark:group-hover:text-text-dark group-focus-within:text-text-light dark:group-focus-within:text-text-dark transition-colors";
+  "ui-muted-body text-sm text-text-mutedLight dark:text-text-mutedDark transition-colors";
 
 export const COMPANY_INTERVIEW_TEXT_CLASS_LIST =
-  "text-xs sm:text-sm text-text-mutedLight dark:text-text-mutedDark group-hover:text-text-light dark:group-hover:text-text-dark group-focus-within:text-text-light dark:group-focus-within:text-text-dark";
+  "ui-muted-body text-xs sm:text-sm text-text-mutedLight dark:text-text-mutedDark transition-colors";
 
 export const COMPANY_INTERVIEW_TOGGLE_CLASS =
   "mt-1 hidden text-xs font-medium text-accent hover:underline cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/30 rounded";
 
 export const COMPANY_LIST_ITEM_CLASS =
-  "company-list-item group relative px-4 py-3 pr-12 sm:px-5 sm:py-4 sm:pr-14 md:pr-5 transition-colors md:col-span-4 md:grid md:grid-cols-subgrid md:gap-x-4 md:items-stretch";
+  "company-list-item ui-hover-brighten-body group relative px-4 py-3 pr-12 sm:px-5 sm:py-4 sm:pr-14 md:pr-5 transition-colors md:col-span-4 md:grid md:grid-cols-subgrid md:gap-x-4 md:items-stretch";
 
 export const COMPANY_LIST_LINK_CLASS =
   "absolute inset-0 z-20 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/30 focus-visible:ring-offset-2 focus-visible:ring-offset-bg-light dark:focus-visible:ring-offset-bg-dark";
@@ -80,10 +81,10 @@ export const COMPANY_LIST_NAME_CLASS =
   "block whitespace-nowrap truncate group-hover:text-accent group-focus-within:text-accent";
 
 export const COMPANY_LIST_COL_B_CLASS =
-  "min-w-0 md:border-l md:border-border-light/80 dark:md:border-border-dark/80 md:px-4";
+  "min-w-0 md:border-l md:border-divider-surface md:px-4";
 
 export const COMPANY_LIST_COL_C_CLASS =
-  "min-w-0 md:border-l md:border-border-light/80 dark:md:border-border-dark/80 md:pl-4";
+  "min-w-0 md:border-l md:border-divider-surface md:pl-4";
 
 export const COMPANY_LIST_ACTION_WRAPPER_CLASS =
   "z-30 absolute right-4 top-3 sm:right-5 sm:top-4 md:static md:justify-self-end md:self-start";

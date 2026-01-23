@@ -8,75 +8,84 @@ import ChevronLeft from "lucide-astro/ChevronLeft";
 
 <aside
   id="sidebar"
-  class="w-56 shrink-0 sticky top-0 h-screen bg-bg-light dark:bg-bg-dark border-r border-border-light dark:border-border-dark text-text-light dark:text-text-dark overflow-hidden"
+  class="w-56 shrink-0 sticky top-0 h-screen bg-bg-light dark:bg-bg-dark text-text-light dark:text-text-dark overflow-hidden"
 >
-  <div class="h-full flex flex-col px-4 pt-6 pb-7.5" data-sidebar-container>
-    <div class="flex-1 min-h-0 overflow-y-auto" data-sidebar-scroll>
-      <!-- Header / branding -->
-      <a
-        href="/"
-        class="mb-8 flex items-center gap-3 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-      >
-        <span class="sidebar-logo-frame" aria-hidden="true">
-          <img
-            src="/no-wb-logo-light.png"
-            alt=""
-            class="sidebar-logo-img dark:hidden"
-            loading="eager"
-            decoding="async"
-          />
-          <img
-            src="/no-wb-logo-dark.png"
-            alt=""
-            class="sidebar-logo-img hidden dark:block"
-            loading="eager"
-            decoding="async"
-          />
-        </span>
-        <span class="sr-only">No Whiteboard Jobs</span>
-      </a>
-
-      <!-- Divider -->
-      <div
-        class="mx-2 border-t border-border-light/80 dark:border-border-dark/80 mb-4"
-      >
-      </div>
-
-      <!-- Primary navigation -->
-      <NavLinks variant="sidebar" />
+  <div class="relative h-full">
+    <div
+      aria-hidden="true"
+      class="pointer-events-none absolute top-6 bottom-7.5 right-0 w-px bg-border-light/80 dark:bg-border-dark/80"
+    >
     </div>
 
-    <!-- Bottom actions (pinned) -->
-    <div class="pt-4" data-sidebar-footer>
-      <!-- Theme toggle -->
-      <ThemeToggle
-        id="theme-toggle"
-        class="flex self-stretch items-center justify-start gap-2 rounded p-2 border border-border-light dark:border-border-dark text-text-light dark:text-text-dark cursor-pointer hover:bg-surface-light/10 dark:hover:bg-surface-dark/10 hover:text-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-      >
-        <Moon class="h-4 w-4 dark:hidden" aria-hidden="true" />
-        <Sun class="h-4 w-4 hidden dark:block" aria-hidden="true" />
+    <div class="h-full flex flex-col px-4 pt-6 pb-7.5" data-sidebar-container>
+      <div class="flex-1 min-h-0 overflow-y-auto" data-sidebar-scroll>
+        <!-- Header / branding -->
+        <a
+          href="/"
+          class="mb-8 flex items-center gap-3 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+        >
+          <span class="sidebar-logo-frame" aria-hidden="true">
+            <img
+              src="/no-wb-logo-light.png"
+              alt=""
+              class="sidebar-logo-img dark:hidden"
+              loading="eager"
+              decoding="async"
+            />
+            <img
+              src="/no-wb-logo-dark.png"
+              alt=""
+              class="sidebar-logo-img hidden dark:block"
+              loading="eager"
+              decoding="async"
+            />
+          </span>
+          <span class="sr-only">No Whiteboard Jobs</span>
+        </a>
 
-        <span class="text-sm sidebar-text dark:hidden">Dark Mode</span>
-        <span class="text-sm sidebar-text hidden dark:inline">Light Mode</span>
-      </ThemeToggle>
+        <!-- Divider -->
+        <div
+          class="mx-2 border-t border-border-light/80 dark:border-border-dark/80 mb-4"
+        >
+        </div>
 
-      <div
-        class="mx-2 border-t border-border-light/80 dark:border-border-dark/80 mt-4"
-      >
+        <!-- Primary navigation -->
+        <NavLinks variant="sidebar" />
       </div>
-      <!-- Collapse toggle -->
-      <button
-        id="sidebar-toggle"
-        type="button"
-        aria-label="Toggle sidebar"
-        class="mt-4 flex items-center justify-between w-full rounded p-2 text-text-mutedLight dark:text-text-mutedDark cursor-pointer
+
+      <!-- Bottom actions (pinned) -->
+      <div class="pt-4" data-sidebar-footer>
+        <!-- Theme toggle -->
+        <ThemeToggle
+          id="theme-toggle"
+          class="flex self-stretch items-center justify-start gap-2 rounded p-2 border border-border-light dark:border-border-dark text-text-light dark:text-text-dark cursor-pointer hover:bg-surface-light/10 dark:hover:bg-surface-dark/10 hover:text-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+        >
+          <Moon class="h-4 w-4 dark:hidden" aria-hidden="true" />
+          <Sun class="h-4 w-4 hidden dark:block" aria-hidden="true" />
+
+          <span class="text-sm sidebar-text dark:hidden">Dark Mode</span>
+          <span class="text-sm sidebar-text hidden dark:inline">Light Mode</span
+          >
+        </ThemeToggle>
+
+        <div
+          class="mx-2 border-t border-border-light/80 dark:border-border-dark/80 mt-4"
+        >
+        </div>
+        <!-- Collapse toggle -->
+        <button
+          id="sidebar-toggle"
+          type="button"
+          aria-label="Toggle sidebar"
+          class="mt-4 flex items-center justify-between w-full rounded p-2 text-text-mutedLight dark:text-text-mutedDark cursor-pointer
                hover:text-accent dark:hover:text-accent
                hover:bg-surface-light dark:hover:bg-surface-dark
                focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-      >
-        <ChevronLeft class="h-4 w-4" aria-hidden="true" />
-        <span class="sidebar-text text-sm">Collapse</span>
-      </button>
+        >
+          <ChevronLeft class="h-4 w-4" aria-hidden="true" />
+          <span class="sidebar-text text-sm">Collapse</span>
+        </button>
+      </div>
     </div>
   </div>
 </aside>

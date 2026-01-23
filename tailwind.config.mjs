@@ -28,6 +28,9 @@ export default {
           light: "var(--border)",
           dark: "var(--border)",
         },
+        divider: {
+          surface: "var(--divider-surface)",
+        },
         text: {
           light: "var(--text)",
           dark: "var(--text)",

@@ -20,7 +20,7 @@ const toneClass: Record<Tone, string> = {
 ---
 
 <article
-  class="flex flex-col gap-4 rounded-xl border border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark p-6"
+  class="ui-hover-brighten-body flex flex-col gap-4 rounded-xl border border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark p-6"
 >
   <header class="flex items-center gap-3">
     {
@@ -38,7 +38,9 @@ const toneClass: Record<Tone, string> = {
     </h3>
   </header>
 
-  <div class="text-sm text-text-mutedLight dark:text-text-mutedDark">
+  <div
+    class="ui-muted-body text-sm text-text-mutedLight dark:text-text-mutedDark"
+  >
     <slot />
   </div>
 

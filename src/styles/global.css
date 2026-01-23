@@ -25,6 +25,18 @@
   initial-value: color-mix(in srgb, #eef3f5 88%, black 6%);
 }
 
+@property --input-bg {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #f4f7f8;
+}
+
+@property --input-hover {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: color-mix(in srgb, #eef3f5 88%, black 6%);
+}
+
 @property --text {
   syntax: "<color>";
   inherits: true;
@@ -37,10 +49,22 @@
   initial-value: #6b7280;
 }
 
+@property --text-muted-hover {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: color-mix(in srgb, #111827 86%, #6b7280);
+}
+
 @property --border {
   syntax: "<color>";
   inherits: true;
   initial-value: #e5e7eb;
+}
+
+@property --divider-surface {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #d1d5db;
 }
 
 @property --accent {
@@ -150,9 +174,13 @@ html.theme-transitioning {
     --surface 200ms ease-in-out,
     --surface-muted 200ms ease-in-out,
     --surface-hover 200ms ease-in-out,
+    --input-bg 200ms ease-in-out,
+    --input-hover 200ms ease-in-out,
     --text 200ms ease-in-out,
     --text-muted 200ms ease-in-out,
+    --text-muted-hover 200ms ease-in-out,
     --border 200ms ease-in-out,
+    --divider-surface 200ms ease-in-out,
     --accent 200ms ease-in-out,
     --primary 200ms ease-in-out,
     --secondary 200ms ease-in-out,
@@ -213,15 +241,17 @@ html.theme-transitioning .accordion-icon {
   --surface-hover: color-mix(in srgb, var(--surface) 88%, black 6%);
 
   /* Form controls */
-  --input-bg: var(--bg);
+  --input-bg: #f4f7f8;
   --input-hover: var(--surface-hover);
 
   /* Text */
   --text: #111827;
   --text-muted: #6b7280;
+  --text-muted-hover: color-mix(in srgb, var(--text) 86%, var(--text-muted));
 
   /* Borders */
   --border: #e5e7eb;
+  --divider-surface: color-mix(in srgb, var(--border) 78%, var(--text) 10%);
 
   /* Accent */
   --accent: #4987d9;
@@ -261,15 +291,17 @@ html.theme-transitioning .accordion-icon {
   --surface-hover: color-mix(in srgb, var(--surface) 86%, white 10%);
 
   /* Form controls */
-  --input-bg: var(--surface-muted);
+  --input-bg: #2e2e2e;
   --input-hover: var(--surface-hover);
 
   /* Text */
   --text: #e5e7eb;
   --text-muted: #9ca3af;
+  --text-muted-hover: color-mix(in srgb, var(--text) 86%, var(--text-muted));
 
   /* Borders */
   --border: #262626;
+  --divider-surface: color-mix(in srgb, var(--border) 70%, var(--text) 14%);
 
   /* Accent */
   --accent: #7fb6ea;
@@ -299,6 +331,23 @@ html.theme-transitioning .accordion-icon {
   /* Company curation indicators */
   --curation-new: #2dd4bf;
   --curation-updated: #fdba74;
+}
+
+@layer utilities {
+  .ui-muted-body {
+    transition: color 150ms ease;
+  }
+
+  .ui-hover-brighten-body:hover .ui-muted-body,
+  .ui-hover-brighten-body:focus-within .ui-muted-body {
+    color: var(--text-muted-hover);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ui-muted-body {
+      transition: none;
+    }
+  }
 }
 
 @layer components {
@@ -333,22 +382,9 @@ html.theme-transitioning .accordion-icon {
 
   /* Native select option styling is browser/OS dependent.
      These rules apply where supported, and are scoped to our themed controls. */
-  select[data-control] {
+  select[data-control]:not([hidden]) {
     color-scheme: light dark;
-  }
-
-  select[data-control] option {
-    background: var(--surface);
-    color: var(--text);
-  }
-
-  select[data-control] option:checked {
-    background: color-mix(in srgb, var(--accent) 18%, var(--surface));
-    color: var(--text);
-  }
-
-  select[data-control] option:hover {
-    background: var(--surface-hover);
+    accent-color: var(--accent);
   }
 
   .companies-view-toggle {

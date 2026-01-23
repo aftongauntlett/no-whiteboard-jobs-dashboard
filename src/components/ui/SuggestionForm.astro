@@ -14,11 +14,11 @@ const action = "https://formspree.io/f/xgoobynr";
   action={action}
   method="POST"
   novalidate
-  class="rounded-xl border border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark overflow-hidden"
+  class="ui-hover-brighten-body rounded-xl border border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark overflow-hidden"
   data-suggestion-form
 >
   <header
-    class="flex items-center gap-3 px-6 py-5 border-b border-border-light dark:border-border-dark"
+    class="flex items-center gap-3 px-6 py-5 border-b border-divider-surface"
   >
     <MessageSquare class="h-8 w-8 text-accent shrink-0" aria-hidden="true" />
     <h2
@@ -31,7 +31,7 @@ const action = "https://formspree.io/f/xgoobynr";
   <div class="p-6 space-y-6">
     <div class="space-y-5">
       <p
-        class="text-sm leading-relaxed text-text-mutedLight dark:text-text-mutedDark"
+        class="ui-muted-body text-sm leading-relaxed text-text-mutedLight dark:text-text-mutedDark"
       >
         This dashboard is maintained by me and built on top of the Hiring
         Without Whiteboards open-source dataset. I try to keep it in sync with
@@ -43,7 +43,7 @@ const action = "https://formspree.io/f/xgoobynr";
           What this form is for
         </h3>
         <ul
-          class="list-disc pl-5 space-y-1 text-sm text-text-mutedLight dark:text-text-mutedDark marker:text-accent"
+          class="ui-muted-body list-disc pl-5 space-y-1 text-sm text-text-mutedLight dark:text-text-mutedDark marker:text-accent"
         >
           <li>Report broken links or outdated info</li>
           <li>Suggest new companies</li>
@@ -59,7 +59,7 @@ const action = "https://formspree.io/f/xgoobynr";
           About the original project
         </h3>
         <p
-          class="text-sm leading-relaxed text-text-mutedLight dark:text-text-mutedDark"
+          class="ui-muted-body text-sm leading-relaxed text-text-mutedLight dark:text-text-mutedDark"
         >
           If you can, please contribute directly to the original repository,
           <a
@@ -72,7 +72,7 @@ const action = "https://formspree.io/f/xgoobynr";
           - that way the whole community benefits.
         </p>
         <p
-          class="text-sm leading-relaxed text-text-mutedLight dark:text-text-mutedDark"
+          class="ui-muted-body text-sm leading-relaxed text-text-mutedLight dark:text-text-mutedDark"
         >
           I built this form because interviewing is hard enough as it is. Not
           everyone wants to open a GitHub issue or write markdown. So this is a
@@ -82,7 +82,7 @@ const action = "https://formspree.io/f/xgoobynr";
       </div>
     </div>
 
-    <hr class="border-border-light/80 dark:border-border-dark/80" />
+    <hr class="border-divider-surface" />
 
     <div
       data-validation-summary
@@ -219,7 +219,7 @@ const action = "https://formspree.io/f/xgoobynr";
         </p>
         <button
           type="button"
-          class="underline underline-offset-4 hover:text-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] rounded-sm"
+          class="underline underline-offset-4 hover:text-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm"
           data-suggestion-retry
         >
           Try again

@@ -6,6 +6,7 @@ type Props = {
   name: string;
   describedBy?: string;
   required?: boolean;
+  disabled?: boolean;
   class?: string;
 };
 
@@ -14,24 +15,59 @@ const {
   name,
   describedBy,
   required = false,
+  disabled = false,
   class: className,
 } = Astro.props as Props;
 
-const classes =
-  `${controlBaseClass} appearance-none pr-10 ${className ?? ""}`.trim();
+const nativeSelectClasses =
+  `${controlBaseClass} [accent-color:var(--accent)] appearance-none pr-10 ${className ?? ""}`.trim();
+
+const triggerClasses =
+  `${controlBaseClass} ui-select-trigger flex items-center justify-between gap-3 pr-10 text-left ${className ?? ""}`.trim();
+
+const buttonId = `${id}__button`;
+const listboxId = `${id}__listbox`;
 ---
 
-<div class="relative">
+<div class="relative" data-ui-select>
   <select
     id={id}
     name={name}
     required={required}
-    class={classes}
+    disabled={disabled}
+    class={nativeSelectClasses}
     aria-describedby={describedBy}
     data-control
+    data-ui-select-native
   >
     <slot />
   </select>
+
+  <button
+    id={buttonId}
+    type="button"
+    class={triggerClasses}
+    aria-haspopup="listbox"
+    aria-expanded="false"
+    aria-controls={listboxId}
+    aria-describedby={describedBy}
+    disabled={disabled}
+    data-ui-select-button
+    hidden
+  >
+    <span class="min-w-0 truncate" data-ui-select-value></span>
+  </button>
+
+  <div
+    id={listboxId}
+    role="listbox"
+    class="ui-select-panel"
+    aria-labelledby={buttonId}
+    hidden
+    tabindex="-1"
+    data-ui-select-listbox
+  >
+  </div>
 
   <svg
     class="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-text-mutedLight dark:text-text-mutedDark"
@@ -45,3 +81,332 @@ const classes =
       clip-rule="evenodd"></path>
   </svg>
 </div>
+
+<style is:global>
+  .ui-select-panel {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: calc(100% + 0.25rem);
+    z-index: 50;
+    max-height: 16rem;
+    overflow: auto;
+    border-radius: 0.75rem;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    padding: 0.25rem;
+    box-shadow: 0 12px 24px color-mix(in srgb, var(--text) 18%, transparent);
+  }
+
+  .ui-select-option {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    border-radius: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: var(--text);
+    cursor: pointer;
+    user-select: none;
+    outline: none;
+  }
+
+  .ui-select-option:hover {
+    background: color-mix(in srgb, var(--secondary) 16%, transparent);
+  }
+
+  .ui-select-option[aria-disabled="true"] {
+    opacity: 0.55;
+    cursor: not-allowed;
+  }
+
+  .ui-select-option[data-active="true"] {
+    background: color-mix(in srgb, var(--secondary) 16%, transparent);
+  }
+
+  .ui-select-option[aria-selected="true"] {
+    background: color-mix(in srgb, var(--secondary) 22%, transparent);
+  }
+
+  .ui-select-option:focus-visible {
+    box-shadow: 0 0 0 2px var(--accent);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ui-select-panel {
+      scroll-behavior: auto;
+    }
+  }
+</style>
+
+<script is:inline>
+  (() => {
+    const roots = Array.from(document.querySelectorAll("[data-ui-select]"));
+
+    for (const root of roots) {
+      if (!(root instanceof HTMLElement)) continue;
+      if (root.dataset.enhanced === "true") continue;
+
+      const native = root.querySelector("select[data-ui-select-native]");
+      const button = root.querySelector("button[data-ui-select-button]");
+      const valueEl = root.querySelector("[data-ui-select-value]");
+      const listbox = root.querySelector("[data-ui-select-listbox]");
+
+      if (!(native instanceof HTMLSelectElement)) continue;
+      if (!(button instanceof HTMLButtonElement)) continue;
+      if (!(valueEl instanceof HTMLElement)) continue;
+      if (!(listbox instanceof HTMLElement)) continue;
+
+      if (native.disabled) continue;
+
+      root.dataset.enhanced = "true";
+
+      button.hidden = false;
+
+      // Keep the native select for form submission, but remove it from layout
+      // and focus order (our button/listbox becomes the accessible control).
+      native.hidden = true;
+      native.setAttribute("aria-hidden", "true");
+      native.tabIndex = -1;
+
+      const getSelectedIndex = () => {
+        const idx = native.selectedIndex;
+        return idx >= 0 ? idx : 0;
+      };
+
+      const getEnabledIndexes = () => {
+        const indexes = [];
+        for (let i = 0; i < native.options.length; i += 1) {
+          const opt = native.options[i];
+          if (opt && !opt.disabled) indexes.push(i);
+        }
+        return indexes;
+      };
+
+      const buildListbox = () => {
+        listbox.innerHTML = "";
+
+        for (let i = 0; i < native.options.length; i += 1) {
+          const opt = native.options[i];
+          if (!opt) continue;
+
+          const optionEl = document.createElement("div");
+          optionEl.id = `${native.id}__option__${i}`;
+          optionEl.setAttribute("role", "option");
+          optionEl.setAttribute("tabindex", "-1");
+          optionEl.className = "ui-select-option";
+          optionEl.dataset.index = String(i);
+          optionEl.textContent = opt.textContent ?? "";
+          optionEl.setAttribute(
+            "aria-selected",
+            opt.selected ? "true" : "false",
+          );
+          optionEl.setAttribute(
+            "aria-disabled",
+            opt.disabled ? "true" : "false",
+          );
+
+          optionEl.addEventListener("click", () => {
+            if (opt.disabled) return;
+            setValueByIndex(i);
+            setOpen(false, true);
+          });
+
+          listbox.appendChild(optionEl);
+        }
+      };
+
+      const syncButtonLabel = () => {
+        const selected =
+          native.selectedOptions?.[0] ?? native.options[getSelectedIndex()];
+        valueEl.textContent = selected?.textContent?.trim() || "";
+      };
+
+      const syncAriaSelected = () => {
+        const idx = getSelectedIndex();
+        const optionEls = Array.from(
+          listbox.querySelectorAll("[role='option']"),
+        );
+        for (const el of optionEls) {
+          if (!(el instanceof HTMLElement)) continue;
+          const elIndex = Number(el.dataset.index ?? "-1");
+          el.setAttribute("aria-selected", elIndex === idx ? "true" : "false");
+        }
+      };
+
+      let isOpen = false;
+      let activeIndex = getSelectedIndex();
+
+      const setActiveIndex = (nextIndex, { scrollIntoView = true } = {}) => {
+        const max = Math.max(0, native.options.length - 1);
+        activeIndex = Math.max(0, Math.min(max, nextIndex));
+
+        const optionEls = Array.from(
+          listbox.querySelectorAll("[role='option']"),
+        );
+        for (const el of optionEls) {
+          if (!(el instanceof HTMLElement)) continue;
+          const elIndex = Number(el.dataset.index ?? "-1");
+          el.dataset.active = elIndex === activeIndex ? "true" : "false";
+        }
+
+        const activeEl = listbox.querySelector(
+          `#${CSS.escape(native.id)}__option__${activeIndex}`,
+        );
+        if (activeEl instanceof HTMLElement) {
+          listbox.setAttribute("aria-activedescendant", activeEl.id);
+          if (scrollIntoView) activeEl.scrollIntoView({ block: "nearest" });
+        }
+      };
+
+      const setValueByIndex = (index) => {
+        const opt = native.options[index];
+        if (!opt || opt.disabled) return;
+
+        native.value = opt.value;
+        for (let i = 0; i < native.options.length; i += 1) {
+          const o = native.options[i];
+          if (o) o.selected = i === index;
+        }
+
+        syncButtonLabel();
+        syncAriaSelected();
+        setActiveIndex(index, { scrollIntoView: false });
+
+        native.dispatchEvent(new Event("change", { bubbles: true }));
+        native.dispatchEvent(new Event("input", { bubbles: true }));
+      };
+
+      const setOpen = (nextOpen, focusButtonAfterClose = false) => {
+        isOpen = Boolean(nextOpen);
+        button.setAttribute("aria-expanded", String(isOpen));
+        listbox.hidden = !isOpen;
+
+        if (isOpen) {
+          listbox.focus({ preventScroll: true });
+          setActiveIndex(getSelectedIndex(), { scrollIntoView: true });
+        } else {
+          listbox.removeAttribute("aria-activedescendant");
+          if (focusButtonAfterClose) button.focus({ preventScroll: true });
+        }
+      };
+
+      const getNextEnabledIndex = (startIndex, direction) => {
+        const enabled = getEnabledIndexes();
+        if (enabled.length === 0) return startIndex;
+
+        const currentPos = enabled.includes(startIndex)
+          ? enabled.indexOf(startIndex)
+          : Math.max(
+              0,
+              enabled.findIndex((i) => i > startIndex),
+            );
+        const nextPos = Math.min(
+          enabled.length - 1,
+          Math.max(0, currentPos + direction),
+        );
+        return enabled[nextPos] ?? startIndex;
+      };
+
+      const closeOnOutsidePointerDown = (event) => {
+        if (!isOpen) return;
+        const target = event.target;
+        if (target && root.contains(target)) return;
+        setOpen(false);
+      };
+
+      const closeOnEscape = (event) => {
+        if (!isOpen) return;
+        if (event.key !== "Escape") return;
+        event.preventDefault();
+        setOpen(false, true);
+      };
+
+      button.addEventListener("click", () => {
+        if (button.disabled) return;
+        setOpen(!isOpen);
+      });
+
+      button.addEventListener("keydown", (event) => {
+        if (button.disabled) return;
+
+        if (event.key === "ArrowDown" || event.key === "ArrowUp") {
+          event.preventDefault();
+          setOpen(true);
+          const direction = event.key === "ArrowDown" ? 1 : -1;
+          setActiveIndex(getNextEnabledIndex(getSelectedIndex(), direction));
+          return;
+        }
+
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          setOpen(!isOpen);
+        }
+      });
+
+      listbox.addEventListener("keydown", (event) => {
+        if (!isOpen) return;
+
+        if (event.key === "ArrowDown" || event.key === "ArrowUp") {
+          event.preventDefault();
+          const direction = event.key === "ArrowDown" ? 1 : -1;
+          setActiveIndex(getNextEnabledIndex(activeIndex, direction));
+          return;
+        }
+
+        if (event.key === "Home") {
+          event.preventDefault();
+          const enabled = getEnabledIndexes();
+          if (enabled.length) setActiveIndex(enabled[0]);
+          return;
+        }
+
+        if (event.key === "End") {
+          event.preventDefault();
+          const enabled = getEnabledIndexes();
+          if (enabled.length) setActiveIndex(enabled[enabled.length - 1]);
+          return;
+        }
+
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          setValueByIndex(activeIndex);
+          setOpen(false, true);
+          return;
+        }
+
+        if (event.key === "Tab") {
+          setOpen(false);
+        }
+      });
+
+      native.addEventListener("change", () => {
+        syncButtonLabel();
+        syncAriaSelected();
+        setActiveIndex(getSelectedIndex(), { scrollIntoView: false });
+      });
+
+      document.addEventListener("pointerdown", closeOnOutsidePointerDown);
+      document.addEventListener("keydown", closeOnEscape);
+
+      const parentForm = root.closest("form");
+      if (parentForm) {
+        parentForm.addEventListener("reset", () => {
+          window.requestAnimationFrame(() => {
+            syncButtonLabel();
+            syncAriaSelected();
+            setActiveIndex(getSelectedIndex(), { scrollIntoView: false });
+          });
+        });
+      }
+
+      buildListbox();
+      syncButtonLabel();
+      syncAriaSelected();
+      setActiveIndex(getSelectedIndex(), { scrollIntoView: false });
+    }
+  })();
+</script>
