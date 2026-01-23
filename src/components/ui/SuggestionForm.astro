@@ -1,0 +1,416 @@
+---
+import Button from "./Button.astro";
+import Field from "./form/Field.astro";
+import TextInput from "./form/TextInput.astro";
+import Select from "./form/Select.astro";
+import Textarea from "./form/Textarea.astro";
+import { errorSummaryClass } from "./form/formStyles";
+import MessageSquare from "lucide-astro/MessageSquare";
+
+const action = "https://formspree.io/f/xgoobynr";
+---
+
+<form
+  action={action}
+  method="POST"
+  novalidate
+  class="rounded-xl border border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark overflow-hidden"
+  data-suggestion-form
+>
+  <header
+    class="flex items-center gap-3 px-6 py-5 border-b border-border-light dark:border-border-dark"
+  >
+    <MessageSquare class="h-8 w-8 text-accent shrink-0" aria-hidden="true" />
+    <h2
+      class="text-lg font-semibold leading-tight text-text-light dark:text-text-dark"
+    >
+      Have a Suggestion?
+    </h2>
+  </header>
+
+  <div class="p-6 space-y-6">
+    <div class="space-y-5">
+      <p
+        class="text-sm leading-relaxed text-text-mutedLight dark:text-text-mutedDark"
+      >
+        This dashboard is maintained by me and built on top of the Hiring
+        Without Whiteboards open-source dataset. I try to keep it in sync with
+        upstream, but I also apply local fixes and additions here.
+      </p>
+
+      <div class="space-y-2">
+        <h3 class="text-sm font-semibold text-text-light dark:text-text-dark">
+          What this form is for
+        </h3>
+        <ul
+          class="list-disc pl-5 space-y-1 text-sm text-text-mutedLight dark:text-text-mutedDark marker:text-accent"
+        >
+          <li>Report broken links or outdated info</li>
+          <li>Suggest new companies</li>
+          <li>Share interview experiences or improvements</li>
+          <li>
+            I read everything and try to respond, but there are no guarantees.
+          </li>
+        </ul>
+      </div>
+
+      <div class="space-y-2">
+        <h3 class="text-sm font-semibold text-text-light dark:text-text-dark">
+          About the original project
+        </h3>
+        <p
+          class="text-sm leading-relaxed text-text-mutedLight dark:text-text-mutedDark"
+        >
+          If you can, please contribute directly to the original repository,
+          <a
+            href="https://github.com/poteto/hiring-without-whiteboards"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline text-accent hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm"
+            >(hiring-without-whiteboards)
+          </a>
+          - that way the whole community benefits.
+        </p>
+        <p
+          class="text-sm leading-relaxed text-text-mutedLight dark:text-text-mutedDark"
+        >
+          I built this form because interviewing is hard enough as it is. Not
+          everyone wants to open a GitHub issue or write markdown. So this is a
+          lower-friction way to help, and I will do my best to carry anything
+          submitted here back into the upstream project when it makes sense.
+        </p>
+      </div>
+    </div>
+
+    <hr class="border-border-light/80 dark:border-border-dark/80" />
+
+    <div
+      data-validation-summary
+      hidden
+      role="alert"
+      aria-live="polite"
+      tabindex="-1"
+      class={errorSummaryClass}
+    >
+      <p class="m-0 font-medium">Please fix the highlighted fields.</p>
+      <ul class="mt-2 list-disc pl-5 space-y-1" data-validation-summary-list>
+        <!-- populated by client-side validation -->
+      </ul>
+    </div>
+
+    <!-- Honeypot (spam trap) -->
+    <div class="sr-only" aria-hidden="true">
+      <label for="suggestion-gotcha">Leave this field empty</label>
+      <input
+        type="text"
+        name="_gotcha"
+        id="suggestion-gotcha"
+        tabindex="-1"
+        autocomplete="off"
+      />
+    </div>
+
+    <div class="grid gap-4 md:grid-cols-2">
+      <Field id="suggestion-name" label="Name">
+        <TextInput
+          slot="control"
+          id="suggestion-name"
+          name="name"
+          type="text"
+          autocomplete="name"
+          describedBy="suggestion-name-error"
+        />
+      </Field>
+
+      <Field
+        id="suggestion-email"
+        label="Email"
+        hint="Optional, but recommended so I can reply"
+      >
+        <TextInput
+          slot="control"
+          id="suggestion-email"
+          name="email"
+          type="email"
+          autocomplete="email"
+          describedBy="suggestion-email-hint suggestion-email-error"
+        />
+      </Field>
+
+      <Field id="suggestion-type" label="Type" required>
+        <Select
+          slot="control"
+          id="suggestion-type"
+          name="type"
+          required
+          describedBy="suggestion-type-error"
+          data-required-field
+        >
+          <option value="" disabled selected>Choose one…</option>
+          <option value="UI feedback">UI feedback</option>
+          <option value="Broken links/incorrect information">
+            Broken links/incorrect information
+          </option>
+          <option
+            value="You interviewed at a company on this list and you were white-boarded"
+          >
+            You interviewed at a company on this list and you were white-boarded
+          </option>
+          <option value="You want to suggest a new company be added">
+            You want to suggest a new company be added
+          </option>
+          <option value="Want to add more details to an existing company">
+            Want to add more details to an existing company
+          </option>
+          <option value="Other">Other</option>
+        </Select>
+      </Field>
+
+      <Field id="suggestion-company" label="Company name or URL">
+        <TextInput
+          slot="control"
+          id="suggestion-company"
+          name="company"
+          type="text"
+          describedBy="suggestion-company-error"
+        />
+      </Field>
+
+      <Field
+        id="suggestion-message"
+        label="Message"
+        required
+        class="md:col-span-2"
+      >
+        <Textarea
+          slot="control"
+          id="suggestion-message"
+          name="message"
+          required
+          rows={6}
+          describedBy="suggestion-message-error"
+          data-required-field
+        />
+      </Field>
+    </div>
+
+    <div
+      data-suggestion-success
+      hidden
+      role="status"
+      aria-live="polite"
+      tabindex="-1"
+      class="rounded-md border border-success-border bg-success-bg/10 p-4 text-sm text-success-text"
+    >
+      Thanks — your message was sent.
+    </div>
+
+    <div
+      data-suggestion-error
+      hidden
+      role="status"
+      aria-live="polite"
+      tabindex="-1"
+      class="rounded-md border border-warning-border bg-warning-bg/10 p-4 text-sm text-warning-text"
+    >
+      <div class="flex flex-wrap items-center justify-between gap-3">
+        <p class="m-0" data-suggestion-error-text>
+          Something went wrong. Please try again later.
+        </p>
+        <button
+          type="button"
+          class="underline underline-offset-4 hover:text-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] rounded-sm"
+          data-suggestion-retry
+        >
+          Try again
+        </button>
+      </div>
+    </div>
+
+    <div class="flex items-center justify-end gap-3">
+      <Button
+        variant="primary"
+        tone="solid"
+        type="submit"
+        data-suggestion-submit
+      >
+        Send suggestion
+      </Button>
+    </div>
+  </div>
+</form>
+
+<script is:inline>
+  (() => {
+    const form = document.querySelector("[data-suggestion-form]");
+    if (!form) return;
+
+    const successEl = form.querySelector("[data-suggestion-success]");
+    const errorEl = form.querySelector("[data-suggestion-error]");
+    const errorTextEl = form.querySelector("[data-suggestion-error-text]");
+    const retryBtn = form.querySelector("[data-suggestion-retry]");
+    const submitBtn = form.querySelector("[data-suggestion-submit]");
+    const gotchaEl = form.querySelector("#suggestion-gotcha");
+    const validationSummaryEl = form.querySelector("[data-validation-summary]");
+    const validationSummaryListEl = form.querySelector(
+      "[data-validation-summary-list]",
+    );
+
+    if (!successEl || !errorEl || !errorTextEl || !submitBtn) return;
+
+    const setBusy = (busy) => {
+      submitBtn.disabled = busy;
+      submitBtn.setAttribute("aria-busy", busy ? "true" : "false");
+      const label = busy ? "Sending..." : "Send suggestion";
+      submitBtn.textContent = label;
+    };
+
+    const hideValidationSummary = () => {
+      if (!validationSummaryEl || !validationSummaryListEl) return;
+      validationSummaryEl.hidden = true;
+      validationSummaryListEl.innerHTML = "";
+    };
+
+    const clearFieldError = (fieldId) => {
+      const control = form.querySelector(`#${CSS.escape(fieldId)}`);
+      const error = form.querySelector(`#${CSS.escape(fieldId)}-error`);
+      if (control) control.removeAttribute("aria-invalid");
+      if (error) {
+        error.textContent = "";
+        error.hidden = true;
+      }
+    };
+
+    const setFieldError = (fieldId, message) => {
+      const control = form.querySelector(`#${CSS.escape(fieldId)}`);
+      const error = form.querySelector(`#${CSS.escape(fieldId)}-error`);
+      if (control) control.setAttribute("aria-invalid", "true");
+      if (error) {
+        error.textContent = message;
+        error.hidden = false;
+      }
+    };
+
+    const validateRequiredFields = () => {
+      hideValidationSummary();
+
+      const requiredFieldIds = ["suggestion-type", "suggestion-message"];
+      for (const id of requiredFieldIds) clearFieldError(id);
+
+      const issues = [];
+
+      const typeEl = form.querySelector("#suggestion-type");
+      const typeValue = typeEl && "value" in typeEl ? String(typeEl.value) : "";
+      if (!typeValue.trim()) {
+        setFieldError("suggestion-type", "Please choose a type.");
+        issues.push("Type is required");
+      }
+
+      const messageEl = form.querySelector("#suggestion-message");
+      const messageValue =
+        messageEl && "value" in messageEl ? String(messageEl.value) : "";
+      if (!messageValue.trim()) {
+        setFieldError("suggestion-message", "Please enter a message.");
+        issues.push("Message is required");
+      }
+
+      if (issues.length > 0 && validationSummaryEl && validationSummaryListEl) {
+        validationSummaryListEl.innerHTML = issues
+          .map((text) => `<li>${text}</li>`)
+          .join("");
+        validationSummaryEl.hidden = false;
+        validationSummaryEl.focus();
+        return false;
+      }
+
+      return true;
+    };
+
+    const hideMessages = () => {
+      successEl.hidden = true;
+      errorEl.hidden = true;
+    };
+
+    const showSuccess = (message) => {
+      hideMessages();
+      successEl.textContent = message;
+      successEl.hidden = false;
+      successEl.focus();
+    };
+
+    const showError = (message) => {
+      hideMessages();
+      errorTextEl.textContent = message;
+      errorEl.hidden = false;
+      errorEl.focus();
+    };
+
+    if (retryBtn) {
+      retryBtn.addEventListener("click", () => {
+        hideMessages();
+        submitBtn.focus();
+      });
+    }
+
+    // Clear inline errors as the user fixes them
+    const typeControl = form.querySelector("#suggestion-type");
+    const messageControl = form.querySelector("#suggestion-message");
+    if (typeControl) {
+      typeControl.addEventListener("change", () => {
+        clearFieldError("suggestion-type");
+        hideValidationSummary();
+      });
+    }
+    if (messageControl) {
+      messageControl.addEventListener("input", () => {
+        clearFieldError("suggestion-message");
+        hideValidationSummary();
+      });
+    }
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      hideMessages();
+      hideValidationSummary();
+
+      const gotcha = gotchaEl && gotchaEl.value ? String(gotchaEl.value) : "";
+      if (gotcha.trim().length > 0) {
+        showSuccess("Thanks — your message was sent.");
+        return;
+      }
+
+      if (!validateRequiredFields()) {
+        return;
+      }
+
+      setBusy(true);
+
+      try {
+        const formData = new FormData(form);
+        const response = await fetch(form.action, {
+          method: "POST",
+          body: formData,
+          headers: {
+            Accept: "application/json",
+          },
+        });
+
+        if (response.ok) {
+          showSuccess("Thanks — your message was sent.");
+          window.setTimeout(() => {
+            form.reset();
+          }, 2000);
+          return;
+        }
+
+        showError("Something went wrong. Please try again later.");
+      } catch (_err) {
+        showError(
+          "Unable to send. Please check your connection and try again.",
+        );
+      } finally {
+        setBusy(false);
+      }
+    });
+  })();
+</script>

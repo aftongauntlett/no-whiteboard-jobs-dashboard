@@ -1,0 +1,35 @@
+---
+import { controlBaseClass } from "./formStyles";
+
+type Props = {
+  id: string;
+  name: string;
+  rows?: number;
+  placeholder?: string;
+  describedBy?: string;
+  required?: boolean;
+  class?: string;
+};
+
+const {
+  id,
+  name,
+  rows = 6,
+  placeholder,
+  describedBy,
+  required = false,
+  class: className,
+} = Astro.props as Props;
+
+const classes = `${controlBaseClass} ${className ?? ""}`.trim();
+---
+
+<textarea
+  id={id}
+  name={name}
+  rows={rows}
+  class={classes}
+  placeholder={placeholder}
+  required={required}
+  aria-describedby={describedBy}
+  data-control></textarea>

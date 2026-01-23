@@ -11,6 +11,7 @@ import ResourceCard from "../components/ui/ResourceCard.astro";
 import CurationIndicator from "../components/ui/CurationIndicator.astro";
 import Accordion from "../components/ui/Accordion.astro";
 import AccordionItem from "../components/ui/AccordionItem.astro";
+import SuggestionForm from "../components/ui/SuggestionForm.astro";
 ---
 
 <Layout
@@ -62,7 +63,7 @@ import AccordionItem from "../components/ui/AccordionItem.astro";
 
     <!-- Details (progressive disclosure) -->
     <Accordion
-      title="Details"
+      title="Useful Information"
       description="Expand for notes on scope, design, and corrections."
     >
       <AccordionItem title="What this isn’t" icon={Shield}>
@@ -122,5 +123,10 @@ import AccordionItem from "../components/ui/AccordionItem.astro";
         </a>
       </AccordionItem>
     </Accordion>
+
+    <!-- Suggestion Form -->
+    <div id="suggestions">
+      <SuggestionForm />
+    </div>
   </section>
 </Layout>

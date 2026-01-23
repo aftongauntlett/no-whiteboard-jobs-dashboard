@@ -170,18 +170,10 @@ html.theme-transitioning {
     --curation-updated 200ms ease-in-out;
 }
 
-/* During theme transitions, avoid per-element background-color transitions on the
-   accordion header. Background colors are already driven by animating the CSS
-   variables on html; letting the summary also transition background-color causes
-   a noticeable 'lag' while the variable itself is animating. */
 html.theme-transitioning .accordion-summary {
   transition-property: none !important;
 }
 
-/* Company browse view:
-   Theme changes are driven by animating CSS variables on html. If the card/list
-   elements also transition colors, they can appear to 'lag' behind the theme.
-   Disable those per-element transitions only while the theme is transitioning. */
 html.theme-transitioning .transition-colors {
   transition-property: none !important;
 }
@@ -216,9 +208,13 @@ html.theme-transitioning .accordion-icon {
 :root {
   /* Backgrounds */
   --bg: #f4f7f8;
-  --surface: #f3f4f5;
+  --surface: #eef3f7;
   --surface-muted: color-mix(in srgb, var(--surface) 70%, var(--bg));
   --surface-hover: color-mix(in srgb, var(--surface) 88%, black 6%);
+
+  /* Form controls */
+  --input-bg: var(--bg);
+  --input-hover: var(--surface-hover);
 
   /* Text */
   --text: #111827;
@@ -263,6 +259,10 @@ html.theme-transitioning .accordion-icon {
   --surface: #1f1f1f;
   --surface-muted: color-mix(in srgb, var(--surface) 82%, white 6%);
   --surface-hover: color-mix(in srgb, var(--surface) 86%, white 10%);
+
+  /* Form controls */
+  --input-bg: var(--surface-muted);
+  --input-hover: var(--surface-hover);
 
   /* Text */
   --text: #e5e7eb;
@@ -329,6 +329,26 @@ html.theme-transitioning .accordion-icon {
     font-size: 0.75rem;
     font-weight: 500;
     line-height: 1rem;
+  }
+
+  /* Native select option styling is browser/OS dependent.
+     These rules apply where supported, and are scoped to our themed controls. */
+  select[data-control] {
+    color-scheme: light dark;
+  }
+
+  select[data-control] option {
+    background: var(--surface);
+    color: var(--text);
+  }
+
+  select[data-control] option:checked {
+    background: color-mix(in srgb, var(--accent) 18%, var(--surface));
+    color: var(--text);
+  }
+
+  select[data-control] option:hover {
+    background: var(--surface-hover);
   }
 
   .companies-view-toggle {

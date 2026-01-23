@@ -1,0 +1,39 @@
+---
+import { controlBaseClass } from "./formStyles";
+
+type Props = {
+  id: string;
+  name: string;
+  type?: "text" | "email" | "url";
+  autocomplete?: string;
+  placeholder?: string;
+  describedBy?: string;
+  required?: boolean;
+  class?: string;
+};
+
+const {
+  id,
+  name,
+  type = "text",
+  autocomplete,
+  placeholder,
+  describedBy,
+  required = false,
+  class: className,
+} = Astro.props as Props;
+
+const classes = `${controlBaseClass} ${className ?? ""}`.trim();
+---
+
+<input
+  id={id}
+  name={name}
+  type={type}
+  class={classes}
+  autocomplete={autocomplete}
+  placeholder={placeholder}
+  required={required}
+  aria-describedby={describedBy}
+  data-control
+/>

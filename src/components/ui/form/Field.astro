@@ -1,0 +1,48 @@
+---
+import {
+  fieldWrapperClass,
+  labelClass,
+  requiredMarkClass,
+  hintClass,
+  errorTextClass,
+} from "./formStyles";
+
+type Props = {
+  id: string;
+  label: string;
+  required?: boolean;
+  hint?: string;
+  class?: string;
+};
+
+const {
+  id,
+  label,
+  required = false,
+  hint,
+  class: className,
+} = Astro.props as Props;
+
+const hintId = hint ? `${id}-hint` : undefined;
+const errorId = `${id}-error`;
+---
+
+<div class={`${fieldWrapperClass} ${className ?? ""}`.trim()} data-field>
+  <label for={id} class={labelClass}>
+    {label}{required ? <span class={requiredMarkClass}>*</span> : null}
+  </label>
+
+  <slot name="control" />
+
+  {
+    hint ? (
+      <p id={hintId} class={hintClass}>
+        {hint}
+      </p>
+    ) : null
+  }
+
+  <p id={errorId} class={errorTextClass} data-field-error hidden>
+    <!-- populated by client-side validation -->
+  </p>
+</div>
