@@ -8,9 +8,6 @@ import companies from "../data/companies";
 import { COMPANIES_PER_PAGE, DEFAULT_PAGE } from "../config/pagination";
 import { paginateArray } from "../utils/pagination";
 
-import companiesViewToggleUrl from "../scripts/companiesViewToggle.ts?url";
-import companiesBrowseClientUrl from "../scripts/companiesBrowseClient.ts?url";
-
 const pageSize = COMPANIES_PER_PAGE;
 const totalItems = (companies as Company[]).length;
 
@@ -39,7 +36,5 @@ const endIndex = startIndex + paginatedItems.length - 1;
     totalItems={totalItems}
     startIndex={startIndex}
     endIndex={endIndex}
-    companiesViewToggleUrl={companiesViewToggleUrl}
-    companiesBrowseClientUrl={companiesBrowseClientUrl}
   />
 </Layout>

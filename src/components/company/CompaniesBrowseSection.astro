@@ -14,8 +14,6 @@ export interface Props {
   totalItems: number;
   startIndex: number;
   endIndex: number;
-  companiesViewToggleUrl: string;
-  companiesBrowseClientUrl: string;
 }
 
 const {
@@ -25,8 +23,6 @@ const {
   totalItems,
   startIndex,
   endIndex,
-  companiesViewToggleUrl,
-  companiesBrowseClientUrl,
 } = Astro.props as Props;
 
 const toolbarProps = {
@@ -400,5 +396,5 @@ const viewToggleProps = {
   </div>
 </section>
 
-<script type="module" src={companiesViewToggleUrl} is:inline></script>
-<script type="module" src={companiesBrowseClientUrl} is:inline></script>
+<script src="../../scripts/companiesViewToggle.ts"></script>
+<script src="../../scripts/companiesBrowseClient.ts"></script>

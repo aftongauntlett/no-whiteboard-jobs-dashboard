@@ -18,9 +18,6 @@ import PageHeader from "../../components/layout/PageHeader.astro";
 import CompaniesBrowseSection from "../../components/company/CompaniesBrowseSection.astro";
 import type { Company } from "@data/types";
 
-import companiesViewToggleUrl from "../../scripts/companiesViewToggle.ts?url";
-import companiesBrowseClientUrl from "../../scripts/companiesBrowseClient.ts?url";
-
 const pageNum = parseInt(Astro.params.page);
 const resolvedPageNum = Number.isFinite(pageNum) ? pageNum : DEFAULT_PAGE;
 
@@ -51,7 +48,5 @@ const endIndex = startIndex + paginatedItems.length - 1;
     totalItems={totalItems}
     startIndex={startIndex}
     endIndex={endIndex}
-    companiesViewToggleUrl={companiesViewToggleUrl}
-    companiesBrowseClientUrl={companiesBrowseClientUrl}
   />
 </Layout>
