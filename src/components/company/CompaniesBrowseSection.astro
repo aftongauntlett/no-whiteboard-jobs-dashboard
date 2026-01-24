@@ -5,8 +5,6 @@ import BrowsePerPageControls from "./browse/BrowsePerPageControls.astro";
 import BrowseResultsPanels from "./browse/BrowseResultsPanels.astro";
 import BrowsePaginationControls from "./browse/BrowsePaginationControls.astro";
 import BrowseTemplates from "./browse/BrowseTemplates.astro";
-import companiesViewToggleScriptUrl from "../../scripts/companiesViewToggle.ts?url";
-import companiesBrowseClientScriptUrl from "../../scripts/companiesBrowseClient.ts?url";
 import type { Company } from "@data/types";
 
 export interface Props {
@@ -398,5 +396,5 @@ const viewToggleProps = {
   </div>
 </section>
 
-<script is:inline type="module" src={companiesViewToggleScriptUrl}></script>
-<script is:inline type="module" src={companiesBrowseClientScriptUrl}></script>
+<script src="../../scripts/companiesViewToggle.ts"></script>
+<script src="../../scripts/companiesBrowseClient.ts"></script>
