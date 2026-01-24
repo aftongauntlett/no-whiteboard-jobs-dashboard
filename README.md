@@ -8,6 +8,17 @@ View live: https://no-wb.org/
 
 A personal project I built after regularly referencing the hiring-without-whiteboards list and wanting an easier way to browse it. Full credit for the data and original work goes to the source repository.
 
+## Tech stack
+
+This is a static-first Astro site with a small amount of client-side interactivity for search, filters, and UI state.
+
+- Astro for routing, data loading, and build-time rendering
+- Tailwind CSS for theming, layout, and dark/light mode
+- Vanilla JS and small Astro islands for filters, search, and dialogs
+- JSON data sourced from the upstream repository, with local overrides layered on top
+
+The site is deployed on Vercel and built automatically on every push.
+
 ## Data Source
 
 Data is sourced from the [hiring-without-whiteboards](https://github.com/poteto/hiring-without-whiteboards) repository.

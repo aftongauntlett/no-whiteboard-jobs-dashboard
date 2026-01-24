@@ -61,7 +61,7 @@ import ThemeToggle from "./ThemeToggle.astro";
 
 <div
   data-mobile-nav-overlay
-  class="hidden fixed inset-0 z-[100]"
+  class="hidden fixed inset-0 z-100"
   aria-hidden="true"
 >
   <div
@@ -79,7 +79,7 @@ import ThemeToggle from "./ThemeToggle.astro";
     aria-label="Site navigation"
     tabindex="-1"
   >
-    <div class="p-4">
+    <div class="p-4 flex h-full flex-col">
       <div class="flex items-center justify-between">
         <div class="text-sm font-semibold">Menu</div>
         <Button
@@ -123,50 +123,51 @@ import ThemeToggle from "./ThemeToggle.astro";
       >
       </div>
 
-      <ThemeToggle
-        data-mobile-theme-toggle
-        class="mt-4 flex self-stretch items-center justify-start gap-2 rounded-md border border-border-light dark:border-border-dark bg-surface-light/70 dark:bg-surface-dark/60 px-4 py-2 text-sm text-text-light dark:text-text-dark shadow-sm hover:bg-surface-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-      >
-        <!-- Action icon: moon in light mode, sun in dark mode -->
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          class="h-5 w-5 dark:hidden"
-          aria-hidden="true"
+      <div class="mt-auto pt-4 flex items-center justify-end">
+        <ThemeToggle
+          data-mobile-theme-toggle
+          aria-label="Toggle color theme"
+          class="inline-flex items-center justify-center rounded-md border border-border-light dark:border-border-dark bg-surface-light/70 dark:bg-surface-dark/60 p-2 text-text-light dark:text-text-dark shadow-sm hover:bg-surface-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
         >
-          <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79Z"></path>
-        </svg>
+          <!-- Action icon: moon in light mode, sun in dark mode -->
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="h-5 w-5 dark:hidden"
+            aria-hidden="true"
+          >
+            <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79Z"></path>
+          </svg>
 
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          class="h-5 w-5 hidden dark:block"
-          aria-hidden="true"
-        >
-          <circle cx="12" cy="12" r="4"></circle>
-          <path d="M12 2v2"></path>
-          <path d="M12 20v2"></path>
-          <path d="m4.93 4.93 1.41 1.41"></path>
-          <path d="m17.66 17.66 1.41 1.41"></path>
-          <path d="M2 12h2"></path>
-          <path d="M20 12h2"></path>
-          <path d="m6.34 17.66-1.41 1.41"></path>
-          <path d="m19.07 4.93-1.41 1.41"></path>
-        </svg>
-
-        <span class="dark:hidden">Dark Mode</span>
-        <span class="hidden dark:inline">Light Mode</span>
-      </ThemeToggle>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="h-5 w-5 hidden dark:block"
+            aria-hidden="true"
+          >
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2"></path>
+            <path d="M12 20v2"></path>
+            <path d="m4.93 4.93 1.41 1.41"></path>
+            <path d="m17.66 17.66 1.41 1.41"></path>
+            <path d="M2 12h2"></path>
+            <path d="M20 12h2"></path>
+            <path d="m6.34 17.66-1.41 1.41"></path>
+            <path d="m19.07 4.93-1.41 1.41"></path>
+          </svg>
+          <span class="sr-only">Toggle theme</span>
+        </ThemeToggle>
+      </div>
     </div>
   </div>
 </div>

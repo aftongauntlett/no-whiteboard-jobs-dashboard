@@ -54,7 +54,6 @@ const className = props.class;
 const href = "href" in props ? props.href : undefined;
 const target = "target" in props ? props.target : undefined;
 const rel = "rel" in props ? props.rel : undefined;
-const type = "type" in props ? (props.type ?? "button") : "button";
 
 const resolvedRel =
   href && target === "_blank" ? (rel ?? "noopener noreferrer") : rel;
