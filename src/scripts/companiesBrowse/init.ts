@@ -14,11 +14,24 @@ import { bindFiltersController } from "./filtersController";
 import { bindPaginationController } from "./paginationController";
 import type { BrowseState, IndexedCompany } from "./types";
 
+import { interviewTags } from "../../config/interviewTags";
+import { deriveInterviewTagsFromText } from "../../utils/interviewTags";
+
 function init() {
   const section = document.getElementById("companies");
   if (!section) return;
 
-  const templates = getCompaniesBrowseTemplates(section);
+  // Bind menu interactions early so the Filter button works even if later
+  // initialization steps fail (e.g. missing templates).
+  const menu = createCompaniesMenuController(section);
+
+  let templates: ReturnType<typeof getCompaniesBrowseTemplates>;
+  try {
+    templates = getCompaniesBrowseTemplates(section);
+  } catch (err) {
+    console.error("Companies browse init failed (missing templates)", err);
+    return;
+  }
 
   const prefersReducedMotion = window.matchMedia?.(
     "(prefers-reduced-motion: reduce)",
@@ -32,8 +45,6 @@ function init() {
     });
   };
 
-  const menu = createCompaniesMenuController(section);
-
   canonicalizePagePath();
 
   const initialView = getView();
@@ -43,6 +54,7 @@ function init() {
     query: initial.query,
     sort: initial.sort,
     selectedEmployment: initial.selectedEmployment,
+    selectedInterviewTags: initial.selectedInterviewTags,
     perPage: initial.perPage,
     page: initial.page,
   };
@@ -66,6 +78,11 @@ function init() {
   const employmentButtons = qsa<HTMLButtonElement>(
     section,
     "[data-companies-employment-option]",
+  );
+
+  const interviewTagInputs = qsa<HTMLInputElement>(
+    section,
+    "[data-companies-interview-tag]",
   );
 
   const perPageGroupCard = qs<HTMLElement>(
@@ -116,7 +133,32 @@ function init() {
         stripHtml(c.interviewProcessHtml ?? ""),
       ].join(" "),
     ),
+    interviewTags: deriveInterviewTagsFromText(
+      stripHtml(c.interviewProcessHtml ?? ""),
+    ),
   }));
+
+  const cssEscape = (value: string) => {
+    if (globalThis.CSS && typeof globalThis.CSS.escape === "function") {
+      return globalThis.CSS.escape(value);
+    }
+    return value.replace(/[^a-zA-Z0-9_-]/g, "\\$&");
+  };
+
+  // Counts are computed from the full dataset (before any filters).
+  const interviewCounts = new Map<string, number>();
+  for (const tag of interviewTags) interviewCounts.set(tag.id, 0);
+  for (const c of indexedCompanies) {
+    for (const id of c.interviewTags) {
+      interviewCounts.set(id, (interviewCounts.get(id) ?? 0) + 1);
+    }
+  }
+  for (const tag of interviewTags) {
+    const el = section.querySelector<HTMLElement>(
+      `[data-companies-interview-count="${cssEscape(tag.id)}"]`,
+    );
+    if (el) el.textContent = String(interviewCounts.get(tag.id) ?? 0);
+  }
 
   const resultsCache = new Map<string, Company[]>();
 
@@ -136,6 +178,7 @@ function init() {
     sortButtons,
     perPageButtons,
     employmentButtons,
+    selectedInterviewTags: state.selectedInterviewTags,
     selectedEmployment: state.selectedEmployment,
     state,
     scrollToTop,
@@ -146,8 +189,10 @@ function init() {
     searchInput,
     sortButtons,
     employmentButtons,
+    interviewTagInputs,
     resetButton,
     selectedEmployment: state.selectedEmployment,
+    selectedInterviewTags: state.selectedInterviewTags,
     state,
     render: () => renderer.render(),
     closeMenu: menu.close,
@@ -155,9 +200,11 @@ function init() {
       state.query = "";
       state.sort = "name-asc";
       state.selectedEmployment.clear();
+      state.selectedInterviewTags.clear();
       state.perPage = defaultPerPageForView(getView());
       state.page = 1;
       if (searchInput) searchInput.value = "";
+      for (const input of interviewTagInputs) input.checked = false;
       renderer.render();
       menu.close();
     },

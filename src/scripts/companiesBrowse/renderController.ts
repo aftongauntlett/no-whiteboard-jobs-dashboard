@@ -1,5 +1,7 @@
 import type { Company, EmploymentType } from "@data/types";
 
+import type { InterviewTagId } from "../../config/interviewTags";
+
 import { isMdUp } from "../../utils/viewMode";
 
 import type { SortKey } from "./filters";
@@ -34,6 +36,8 @@ export function createBrowseRenderController(args: {
   perPageButtons: HTMLButtonElement[];
   employmentButtons: HTMLButtonElement[];
 
+  selectedInterviewTags: Set<InterviewTagId>;
+
   selectedEmployment: Set<EmploymentType>;
   state: BrowseState;
   scrollToTop: () => void;
@@ -55,6 +59,7 @@ export function createBrowseRenderController(args: {
     sortButtons,
     perPageButtons,
     employmentButtons,
+    selectedInterviewTags,
     selectedEmployment,
     state,
     scrollToTop,
@@ -92,7 +97,10 @@ export function createBrowseRenderController(args: {
       const filterDot = menuButton.querySelector<HTMLElement>(
         "[data-companies-active-filter-dot]",
       );
-      const filters = Array.from(selectedEmployment);
+      const filters = [
+        ...Array.from(selectedEmployment),
+        ...Array.from(selectedInterviewTags),
+      ];
       const hasFilters = filters.length > 0;
       if (filterDot) filterDot.classList.toggle("hidden", !hasFilters);
 
@@ -169,6 +177,7 @@ export function createBrowseRenderController(args: {
       query: normalizeText(state.query),
       sort: state.sort,
       selectedEmployment,
+      selectedInterviewTags,
       resultsCache,
     });
 
@@ -228,6 +237,7 @@ export function createBrowseRenderController(args: {
               query: state.query,
               sort: state.sort,
               employment: Array.from(selectedEmployment),
+              interview: Array.from(selectedInterviewTags),
               perPage: state.perPage,
               page: state.page,
             });
@@ -255,6 +265,7 @@ export function createBrowseRenderController(args: {
       query: state.query,
       sort: state.sort,
       employment: Array.from(selectedEmployment),
+      interview: Array.from(selectedInterviewTags),
       perPage: state.perPage,
       page: state.page,
     });

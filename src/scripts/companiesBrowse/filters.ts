@@ -1,10 +1,12 @@
 import type { Company, EmploymentType } from "@data/types";
+import type { InterviewTagId } from "../../config/interviewTags";
 
-export type SortKey = "name-asc" | "name-desc" | "last-updated";
+export type SortKey = "name-asc" | "name-desc";
 
 export type IndexedCompany = {
   company: Company;
   searchText: string;
+  interviewTags: readonly InterviewTagId[];
 };
 
 export function computeResults(args: {
@@ -12,6 +14,7 @@ export function computeResults(args: {
   query: string;
   sort: SortKey;
   selectedEmployment: Set<EmploymentType>;
+  selectedInterviewTags: Set<InterviewTagId>;
   resultsCache: Map<string, Company[]>;
 }): Company[] {
   const q = args.query;
@@ -19,7 +22,13 @@ export function computeResults(args: {
     args.selectedEmployment.size > 0
       ? Array.from(args.selectedEmployment).sort().join(",")
       : "";
-  const cacheKey = `${q}\u0001${args.sort}\u0001${employmentKey}`;
+
+  const interviewKey =
+    args.selectedInterviewTags.size > 0
+      ? Array.from(args.selectedInterviewTags).sort().join(",")
+      : "";
+
+  const cacheKey = `${q}\u0001${args.sort}\u0001${employmentKey}\u0001${interviewKey}`;
 
   const cached = args.resultsCache.get(cacheKey);
   if (cached) return cached;
@@ -34,6 +43,15 @@ export function computeResults(args: {
     );
   }
 
+  if (args.selectedInterviewTags.size > 0) {
+    const selected = Array.from(args.selectedInterviewTags);
+    // OR behavior: include companies that match ANY selected tag.
+    // To switch to AND behavior, replace `some` with `every`.
+    result = result.filter((c) =>
+      selected.some((t) => c.interviewTags.includes(t)),
+    );
+  }
+
   if (q) {
     result = result.filter((c) => c.searchText.includes(q));
   }
@@ -41,14 +59,8 @@ export function computeResults(args: {
   const sorted = [...result];
 
   sorted.sort((a, b) => {
-    if (args.sort === "name-asc")
-      return a.company.name.localeCompare(b.company.name);
     if (args.sort === "name-desc")
       return b.company.name.localeCompare(a.company.name);
-
-    const da = a.company.lastUpdated ?? "";
-    const db = b.company.lastUpdated ?? "";
-    if (da !== db) return db.localeCompare(da);
     return a.company.name.localeCompare(b.company.name);
   });
 

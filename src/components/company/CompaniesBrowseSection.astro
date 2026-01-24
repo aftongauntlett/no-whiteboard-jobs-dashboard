@@ -64,7 +64,7 @@ const viewToggleProps = {
 >
   <div data-companies-menu>
     <div
-      class="hidden fixed inset-0 bg-black/20 dark:bg-black/50 backdrop-blur-[1px] z-30"
+      class="hidden fixed inset-0 bg-black/10 dark:bg-black/30 md:hidden z-30"
       aria-hidden="true"
       data-companies-menu-scrim
     >
@@ -95,18 +95,17 @@ const viewToggleProps = {
     </div>
 
     <div
-      class="hidden fixed w-fit max-w-[92vw] rounded-xl border border-border-light dark:border-border-dark bg-surface-light/95 dark:bg-surface-dark/95 shadow-lg ring-1 ring-black/5 dark:ring-white/10 z-50"
-      role="dialog"
-      aria-modal="true"
+      class="hidden fixed left-0 right-0 bottom-0 md:left-auto md:right-auto md:bottom-auto w-full md:w-120 md:max-w-[92vw] max-h-[80vh] overflow-y-auto rounded-t-xl rounded-b-none md:rounded-xl border border-border-light dark:border-border-dark bg-surface-light/95 dark:bg-surface-dark/95 shadow-lg ring-1 ring-black/5 dark:ring-white/10 z-50"
+      role="region"
       aria-label="Filter and sort companies"
       tabindex="-1"
       id="companies-menu-panel"
       data-companies-menu-panel
     >
-      <div class="p-4 space-y-4">
+      <div class="p-3 space-y-3 md:space-y-0 md:grid md:grid-cols-2 md:gap-4">
         <div class="pt-1">
           <div
-            class="text-xs font-semibold tracking-wide text-text-mutedLight dark:text-text-mutedDark mb-2"
+            class="text-xs font-semibold tracking-wide text-text-mutedLight dark:text-text-mutedDark mb-1.5"
           >
             Sort
           </div>
@@ -116,7 +115,7 @@ const viewToggleProps = {
               data-companies-sort-option="name-asc"
               role="radio"
               aria-checked="true"
-              class="cursor-pointer grid grid-cols-[1fr_auto] items-start gap-3 rounded-md px-3 py-2 text-sm hover:bg-surface-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+              class="cursor-pointer grid grid-cols-[1fr_auto] items-center gap-2 rounded-md px-2.5 py-1.5 text-sm hover:bg-surface-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
             >
               <span class="min-w-0 text-left">Company name (A–Z)</span>
               <span
@@ -130,23 +129,9 @@ const viewToggleProps = {
               data-companies-sort-option="name-desc"
               role="radio"
               aria-checked="false"
-              class="cursor-pointer grid grid-cols-[1fr_auto] items-start gap-3 rounded-md px-3 py-2 text-sm hover:bg-surface-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+              class="cursor-pointer grid grid-cols-[1fr_auto] items-center gap-2 rounded-md px-2.5 py-1.5 text-sm hover:bg-surface-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
             >
               <span class="min-w-0 text-left">Company name (Z–A)</span>
-              <span
-                data-companies-sort-check
-                aria-hidden="true"
-                class="text-accent hidden shrink-0 self-center">✓</span
-              >
-            </button>
-            <button
-              type="button"
-              data-companies-sort-option="last-updated"
-              role="radio"
-              aria-checked="false"
-              class="cursor-pointer grid grid-cols-[1fr_auto] items-start gap-3 rounded-md px-3 py-2 text-sm hover:bg-surface-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-            >
-              <span class="min-w-0 text-left">Last updated</span>
               <span
                 data-companies-sort-check
                 aria-hidden="true"
@@ -156,9 +141,9 @@ const viewToggleProps = {
           </div>
         </div>
 
-        <div class="border-t border-divider-surface pt-4">
+        <div class="border-t border-divider-surface pt-3 md:pt-0 md:border-t-0">
           <div
-            class="text-xs font-semibold tracking-wide text-text-mutedLight dark:text-text-mutedDark mb-2"
+            class="text-xs font-semibold tracking-wide text-text-mutedLight dark:text-text-mutedDark mb-1.5"
           >
             Employment type
           </div>
@@ -167,7 +152,7 @@ const viewToggleProps = {
               type="button"
               data-companies-employment-option="Remote"
               aria-pressed="false"
-              class="cursor-pointer grid grid-cols-[1fr_auto] items-start gap-3 rounded-md px-3 py-2 text-sm hover:bg-surface-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+              class="cursor-pointer grid grid-cols-[1fr_auto] items-center gap-2 rounded-md px-2.5 py-1.5 text-sm hover:bg-surface-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
             >
               <span class="min-w-0 text-left">Remote</span>
               <span
@@ -180,7 +165,7 @@ const viewToggleProps = {
               type="button"
               data-companies-employment-option="In-office"
               aria-pressed="false"
-              class="cursor-pointer grid grid-cols-[1fr_auto] items-start gap-3 rounded-md px-3 py-2 text-sm hover:bg-surface-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+              class="cursor-pointer grid grid-cols-[1fr_auto] items-center gap-2 rounded-md px-2.5 py-1.5 text-sm hover:bg-surface-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
             >
               <span class="min-w-0 text-left">In-office</span>
               <span
@@ -192,8 +177,215 @@ const viewToggleProps = {
           </div>
         </div>
 
+        <div class="border-t border-divider-surface pt-3 md:col-span-2">
+          <div
+            class="text-xs font-semibold tracking-wide text-text-mutedLight dark:text-text-mutedDark mb-1.5"
+          >
+            Interview style
+          </div>
+
+          <!--
+            Counts are heuristic and computed client-side from the full dataset
+            (before any active filters).
+          -->
+          <div
+            class="grid gap-1 md:grid-cols-2 md:gap-x-3 md:gap-y-1"
+            role="group"
+            aria-label="Interview style"
+          >
+            <label
+              class="cursor-pointer grid grid-cols-[auto_1fr] items-center gap-2 rounded-md px-2.5 py-1.5 text-sm hover:bg-surface-hover focus-within:outline-none focus-within:ring-2 focus-within:ring-accent"
+            >
+              <input
+                type="checkbox"
+                value="take-home"
+                data-companies-interview-tag
+                class="h-4 w-4 accent-accent"
+              />
+              <span class="min-w-0 text-left">
+                Take-home
+                <span
+                  class="ml-1 whitespace-nowrap text-xs tabular-nums text-text-mutedLight dark:text-text-mutedDark"
+                  >(<span data-companies-interview-count="take-home"
+                  ></span>)</span
+                >
+              </span>
+            </label>
+
+            <label
+              class="cursor-pointer grid grid-cols-[auto_1fr] items-center gap-2 rounded-md px-2.5 py-1.5 text-sm hover:bg-surface-hover focus-within:outline-none focus-within:ring-2 focus-within:ring-accent"
+            >
+              <input
+                type="checkbox"
+                value="live-coding"
+                data-companies-interview-tag
+                class="h-4 w-4 accent-accent"
+              />
+              <span class="min-w-0 text-left">
+                Live coding
+                <span
+                  class="ml-1 whitespace-nowrap text-xs tabular-nums text-text-mutedLight dark:text-text-mutedDark"
+                  >(<span data-companies-interview-count="live-coding"
+                  ></span>)</span
+                >
+              </span>
+            </label>
+
+            <label
+              class="cursor-pointer grid grid-cols-[auto_1fr] items-center gap-2 rounded-md px-2.5 py-1.5 text-sm hover:bg-surface-hover focus-within:outline-none focus-within:ring-2 focus-within:ring-accent"
+            >
+              <input
+                type="checkbox"
+                value="pair-programming"
+                data-companies-interview-tag
+                class="h-4 w-4 accent-accent"
+              />
+              <span class="min-w-0 text-left">
+                Pair programming
+                <span
+                  class="ml-1 whitespace-nowrap text-xs tabular-nums text-text-mutedLight dark:text-text-mutedDark"
+                  >(<span data-companies-interview-count="pair-programming"
+                  ></span>)</span
+                >
+              </span>
+            </label>
+
+            <label
+              class="cursor-pointer grid grid-cols-[auto_1fr] items-center gap-2 rounded-md px-2.5 py-1.5 text-sm hover:bg-surface-hover focus-within:outline-none focus-within:ring-2 focus-within:ring-accent"
+            >
+              <input
+                type="checkbox"
+                value="system-design"
+                data-companies-interview-tag
+                class="h-4 w-4 accent-accent"
+              />
+              <span class="min-w-0 text-left">
+                System design
+                <span
+                  class="ml-1 whitespace-nowrap text-xs tabular-nums text-text-mutedLight dark:text-text-mutedDark"
+                  >(<span data-companies-interview-count="system-design"
+                  ></span>)</span
+                >
+              </span>
+            </label>
+
+            <label
+              class="cursor-pointer grid grid-cols-[auto_1fr] items-center gap-2 rounded-md px-2.5 py-1.5 text-sm hover:bg-surface-hover focus-within:outline-none focus-within:ring-2 focus-within:ring-accent"
+            >
+              <input
+                type="checkbox"
+                value="behavioral"
+                data-companies-interview-tag
+                class="h-4 w-4 accent-accent"
+              />
+              <span class="min-w-0 text-left">
+                Behavioral
+                <span
+                  class="ml-1 whitespace-nowrap text-xs tabular-nums text-text-mutedLight dark:text-text-mutedDark"
+                  >(<span data-companies-interview-count="behavioral"
+                  ></span>)</span
+                >
+              </span>
+            </label>
+
+            <label
+              class="cursor-pointer grid grid-cols-[auto_1fr] items-center gap-2 rounded-md px-2.5 py-1.5 text-sm hover:bg-surface-hover focus-within:outline-none focus-within:ring-2 focus-within:ring-accent"
+            >
+              <input
+                type="checkbox"
+                value="portfolio-review"
+                data-companies-interview-tag
+                class="h-4 w-4 accent-accent"
+              />
+              <span class="min-w-0 text-left">
+                Portfolio review
+                <span
+                  class="ml-1 whitespace-nowrap text-xs tabular-nums text-text-mutedLight dark:text-text-mutedDark"
+                  >(<span data-companies-interview-count="portfolio-review"
+                  ></span>)</span
+                >
+              </span>
+            </label>
+
+            <label
+              class="cursor-pointer grid grid-cols-[auto_1fr] items-center gap-2 rounded-md px-2.5 py-1.5 text-sm hover:bg-surface-hover focus-within:outline-none focus-within:ring-2 focus-within:ring-accent"
+            >
+              <input
+                type="checkbox"
+                value="technical-discussion"
+                data-companies-interview-tag
+                class="h-4 w-4 accent-accent"
+              />
+              <span class="min-w-0 text-left">
+                Technical discussion
+                <span
+                  class="ml-1 whitespace-nowrap text-xs tabular-nums text-text-mutedLight dark:text-text-mutedDark"
+                  >(<span data-companies-interview-count="technical-discussion"
+                  ></span>)</span
+                >
+              </span>
+            </label>
+
+            <label
+              class="cursor-pointer grid grid-cols-[auto_1fr] items-center gap-2 rounded-md px-2.5 py-1.5 text-sm hover:bg-surface-hover focus-within:outline-none focus-within:ring-2 focus-within:ring-accent"
+            >
+              <input
+                type="checkbox"
+                value="async"
+                data-companies-interview-tag
+                class="h-4 w-4 accent-accent"
+              />
+              <span class="min-w-0 text-left">
+                Async
+                <span
+                  class="ml-1 whitespace-nowrap text-xs tabular-nums text-text-mutedLight dark:text-text-mutedDark"
+                  >(<span data-companies-interview-count="async"></span>)</span
+                >
+              </span>
+            </label>
+
+            <label
+              class="cursor-pointer grid grid-cols-[auto_1fr] items-center gap-2 rounded-md px-2.5 py-1.5 text-sm hover:bg-surface-hover focus-within:outline-none focus-within:ring-2 focus-within:ring-accent"
+            >
+              <input
+                type="checkbox"
+                value="time-boxed"
+                data-companies-interview-tag
+                class="h-4 w-4 accent-accent"
+              />
+              <span class="min-w-0 text-left">
+                Time-boxed
+                <span
+                  class="ml-1 whitespace-nowrap text-xs tabular-nums text-text-mutedLight dark:text-text-mutedDark"
+                  >(<span data-companies-interview-count="time-boxed"
+                  ></span>)</span
+                >
+              </span>
+            </label>
+
+            <label
+              class="cursor-pointer grid grid-cols-[auto_1fr] items-center gap-2 rounded-md px-2.5 py-1.5 text-sm hover:bg-surface-hover focus-within:outline-none focus-within:ring-2 focus-within:ring-accent"
+            >
+              <input
+                type="checkbox"
+                value="on-site"
+                data-companies-interview-tag
+                class="h-4 w-4 accent-accent"
+              />
+              <span class="min-w-0 text-left">
+                On-site
+                <span
+                  class="ml-1 whitespace-nowrap text-xs tabular-nums text-text-mutedLight dark:text-text-mutedDark"
+                  >(<span data-companies-interview-count="on-site"
+                  ></span>)</span
+                >
+              </span>
+            </label>
+          </div>
+        </div>
+
         <div
-          class="border-t border-divider-surface pt-4 flex items-center justify-end"
+          class="border-t border-divider-surface pt-3 flex items-center justify-end md:col-span-2"
         >
           <button
             type="button"

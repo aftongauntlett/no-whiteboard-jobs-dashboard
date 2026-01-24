@@ -9,6 +9,7 @@ export function updateUrl(nextState: {
   query: string;
   sort: string;
   employment: string[];
+  interview: string[];
   perPage: number;
   page: number;
 }) {
@@ -25,6 +26,12 @@ export function updateUrl(nextState: {
     next.searchParams.set("employment", nextState.employment.join(","));
   } else {
     next.searchParams.delete("employment");
+  }
+
+  if (nextState.interview.length > 0) {
+    next.searchParams.set("interview", nextState.interview.join(","));
+  } else {
+    next.searchParams.delete("interview");
   }
 
   next.searchParams.set("perPage", String(nextState.perPage));

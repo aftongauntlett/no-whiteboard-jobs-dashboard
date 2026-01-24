@@ -7,7 +7,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "lint": "eslint src/"
+    "lint": "eslint src/",
+    "test": "tsx --test src/utils/interviewTags.test.ts"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.6",
@@ -25,6 +26,7 @@
     "eslint": "^9.39.2",
     "eslint-plugin-astro": "^1.5.0",
     "prettier": "^3.7.4",
-    "prettier-plugin-astro": "^0.14.1"
+    "prettier-plugin-astro": "^0.14.1",
+    "tsx": "^4.20.5"
   }
 }

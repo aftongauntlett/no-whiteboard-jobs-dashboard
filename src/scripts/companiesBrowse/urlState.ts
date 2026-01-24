@@ -1,6 +1,9 @@
 import type { EmploymentType } from "@data/types";
 import { isEmploymentType } from "@data/types";
 
+import type { InterviewTagId } from "../../config/interviewTags";
+import { isInterviewTagId } from "../../config/interviewTags";
+
 import { isMdUp } from "../../utils/viewMode";
 import type { ViewMode } from "../../utils/viewMode";
 
@@ -28,6 +31,7 @@ export function readInitialStateFromUrl(initialView: ViewMode): {
   query: string;
   sort: SortKey;
   selectedEmployment: Set<EmploymentType>;
+  selectedInterviewTags: Set<InterviewTagId>;
   perPage: number;
   page: number;
 } {
@@ -36,7 +40,7 @@ export function readInitialStateFromUrl(initialView: ViewMode): {
   let query = params.get("q") ?? "";
 
   let sort: SortKey = (params.get("sort") as SortKey) ?? "name-asc";
-  if (!(["name-asc", "name-desc", "last-updated"] as const).includes(sort)) {
+  if (!(["name-asc", "name-desc"] as const).includes(sort)) {
     sort = "name-asc";
   }
 
@@ -44,6 +48,12 @@ export function readInitialStateFromUrl(initialView: ViewMode): {
   const typesParam = params.get("employment") ?? "";
   for (const t of typesParam.split(",").map((s) => s.trim())) {
     if (isEmploymentType(t)) selectedEmployment.add(t);
+  }
+
+  const selectedInterviewTags = new Set<InterviewTagId>();
+  const interviewParam = params.get("interview") ?? "";
+  for (const t of interviewParam.split(",").map((s) => s.trim())) {
+    if (isInterviewTagId(t)) selectedInterviewTags.add(t);
   }
 
   const perPageDefault = defaultPerPageForView(initialView);
@@ -73,5 +83,12 @@ export function readInitialStateFromUrl(initialView: ViewMode): {
   const pageParam = Number.parseInt(params.get("page") ?? "1", 10);
   let page = Number.isFinite(pageParam) && pageParam > 0 ? pageParam : 1;
 
-  return { query, sort, selectedEmployment, perPage, page };
+  return {
+    query,
+    sort,
+    selectedEmployment,
+    selectedInterviewTags,
+    perPage,
+    page,
+  };
 }

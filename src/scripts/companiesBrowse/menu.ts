@@ -1,4 +1,4 @@
-import { qs } from "./dom";
+import { MD_QUERY, isMdUp, qs } from "./dom";
 
 type MenuController = {
   isOpen: () => boolean;
@@ -42,6 +42,22 @@ export function createCompaniesMenuController(
   );
 
   let lastTrigger: HTMLElement | null = null;
+
+  type MenuMode = "desktop" | "mobile";
+  const getMode = (): MenuMode => (isMdUp() ? "desktop" : "mobile");
+
+  const applyModeAttributes = (mode: MenuMode) => {
+    if (!menuPanel) return;
+
+    // Only treat it as a true dialog on mobile (bottom sheet).
+    if (mode === "mobile") {
+      menuPanel.setAttribute("role", "dialog");
+      menuPanel.setAttribute("aria-modal", "true");
+    } else {
+      menuPanel.setAttribute("role", "region");
+      menuPanel.removeAttribute("aria-modal");
+    }
+  };
 
   const onPanelKeydown = (e: KeyboardEvent) => {
     if (e.key !== "Tab") return;
@@ -100,6 +116,9 @@ export function createCompaniesMenuController(
     if (!menuButton || !menuPanel) return;
     if (menuPanel.classList.contains("hidden")) return;
 
+    // Only position as an anchored popover on desktop/tablet.
+    if (!isMdUp()) return;
+
     const buttonRect = menuButton.getBoundingClientRect();
     const gap = 8;
     const viewportW = window.innerWidth;
@@ -109,14 +128,35 @@ export function createCompaniesMenuController(
     const panelW = menuPanel.offsetWidth;
     const panelH = menuPanel.offsetHeight;
 
-    const maxLeft = Math.max(gap, viewportW - panelW - gap);
-    const left = Math.min(maxLeft, Math.max(gap, buttonRect.right - panelW));
+    // Placement: bottom-end by default.
+    // - Flip horizontally to bottom-start if there's not enough space on the left for end-alignment.
+    // - Flip vertically to top-* if there's not enough space below.
+    const fitsBelow = buttonRect.bottom + gap + panelH <= viewportH - gap;
+    const fitsAbove = buttonRect.top - gap - panelH >= gap;
 
-    const maxTop = Math.max(gap, viewportH - panelH - gap);
-    const top = Math.min(maxTop, Math.max(gap, buttonRect.bottom + gap));
+    const preferAbove = !fitsBelow && fitsAbove;
+    const top = preferAbove
+      ? buttonRect.top - gap - panelH
+      : buttonRect.bottom + gap;
 
-    menuPanel.style.left = `${left}px`;
-    menuPanel.style.top = `${top}px`;
+    const canEndAlign = buttonRect.right - panelW >= gap;
+    const canStartAlign = buttonRect.left + panelW <= viewportW - gap;
+    const left = canEndAlign
+      ? buttonRect.right - panelW
+      : canStartAlign
+        ? buttonRect.left
+        : Math.max(gap, Math.min(viewportW - panelW - gap, buttonRect.left));
+
+    // Ensure we never cover the trigger button.
+    const clampedLeft = Math.max(gap, Math.min(viewportW - panelW - gap, left));
+    const clampedTop = Math.max(gap, Math.min(viewportH - panelH - gap, top));
+
+    // Clear bottom-sheet inline styles when switching from mobile.
+    menuPanel.style.bottom = "";
+    menuPanel.style.right = "";
+
+    menuPanel.style.left = `${clampedLeft}px`;
+    menuPanel.style.top = `${clampedTop}px`;
   };
 
   let detachPositioning: (() => void) | null = null;
@@ -139,28 +179,42 @@ export function createCompaniesMenuController(
   const setOpen = (open: boolean) => {
     if (!menuButton || !menuPanel) return;
 
+    const mode = getMode();
+    applyModeAttributes(mode);
+
     menuButton.setAttribute("aria-expanded", open ? "true" : "false");
     menuPanel.classList.toggle("hidden", !open);
     menuPanel.setAttribute("aria-hidden", open ? "false" : "true");
 
     if (open) {
-      // Ensure panel has a concrete position when opened (it is now a sibling
-      // container, not absolutely positioned under the button).
       requestAnimationFrame(() => positionPanel());
     }
 
-    if (menuScrim) menuScrim.classList.toggle("hidden", !open);
+    // Scrim is mobile-only (bottom sheet).
+    if (menuScrim)
+      menuScrim.classList.toggle("hidden", !(open && mode === "mobile"));
 
     if (open) {
       lastTrigger = menuButton;
-      document.body.style.overflow = "hidden";
-      setBackgroundInert(true);
-      setFocusTrapActive(true);
-      setPositioningActive(true);
+
+      if (mode === "mobile") {
+        document.body.style.overflow = "hidden";
+        setBackgroundInert(true);
+        setFocusTrapActive(true);
+        setPositioningActive(false);
+        // Ensure stale desktop positioning doesn't interfere.
+        menuPanel.style.left = "";
+        menuPanel.style.top = "";
+      } else {
+        document.body.style.overflow = "";
+        setBackgroundInert(false);
+        setFocusTrapActive(false);
+        setPositioningActive(true);
+      }
 
       const firstInteractive = qs<HTMLElement>(
         menuPanel,
-        "[data-companies-sort-option], [data-companies-employment-option], [data-companies-reset]",
+        "[data-companies-sort-option], [data-companies-employment-option], [data-companies-interview-tag], [data-companies-reset]",
       );
       (firstInteractive || menuPanel).focus?.();
     } else {
@@ -168,6 +222,13 @@ export function createCompaniesMenuController(
       setBackgroundInert(false);
       setFocusTrapActive(false);
       setPositioningActive(false);
+
+      // Clear any inline positioning so a future open recomputes cleanly.
+      menuPanel.style.left = "";
+      menuPanel.style.top = "";
+      menuPanel.style.right = "";
+      menuPanel.style.bottom = "";
+
       if (lastTrigger) lastTrigger.focus?.();
       lastTrigger = null;
     }
@@ -206,6 +267,15 @@ export function createCompaniesMenuController(
       close();
     });
   }
+
+  // If the viewport crosses the md breakpoint while the menu is open, switch
+  // between desktop popover and mobile bottom sheet behavior.
+  const mq = window.matchMedia(MD_QUERY);
+  mq.addEventListener("change", () => {
+    if (!isOpen()) return;
+    // Re-apply open state to update mode-specific behavior/ARIA.
+    setOpen(true);
+  });
 
   if (menuScrim) {
     menuScrim.addEventListener("click", () => {

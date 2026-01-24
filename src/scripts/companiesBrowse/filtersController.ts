@@ -1,13 +1,15 @@
 import type { EmploymentType } from "@data/types";
 import { isEmploymentType } from "@data/types";
 
+import type { InterviewTagId } from "../../config/interviewTags";
+import { isInterviewTagId } from "../../config/interviewTags";
+
 import type { SortKey } from "./filters";
 import type { BrowseState } from "./types";
 
 const SORT_KEYS = [
   "name-asc",
   "name-desc",
-  "last-updated",
 ] as const satisfies readonly SortKey[];
 
 function isSortKey(value: string | null): value is SortKey {
@@ -19,9 +21,11 @@ export function bindFiltersController(args: {
   searchInput: HTMLInputElement | null;
   sortButtons: HTMLButtonElement[];
   employmentButtons: HTMLButtonElement[];
+  interviewTagInputs: HTMLInputElement[];
   resetButton: HTMLButtonElement | null;
 
   selectedEmployment: Set<EmploymentType>;
+  selectedInterviewTags: Set<InterviewTagId>;
   state: BrowseState;
 
   render: () => void;
@@ -33,8 +37,10 @@ export function bindFiltersController(args: {
     searchInput,
     sortButtons,
     employmentButtons,
+    interviewTagInputs,
     resetButton,
     selectedEmployment,
+    selectedInterviewTags,
     state,
     render,
     closeMenu,
@@ -82,6 +88,22 @@ export function bindFiltersController(args: {
       const value = raw;
       if (selectedEmployment.has(value)) selectedEmployment.delete(value);
       else selectedEmployment.add(value);
+      state.page = 1;
+      render();
+    });
+  }
+
+  for (const input of interviewTagInputs) {
+    const raw = input.value;
+    if (!isInterviewTagId(raw)) continue;
+    const value = raw as InterviewTagId;
+
+    // Sync initial checked state from URL.
+    input.checked = selectedInterviewTags.has(value);
+
+    input.addEventListener("change", () => {
+      if (input.checked) selectedInterviewTags.add(value);
+      else selectedInterviewTags.delete(value);
       state.page = 1;
       render();
     });
