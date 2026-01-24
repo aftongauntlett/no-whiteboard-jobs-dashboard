@@ -41,7 +41,11 @@ import {
             >
               <span data-company-name class={COMPANY_CARD_NAME_HOVER_CLASS}
               ></span>
-              <span data-company-source class="hidden curation-dot"></span>
+              <span
+                data-company-source
+                class="hidden curation-dot"
+                aria-hidden="true"></span>
+              <span data-company-source-sr class="hidden sr-only"></span>
             </span>
           </h3>
           <span data-company-employment class="ui-badge"></span>
@@ -112,7 +116,11 @@ import {
               COMPANY_CARD_TITLE_INLINE_CLASS}
           >
             <span data-company-name></span>
-            <span data-company-source class="hidden curation-dot"></span>
+            <span
+              data-company-source
+              class="hidden curation-dot"
+              aria-hidden="true"></span>
+            <span data-company-source-sr class="hidden sr-only"></span>
           </span>
         </h3>
         <span data-company-employment class="ui-badge"></span>
@@ -163,7 +171,11 @@ import {
         <h3 class={COMPANY_LIST_TITLE_CLASS}>
           <span class="flex items-center gap-2 min-w-0">
             <span data-company-name class={COMPANY_LIST_NAME_CLASS}></span>
-            <span data-company-source class="hidden curation-dot"></span>
+            <span
+              data-company-source
+              class="hidden curation-dot"
+              aria-hidden="true"></span>
+            <span data-company-source-sr class="hidden sr-only"></span>
           </span>
         </h3>
       </div>
@@ -248,7 +260,11 @@ import {
         <h3 class={COMPANY_LIST_TITLE_CLASS}>
           <span class="flex items-center gap-2 min-w-0">
             <span data-company-name class={COMPANY_LIST_NAME_CLASS}></span>
-            <span data-company-source class="hidden curation-dot"></span>
+            <span
+              data-company-source
+              class="hidden curation-dot"
+              aria-hidden="true"></span>
+            <span data-company-source-sr class="hidden sr-only"></span>
           </span>
         </h3>
       </div>
@@ -307,7 +323,7 @@ import {
 <template data-companies-template="location-overflow">
   <button
     type="button"
-    class="location-chip group/loc relative z-40 hover:border-accent/30 focus:outline-none focus:ring-2 focus:ring-accent"
+    class="location-chip location-chip--button group/loc relative z-40 hover:border-accent/30 focus:outline-none focus:ring-2 focus:ring-accent"
     data-location-overflow
   >
     <span data-location-overflow-count></span>

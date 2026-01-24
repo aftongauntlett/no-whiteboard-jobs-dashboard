@@ -32,6 +32,7 @@ import ThemeToggle from "./ThemeToggle.astro";
         variant="secondary"
         tone="soft"
         size="sm"
+        iconOnly
         data-mobile-nav-toggle
         aria-label="Open navigation menu"
         aria-expanded="false"
@@ -87,6 +88,7 @@ import ThemeToggle from "./ThemeToggle.astro";
           variant="secondary"
           tone="soft"
           size="sm"
+          iconOnly
           data-mobile-nav-close
           aria-label="Close navigation menu"
           class="shadow-sm"
@@ -127,7 +129,7 @@ import ThemeToggle from "./ThemeToggle.astro";
         <ThemeToggle
           data-mobile-theme-toggle
           aria-label="Toggle color theme"
-          class="inline-flex items-center justify-center rounded-md border border-border-light dark:border-border-dark bg-surface-light/70 dark:bg-surface-dark/60 p-2 text-text-light dark:text-text-dark shadow-sm hover:bg-surface-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+          class="inline-flex items-center justify-center rounded-md border border-border-light dark:border-border-dark bg-surface-light/70 dark:bg-surface-dark/60 p-2 min-h-11 min-w-11 text-text-light dark:text-text-dark shadow-sm hover:bg-surface-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
         >
           <!-- Action icon: moon in light mode, sun in dark mode -->
           <svg

@@ -1,6 +1,7 @@
 ---
 import type { HTMLAttributes } from "astro/types";
 import CurationIndicator from "../../ui/CurationIndicator.astro";
+import { createUniqueId } from "../../../utils/company";
 import {
   COMPANIES_PER_PAGE_OPTIONS,
   DEFAULT_COMPANIES_PER_PAGE,
@@ -19,6 +20,9 @@ const {
   totalItems,
   countProps = {},
 } = Astro.props as Props;
+
+const newTooltipId = createUniqueId("curation-new-tooltip");
+const updatedTooltipId = createUniqueId("curation-updated-tooltip");
 ---
 
 <div class="flex items-center justify-between gap-3">
@@ -34,15 +38,17 @@ const {
     <div
       class="hidden md:flex items-center gap-3 text-xs text-text-mutedLight dark:text-text-mutedDark"
     >
-      <div
-        class="group relative inline-flex items-center focus:outline-none"
-        tabindex="0"
+      <button
+        type="button"
+        class="group relative inline-flex items-center focus:outline-none rounded cursor-help"
+        aria-describedby={newTooltipId}
       >
         <div class="inline-flex items-center gap-2">
           <CurationIndicator status="new" class="shrink-0" />
           <span>New</span>
         </div>
         <span
+          id={newTooltipId}
           role="tooltip"
           class="pointer-events-none opacity-0 translate-y-1 transition
                  absolute left-1/2 -translate-x-1/2 top-full mt-2 z-20
@@ -56,17 +62,19 @@ const {
         >
           Added locally. Not in the upstream dataset.
         </span>
-      </div>
+      </button>
 
-      <div
-        class="group relative inline-flex items-center focus:outline-none"
-        tabindex="0"
+      <button
+        type="button"
+        class="group relative inline-flex items-center focus:outline-none rounded cursor-help"
+        aria-describedby={updatedTooltipId}
       >
         <div class="inline-flex items-center gap-2">
           <CurationIndicator status="edited" class="shrink-0" />
           <span>Updated</span>
         </div>
         <span
+          id={updatedTooltipId}
           role="tooltip"
           class="pointer-events-none opacity-0 translate-y-1 transition
                  absolute left-1/2 -translate-x-1/2 top-full mt-2 z-20
@@ -80,7 +88,7 @@ const {
         >
           Edited locally. May differ from the upstream dataset.
         </span>
-      </div>
+      </button>
     </div>
   </div>
 
@@ -106,7 +114,7 @@ const {
               aria-checked={
                 option === DEFAULT_COMPANIES_PER_PAGE.card ? "true" : "false"
               }
-              class="cursor-pointer rounded-md px-2.5 py-1 text-xs font-medium text-text-mutedLight dark:text-text-mutedDark hover:text-text-light dark:hover:text-text-dark focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+              class="cursor-pointer rounded-md px-3 py-2 min-h-11 min-w-11 text-xs font-medium text-text-mutedLight dark:text-text-mutedDark hover:text-text-light dark:hover:text-text-dark focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
             >
               {option}
             </button>
@@ -129,7 +137,7 @@ const {
               aria-checked={
                 option === DEFAULT_COMPANIES_PER_PAGE.list ? "true" : "false"
               }
-              class="cursor-pointer rounded-md px-2.5 py-1 text-xs font-medium text-text-mutedLight dark:text-text-mutedDark hover:text-text-light dark:hover:text-text-dark focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+              class="cursor-pointer rounded-md px-3 py-2 min-h-11 min-w-11 text-xs font-medium text-text-mutedLight dark:text-text-mutedDark hover:text-text-light dark:hover:text-text-dark focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
             >
               {option}
             </button>

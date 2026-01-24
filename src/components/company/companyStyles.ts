@@ -62,7 +62,7 @@ export const COMPANY_INTERVIEW_TEXT_CLASS_LIST =
   "ui-muted-body text-xs sm:text-sm text-text-mutedLight dark:text-text-mutedDark transition-colors";
 
 export const COMPANY_INTERVIEW_TOGGLE_CLASS =
-  "mt-1 hidden text-xs font-medium text-accent hover:underline cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/30 rounded";
+  "mt-1 hidden text-xs font-medium text-accent hover:underline cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/30 rounded px-2 py-2 -mx-2 min-h-11";
 
 export const COMPANY_LIST_ITEM_CLASS =
   "company-list-item ui-hover-brighten-body group relative px-4 py-3 pr-12 sm:px-5 sm:py-4 sm:pr-14 md:pr-5 transition-colors md:col-span-4 md:grid md:grid-cols-subgrid md:gap-x-4 md:items-stretch";
@@ -88,4 +88,4 @@ export const COMPANY_LIST_ACTION_WRAPPER_CLASS =
   "z-30 absolute right-4 top-3 sm:right-5 sm:top-4 md:static md:justify-self-end md:self-start";
 
 export const COMPANY_LIST_ACTION_LINK_CLASS =
-  "invisible inline-flex h-8 w-8 items-center justify-center rounded-md text-accent opacity-0 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100 transition-opacity focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/30";
+  "invisible inline-flex min-h-11 min-w-11 items-center justify-center rounded-md text-accent opacity-0 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100 transition-opacity focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/30";

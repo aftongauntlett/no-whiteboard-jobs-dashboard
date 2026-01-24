@@ -439,6 +439,7 @@ html.theme-transitioning .accordion-icon {
     justify-content: center;
     width: 100%;
     min-width: 0;
+    min-height: 44px;
     border-radius: 9999px;
     cursor: pointer;
     padding: 0.375rem 0.75rem;
@@ -449,6 +450,11 @@ html.theme-transitioning .accordion-icon {
     background: transparent;
     transition: color 150ms ease;
     z-index: 1;
+  }
+
+  .location-chip--button {
+    min-height: 44px;
+    padding: 0.5rem 0.75rem;
   }
 
   .companies-view-toggle-button:hover {

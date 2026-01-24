@@ -18,7 +18,7 @@ function renderLocations(
 
   if (actualLocations.length === 0) {
     const chip = cloneTemplateRoot<HTMLElement>(templates["location-chip"]);
-    chip.textContent = "Not Available";
+    chip.textContent = "No Location";
     chip.classList.add("text-text-mutedLight", "dark:text-text-mutedDark");
     container.append(chip);
     return;
@@ -113,9 +113,16 @@ function applySourceIndicator(
   const el = root.querySelector("[data-company-source]");
   if (!(el instanceof HTMLElement)) return;
 
+  const sr = root.querySelector("[data-company-source-sr]");
+  const srEl = sr instanceof HTMLElement ? sr : null;
+
   const isLocal = source === "local";
   el.classList.toggle("hidden", !isLocal);
-  if (!isLocal) return;
+  if (srEl) srEl.classList.toggle("hidden", !isLocal);
+  if (!isLocal) {
+    if (srEl) srEl.textContent = "";
+    return;
+  }
 
   const status = curationStatus ?? "edited";
   const tooltip =
@@ -124,7 +131,7 @@ function applySourceIndicator(
       : "Edited entry (updated locally)";
 
   el.setAttribute("title", tooltip);
-  el.setAttribute("aria-label", tooltip);
+  if (srEl) srEl.textContent = tooltip;
 
   el.classList.remove("bg-success-bg", "bg-info-bg");
 
