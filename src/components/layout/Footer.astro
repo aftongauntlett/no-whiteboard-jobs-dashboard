@@ -1,6 +1,6 @@
 ---
 import Button from "../ui/Button.astro";
-import NavLinks from "./NavLinks.astro";
+import Github from "lucide-astro/Github";
 const year = new Date().getFullYear();
 const portfolioUrl = "https://www.aftongauntlett.com/";
 ---
@@ -11,13 +11,17 @@ const portfolioUrl = "https://www.aftongauntlett.com/";
       class="mx-2 border-t border-border-light/80 dark:border-border-dark/80"
     >
       <div class="py-6 grid gap-4 md:grid-cols-3 md:items-center">
-        <div class="flex flex-wrap items-center gap-x-5 gap-y-2">
-          <NavLinks variant="footer" />
+        <div
+          class="flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-text-mutedLight dark:text-text-mutedDark"
+        >
           <a
-            href="/about#suggestions"
-            class="text-sm text-text-mutedLight dark:text-text-mutedDark underline-offset-4 hover:text-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+            href="https://github.com/aftongauntlett/no-whiteboard-jobs-dashboard"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 underline-offset-4 hover:text-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
           >
-            Suggestions
+            <Github class="h-4 w-4" aria-hidden="true" />
+            View Source
           </a>
         </div>
 
