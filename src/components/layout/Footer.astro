@@ -10,51 +10,57 @@ const portfolioUrl = "https://www.aftongauntlett.com/";
     <div
       class="mx-2 border-t border-border-light/80 dark:border-border-dark/80"
     >
-      <div
-        class="py-6 flex flex-col gap-4 md:grid md:grid-cols-3 md:items-center"
-      >
-        <div
-          class="flex w-full flex-wrap items-center gap-x-5 gap-y-2 text-xs text-text-mutedLight dark:text-text-mutedDark"
-        >
-          <a
-            href="https://github.com/aftongauntlett/no-whiteboard-jobs-dashboard"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center gap-2 underline-offset-4 hover:text-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-          >
-            <Github class="h-4 w-4" aria-hidden="true" />
-            View Source
-          </a>
-        </div>
+      <div class="py-6 md:grid md:grid-cols-3 md:items-center">
+        <!--
+            Mobile: one row with left links + right Top button.
+            Desktop: keep 3-column layout via md:contents.
+          -->
+        <div class="flex items-center justify-between gap-4 md:contents">
+          <div class="flex min-w-0 flex-col gap-2 md:contents">
+            <div
+              class="flex w-full flex-wrap items-center gap-x-5 gap-y-2 text-xs text-text-mutedLight dark:text-text-mutedDark"
+            >
+              <a
+                href="https://github.com/aftongauntlett/no-whiteboard-jobs-dashboard"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 underline-offset-4 hover:text-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+              >
+                <Github class="h-4 w-4" aria-hidden="true" />
+                View Source
+              </a>
+            </div>
 
-        <p
-          class="text-xs text-text-mutedLight dark:text-text-mutedDark md:justify-self-center md:text-center"
-        >
-          © {year}
-          <a
-            href={portfolioUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="underline-offset-4 hover:text-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-            >Afton Gauntlett</a
-          >
-        </p>
+            <p
+              class="text-xs text-text-mutedLight dark:text-text-mutedDark md:justify-self-center md:text-center"
+            >
+              © {year}
+              <a
+                href={portfolioUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="underline-offset-4 hover:text-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                >Afton Gauntlett</a
+              >
+            </p>
+          </div>
 
-        <div
-          class="flex w-full items-center justify-end gap-4 md:w-auto md:justify-self-end"
-        >
-          <Button
-            type="button"
-            variant="secondary"
-            tone="soft"
-            shape="pill"
-            size="sm"
-            data-scroll-top
-            aria-label="Scroll to top"
-            class="cursor-pointer px-4 py-2 text-xs"
+          <div
+            class="flex shrink-0 items-center justify-end gap-4 md:w-auto md:justify-self-end"
           >
-            ↑ Top
-          </Button>
+            <Button
+              type="button"
+              variant="secondary"
+              tone="soft"
+              shape="pill"
+              size="sm"
+              data-scroll-top
+              aria-label="Scroll to top"
+              class="cursor-pointer px-4 py-2 text-xs"
+            >
+              ↑ Top
+            </Button>
+          </div>
         </div>
       </div>
     </div>
