@@ -1,13 +1,12 @@
 import type { EmploymentType } from "@data/types";
 
-export type EmploymentBadgeVariant = "info" | "warning" | "success";
+export type EmploymentBadgeVariant = "info" | "success";
 
 export const EMPLOYMENT_BADGE_VARIANT_BY_TYPE: Record<
   EmploymentType,
   EmploymentBadgeVariant
 > = {
   Remote: "info",
-  Hybrid: "warning",
   "In-office": "success",
 };
 
@@ -19,7 +18,6 @@ export function employmentBadgeVariant(
 
 const BADGE_SOLID_CLASSES_BY_VARIANT: Record<EmploymentBadgeVariant, string> = {
   info: "bg-info-bg/20 text-info-text",
-  warning: "bg-warning-bg/20 text-warning-text",
   success: "bg-success-bg/20 text-success-text",
 };
 

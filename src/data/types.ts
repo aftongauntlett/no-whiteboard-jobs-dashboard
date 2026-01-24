@@ -1,4 +1,4 @@
-export const EMPLOYMENT_TYPES = ["Remote", "Hybrid", "In-office"] as const;
+export const EMPLOYMENT_TYPES = ["Remote", "In-office"] as const;
 
 export type EmploymentType = (typeof EMPLOYMENT_TYPES)[number];
 

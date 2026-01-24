@@ -95,7 +95,7 @@ const viewToggleProps = {
     </div>
 
     <div
-      class="hidden fixed w-[min(92vw,22rem)] rounded-xl border border-border-light dark:border-border-dark bg-surface-light/95 dark:bg-surface-dark/95 shadow-lg ring-1 ring-black/5 dark:ring-white/10 z-50"
+      class="hidden fixed w-fit max-w-[92vw] rounded-xl border border-border-light dark:border-border-dark bg-surface-light/95 dark:bg-surface-dark/95 shadow-lg ring-1 ring-black/5 dark:ring-white/10 z-50"
       role="dialog"
       aria-modal="true"
       aria-label="Filter and sort companies"
@@ -116,13 +116,13 @@ const viewToggleProps = {
               data-companies-sort-option="name-asc"
               role="radio"
               aria-checked="true"
-              class="cursor-pointer flex items-center justify-between rounded-md px-3 py-2 text-sm hover:bg-surface-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+              class="cursor-pointer grid grid-cols-[1fr_auto] items-start gap-3 rounded-md px-3 py-2 text-sm hover:bg-surface-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
             >
-              <span>Company name (A–Z)</span>
+              <span class="min-w-0 text-left">Company name (A–Z)</span>
               <span
                 data-companies-sort-check
                 aria-hidden="true"
-                class="text-accent hidden">✓</span
+                class="text-accent hidden shrink-0 self-center">✓</span
               >
             </button>
             <button
@@ -130,13 +130,13 @@ const viewToggleProps = {
               data-companies-sort-option="name-desc"
               role="radio"
               aria-checked="false"
-              class="cursor-pointer flex items-center justify-between rounded-md px-3 py-2 text-sm hover:bg-surface-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+              class="cursor-pointer grid grid-cols-[1fr_auto] items-start gap-3 rounded-md px-3 py-2 text-sm hover:bg-surface-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
             >
-              <span>Company name (Z–A)</span>
+              <span class="min-w-0 text-left">Company name (Z–A)</span>
               <span
                 data-companies-sort-check
                 aria-hidden="true"
-                class="text-accent hidden">✓</span
+                class="text-accent hidden shrink-0 self-center">✓</span
               >
             </button>
             <button
@@ -144,13 +144,13 @@ const viewToggleProps = {
               data-companies-sort-option="last-updated"
               role="radio"
               aria-checked="false"
-              class="cursor-pointer flex items-center justify-between rounded-md px-3 py-2 text-sm hover:bg-surface-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+              class="cursor-pointer grid grid-cols-[1fr_auto] items-start gap-3 rounded-md px-3 py-2 text-sm hover:bg-surface-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
             >
-              <span>Last updated (local changes)</span>
+              <span class="min-w-0 text-left">Last updated</span>
               <span
                 data-companies-sort-check
                 aria-hidden="true"
-                class="text-accent hidden">✓</span
+                class="text-accent hidden shrink-0 self-center">✓</span
               >
             </button>
           </div>
@@ -167,39 +167,26 @@ const viewToggleProps = {
               type="button"
               data-companies-employment-option="Remote"
               aria-pressed="false"
-              class="cursor-pointer flex items-center justify-between rounded-md px-3 py-2 text-sm hover:bg-surface-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+              class="cursor-pointer grid grid-cols-[1fr_auto] items-start gap-3 rounded-md px-3 py-2 text-sm hover:bg-surface-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
             >
-              <span>Remote</span>
+              <span class="min-w-0 text-left">Remote</span>
               <span
                 data-companies-employment-check
                 aria-hidden="true"
-                class="text-accent hidden">✓</span
-              >
-            </button>
-            <button
-              type="button"
-              data-companies-employment-option="Hybrid"
-              aria-pressed="false"
-              class="cursor-pointer flex items-center justify-between rounded-md px-3 py-2 text-sm hover:bg-surface-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-            >
-              <span>Hybrid</span>
-              <span
-                data-companies-employment-check
-                aria-hidden="true"
-                class="text-accent hidden">✓</span
+                class="text-accent hidden shrink-0 self-center">✓</span
               >
             </button>
             <button
               type="button"
               data-companies-employment-option="In-office"
               aria-pressed="false"
-              class="cursor-pointer flex items-center justify-between rounded-md px-3 py-2 text-sm hover:bg-surface-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+              class="cursor-pointer grid grid-cols-[1fr_auto] items-start gap-3 rounded-md px-3 py-2 text-sm hover:bg-surface-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
             >
-              <span>In-office</span>
+              <span class="min-w-0 text-left">In-office</span>
               <span
                 data-companies-employment-check
                 aria-hidden="true"
-                class="text-accent hidden">✓</span
+                class="text-accent hidden shrink-0 self-center">✓</span
               >
             </button>
           </div>
