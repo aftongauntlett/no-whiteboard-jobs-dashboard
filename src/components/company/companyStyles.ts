@@ -27,10 +27,10 @@ export function employmentBadgeClasses(type: EmploymentType): string {
 }
 
 export const COMPANY_CARD_INTERACTIVE_CLASS =
-  "company-card company-card--interactive ui-hover-brighten-body group relative focus-within:ring-2 focus-within:ring-accent/30 focus-within:ring-offset-2 focus-within:ring-offset-bg-light dark:focus-within:ring-offset-bg-dark";
+  "company-card company-card--interactive ui-hover-brighten-body group relative z-0 hover:z-20 focus-within:z-20 focus-within:ring-2 focus-within:ring-accent/30 focus-within:ring-offset-2 focus-within:ring-offset-bg-light dark:focus-within:ring-offset-bg-dark";
 
 export const COMPANY_CARD_STATIC_CLASS =
-  "company-card ui-hover-brighten-body group";
+  "company-card ui-hover-brighten-body group relative z-0 hover:z-20 focus-within:z-20";
 
 export const COMPANY_CARD_LINK_CLASS =
   "absolute inset-0 z-20 rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/30";
@@ -65,7 +65,7 @@ export const COMPANY_INTERVIEW_TOGGLE_CLASS =
   "mt-1 hidden text-xs font-medium text-accent hover:underline cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/30 rounded px-2 py-2 -mx-2 min-h-11";
 
 export const COMPANY_LIST_ITEM_CLASS =
-  "company-list-item ui-hover-brighten-body group relative px-4 py-3 pr-12 sm:px-5 sm:py-4 sm:pr-14 md:pr-5 transition-colors md:col-span-4 md:grid md:grid-cols-subgrid md:gap-x-4 md:items-stretch";
+  "company-list-item ui-hover-brighten-body group relative z-0 hover:z-20 focus-within:z-20 px-4 py-3 pr-12 sm:px-5 sm:py-4 sm:pr-14 md:pr-5 transition-colors md:col-span-4 md:grid md:grid-cols-subgrid md:gap-x-4 md:items-stretch";
 
 export const COMPANY_LIST_LINK_CLASS =
   "absolute inset-0 z-20 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/30 focus-visible:ring-offset-2 focus-visible:ring-offset-bg-light dark:focus-visible:ring-offset-bg-dark";

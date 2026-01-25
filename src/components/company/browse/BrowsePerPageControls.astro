@@ -101,7 +101,7 @@ const updatedTooltipId = createUniqueId("curation-updated-tooltip");
     <div class="inline-flex items-center">
       <div
         data-companies-per-page-group="card"
-        class="rounded-lg border border-border-light dark:border-border-dark bg-surface-muted p-1"
+        class="rounded-lg border border-border-light dark:border-border-dark bg-surface-muted p-0.5"
         role="radiogroup"
         aria-label="Companies per page (grid)"
       >
@@ -114,7 +114,7 @@ const updatedTooltipId = createUniqueId("curation-updated-tooltip");
               aria-checked={
                 option === DEFAULT_COMPANIES_PER_PAGE.card ? "true" : "false"
               }
-              class="cursor-pointer rounded-md px-3 py-2 min-h-11 min-w-11 text-xs font-medium text-text-mutedLight dark:text-text-mutedDark hover:text-text-light dark:hover:text-text-dark focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+              class="cursor-pointer rounded-md px-2.5 py-1.5 min-h-9 min-w-9 text-xs font-medium text-text-mutedLight dark:text-text-mutedDark hover:text-text-light dark:hover:text-text-dark focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
             >
               {option}
             </button>
@@ -124,7 +124,7 @@ const updatedTooltipId = createUniqueId("curation-updated-tooltip");
 
       <div
         data-companies-per-page-group="list"
-        class="hidden rounded-lg border border-border-light dark:border-border-dark bg-surface-muted p-1"
+        class="hidden rounded-lg border border-border-light dark:border-border-dark bg-surface-muted p-0.5"
         role="radiogroup"
         aria-label="Companies per page (list)"
       >
@@ -137,7 +137,7 @@ const updatedTooltipId = createUniqueId("curation-updated-tooltip");
               aria-checked={
                 option === DEFAULT_COMPANIES_PER_PAGE.list ? "true" : "false"
               }
-              class="cursor-pointer rounded-md px-3 py-2 min-h-11 min-w-11 text-xs font-medium text-text-mutedLight dark:text-text-mutedDark hover:text-text-light dark:hover:text-text-dark focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+              class="cursor-pointer rounded-md px-2.5 py-1.5 min-h-9 min-w-9 text-xs font-medium text-text-mutedLight dark:text-text-mutedDark hover:text-text-light dark:hover:text-text-dark focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
             >
               {option}
             </button>

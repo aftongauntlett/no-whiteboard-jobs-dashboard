@@ -74,20 +74,20 @@ import {
         </span>
       </header>
 
-      <div
-        data-company-locations
-        class="mt-0.5 flex flex-wrap gap-2"
-        aria-label="Company locations"
-      >
-      </div>
-
-      <div data-company-interview class="relative z-30 mt-3">
+      <div data-company-interview class="relative z-30 mt-2">
         <div
           data-company-interview-text
           data-readmore-text
           data-readmore-clamp="line-clamp-3"
           class={COMPANY_INTERVIEW_TEXT_CLASS_CARD +
             " line-clamp-3 interview-markdown"}
+        >
+          <div data-company-interview-html></div>
+        </div>
+        <div
+          data-company-locations
+          class="mt-2 flex flex-wrap gap-2"
+          aria-label="Company locations"
         >
         </div>
         <div class="text-right">
@@ -127,20 +127,20 @@ import {
       </div>
     </header>
 
-    <div
-      data-company-locations
-      class="mt-0.5 flex flex-wrap gap-2"
-      aria-label="Company locations"
-    >
-    </div>
-
-    <div data-company-interview class="relative z-30 mt-3">
+    <div data-company-interview class="relative z-30 mt-2">
       <div
         data-company-interview-text
         data-readmore-text
         data-readmore-clamp="line-clamp-3"
         class={COMPANY_INTERVIEW_TEXT_CLASS_CARD +
           " line-clamp-3 interview-markdown"}
+      >
+        <div data-company-interview-html></div>
+      </div>
+      <div
+        data-company-locations
+        class="mt-2 flex flex-wrap gap-2"
+        aria-label="Company locations"
       >
       </div>
       <div class="text-right">
@@ -184,12 +184,6 @@ import {
         <div class="flex items-start">
           <span data-company-employment class="ui-badge"></span>
         </div>
-        <div
-          data-company-locations
-          class="mt-2 flex flex-wrap items-center gap-2"
-          aria-label="Company locations"
-        >
-        </div>
       </div>
 
       <div class={COMPANY_LIST_COL_C_CLASS}>
@@ -200,6 +194,13 @@ import {
             data-readmore-clamp="line-clamp-2"
             class={COMPANY_INTERVIEW_TEXT_CLASS_LIST +
               " line-clamp-2 interview-markdown"}
+          >
+            <div data-company-interview-html></div>
+          </div>
+          <div
+            data-company-locations
+            class="mt-1.5 flex flex-wrap items-center gap-2"
+            aria-label="Company locations"
           >
           </div>
           <div class="text-right">
@@ -219,8 +220,14 @@ import {
           <p
             class="ui-muted-body text-xs text-text-mutedLight dark:text-text-mutedDark transition-colors"
           >
-            No interview notes provided.
+            No details provided.
           </p>
+          <div
+            data-company-locations
+            class="mt-1.5 flex flex-wrap items-center gap-2"
+            aria-label="Company locations"
+          >
+          </div>
         </div>
       </div>
 
@@ -273,12 +280,6 @@ import {
         <div class="flex items-start">
           <span data-company-employment class="ui-badge"></span>
         </div>
-        <div
-          data-company-locations
-          class="mt-2 flex flex-wrap items-center gap-2"
-          aria-label="Company locations"
-        >
-        </div>
       </div>
 
       <div class={COMPANY_LIST_COL_C_CLASS}>
@@ -289,6 +290,13 @@ import {
             data-readmore-clamp="line-clamp-2"
             class={COMPANY_INTERVIEW_TEXT_CLASS_LIST +
               " line-clamp-2 interview-markdown"}
+          >
+            <div data-company-interview-html></div>
+          </div>
+          <div
+            data-company-locations
+            class="mt-1.5 flex flex-wrap items-center gap-2"
+            aria-label="Company locations"
           >
           </div>
           <div class="text-right">
@@ -308,8 +316,14 @@ import {
           <p
             class="ui-muted-body text-xs text-text-mutedLight dark:text-text-mutedDark transition-colors"
           >
-            No interview notes provided.
+            No details provided.
           </p>
+          <div
+            data-company-locations
+            class="mt-1.5 flex flex-wrap items-center gap-2"
+            aria-label="Company locations"
+          >
+          </div>
         </div>
       </div>
     </div>
@@ -323,12 +337,11 @@ import {
 <template data-companies-template="location-overflow">
   <button
     type="button"
-    class="location-chip location-chip--button group/loc relative z-40 hover:border-accent/30 focus:outline-none focus:ring-2 focus:ring-accent"
-    data-location-overflow
+    class="location-chip location-chip--button group/loc relative hover:border-accent/30 focus:outline-none focus:ring-2 focus:ring-accent"
   >
     <span data-location-overflow-count></span>
     <div
-      class="absolute top-0 left-full ml-2 invisible group-hover/loc:visible group-focus/loc:visible group-focus-within/loc:visible pointer-events-none bg-surface-light dark:bg-surface-dark border border-border-light dark:border-border-dark rounded-lg p-3 text-xs text-text-light dark:text-text-dark shadow-lg ring-1 ring-black/5 dark:ring-white/10 w-fit max-w-[min(28rem,calc(100vw-2rem))] break-words z-50 text-left"
+      class="absolute top-0 left-full ml-2 invisible group-hover/loc:visible group-focus/loc:visible group-focus-within/loc:visible pointer-events-none border border-border-light dark:border-border-dark rounded-lg p-3 text-xs text-text-light dark:text-text-dark bg-surface-light dark:bg-surface-dark shadow-lg ring-1 ring-black/5 dark:ring-white/10 w-fit max-w-[min(28rem,calc(100vw-2rem))] break-words z-50 text-left"
       role="tooltip"
       data-location-overflow-tooltip
     >

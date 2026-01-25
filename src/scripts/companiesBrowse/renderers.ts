@@ -15,11 +15,13 @@ function renderLocations(
 ) {
   const actualLocations = getActualLocations(locations);
   container.replaceChildren();
+  container.hidden = false;
 
   if (actualLocations.length === 0) {
     const chip = cloneTemplateRoot<HTMLElement>(templates["location-chip"]);
     chip.textContent = "No Location";
-    chip.classList.add("text-text-mutedLight", "dark:text-text-mutedDark");
+    chip.setAttribute("title", "No Location");
+    chip.classList.add("location-chip--empty");
     container.append(chip);
     return;
   }
@@ -30,6 +32,7 @@ function renderLocations(
   for (const loc of visible) {
     const chip = cloneTemplateRoot<HTMLElement>(templates["location-chip"]);
     chip.textContent = loc;
+    chip.setAttribute("title", loc);
     container.append(chip);
   }
 
@@ -82,7 +85,12 @@ function applyInterview(
 
   if (textEl instanceof HTMLElement) {
     textEl.id = interviewId;
-    textEl.innerHTML = interviewProcessHtml ?? "";
+    const htmlTarget = textEl.querySelector("[data-company-interview-html]");
+    if (htmlTarget instanceof HTMLElement) {
+      htmlTarget.innerHTML = interviewProcessHtml ?? "";
+    } else {
+      textEl.innerHTML = interviewProcessHtml ?? "";
+    }
   }
 
   if (toggle instanceof HTMLButtonElement) {
@@ -91,7 +99,21 @@ function applyInterview(
 
   if (!interviewProcessHtml) {
     if (variant === "card") {
-      interview.remove();
+      if (textEl instanceof HTMLElement) {
+        const htmlTarget = textEl.querySelector(
+          "[data-company-interview-html]",
+        );
+        if (htmlTarget instanceof HTMLElement)
+          htmlTarget.innerHTML = "<p>No details provided.</p>";
+        else textEl.innerHTML = "<p>No details provided.</p>";
+      }
+      if (toggle instanceof HTMLButtonElement) {
+        toggle.classList.add("hidden");
+        toggle.setAttribute("aria-expanded", "false");
+      }
+      if (noInterview instanceof HTMLElement)
+        noInterview.classList.add("hidden");
+      interview.classList.remove("hidden");
       return;
     }
 
@@ -160,9 +182,11 @@ export function createCompanyCardElement(
 
   applySourceIndicator(el, company.source, company.curationStatus);
 
-  const locations = el.querySelector("[data-company-locations]");
-  if (locations instanceof HTMLElement) {
-    renderLocations(templates, locations, company.locations);
+  const locations = el.querySelectorAll("[data-company-locations]");
+  for (const container of locations) {
+    if (container instanceof HTMLElement) {
+      renderLocations(templates, container, company.locations);
+    }
   }
 
   const interviewId = createInterviewId(company);
@@ -200,9 +224,11 @@ export function createCompanyListItemElement(
 
   applySourceIndicator(el, company.source, company.curationStatus);
 
-  const locations = el.querySelector("[data-company-locations]");
-  if (locations instanceof HTMLElement) {
-    renderLocations(templates, locations, company.locations);
+  const locations = el.querySelectorAll("[data-company-locations]");
+  for (const container of locations) {
+    if (container instanceof HTMLElement) {
+      renderLocations(templates, container, company.locations);
+    }
   }
 
   const interviewId = createInterviewId(company);

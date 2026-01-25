@@ -4,33 +4,60 @@ import {
   COMPANY_INTERVIEW_TEXT_CLASS_LIST,
   COMPANY_INTERVIEW_TOGGLE_CLASS,
 } from "./companyStyles";
+import CompanyLocations from "./CompanyLocations.astro";
+import {
+  COMPANY_LOCATIONS_CLASS_CARD,
+  COMPANY_LOCATIONS_CLASS_LIST,
+} from "./companyStyles";
 
 export interface Props {
   interviewProcessHtml?: string | null;
   interviewId: string;
   variant: "card" | "list";
+  locations?: readonly string[];
+  maxVisibleLocations?: number;
 }
 
-const { interviewProcessHtml, interviewId, variant } = Astro.props as Props;
+const {
+  interviewProcessHtml,
+  interviewId,
+  variant,
+  locations,
+  maxVisibleLocations = 1,
+} = Astro.props as Props;
 
 const textClass =
   variant === "card"
     ? COMPANY_INTERVIEW_TEXT_CLASS_CARD
     : COMPANY_INTERVIEW_TEXT_CLASS_LIST;
 
+const locationsClass =
+  variant === "card"
+    ? COMPANY_LOCATIONS_CLASS_CARD
+    : COMPANY_LOCATIONS_CLASS_LIST;
+
 const clampClass = variant === "card" ? "line-clamp-3" : "line-clamp-2";
 ---
 
 {
   interviewProcessHtml ? (
-    <div class={variant === "card" ? "relative z-30 mt-3" : "relative z-30"}>
+    <div class={variant === "card" ? "relative z-30 mt-2" : "relative z-30"}>
       <div
         id={interviewId}
         data-readmore-text
         data-readmore-clamp={clampClass}
         class={`${textClass} ${clampClass} interview-markdown`}
-        set:html={interviewProcessHtml}
-      />
+      >
+        <div data-company-interview-html set:html={interviewProcessHtml} />
+      </div>
+
+      {locations ? (
+        <CompanyLocations
+          locations={locations}
+          maxVisibleLocations={maxVisibleLocations}
+          class={locationsClass + " mt-1.5"}
+        />
+      ) : null}
       <div class="text-right">
         <button
           type="button"
@@ -43,11 +70,29 @@ const clampClass = variant === "card" ? "line-clamp-3" : "line-clamp-2";
         </button>
       </div>
     </div>
+  ) : locations ? (
+    <div class={variant === "card" ? "relative z-30 mt-2" : "relative z-30"}>
+      <p class="ui-muted-body text-xs text-text-mutedLight dark:text-text-mutedDark transition-colors">
+        No details provided.
+      </p>
+
+      <CompanyLocations
+        locations={locations}
+        maxVisibleLocations={maxVisibleLocations}
+        class={locationsClass + (variant === "list" ? " mt-1.5" : "")}
+      />
+    </div>
   ) : variant === "list" ? (
     <div class="relative z-30">
       <p class="ui-muted-body text-xs text-text-mutedLight dark:text-text-mutedDark transition-colors">
-        No interview notes provided.
+        No details provided.
       </p>
     </div>
-  ) : null
+  ) : (
+    <div class="relative z-30 mt-2">
+      <p class="ui-muted-body text-xs text-text-mutedLight dark:text-text-mutedDark transition-colors">
+        No details provided.
+      </p>
+    </div>
+  )
 }

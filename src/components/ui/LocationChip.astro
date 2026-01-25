@@ -5,11 +5,12 @@ interface Props {
 
 const { location } = Astro.props;
 
-const muted = location === "No Location";
+const isEmpty = location === "No Location";
 ---
 
 <span
-  class={`location-chip ${muted ? "text-text-mutedLight dark:text-text-mutedDark" : ""}`}
+  class={"location-chip" + (isEmpty ? " location-chip--empty" : "")}
+  title={location}
 >
   {location}
 </span>

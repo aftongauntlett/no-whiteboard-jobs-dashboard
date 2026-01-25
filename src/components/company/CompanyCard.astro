@@ -2,7 +2,6 @@
 import type { Company } from "@data/types";
 import EmploymentBadge from "../ui/EmploymentBadge.astro";
 import CurationIndicator from "../ui/CurationIndicator.astro";
-import CompanyLocations from "./CompanyLocations.astro";
 import CompanyInterviewPreview from "./CompanyInterviewPreview.astro";
 import { createInterviewId } from "../../utils/company";
 import {
@@ -14,7 +13,6 @@ import {
   COMPANY_CARD_STATIC_CLASS,
   COMPANY_CARD_TITLE_CLASS,
   COMPANY_CARD_TITLE_INLINE_CLASS,
-  COMPANY_LOCATIONS_CLASS_CARD,
 } from "./companyStyles";
 
 type Props = {
@@ -82,17 +80,12 @@ const interviewId = createInterviewId(company);
           </span>
         </header>
 
-        <!-- Locations -->
-        <CompanyLocations
-          locations={company.locations}
-          class={COMPANY_LOCATIONS_CLASS_CARD}
-        />
-
         <!-- Interview process -->
         <CompanyInterviewPreview
           interviewProcessHtml={company.interviewProcessHtml}
           interviewId={interviewId}
           variant="card"
+          locations={company.locations}
         />
       </div>
     </article>
@@ -118,15 +111,11 @@ const interviewId = createInterviewId(company);
         </div>
       </header>
 
-      <CompanyLocations
-        locations={company.locations}
-        class={COMPANY_LOCATIONS_CLASS_CARD}
-      />
-
       <CompanyInterviewPreview
         interviewProcessHtml={company.interviewProcessHtml}
         interviewId={interviewId}
         variant="card"
+        locations={company.locations}
       />
     </article>
   )

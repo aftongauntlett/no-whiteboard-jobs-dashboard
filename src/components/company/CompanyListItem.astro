@@ -2,7 +2,6 @@
 import type { Company } from "@data/types";
 import EmploymentBadge from "../ui/EmploymentBadge.astro";
 import CurationIndicator from "../ui/CurationIndicator.astro";
-import CompanyLocations from "./CompanyLocations.astro";
 import CompanyInterviewPreview from "./CompanyInterviewPreview.astro";
 import { createInterviewId } from "../../utils/company";
 import {
@@ -15,7 +14,6 @@ import {
   COMPANY_LIST_LINK_CLASS,
   COMPANY_LIST_NAME_CLASS,
   COMPANY_LIST_TITLE_CLASS,
-  COMPANY_LOCATIONS_CLASS_LIST,
 } from "./companyStyles";
 
 type Props = {
@@ -63,11 +61,6 @@ const interviewId = createInterviewId(company);
             <div class="flex items-start">
               <EmploymentBadge employmentType={company.employmentType} />
             </div>
-            <CompanyLocations
-              locations={company.locations}
-              maxVisibleLocations={maxVisibleLocations}
-              class={COMPANY_LOCATIONS_CLASS_LIST}
-            />
           </div>
 
           <!-- Column C: Interview -->
@@ -76,6 +69,8 @@ const interviewId = createInterviewId(company);
               interviewProcessHtml={company.interviewProcessHtml}
               interviewId={interviewId}
               variant="list"
+              locations={company.locations}
+              maxVisibleLocations={maxVisibleLocations}
             />
           </div>
 
@@ -131,11 +126,6 @@ const interviewId = createInterviewId(company);
           <div class="flex items-start">
             <EmploymentBadge employmentType={company.employmentType} />
           </div>
-          <CompanyLocations
-            locations={company.locations}
-            maxVisibleLocations={maxVisibleLocations}
-            class={COMPANY_LOCATIONS_CLASS_LIST}
-          />
         </div>
 
         <!-- Column C: Interview -->
@@ -144,6 +134,8 @@ const interviewId = createInterviewId(company);
             interviewProcessHtml={company.interviewProcessHtml}
             interviewId={interviewId}
             variant="list"
+            locations={company.locations}
+            maxVisibleLocations={maxVisibleLocations}
           />
         </div>
 

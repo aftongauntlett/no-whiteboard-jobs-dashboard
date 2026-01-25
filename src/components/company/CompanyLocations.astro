@@ -20,22 +20,22 @@ const {
 const actualLocations = getActualLocations(locations);
 ---
 
-<div class={className} aria-label={ariaLabel}>
-  {
-    actualLocations.length > 0 ? (
-      <>
-        {actualLocations.slice(0, maxVisibleLocations).map((location) => (
-          <LocationChip location={location} />
-        ))}
-        {actualLocations.length > maxVisibleLocations && (
-          <LocationOverflowTooltip
-            remainingLocations={actualLocations.slice(maxVisibleLocations)}
-            count={actualLocations.length - maxVisibleLocations}
-          />
-        )}
-      </>
-    ) : (
+{
+  actualLocations.length > 0 ? (
+    <div class={className} aria-label={ariaLabel}>
+      {actualLocations.slice(0, maxVisibleLocations).map((location) => (
+        <LocationChip location={location} />
+      ))}
+      {actualLocations.length > maxVisibleLocations && (
+        <LocationOverflowTooltip
+          remainingLocations={actualLocations.slice(maxVisibleLocations)}
+          count={actualLocations.length - maxVisibleLocations}
+        />
+      )}
+    </div>
+  ) : (
+    <div class={className} aria-label={ariaLabel}>
       <LocationChip location="No Location" />
-    )
-  }
-</div>
+    </div>
+  )
+}
