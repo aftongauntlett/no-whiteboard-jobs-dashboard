@@ -4,12 +4,16 @@ import LayoutGrid from "lucide-astro/LayoutGrid";
 import MousePointerClick from "lucide-astro/MousePointerClick";
 import Shield from "lucide-astro/Shield";
 import ExternalLink from "lucide-astro/ExternalLink";
+import RefreshCw from "lucide-astro/RefreshCw";
 import Layout from "../layouts/Layout.astro";
 import PageHeader from "../components/layout/PageHeader.astro";
 import ResourceCard from "../components/ui/ResourceCard.astro";
 import Accordion from "../components/ui/Accordion.astro";
 import AccordionItem from "../components/ui/AccordionItem.astro";
 import SuggestionForm from "../components/ui/SuggestionForm.astro";
+
+const siteLastUpdated = "2026-02-27";
+const siteLastUpdatedDisplay = "February 27, 2026";
 ---
 
 <Layout
@@ -64,6 +68,28 @@ import SuggestionForm from "../components/ui/SuggestionForm.astro";
       title="Useful Information"
       description="Expand for notes on scope, design, and corrections."
     >
+      <AccordionItem title="Website status" icon={RefreshCw}>
+        <p
+          class="ui-muted-body text-sm text-text-mutedLight dark:text-text-mutedDark"
+        >
+          Last updated: <time
+            datetime={siteLastUpdated}
+            class="font-medium text-text-light dark:text-text-dark"
+            >{siteLastUpdatedDisplay}</time
+          >
+        </p>
+        <ul
+          class="ui-muted-body mt-3 list-disc pl-5 space-y-2 text-sm text-text-mutedLight dark:text-text-mutedDark marker:text-accent"
+        >
+          <li>
+            Manually verified updates added here before upstream MRs are
+            approved
+          </li>
+          <li>Broken or outdated careers URLs fixed when I find them</li>
+          <li>Company notes refreshed as interview-process details change</li>
+        </ul>
+      </AccordionItem>
+
       <AccordionItem title="What this isn’t" icon={Shield}>
         <p
           class="ui-muted-body text-sm text-text-mutedLight dark:text-text-mutedDark"

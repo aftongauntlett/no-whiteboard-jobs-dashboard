@@ -5,5 +5,38 @@
     "overrideReason": "Format interviewProcess with Markdown (bold note + paragraph break)",
     "overrideDate": "2026-01-21",
     "interviewProcess": "Questions related to implementation of specific projects using popular functional programming libraries and techniques and a discussion about the tradeoffs. Discussion of past open-source projects/contributions and future open-source goals.\n\n**Note:** This company looks for people who have modern functional programming experience in Haskell, Scala, Swift, or Kotlin and it looks for people who have existing open-source contributions in those fields so the roles can be a bit self-selecting."
+  },
+  {
+    "id": "grace-hill",
+    "source": "local",
+    "overrideReason": "Add new company from community submission",
+    "overrideDate": "2026-02-27",
+    "name": "Grace Hill",
+    "careersUrl": "https://gracehill.com/careers/",
+    "locations": ["Chicago, IL", "Carmel, IN", "Remote"],
+    "employmentType": "Remote",
+    "interviewProcess": "Quick phone interview, then a take home project and finally in person interview (open discussions instead of quizzes - anything technical are real-world problems)."
+  },
+  {
+    "id": "maxio",
+    "source": "local",
+    "overrideReason": "Add new company from community submission",
+    "overrideDate": "2026-02-27",
+    "name": "Maxio",
+    "careersUrl": "https://www.maxio.com/careers",
+    "locations": ["San Antonio, TX", "Remote"],
+    "employmentType": "Remote",
+    "interviewProcess": "Take-home project & pair on a problem similar to daily work"
+  },
+  {
+    "id": "posthog",
+    "source": "local",
+    "overrideReason": "Add new company from community submission",
+    "overrideDate": "2026-02-27",
+    "name": "PostHog",
+    "careersUrl": "https://posthog.com/careers",
+    "locations": ["Remote"],
+    "employmentType": "Remote",
+    "interviewProcess": "Culture interview, technical interview (no live coding), founder interview, **paid** day of work (SuperDay)."
   }
 ]
