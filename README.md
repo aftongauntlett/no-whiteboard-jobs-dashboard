@@ -8,7 +8,9 @@ Live site: https://no-wb.org/
 
 ## Why this project exists
 
-I kept returning to the hiring-without-whiteboards list while job searching, but I wanted a cleaner way to use it day to day. So I built this personal dashboard!
+While job searching, I kept returning to the hiring-without-whiteboards list. It’s an incredible resource, but I wanted a cleaner way to use it day to day.
+
+This project is my attempt to create a cleaner, more accessible dashboard experience on top of that data.
 
 ## Who this helps
 
@@ -22,14 +24,18 @@ The underlying company data comes from [poteto/hiring-without-whiteboards](https
 
 This dashboard is an independent personal project built to improve usability and day-to-day browsing. It is not affiliated with or endorsed by the upstream maintainers.
 
+## Preview
+
+![Dashboard screenshot](./src/images/screenshot.png)
+
 ## Design and accessibility intent
 
 The interface is kept simple on purpose:
 
 - readable typography and spacing in both light and dark modes
-- keyboard-friendly controls for search, filtering, and pagination
-- semantic markup and visible focus states
-- minimal UI noise so the company information stays primary
+- fully keyboard-accessible search, filtering, and pagination
+- semantic markup and clear, visible focus states
+- restrained visual design so the company data remains the primary focus
 
 ## Implementation approach
 
@@ -72,6 +78,15 @@ npm run build
 - `src/data/companies.ts`: build-time merge with traceability metadata
 
 Locally curated entries are intentionally labeled in the UI so users can distinguish them from upstream records.
+
+## Project goals
+
+This project prioritizes:
+
+- fast load times and minimal client JavaScript
+- accessibility and keyboard usability
+- clear separation between upstream data and local curation
+- maintainable structure that can evolve alongside the upstream project
 
 ## Current limitations
 
