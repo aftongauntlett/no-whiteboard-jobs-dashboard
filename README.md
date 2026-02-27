@@ -4,34 +4,90 @@
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38BDF8?style=flat&logo=tailwindcss&logoColor=white)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/aftongauntlett/no-whiteboard-jobs-dashboard)
 
-View live: https://no-wb.org/
+Live site: https://no-wb.org/
 
-A personal project I built after regularly referencing the hiring-without-whiteboards list and wanting an easier way to browse it. Full credit for the data and original work goes to the source repository.
+## Why this project exists
 
-## Tech stack
+I kept returning to the hiring-without-whiteboards list while job searching, but I wanted a cleaner way to use it day to day. So I built this personal dashboard!
 
-This is a static-first Astro site with a small amount of client-side interactivity for search, filters, and UI state.
+## Who this helps
 
-- Astro for routing, data loading, and build-time rendering
-- Tailwind CSS for theming, layout, and dark/light mode
-- Vanilla JS and small Astro islands for filters, search, and dialogs
-- JSON data sourced from the upstream repository, with local overrides layered on top
+- Job seekers who want to shortlist companies by interview style
+- People who care about interview process transparency
+- Developers looking for an Astro example with accessible UI patterns
 
-The site is deployed on Vercel and built automatically on every push.
+## Respect and attribution
 
-## Data Source
+The underlying company data comes from [poteto/hiring-without-whiteboards](https://github.com/poteto/hiring-without-whiteboards). That repository is the original source of truth and deserves full credit.
 
-Data is sourced from the [hiring-without-whiteboards](https://github.com/poteto/hiring-without-whiteboards) repository.
+This dashboard is an independent personal project and is not affiliated with or endorsed by the upstream maintainers. (hopefully they do not mind <3>)
+
+## Design and accessibility intent
+
+The interface is kept simple on purpose:
+
+- readable typography and spacing in both light and dark modes
+- keyboard-friendly controls for search, filtering, and pagination
+- semantic markup and visible focus states
+- minimal UI noise so the company information stays primary
+
+## Implementation approach
+
+- Astro for static rendering, routing, and page composition
+- Tailwind + CSS custom properties for consistent theming tokens
+- Lightweight client-side TypeScript for browse interactions (search/filter/sort/view state)
+- Data merge model that keeps upstream data separate from local overrides (`source`, `overrideReason`, `overrideDate`)
+
+## Run locally
+
+### Prerequisites
+
+- Node.js 20+
+- npm
+
+### Setup
+
+```bash
+npm install
+```
+
+### Development
+
+```bash
+npm run dev
+```
+
+### Quality checks
+
+```bash
+npm run lint
+npm run test
+npm run build
+```
+
+## Data model notes
+
+- `src/data/companies.json`: upstream dataset mirror
+- `src/data/companies.local.json`: local additions/overrides only
+- `src/data/companies.ts`: build-time merge with traceability metadata
+
+Locally curated entries are intentionally labeled in the UI so users can distinguish them from upstream records.
+
+## Current limitations
+
+- Data freshness still depends on manual syncing from upstream
+- Interview process descriptions are community-sourced and may be incomplete or outdated
+- This project focuses on browsing and reading, not account features or backend moderation
+
+## Contributing
+
+I am not accepting GitHub PRs for this repo right now.
+
+If you want to add or correct a company entry, please open a PR on [poteto/hiring-without-whiteboards](https://github.com/poteto/hiring-without-whiteboards), or submit it through the form on [no-wb.org](https://no-wb.org/).
 
 ## License
 
-MIT License
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+Licensed under the MIT License. See [LICENSE](./LICENSE).
 
 ---
 

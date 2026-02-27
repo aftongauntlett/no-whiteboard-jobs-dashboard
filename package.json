@@ -2,6 +2,14 @@
   "name": "no-whiteboard-jobs-dashboard",
   "type": "module",
   "version": "0.0.1",
+  "description": "Personal Astro dashboard for browsing hiring-without-whiteboards companies with accessible search and filters.",
+  "author": "Afton Gauntlett",
+  "license": "MIT",
+  "homepage": "https://no-wb.org/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aftongauntlett/no-whiteboard-jobs-dashboard.git"
+  },
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",

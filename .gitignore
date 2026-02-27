@@ -16,6 +16,14 @@ pnpm-debug.log*
 # environment variables
 .env
 .env.production
+.env.local
+.env.*.local
+
+# coverage + reports
+coverage/
+
+# local deployment/artifacts
+.vercel/
 
 # macOS-specific files
 .DS_Store
