@@ -20,7 +20,7 @@ I kept returning to the hiring-without-whiteboards list while job searching, but
 
 The underlying company data comes from [poteto/hiring-without-whiteboards](https://github.com/poteto/hiring-without-whiteboards). That repository is the original source of truth and deserves full credit.
 
-This dashboard is an independent personal project and is not affiliated with or endorsed by the upstream maintainers. (hopefully they do not mind <3>)
+This dashboard is an independent personal project built to improve usability and day-to-day browsing. It is not affiliated with or endorsed by the upstream maintainers.
 
 ## Design and accessibility intent
 
