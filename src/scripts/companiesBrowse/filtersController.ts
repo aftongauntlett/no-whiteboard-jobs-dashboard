@@ -10,6 +10,7 @@ import type { BrowseState } from "./types";
 const SORT_KEYS = [
   "name-asc",
   "name-desc",
+  "curated-desc",
 ] as const satisfies readonly SortKey[];
 
 function isSortKey(value: string | null): value is SortKey {

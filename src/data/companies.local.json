@@ -38,5 +38,19 @@
     "locations": ["Remote"],
     "employmentType": "Remote",
     "interviewProcess": "Culture interview, technical interview (no live coding), founder interview, **paid** day of work (SuperDay)."
+  },
+  {
+    "id": "cox-enterprises",
+    "source": "local",
+    "overrideReason": "Update careers URL from local curation",
+    "overrideDate": "2026-02-27",
+    "careersUrl": "https://jobs.coxenterprises.com/en/career-areas/technology/"
+  },
+  {
+    "id": "ellucian",
+    "source": "local",
+    "overrideReason": "Update careers URL from local curation",
+    "overrideDate": "2026-02-27",
+    "careersUrl": "https://careers.ellucian.com/careers-home"
   }
 ]

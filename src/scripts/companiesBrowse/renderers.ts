@@ -142,6 +142,7 @@ function applySourceIndicator(
   el.classList.toggle("hidden", !isLocal);
   if (srEl) srEl.classList.toggle("hidden", !isLocal);
   if (!isLocal) {
+    el.style.removeProperty("background-color");
     if (srEl) srEl.textContent = "";
     return;
   }
@@ -155,13 +156,8 @@ function applySourceIndicator(
   el.setAttribute("title", tooltip);
   if (srEl) srEl.textContent = tooltip;
 
-  el.classList.remove("bg-success-bg", "bg-info-bg");
-
-  if (status === "new") {
-    el.classList.add("bg-success-bg");
-  } else {
-    el.classList.add("bg-info-bg");
-  }
+  el.style.backgroundColor =
+    status === "new" ? "var(--curation-new)" : "var(--curation-updated)";
 }
 
 export function createCompanyCardElement(

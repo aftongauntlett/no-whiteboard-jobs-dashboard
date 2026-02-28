@@ -109,6 +109,20 @@ const viewToggleProps = {
           <div class="grid gap-1" role="radiogroup" aria-label="Sort">
             <button
               type="button"
+              data-companies-sort-option="curated-desc"
+              role="radio"
+              aria-checked="false"
+              class="cursor-pointer grid grid-cols-[1fr_auto] items-center gap-2 rounded-md px-2.5 py-2 min-h-11 text-sm hover:bg-surface-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+            >
+              <span class="min-w-0 text-left">New/Updated first</span>
+              <span
+                data-companies-sort-check
+                aria-hidden="true"
+                class="text-accent hidden shrink-0 self-center">✓</span
+              >
+            </button>
+            <button
+              type="button"
               data-companies-sort-option="name-asc"
               role="radio"
               aria-checked="true"

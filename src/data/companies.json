@@ -1140,6 +1140,14 @@
     "interviewProcess": "Cultural fit interview, home test, technical interview with the team and then interview with the leadership"
   },
   {
+    "id": "chargify",
+    "name": "Chargify",
+    "careersUrl": "https://chargify.com/jobs",
+    "locations": ["San Antonio, TX", "Remote"],
+    "employmentType": "Remote",
+    "interviewProcess": "Take-home project & pair on a problem similar to daily work"
+  },
+  {
     "id": "checkout-51",
     "name": "Checkout 51",
     "careersUrl": "https://checkout51.com/jobs",
@@ -1522,7 +1530,7 @@
   {
     "id": "cox-enterprises",
     "name": "Cox Enterprises",
-    "careersUrl": "https://jobs.coxenterprises.com/en/career-areas/technology/",
+    "careersUrl": "https://jobs.coxenterprises.com/home-technology/",
     "locations": ["Atlanta, GA", "Remote"],
     "employmentType": "Remote",
     "interviewProcess": "First-round behavioral interview with Engineering Lead, second-round technical discussion with the dev team"
@@ -2024,7 +2032,7 @@
   {
     "id": "ellucian",
     "name": "Ellucian",
-    "careersUrl": "https://careers.ellucian.com/careers-home",
+    "careersUrl": "https://www.ellucian.com/About-Us/Careers/",
     "locations": ["Reston, VA", "USA"],
     "employmentType": "In-office",
     "interviewProcess": "Discussion of real world problems (from resume, if possible)"
@@ -2318,6 +2326,14 @@
     "locations": ["London, UK", "Berlin, Germany", "Vilnius, Lithuania"],
     "employmentType": "In-office",
     "interviewProcess": "Skype discussion, Take-home project, Face to face"
+  },
+  {
+    "id": "fauna",
+    "name": "Fauna",
+    "careersUrl": "https://fauna.com",
+    "locations": ["San Francisco, CA", "Remote"],
+    "employmentType": "Remote",
+    "interviewProcess": "Take home project, then follow up with interviews on-site or remote. Interviews are both technical and non-technical. Technical interviews comprehend the scope of the home project."
   },
   {
     "id": "fetch-rewards",
@@ -2622,6 +2638,14 @@
     "locations": ["Seattle, WA"],
     "employmentType": "In-office",
     "interviewProcess": "A short phone screen with questions regarding general knowledge related to the open position, then a half day pair programming interview."
+  },
+  {
+    "id": "geosite",
+    "name": "Geosite",
+    "careersUrl": "https://www.geosite.io",
+    "locations": ["Remote"],
+    "employmentType": "Remote",
+    "interviewProcess": "Phone chat -> Take home project resembling the team focus -> Discussion about takehome & culture fit."
   },
   {
     "id": "ghost-inspector",
@@ -4648,6 +4672,14 @@
     "interviewProcess": "Take home exercise and/or pair programming session."
   },
   {
+    "id": "oncue",
+    "name": "Oncue",
+    "careersUrl": "https://oncue.co",
+    "locations": ["San Francisco, CA", "Remote"],
+    "employmentType": "Remote",
+    "interviewProcess": "Online coding test on real-world problems (2 hours). Technical discussion with developer team."
+  },
+  {
     "id": "onemain-financial",
     "name": "OneMain Financial",
     "careersUrl": "https://jobs.onemainfinancial.com",
@@ -4766,6 +4798,14 @@
     "locations": ["London, UK"],
     "employmentType": "In-office",
     "interviewProcess": "Take-home exercise, real-world pair programming session, friendly chat with team"
+  },
+  {
+    "id": "outlook-ios-android",
+    "name": "Outlook iOS & Android",
+    "careersUrl": "https://github.com/outlook/jobs",
+    "locations": ["San Francisco, CA", "New York, NY"],
+    "employmentType": "In-office",
+    "interviewProcess": "Take-home project & online / onsite discussion"
   },
   {
     "id": "the-nerdery",
@@ -5347,6 +5387,14 @@
     ],
     "employmentType": "In-office",
     "interviewProcess": "Discussion, work samples from previous projects (work or hobby), take-home exercise if needed for further info"
+  },
+  {
+    "id": "realync",
+    "name": "Realync",
+    "careersUrl": "https://realync.com/careers",
+    "locations": ["Chicago, IL", "Carmel, IN", "Remote"],
+    "employmentType": "Remote",
+    "interviewProcess": "Quick phone interview, then a take home project and finally in person interview (open discussions instead of quizzes - anything technical are real-world problems)."
   },
   {
     "id": "rebase-consulting",
@@ -6124,6 +6172,14 @@
     "interviewProcess": "Skype/on-site interview, take-home project"
   },
   {
+    "id": "storm",
+    "name": "Storm",
+    "careersUrl": "https://www.stormx.io/about#jobs",
+    "locations": ["Seattle, WA", "Remote"],
+    "employmentType": "Remote",
+    "interviewProcess": "Phone/skype screen --> Take-home coding assignment --> on-site/skype interview loop to discuss assignment; meet-and-greet with other teams --> +1/-1 based on team consensus"
+  },
+  {
     "id": "storytel",
     "name": "Storytel",
     "careersUrl": "https://jobs.storytel.com/departments/tech",
@@ -6320,6 +6376,14 @@
     "locations": ["Richmond (London), UK"],
     "employmentType": "In-office",
     "interviewProcess": "Live pair programming or take home project with review"
+  },
+  {
+    "id": "take-homes",
+    "name": "Take Homes",
+    "careersUrl": "https://takehomes.com",
+    "locations": ["San Francisco", "CA & New York, NY"],
+    "employmentType": "In-office",
+    "interviewProcess": "Take-home project based on a real-world problem, administered on their own platform, followed by a pair programming session, also on their platform, which builds on the initial project"
   },
   {
     "id": "take-two-interactive",
@@ -6966,6 +7030,14 @@
     "locations": ["Tupelo, MS"],
     "employmentType": "In-office",
     "interviewProcess": "Take home project, code review, and in-person discussion"
+  },
+  {
+    "id": "voltra-co",
+    "name": "Voltra Co.",
+    "careersUrl": "https://voltra.co",
+    "locations": ["Amsterdam, Netherlands", "New York, NY", "Remote"],
+    "employmentType": "Remote",
+    "interviewProcess": "Show us your github account, tell us what you know. Let's pair on an OSS PR!"
   },
   {
     "id": "vsx",

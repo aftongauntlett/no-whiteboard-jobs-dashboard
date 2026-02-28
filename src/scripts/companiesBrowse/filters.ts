@@ -1,7 +1,7 @@
 import type { Company, EmploymentType } from "@data/types";
 import type { InterviewTagId } from "../../config/interviewTags";
 
-export type SortKey = "name-asc" | "name-desc";
+export type SortKey = "name-asc" | "name-desc" | "curated-desc";
 
 export type IndexedCompany = {
   company: Company;
@@ -59,6 +59,23 @@ export function computeResults(args: {
   const sorted = [...result];
 
   sorted.sort((a, b) => {
+    if (args.sort === "curated-desc") {
+      const aLocal = a.company.source === "local";
+      const bLocal = b.company.source === "local";
+
+      if (aLocal !== bLocal) return aLocal ? -1 : 1;
+
+      const aDate = a.company.lastUpdated ?? "";
+      const bDate = b.company.lastUpdated ?? "";
+      if (aDate !== bDate) return bDate.localeCompare(aDate);
+
+      const aStatus = a.company.curationStatus ?? "edited";
+      const bStatus = b.company.curationStatus ?? "edited";
+      if (aStatus !== bStatus) return aStatus === "new" ? -1 : 1;
+
+      return a.company.name.localeCompare(b.company.name);
+    }
+
     if (args.sort === "name-desc")
       return b.company.name.localeCompare(a.company.name);
     return a.company.name.localeCompare(b.company.name);
