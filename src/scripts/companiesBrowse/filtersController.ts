@@ -21,7 +21,7 @@ function isSortKey(value: string | null): value is SortKey {
 export function bindFiltersController(args: {
   searchInput: HTMLInputElement | null;
   sortButtons: HTMLButtonElement[];
-  employmentButtons: HTMLButtonElement[];
+  employmentInputs: HTMLInputElement[];
   interviewTagInputs: HTMLInputElement[];
   resetButton: HTMLButtonElement | null;
 
@@ -37,7 +37,7 @@ export function bindFiltersController(args: {
   const {
     searchInput,
     sortButtons,
-    employmentButtons,
+    employmentInputs,
     interviewTagInputs,
     resetButton,
     selectedEmployment,
@@ -82,13 +82,17 @@ export function bindFiltersController(args: {
     });
   }
 
-  for (const btn of employmentButtons) {
-    btn.addEventListener("click", () => {
-      const raw = btn.getAttribute("data-companies-employment-option");
-      if (!isEmploymentType(raw)) return;
-      const value = raw;
-      if (selectedEmployment.has(value)) selectedEmployment.delete(value);
-      else selectedEmployment.add(value);
+  for (const input of employmentInputs) {
+    const raw = input.value;
+    if (!isEmploymentType(raw)) continue;
+    const value = raw;
+
+    // Sync initial checked state from URL.
+    input.checked = selectedEmployment.has(value);
+
+    input.addEventListener("change", () => {
+      if (input.checked) selectedEmployment.add(value);
+      else selectedEmployment.delete(value);
       state.page = 1;
       render();
     });

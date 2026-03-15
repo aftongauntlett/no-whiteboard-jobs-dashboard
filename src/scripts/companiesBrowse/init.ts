@@ -75,7 +75,7 @@ function init() {
     "[data-companies-per-page-option]",
   );
   const resetButton = qs<HTMLButtonElement>(section, "[data-companies-reset]");
-  const employmentButtons = qsa<HTMLButtonElement>(
+  const employmentInputs = qsa<HTMLInputElement>(
     section,
     "[data-companies-employment-option]",
   );
@@ -177,7 +177,7 @@ function init() {
     menuButton,
     sortButtons,
     perPageButtons,
-    employmentButtons,
+    employmentInputs,
     selectedInterviewTags: state.selectedInterviewTags,
     selectedEmployment: state.selectedEmployment,
     state,
@@ -188,7 +188,7 @@ function init() {
   bindFiltersController({
     searchInput,
     sortButtons,
-    employmentButtons,
+    employmentInputs,
     interviewTagInputs,
     resetButton,
     selectedEmployment: state.selectedEmployment,

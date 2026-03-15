@@ -160,6 +160,29 @@ function applySourceIndicator(
     status === "new" ? "var(--curation-new)" : "var(--curation-updated)";
 }
 
+function applyOfficialVerification(
+  root: ParentNode,
+  officiallyVerified: Company["officiallyVerified"],
+  officiallyVerifiedDate: Company["officiallyVerifiedDate"],
+) {
+  const el = root.querySelector("[data-company-official-verified]");
+  if (!(el instanceof HTMLElement)) return;
+
+  const isVerified = officiallyVerified === true;
+  el.classList.toggle("hidden", !isVerified);
+  if (!isVerified) {
+    el.removeAttribute("title");
+    el.setAttribute("aria-label", "Confirmed by company");
+    return;
+  }
+
+  const label = officiallyVerifiedDate
+    ? `Confirmed by company (${officiallyVerifiedDate})`
+    : "Confirmed by company";
+  el.setAttribute("aria-label", label);
+  el.setAttribute("title", label);
+}
+
 export function createCompanyCardElement(
   templates: CompaniesBrowseTemplates,
   company: Company,
@@ -177,6 +200,11 @@ export function createCompanyCardElement(
   }
 
   applySourceIndicator(el, company.source, company.curationStatus);
+  applyOfficialVerification(
+    el,
+    company.officiallyVerified,
+    company.officiallyVerifiedDate,
+  );
 
   const locations = el.querySelectorAll("[data-company-locations]");
   for (const container of locations) {
@@ -219,6 +247,11 @@ export function createCompanyListItemElement(
   }
 
   applySourceIndicator(el, company.source, company.curationStatus);
+  applyOfficialVerification(
+    el,
+    company.officiallyVerified,
+    company.officiallyVerifiedDate,
+  );
 
   const locations = el.querySelectorAll("[data-company-locations]");
   for (const container of locations) {

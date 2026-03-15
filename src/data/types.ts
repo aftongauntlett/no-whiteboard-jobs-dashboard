@@ -1,4 +1,4 @@
-export const EMPLOYMENT_TYPES = ["Remote", "In-office"] as const;
+export const EMPLOYMENT_TYPES = ["Remote", "In-office", "Hybrid"] as const;
 
 export type EmploymentType = (typeof EMPLOYMENT_TYPES)[number];
 
@@ -9,6 +9,12 @@ export function isEmploymentType(value: unknown): value is EmploymentType {
 export type CompanySource = "upstream" | "local";
 
 export type CurationStatus = "new" | "edited";
+
+export type AiSourceType =
+  | "job_posting"
+  | "candidate_report"
+  | "company_self_report"
+  | "other";
 
 export type Company = {
   id: string;
@@ -41,6 +47,20 @@ export type Company = {
 
   /** Sanitized HTML derived from interviewProcess Markdown. */
   interviewProcessHtml?: string;
+
+  /** Locally curated AI-friendly metadata. */
+  aiToolsAllowed?: boolean;
+  aiTools?: string[];
+  aiSourceType?: AiSourceType;
+  aiSourceUrl?: string;
+  aiNotes?: string;
+  /** Format: YYYY-MM */
+  aiVerifiedDate?: string;
+
+  /** Indicates company-provided verification for listing trust/freshness. */
+  officiallyVerified?: boolean;
+  /** Format: YYYY-MM */
+  officiallyVerifiedDate?: string;
 };
 
 export type CompanyLocalOverride = {
@@ -54,4 +74,14 @@ export type CompanyLocalOverride = {
   locations?: string[];
   employmentType?: EmploymentType;
   interviewProcess?: string;
+
+  aiToolsAllowed?: boolean;
+  aiTools?: string[];
+  aiSourceType?: AiSourceType;
+  aiSourceUrl?: string;
+  aiNotes?: string;
+  aiVerifiedDate?: string;
+
+  officiallyVerified?: boolean;
+  officiallyVerifiedDate?: string;
 };

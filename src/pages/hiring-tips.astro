@@ -2,23 +2,259 @@
 import FileCheck from "lucide-astro/FileCheck";
 import FileX from "lucide-astro/FileX";
 import ExternalLink from "lucide-astro/ExternalLink";
-import MessagesSquare from "lucide-astro/MessagesSquare";
-import Newspaper from "lucide-astro/Newspaper";
+
+import BookOpen from "lucide-astro/BookOpen";
+import Bot from "lucide-astro/Bot";
+import HandHeart from "lucide-astro/HandHeart";
 import Layout from "../layouts/Layout.astro";
 import PageHeader from "../components/layout/PageHeader.astro";
-import Button from "../components/ui/Button.astro";
 import ResourceCard from "../components/ui/ResourceCard.astro";
 import Accordion from "../components/ui/Accordion.astro";
 import AccordionItem from "../components/ui/AccordionItem.astro";
+import ResourceSuggestionForm from "../components/ui/ResourceSuggestionForm.astro";
+
+const resourceRowClass =
+  "flex items-center gap-3 rounded-md px-3 py-2 transition-colors hover:bg-surface-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-accent [&:hover_.resource-external-icon]:opacity-100 [&:focus-visible_.resource-external-icon]:opacity-100";
+
+const resourceLinkClass = "flex-1 min-w-0 text-sm text-accent";
+
+const resourceIconClass =
+  "resource-external-icon h-4 w-4 shrink-0 opacity-0 transition-opacity";
+
+/* ── Why whiteboard interviews don't work for everyone ── */
+const whiteboardResources = [
+  {
+    source: "ScienceDaily / NC State",
+    href: "https://www.sciencedaily.com/releases/2020/07/200714101228.htm",
+    description:
+      "Candidates interviewed in private performed about twice as well as public whiteboard candidates, showing anxiety can overwhelm signal.",
+  },
+  {
+    source: "International Journal of Selection and Assessment (Wiley)",
+    href: "https://onlinelibrary.wiley.com/doi/10.1111/ijsa.12512",
+    description:
+      "Autistic candidates scored better on transcript content, but lower when nonverbal/video cues were included, highlighting format bias.",
+  },
+  {
+    source: "arXiv",
+    href: "https://arxiv.org/html/2511.02736v1",
+    description:
+      "Reviews the mismatch between strong autistic representation in CS education and weaker hiring and pay outcomes in software roles.",
+  },
+  {
+    source: "DEV Community",
+    href: "https://dev.to/rawveg/tech-hiring-and-neurodiversity-ibp",
+    description:
+      "Summarizes recent survey data showing many neurodivergent candidates feel timed tests and live coding put them at a disadvantage.",
+  },
+  {
+    source: "Creative Spirit",
+    href: "https://www.creativespirit-us.org/the-interview-process-desperately-needs-an-overhaul-to-include-neurodiverse-employees-heres-how-it-can-happen/",
+    description:
+      "Reports concrete discrimination examples from neurodivergent job seekers and explains why interview redesign matters.",
+  },
+  {
+    source: "Ashleigh N. Wilson (I-O Psychologist)",
+    href: "https://www.ashleighnwilson.com/i-o/neurodiverse-hiring/",
+    description:
+      "Practical, skills-based alternatives to traditional interviews from a neurodivergent IO psychology practitioner.",
+  },
+  {
+    source: "WorkLife / Digiday",
+    href: "https://www.worklife.news/talent/neurodiversity-autism-adhd-hiring-interview-microsoft-ey/",
+    description:
+      "Covers real hiring programs at large companies that are improving outcomes for neurodivergent candidates.",
+  },
+  {
+    source: "Pearn Kandola",
+    href: "https://pearnkandola.com/wp-content/uploads/2024/07/Neurodiversity-At-Work-Report-2024.pdf",
+    description:
+      "Survey-based workplace inclusion data useful for understanding scale, patterns, and gaps.",
+  },
+  {
+    source: "Tolulope Edionwe",
+    href: "https://theoutline.com/post/1256/finding-a-better-alternative-to-the-whiteboard-interview",
+    description:
+      "Finding a better alternative to the whiteboard interview — long-form.",
+  },
+  {
+    source: "Jesal Gadhia",
+    href: "https://jes.al//2023/03/how-to-hire-engineering-talent-without-the-bs/",
+    description:
+      "How to hire engineering talent without the BS — practical guide.",
+  },
+  {
+    source: "Aaron Swartz",
+    href: "http://www.aaronsw.com/weblog/hiring.en",
+    description:
+      "How I Hire Programmers — classic essay on evaluating people over puzzles.",
+  },
+] as const;
+
+/* ── AI in coding: what's actually happening ── */
+const aiCodingResources = [
+  {
+    source: "MIT Technology Review",
+    href: "https://www.technologyreview.com/2025/12/15/1128352/rise-of-ai-coding-developers-2026/",
+    description:
+      "A balanced overview of where AI coding tools genuinely help and where evidence is still mixed.",
+  },
+  {
+    source: "Stack Overflow 2025 Developer Survey",
+    href: "https://survey.stackoverflow.co/2025/ai/",
+    description:
+      "Large-scale developer survey showing AI adoption is high while confidence and sentiment are becoming more nuanced.",
+  },
+  {
+    source: "Addy Osmani (Substack)",
+    href: "https://addyo.substack.com/p/the-reality-of-ai-assisted-software",
+    description:
+      "Readable synthesis of major AI productivity studies with useful caveats and context.",
+  },
+  {
+    source: "Faros AI",
+    href: "https://www.faros.ai/blog/ai-software-engineering",
+    description:
+      "Telemetry data exploring the gap between individual productivity gains and team-level delivery impact.",
+  },
+  {
+    source: "Stack Overflow Blog",
+    href: "https://stackoverflow.blog/2025/12/26/ai-vs-gen-z/",
+    description:
+      "Discusses the entry-level squeeze while outlining practical opportunities for early-career developers.",
+  },
+  {
+    source: "IEEE Spectrum",
+    href: "https://spectrum.ieee.org/ai-effect-entry-level-jobs",
+    description:
+      "Explains how job shifts vary by role type, with some software and security categories still growing.",
+  },
+] as const;
+
+/* ── AI as an assistive tool: accessibility, neurodivergence & learning ── */
+const aiAccessibilityResources = [
+  {
+    source: "MadeCurious",
+    href: "https://madecurious.com/articles/ai-accessibility-for-neurodivergence/",
+    description:
+      "Lived-experience perspective on AI as assistive technology for neurodivergent workers.",
+  },
+  {
+    source: "Smashing Magazine",
+    href: "https://www.smashingmagazine.com/2024/04/ai-neurodiversity-building-inclusive-tools/",
+    description:
+      "Design-focused guidance for building AI-enabled products with neurodiversity and accessibility in mind.",
+  },
+  {
+    source:
+      "Wiley / ASIST (Journal of the Association for Information Science and Technology)",
+    href: "https://asistdl.onlinelibrary.wiley.com/doi/10.1002/pra2.1331",
+    description:
+      "Systematic review of 21 studies on where generative AI supports learning and regulation for neurodivergent students.",
+  },
+  {
+    source: "ScienceDirect",
+    href: "https://www.sciencedirect.com/science/article/pii/S2666920X25000773",
+    description:
+      "Peer-reviewed review of generative AI support patterns for neurodivergent learners.",
+  },
+  {
+    source: "EDUCAUSE Review",
+    href: "https://er.educause.edu/articles/2024/9/the-impact-of-ai-in-advancing-accessibility-for-learners-with-disabilities",
+    description:
+      "Higher-ed perspective on practical ways AI is improving accessibility for learners with disabilities.",
+  },
+  {
+    source: "ACM CHI 2025",
+    href: "https://dl.acm.org/doi/10.1145/3706598.3714008",
+    description:
+      "Peer-reviewed CHI study on how developers with visual impairments benefit from AI coding assistants and where friction remains.",
+  },
+] as const;
+
+const techForGoodResources = [
+  {
+    name: "Welcome to the Jungle",
+    href: "https://app.welcometothejungle.com/",
+    description:
+      "A broad job platform with mission-driven companies and startup opportunities across product, engineering, and operations.",
+  },
+  {
+    name: "All Tech Is Human",
+    href: "https://alltechishuman.org/",
+    description:
+      "Community-driven resources and events focused on responsible tech, digital trust, and ethical product development.",
+  },
+  {
+    name: "80,000 Hours Job Board",
+    href: "https://jobs.80000hours.org/",
+    description:
+      "Curated high-impact roles in global health, policy, AI safety, and other paths aimed at maximizing positive impact.",
+  },
+  {
+    name: "Wellfound",
+    href: "https://wellfound.com/j",
+    description:
+      "Startup-focused job search with transparent salary/equity details, including many social-impact and climate startups.",
+  },
+  {
+    name: "Climatebase",
+    href: "https://climatebase.org/",
+    description:
+      "A dedicated climate jobs network spanning software, data, hardware, policy, and operations roles.",
+  },
+  {
+    name: "Tech Jobs for Good",
+    href: "https://techjobsforgood.com",
+    description:
+      "Jobs from nonprofits, civic tech teams, and mission-driven orgs using technology to tackle social challenges.",
+  },
+  {
+    name: "Fast Forward (FFWD) Jobs",
+    href: "https://jobs.ffwd.org/jobs",
+    description:
+      "Roles at tech nonprofits and impact startups, with a strong focus on public-interest and social-good products.",
+  },
+  {
+    name: "NTEN Job Board",
+    href: "https://www.nten.org/jobs",
+    description:
+      "Nonprofit technology and digital roles, especially useful for folks interested in mission-focused orgs.",
+  },
+  {
+    name: "Responsible Tech Work",
+    href: "https://responsibletech.work",
+    description:
+      "A focused board for ethical tech roles in trust and safety, AI governance, human rights, and civic impact.",
+  },
+  {
+    name: "Idealist",
+    href: "https://idealist.org",
+    description:
+      "One of the largest nonprofit and social-impact job platforms, including remote and international opportunities.",
+  },
+  {
+    name: "The Impact Job",
+    href: "https://www.theimpactjob.com",
+    description:
+      "Impact-first roles across climate, education, health, and sustainability, with startup and scale-up positions.",
+  },
+  {
+    name: "Probably Good Job Boards",
+    href: "https://probablygood.org/resources/job-boards/",
+    description:
+      "A resource roundup of vetted job boards for impactful careers, useful when you want a wider search funnel.",
+  },
+] as const;
 ---
 
 <Layout
-  title="Hiring Tips"
-  description="Resources, discussions, and articles on alternatives to whiteboard-style interviews."
+  title="Hiring Tips & Resources"
+  description="Resources on fair hiring, neurodiversity in tech, AI-assisted development, and alternatives to whiteboard-style interviews."
 >
   <PageHeader
-    title="Hiring Tips"
-    subtitle="Articles, discussions, and resources on alternatives to whiteboard-style interviews."
+    title="Hiring Tips & Resources"
+    subtitle="Articles, research, and tools for navigating hiring in tech — especially if the traditional process wasn't built with you in mind."
   />
 
   <!-- Main content -->
@@ -32,197 +268,196 @@ import AccordionItem from "../components/ui/AccordionItem.astro";
           icon={FileX}
           tone="secondary"
           iconClass="text-coral"
+          href="https://they.whiteboarded.me/"
         >
-          <p class="pb-4">
+          <p>
             A community list of interview experiences. Some are great, some are
             rough. It’s useful when you want a heads up on what a process is
             like before you spend a bunch of time on it.
           </p>
-          <div slot="footer" class="flex items-center justify-end">
-            <Button
-              href="https://they.whiteboarded.me/"
-              target="_blank"
-              variant="primary"
-              tone="outline"
-            >
-              Visit Website
-            </Button>
-          </div>
         </ResourceCard>
         <ResourceCard
           title="Hiring Without Whiteboards"
           icon={FileCheck}
           tone="primary"
+          href="https://github.com/poteto/hiring-without-whiteboards"
         >
-          <p class="pb-4">
+          <p>
             This is the upstream repo that powers the company list on this site.
             Huge credit to the folks maintaining it. The idea is simple, keep a
             public list of teams that don’t lean on CS trivia, puzzles, or
             gotcha questions as the main filter.
           </p>
-          <div slot="footer" class="flex items-center justify-end">
-            <Button
-              href="https://github.com/poteto/hiring-without-whiteboards"
-              target="_blank"
-              variant="primary"
-              tone="outline"
-            >
-              View GitHub repository
-            </Button>
-          </div>
         </ResourceCard>
       </div>
+    </div>
 
-      <!-- Discussions + articles (progressive disclosure) -->
-      <div class="mt-8">
+    <!-- Resources accordion -->
+    <div>
+      <h2 class="text-xl font-semibold mb-2">Resources</h2>
+      <p
+        class="ui-muted-body text-sm text-text-mutedLight dark:text-text-mutedDark mb-6"
+      >
+        Expand for job boards, hiring research, and AI accessibility links.
+      </p>
+
+      <div>
         <Accordion
-          title="Discussions & Articles"
-          description="Expand for links to community discussions and longer-form reading."
+          title="Resources"
+          description="Expand for curated resources and reading links."
         >
-          <AccordionItem title="Discussions" icon={MessagesSquare}>
+          <AccordionItem title="Tech for Good Job Boards" icon={FileX}>
             <p
               class="ui-muted-body text-sm text-text-mutedLight dark:text-text-mutedDark"
             >
-              A couple threads where people argue about hiring, share stories,
-              and trade ideas.
+              Mission-driven boards for nonprofit, climate, civic, and
+              responsible tech roles.
             </p>
-
             <ul class="mt-3 space-y-2">
-              <li>
-                <div
-                  class="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between sm:gap-4"
-                >
-                  <a
-                    href="https://news.ycombinator.com/item?id=13874026"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="inline-flex min-w-0 items-center gap-2 text-sm text-accent hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm"
-                  >
-                    <span
-                      class="min-w-0 truncate sm:whitespace-normal sm:overflow-visible"
+              {
+                techForGoodResources.map((resource) => (
+                  <li>
+                    <a
+                      href={resource.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class={resourceRowClass}
                     >
-                      HackerNews (2017)
-                    </span>
-                    <ExternalLink class="h-5 w-5 shrink-0" aria-hidden="true" />
-                  </a>
-                  <span
-                    class="ui-muted-body hidden shrink-0 text-xs text-text-mutedLight dark:text-text-mutedDark sm:inline"
-                  >
-                    Original thread
-                  </span>
-                </div>
-              </li>
-              <li>
-                <div
-                  class="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between sm:gap-4"
-                >
-                  <a
-                    href="https://news.ycombinator.com/item?id=23981795"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="inline-flex min-w-0 items-center gap-2 text-sm text-accent hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm"
-                  >
-                    <span
-                      class="min-w-0 truncate sm:whitespace-normal sm:overflow-visible"
-                    >
-                      HackerNews (2020)
-                    </span>
-                    <ExternalLink class="h-5 w-5 shrink-0" aria-hidden="true" />
-                  </a>
-                  <span
-                    class="ui-muted-body hidden shrink-0 text-xs text-text-mutedLight dark:text-text-mutedDark sm:inline"
-                  >
-                    Follow-up thread
-                  </span>
-                </div>
-              </li>
+                      <span class={resourceLinkClass}>
+                        <span>{resource.name}</span>
+                        <p class="mt-0.5 text-xs text-text-mutedLight dark:text-text-mutedDark leading-relaxed">
+                          {resource.description}
+                        </p>
+                      </span>
+                      <ExternalLink
+                        class={resourceIconClass}
+                        aria-hidden="true"
+                      />
+                    </a>
+                  </li>
+                ))
+              }
             </ul>
           </AccordionItem>
 
-          <AccordionItem title="Articles" icon={Newspaper}>
+          <AccordionItem
+            title="Why Whiteboard Interviews Don't Work for Everyone"
+            icon={BookOpen}
+          >
             <p
               class="ui-muted-body text-sm text-text-mutedLight dark:text-text-mutedDark"
             >
-              Longer reads on interviewing without whiteboards.
+              Research and reporting on how traditional technical interviews
+              systematically disadvantage neurodivergent, anxious, and
+              non-traditional candidates.
             </p>
 
             <ul class="mt-3 space-y-2">
-              <li>
-                <div
-                  class="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between sm:gap-4"
-                >
-                  <a
-                    href="https://theoutline.com/post/1256/finding-a-better-alternative-to-the-whiteboard-interview"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="inline-flex min-w-0 items-center gap-2 text-sm text-accent hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm"
-                  >
-                    <span
-                      class="min-w-0 truncate sm:whitespace-normal sm:overflow-visible"
+              {
+                whiteboardResources.map((r) => (
+                  <li>
+                    <a
+                      href={r.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class={resourceRowClass}
                     >
-                      Finding a better alternative to the whiteboard interview
-                    </span>
-                    <ExternalLink class="h-5 w-5 shrink-0" aria-hidden="true" />
-                  </a>
-                  <span
-                    class="ui-muted-body hidden shrink-0 text-xs text-text-mutedLight dark:text-text-mutedDark sm:inline"
-                  >
-                    Tolulope Edionwe · Long-form
-                  </span>
-                </div>
-              </li>
-              <li>
-                <div
-                  class="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between sm:gap-4"
-                >
-                  <a
-                    href="https://jes.al//2023/03/how-to-hire-engineering-talent-without-the-bs/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="inline-flex min-w-0 items-center gap-2 text-sm text-accent hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm"
-                  >
-                    <span
-                      class="min-w-0 truncate sm:whitespace-normal sm:overflow-visible"
+                      <span class={resourceLinkClass}>
+                        <span>{r.source}</span>
+                        <p class="mt-0.5 text-xs text-text-mutedLight dark:text-text-mutedDark leading-relaxed">
+                          {r.description}
+                        </p>
+                      </span>
+                      <ExternalLink
+                        class={resourceIconClass}
+                        aria-hidden="true"
+                      />
+                    </a>
+                  </li>
+                ))
+              }
+            </ul>
+          </AccordionItem>
+
+          <AccordionItem
+            title="AI in Coding: What's Actually Happening"
+            icon={Bot}
+          >
+            <p
+              class="ui-muted-body text-sm text-text-mutedLight dark:text-text-mutedDark"
+            >
+              Balanced, well-sourced reporting on AI-assisted development —
+              productivity, skill erosion, and the entry-level picture.
+            </p>
+
+            <ul class="mt-3 space-y-2">
+              {
+                aiCodingResources.map((r) => (
+                  <li>
+                    <a
+                      href={r.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class={resourceRowClass}
                     >
-                      How to hire engineering talent without the BS
-                    </span>
-                    <ExternalLink class="h-5 w-5 shrink-0" aria-hidden="true" />
-                  </a>
-                  <span
-                    class="ui-muted-body hidden shrink-0 text-xs text-text-mutedLight dark:text-text-mutedDark sm:inline"
-                  >
-                    Jesal Gadhia · Practical guide
-                  </span>
-                </div>
-              </li>
-              <li>
-                <div
-                  class="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between sm:gap-4"
-                >
-                  <a
-                    href="http://www.aaronsw.com/weblog/hiring.en"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="inline-flex min-w-0 items-center gap-2 text-sm text-accent hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm"
-                  >
-                    <span
-                      class="min-w-0 truncate sm:whitespace-normal sm:overflow-visible"
+                      <span class={resourceLinkClass}>
+                        <span>{r.source}</span>
+                        <p class="mt-0.5 text-xs text-text-mutedLight dark:text-text-mutedDark leading-relaxed">
+                          {r.description}
+                        </p>
+                      </span>
+                      <ExternalLink
+                        class={resourceIconClass}
+                        aria-hidden="true"
+                      />
+                    </a>
+                  </li>
+                ))
+              }
+            </ul>
+          </AccordionItem>
+
+          <AccordionItem title="AI as an Assistive Tool" icon={HandHeart}>
+            <p
+              class="ui-muted-body text-sm text-text-mutedLight dark:text-text-mutedDark"
+            >
+              How AI tools are helping neurodivergent developers, learners with
+              disabilities, and people who work differently.
+            </p>
+
+            <ul class="mt-3 space-y-2">
+              {
+                aiAccessibilityResources.map((r) => (
+                  <li>
+                    <a
+                      href={r.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class={resourceRowClass}
                     >
-                      How I Hire Programmers
-                    </span>
-                    <ExternalLink class="h-5 w-5 shrink-0" aria-hidden="true" />
-                  </a>
-                  <span
-                    class="ui-muted-body hidden shrink-0 text-xs text-text-mutedLight dark:text-text-mutedDark sm:inline"
-                  >
-                    Aaron Swartz · Classic essay
-                  </span>
-                </div>
-              </li>
+                      <span class={resourceLinkClass}>
+                        <span>{r.source}</span>
+                        <p class="mt-0.5 text-xs text-text-mutedLight dark:text-text-mutedDark leading-relaxed">
+                          {r.description}
+                        </p>
+                      </span>
+                      <ExternalLink
+                        class={resourceIconClass}
+                        aria-hidden="true"
+                      />
+                    </a>
+                  </li>
+                ))
+              }
             </ul>
           </AccordionItem>
         </Accordion>
       </div>
+    </div>
+
+    <!-- Resource suggestion form -->
+    <div id="suggest">
+      <ResourceSuggestionForm />
     </div>
   </section>
 </Layout>

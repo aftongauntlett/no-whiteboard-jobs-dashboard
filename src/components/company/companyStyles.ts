@@ -8,6 +8,7 @@ export const EMPLOYMENT_BADGE_VARIANT_BY_TYPE: Record<
 > = {
   Remote: "info",
   "In-office": "success",
+  Hybrid: "info",
 };
 
 export function employmentBadgeVariant(
@@ -47,6 +48,9 @@ export const COMPANY_CARD_TITLE_INLINE_CLASS =
 export const COMPANY_CARD_NAME_HOVER_CLASS = "group-hover:text-accent";
 
 export const COMPANY_CARD_EMPLOYMENT_CLASS = "ui-badge";
+
+export const COMPANY_VERIFIED_BADGE_CLASS =
+  "ui-badge border border-success-border/40 bg-success-bg/10 text-success-text";
 
 export const COMPANY_CARD_EXTERNAL_ICON_CLASS =
   "invisible inline-flex h-7 w-7 items-center justify-center rounded-md text-accent opacity-0 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100 transition-opacity";

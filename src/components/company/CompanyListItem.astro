@@ -2,6 +2,7 @@
 import type { Company } from "@data/types";
 import EmploymentBadge from "../ui/EmploymentBadge.astro";
 import CurationIndicator from "../ui/CurationIndicator.astro";
+import ConfirmedByCompanyBadge from "../ui/ConfirmedByCompanyBadge.astro";
 import CompanyInterviewPreview from "./CompanyInterviewPreview.astro";
 import { createInterviewId } from "../../utils/company";
 import {
@@ -50,6 +51,13 @@ const interviewId = createInterviewId(company);
                 {
                   company.source === "local" ? (
                     <CurationIndicator status={company.curationStatus ?? "edited"} />
+                  ) : null
+                }
+                {
+                  company.officiallyVerified ? (
+                    <ConfirmedByCompanyBadge
+                      verifiedDate={company.officiallyVerifiedDate}
+                    />
                   ) : null
                 }
               </span>
@@ -115,6 +123,13 @@ const interviewId = createInterviewId(company);
               {
                 company.source === "local" ? (
                   <CurationIndicator status={company.curationStatus ?? "edited"} />
+                ) : null
+              }
+              {
+                company.officiallyVerified ? (
+                  <ConfirmedByCompanyBadge
+                    verifiedDate={company.officiallyVerifiedDate}
+                  />
                 ) : null
               }
             </span>

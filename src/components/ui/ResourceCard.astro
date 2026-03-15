@@ -8,9 +8,26 @@ export type Props = {
   icon?: AstroComponentFactory;
   tone?: Tone;
   iconClass?: string;
+  href?: string;
+  target?: "_blank" | "_self" | "_parent" | "_top";
+  rel?: string;
 };
 
-const { title, icon: Icon, tone = "primary", iconClass } = Astro.props as Props;
+const {
+  title,
+  icon: Icon,
+  tone = "primary",
+  iconClass,
+  href,
+  target,
+  rel,
+} = Astro.props as Props;
+
+const isInteractive = Boolean(href);
+const resolvedTarget = href ? (target ?? "_blank") : undefined;
+const resolvedRel =
+  href && resolvedTarget === "_blank" ? (rel ?? "noopener noreferrer") : rel;
+const linkLabel = href ? `Open ${title} in a new tab` : undefined;
 
 const toneClass: Record<Tone, string> = {
   primary: "text-primary",
@@ -20,22 +37,67 @@ const toneClass: Record<Tone, string> = {
 ---
 
 <article
-  class="ui-hover-brighten-body flex flex-col gap-4 rounded-xl border border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark p-6"
+  class:list={[
+    "ui-hover-brighten-body group relative z-0 flex flex-col gap-4 rounded-xl border border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark p-6 hover:z-20",
+    isInteractive &&
+      "focus-within:z-20 focus-within:ring-2 focus-within:ring-accent/30 focus-within:ring-offset-2 focus-within:ring-offset-bg-light dark:focus-within:ring-offset-bg-dark",
+  ]}
 >
-  <header class="flex items-center gap-3">
+  {
+    href && (
+      <a
+        href={href}
+        target={resolvedTarget}
+        rel={resolvedRel}
+        class="absolute inset-0 z-10 rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/30"
+        aria-label={linkLabel}
+      />
+    )
+  }
+
+  <header class="flex items-start justify-between gap-3">
+    <div class="min-w-0 flex items-center gap-3">
+      {
+        Icon && (
+          <Icon
+            className={`h-8 w-8 ${iconClass ?? toneClass[tone]} shrink-0`}
+            aria-hidden="true"
+          />
+        )
+      }
+      <h3
+        class:list={[
+          "text-lg font-semibold leading-tight capitalize text-text-light dark:text-text-dark transition-colors group-hover:text-accent group-focus-within:text-accent",
+        ]}
+      >
+        {title}
+      </h3>
+    </div>
+
     {
-      Icon && (
-        <Icon
-          className={`h-8 w-8 ${iconClass ?? toneClass[tone]} shrink-0`}
+      isInteractive && (
+        <span
+          class="invisible inline-flex h-7 w-7 items-center justify-center rounded-md text-accent opacity-0 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100 transition-opacity"
           aria-hidden="true"
-        />
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="h-4 w-4"
+          >
+            <path d="M14 3h7v7" />
+            <path d="M10 14L21 3" />
+            <path d="M21 14v7h-7" />
+            <path d="M3 10v11h11" />
+          </svg>
+        </span>
       )
     }
-    <h3
-      class="text-lg font-semibold leading-tight capitalize text-text-light dark:text-text-dark"
-    >
-      {title}
-    </h3>
   </header>
 
   <div
@@ -44,7 +106,11 @@ const toneClass: Record<Tone, string> = {
     <slot />
   </div>
 
-  <footer class="mt-auto">
-    <slot name="footer" />
-  </footer>
+  {
+    Astro.slots.has("footer") && (
+      <footer class="mt-auto">
+        <slot name="footer" />
+      </footer>
+    )
+  }
 </article>

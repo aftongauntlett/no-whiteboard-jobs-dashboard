@@ -1,0 +1,18 @@
+---
+import Badge from "./Badge.astro";
+
+type Props = {
+  verifiedDate?: string;
+  class?: string;
+};
+
+const { verifiedDate, class: className } = Astro.props as Props;
+
+const label = verifiedDate
+  ? `Confirmed by company (${verifiedDate})`
+  : "Confirmed by company";
+---
+
+<span class={className} aria-label={label} title={label}>
+  <Badge variant="success" style="outline">Confirmed by company</Badge>
+</span>

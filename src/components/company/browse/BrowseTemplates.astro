@@ -8,6 +8,7 @@ import {
   COMPANY_CARD_STATIC_CLASS,
   COMPANY_CARD_TITLE_CLASS,
   COMPANY_CARD_TITLE_INLINE_CLASS,
+  COMPANY_VERIFIED_BADGE_CLASS,
   COMPANY_INTERVIEW_TEXT_CLASS_CARD,
   COMPANY_INTERVIEW_TEXT_CLASS_LIST,
   COMPANY_INTERVIEW_TOGGLE_CLASS,
@@ -46,6 +47,13 @@ import {
                 class="hidden curation-dot"
                 aria-hidden="true"></span>
               <span data-company-source-sr class="hidden sr-only"></span>
+              <span
+                data-company-official-verified
+                class={`hidden ${COMPANY_VERIFIED_BADGE_CLASS}`}
+                aria-label="Confirmed by company"
+              >
+                Confirmed by company
+              </span>
             </span>
           </h3>
           <span data-company-employment class="ui-badge"></span>
@@ -121,6 +129,13 @@ import {
               class="hidden curation-dot"
               aria-hidden="true"></span>
             <span data-company-source-sr class="hidden sr-only"></span>
+            <span
+              data-company-official-verified
+              class={`hidden ${COMPANY_VERIFIED_BADGE_CLASS}`}
+              aria-label="Confirmed by company"
+            >
+              Confirmed by company
+            </span>
           </span>
         </h3>
         <span data-company-employment class="ui-badge"></span>
@@ -176,6 +191,13 @@ import {
               class="hidden curation-dot"
               aria-hidden="true"></span>
             <span data-company-source-sr class="hidden sr-only"></span>
+            <span
+              data-company-official-verified
+              class={`hidden ${COMPANY_VERIFIED_BADGE_CLASS}`}
+              aria-label="Confirmed by company"
+            >
+              Confirmed by company
+            </span>
           </span>
         </h3>
       </div>
@@ -272,6 +294,13 @@ import {
               class="hidden curation-dot"
               aria-hidden="true"></span>
             <span data-company-source-sr class="hidden sr-only"></span>
+            <span
+              data-company-official-verified
+              class={`hidden ${COMPANY_VERIFIED_BADGE_CLASS}`}
+              aria-label="Confirmed by company"
+            >
+              Confirmed by company
+            </span>
           </span>
         </h3>
       </div>

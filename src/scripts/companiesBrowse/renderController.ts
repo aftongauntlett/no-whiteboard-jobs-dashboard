@@ -34,7 +34,7 @@ export function createBrowseRenderController(args: {
   menuButton: HTMLButtonElement | null;
   sortButtons: HTMLButtonElement[];
   perPageButtons: HTMLButtonElement[];
-  employmentButtons: HTMLButtonElement[];
+  employmentInputs: HTMLInputElement[];
 
   selectedInterviewTags: Set<InterviewTagId>;
 
@@ -58,7 +58,7 @@ export function createBrowseRenderController(args: {
     menuButton,
     sortButtons,
     perPageButtons,
-    employmentButtons,
+    employmentInputs,
     selectedInterviewTags,
     selectedEmployment,
     state,
@@ -154,17 +154,10 @@ export function createBrowseRenderController(args: {
       btn.classList.toggle("dark:text-text-mutedDark", !active);
     }
 
-    for (const btn of employmentButtons) {
-      const value = btn.getAttribute("data-companies-employment-option");
+    for (const input of employmentInputs) {
+      const value = input.value;
       const active = !!value && selectedEmployment.has(value as EmploymentType);
-      btn.setAttribute("aria-pressed", active ? "true" : "false");
-      const check = btn.querySelector<HTMLElement>(
-        "[data-companies-employment-check]",
-      );
-      if (check) check.classList.toggle("hidden", !active);
-      btn.classList.toggle("text-accent", active);
-      btn.classList.toggle("bg-bg-light/60", active);
-      btn.classList.toggle("dark:bg-bg-dark/30", active);
+      input.checked = active;
     }
   };
 

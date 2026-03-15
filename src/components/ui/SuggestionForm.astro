@@ -2,7 +2,6 @@
 import Button from "./Button.astro";
 import Field from "./form/Field.astro";
 import TextInput from "./form/TextInput.astro";
-import Select from "./form/Select.astro";
 import Textarea from "./form/Textarea.astro";
 import { errorSummaryClass } from "./form/formStyles";
 import MessageSquare from "lucide-astro/MessageSquare";
@@ -14,22 +13,22 @@ const action = "https://formspree.io/f/xgoobynr";
   action={action}
   method="POST"
   novalidate
-  class="ui-hover-brighten-body rounded-xl border border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark overflow-hidden"
+  class="ui-hover-brighten-body group rounded-xl border border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark overflow-hidden"
   data-suggestion-form
 >
   <header
-    class="flex items-center gap-3 px-6 py-5 border-b border-divider-surface"
+    class="flex items-center gap-3 px-5 py-4 border-b border-divider-surface"
   >
-    <MessageSquare class="h-8 w-8 text-accent shrink-0" aria-hidden="true" />
+    <MessageSquare class="h-6 w-6 text-accent shrink-0" aria-hidden="true" />
     <h2
-      class="text-lg font-semibold leading-tight text-text-light dark:text-text-dark"
+      class="text-lg font-semibold leading-tight text-text-light dark:text-text-dark transition-colors group-hover:text-accent"
     >
       Have a Suggestion?
     </h2>
   </header>
 
-  <div class="p-6 space-y-6">
-    <div class="space-y-5">
+  <div class="p-5 space-y-4">
+    <div class="space-y-4">
       <p
         class="ui-muted-body text-sm leading-relaxed text-text-mutedLight dark:text-text-mutedDark"
       >
@@ -110,7 +109,7 @@ const action = "https://formspree.io/f/xgoobynr";
       />
     </div>
 
-    <div class="grid gap-4 md:grid-cols-2">
+    <div class="grid gap-3 md:grid-cols-2">
       <Field id="suggestion-name" label="Name">
         <TextInput
           slot="control"
@@ -118,6 +117,7 @@ const action = "https://formspree.io/f/xgoobynr";
           name="name"
           type="text"
           autocomplete="name"
+          placeholder="e.g. Jane Doe"
           describedBy="suggestion-name-error"
         />
       </Field>
@@ -133,62 +133,47 @@ const action = "https://formspree.io/f/xgoobynr";
           name="email"
           type="email"
           autocomplete="email"
+          placeholder="e.g. jane@example.com"
           describedBy="suggestion-email-hint suggestion-email-error"
         />
       </Field>
 
-      <Field id="suggestion-type" label="Type" required>
-        <Select
-          slot="control"
-          id="suggestion-type"
-          name="type"
-          required
-          describedBy="suggestion-type-error"
-          data-required-field
-        >
-          <option value="" disabled selected>Choose one…</option>
-          <option value="UI feedback">UI feedback</option>
-          <option value="Broken links/incorrect information">
-            Broken links/incorrect information
-          </option>
-          <option
-            value="You interviewed at a company on this list and you were white-boarded"
-          >
-            You interviewed at a company on this list and you were white-boarded
-          </option>
-          <option value="You want to suggest a new company be added">
-            You want to suggest a new company be added
-          </option>
-          <option value="Want to add more details to an existing company">
-            Want to add more details to an existing company
-          </option>
-          <option value="Other">Other</option>
-        </Select>
-      </Field>
-
-      <Field id="suggestion-company" label="Company name or URL">
+      <Field id="suggestion-company-name" label="Company name">
         <TextInput
           slot="control"
-          id="suggestion-company"
-          name="company"
+          id="suggestion-company-name"
+          name="companyName"
           type="text"
-          describedBy="suggestion-company-error"
+          placeholder="e.g. Acme Corp"
+          describedBy="suggestion-company-name-error"
+        />
+      </Field>
+
+      <Field id="suggestion-company-url" label="Company URL">
+        <TextInput
+          slot="control"
+          id="suggestion-company-url"
+          name="companyUrl"
+          type="url"
+          placeholder="e.g. https://acme.com/careers"
+          describedBy="suggestion-company-url-error"
         />
       </Field>
 
       <Field
-        id="suggestion-message"
-        label="Message"
+        id="suggestion-process"
+        label="Process"
         required
         class="md:col-span-2"
       >
         <Textarea
           slot="control"
-          id="suggestion-message"
-          name="message"
+          id="suggestion-process"
+          name="process"
           required
           rows={6}
-          describedBy="suggestion-message-error"
+          placeholder="e.g. 1 phone screen, 1 take-home project, 1 on-site pair programming session"
+          describedBy="suggestion-process-error"
           data-required-field
         />
       </Field>
@@ -235,6 +220,149 @@ const action = "https://formspree.io/f/xgoobynr";
         data-suggestion-submit
       >
         Send suggestion
+      </Button>
+    </div>
+  </div>
+</form>
+
+<form
+  action={action}
+  method="POST"
+  novalidate
+  class="ui-hover-brighten-body group mt-6 rounded-xl border border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark overflow-hidden"
+  data-company-confirmation-form
+>
+  <header
+    class="flex items-center gap-3 px-5 py-4 border-b border-divider-surface"
+  >
+    <MessageSquare class="h-6 w-6 text-accent shrink-0" aria-hidden="true" />
+    <h2
+      id="company-confirmation-heading"
+      class="text-lg font-semibold leading-tight text-text-light dark:text-text-dark transition-colors group-hover:text-accent"
+    >
+      Company Verification
+    </h2>
+  </header>
+
+  <div class="p-5 space-y-4">
+    <p
+      class="ui-muted-body text-sm text-text-mutedLight dark:text-text-mutedDark"
+    >
+      Are you a hiring manager or recruiter? Confirm your company&apos;s process
+      is accurate and get a verified badge.
+    </p>
+
+    <div
+      data-company-validation-summary
+      hidden
+      role="alert"
+      aria-live="polite"
+      tabindex="-1"
+      class={errorSummaryClass}
+    >
+      <p class="m-0 font-medium">Please fix the highlighted fields.</p>
+      <ul
+        class="mt-2 list-disc pl-5 space-y-1"
+        data-company-validation-summary-list
+      >
+      </ul>
+    </div>
+
+    <div class="sr-only" aria-hidden="true">
+      <label for="company-confirmation-gotcha">Leave this field empty</label>
+      <input
+        type="text"
+        name="_gotcha"
+        id="company-confirmation-gotcha"
+        tabindex="-1"
+        autocomplete="off"
+      />
+    </div>
+
+    <div class="grid gap-3 md:grid-cols-2">
+      <Field id="verification-company-name" label="Company name" required>
+        <TextInput
+          slot="control"
+          id="verification-company-name"
+          name="verificationCompanyName"
+          type="text"
+          required
+          describedBy="verification-company-name-error"
+        />
+      </Field>
+
+      <Field id="verification-role" label="Your role/title" required>
+        <TextInput
+          slot="control"
+          id="verification-role"
+          name="verificationSubmitterRole"
+          type="text"
+          required
+          describedBy="verification-role-error"
+        />
+      </Field>
+
+      <Field id="verification-email" label="Company email" required>
+        <TextInput
+          slot="control"
+          id="verification-email"
+          name="verificationCompanyEmail"
+          type="email"
+          required
+          describedBy="verification-email-error"
+        />
+      </Field>
+    </div>
+
+    <Field
+      id="verification-notes"
+      label="Anything else you'd like to share? (optional)"
+    >
+      <Textarea
+        slot="control"
+        id="verification-notes"
+        name="verificationNotes"
+        rows={4}
+        describedBy="verification-notes-error"
+      />
+    </Field>
+
+    <div
+      data-company-success
+      hidden
+      role="status"
+      aria-live="polite"
+      tabindex="-1"
+      class="rounded-md border border-success-border bg-success-bg/10 p-4 text-sm text-success-text"
+    >
+      Thanks — your confirmation was sent.
+    </div>
+
+    <div
+      data-company-error
+      hidden
+      role="status"
+      aria-live="polite"
+      tabindex="-1"
+      class="rounded-md border border-warning-border bg-warning-bg/10 p-4 text-sm text-warning-text"
+    >
+      <div class="flex flex-wrap items-center justify-between gap-3">
+        <p class="m-0" data-company-error-text>
+          Something went wrong. Please try again later.
+        </p>
+        <button
+          type="button"
+          class="underline underline-offset-4 hover:text-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm"
+          data-company-retry
+        >
+          Try again
+        </button>
+      </div>
+    </div>
+
+    <div class="flex items-center justify-end gap-3">
+      <Button variant="primary" tone="solid" type="submit" data-company-submit>
+        Send Verification
       </Button>
     </div>
   </div>
@@ -294,24 +422,20 @@ const action = "https://formspree.io/f/xgoobynr";
     const validateRequiredFields = () => {
       hideValidationSummary();
 
-      const requiredFieldIds = ["suggestion-type", "suggestion-message"];
+      const requiredFieldIds = ["suggestion-process"];
       for (const id of requiredFieldIds) clearFieldError(id);
 
       const issues = [];
 
-      const typeEl = form.querySelector("#suggestion-type");
-      const typeValue = typeEl && "value" in typeEl ? String(typeEl.value) : "";
-      if (!typeValue.trim()) {
-        setFieldError("suggestion-type", "Please choose a type.");
-        issues.push("Type is required");
-      }
-
-      const messageEl = form.querySelector("#suggestion-message");
-      const messageValue =
-        messageEl && "value" in messageEl ? String(messageEl.value) : "";
-      if (!messageValue.trim()) {
-        setFieldError("suggestion-message", "Please enter a message.");
-        issues.push("Message is required");
+      const processEl = form.querySelector("#suggestion-process");
+      const processValue =
+        processEl && "value" in processEl ? String(processEl.value) : "";
+      if (!processValue.trim()) {
+        setFieldError(
+          "suggestion-process",
+          "Please describe the interview process.",
+        );
+        issues.push("Process is required");
       }
 
       if (issues.length > 0 && validationSummaryEl && validationSummaryListEl) {
@@ -353,17 +477,10 @@ const action = "https://formspree.io/f/xgoobynr";
     }
 
     // Clear inline errors as the user fixes them
-    const typeControl = form.querySelector("#suggestion-type");
-    const messageControl = form.querySelector("#suggestion-message");
-    if (typeControl) {
-      typeControl.addEventListener("change", () => {
-        clearFieldError("suggestion-type");
-        hideValidationSummary();
-      });
-    }
-    if (messageControl) {
-      messageControl.addEventListener("input", () => {
-        clearFieldError("suggestion-message");
+    const processControl = form.querySelector("#suggestion-process");
+    if (processControl) {
+      processControl.addEventListener("input", () => {
+        clearFieldError("suggestion-process");
         hideValidationSummary();
       });
     }
@@ -397,6 +514,163 @@ const action = "https://formspree.io/f/xgoobynr";
 
         if (response.ok) {
           showSuccess("Thanks — your message was sent.");
+          window.setTimeout(() => {
+            form.reset();
+          }, 2000);
+          return;
+        }
+
+        showError("Something went wrong. Please try again later.");
+      } catch (_err) {
+        showError(
+          "Unable to send. Please check your connection and try again.",
+        );
+      } finally {
+        setBusy(false);
+      }
+    });
+  })();
+
+  (() => {
+    const form = document.querySelector("[data-company-confirmation-form]");
+    if (!form) return;
+
+    const successEl = form.querySelector("[data-company-success]");
+    const errorEl = form.querySelector("[data-company-error]");
+    const errorTextEl = form.querySelector("[data-company-error-text]");
+    const retryBtn = form.querySelector("[data-company-retry]");
+    const submitBtn = form.querySelector("[data-company-submit]");
+    const gotchaEl = form.querySelector("#company-confirmation-gotcha");
+    const summaryEl = form.querySelector("[data-company-validation-summary]");
+    const summaryListEl = form.querySelector(
+      "[data-company-validation-summary-list]",
+    );
+
+    if (!successEl || !errorEl || !errorTextEl || !submitBtn) return;
+
+    const clearFieldError = (fieldId) => {
+      const control = form.querySelector(`#${CSS.escape(fieldId)}`);
+      const error = form.querySelector(`#${CSS.escape(fieldId)}-error`);
+      if (control) control.removeAttribute("aria-invalid");
+      if (error) {
+        error.textContent = "";
+        error.hidden = true;
+      }
+    };
+
+    const setFieldError = (fieldId, message) => {
+      const control = form.querySelector(`#${CSS.escape(fieldId)}`);
+      const error = form.querySelector(`#${CSS.escape(fieldId)}-error`);
+      if (control) control.setAttribute("aria-invalid", "true");
+      if (error) {
+        error.textContent = message;
+        error.hidden = false;
+      }
+    };
+
+    const hideSummary = () => {
+      if (!summaryEl || !summaryListEl) return;
+      summaryEl.hidden = true;
+      summaryListEl.innerHTML = "";
+    };
+
+    const hideMessages = () => {
+      successEl.hidden = true;
+      errorEl.hidden = true;
+    };
+
+    const showSuccess = (message) => {
+      hideMessages();
+      successEl.textContent = message;
+      successEl.hidden = false;
+      successEl.focus();
+    };
+
+    const showError = (message) => {
+      hideMessages();
+      errorTextEl.textContent = message;
+      errorEl.hidden = false;
+      errorEl.focus();
+    };
+
+    const setBusy = (busy) => {
+      submitBtn.disabled = busy;
+      submitBtn.setAttribute("aria-busy", busy ? "true" : "false");
+      submitBtn.textContent = busy ? "Sending..." : "Send Verification";
+    };
+
+    const validate = () => {
+      hideSummary();
+
+      const requiredFieldIds = [
+        "verification-company-name",
+        "verification-role",
+        "verification-email",
+      ];
+      for (const id of requiredFieldIds) clearFieldError(id);
+
+      const issues = [];
+
+      for (const id of requiredFieldIds) {
+        const control = form.querySelector(`#${CSS.escape(id)}`);
+        const value =
+          control && "value" in control ? String(control.value) : "";
+        if (!value.trim()) {
+          setFieldError(id, "This field is required.");
+          issues.push(`${id.replace("verification-", "")} is required`);
+        }
+      }
+
+      if (issues.length > 0 && summaryEl && summaryListEl) {
+        summaryListEl.innerHTML = issues
+          .map((issue) => `<li>${issue}</li>`)
+          .join("");
+        summaryEl.hidden = false;
+        summaryEl.focus();
+        return false;
+      }
+
+      return true;
+    };
+
+    if (retryBtn) {
+      retryBtn.addEventListener("click", () => {
+        hideMessages();
+        submitBtn.focus();
+      });
+    }
+
+    form.addEventListener("input", () => {
+      hideSummary();
+    });
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      hideMessages();
+      hideSummary();
+
+      const gotcha = gotchaEl && gotchaEl.value ? String(gotchaEl.value) : "";
+      if (gotcha.trim().length > 0) {
+        showSuccess("Thanks — your confirmation was sent.");
+        return;
+      }
+
+      if (!validate()) return;
+
+      setBusy(true);
+
+      try {
+        const formData = new FormData(form);
+        const response = await fetch(form.action, {
+          method: "POST",
+          body: formData,
+          headers: {
+            Accept: "application/json",
+          },
+        });
+
+        if (response.ok) {
+          showSuccess("Thanks — your confirmation was sent.");
           window.setTimeout(() => {
             form.reset();
           }, 2000);

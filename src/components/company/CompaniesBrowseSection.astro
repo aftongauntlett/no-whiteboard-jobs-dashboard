@@ -102,7 +102,7 @@ const viewToggleProps = {
       <div class="p-3 space-y-3 md:space-y-0 md:grid md:grid-cols-2 md:gap-4">
         <div class="pt-1">
           <div
-            class="text-xs font-semibold tracking-wide text-text-mutedLight dark:text-text-mutedDark mb-1.5"
+            class="text-sm font-semibold text-text-light dark:text-text-dark mb-2"
           >
             Sort
           </div>
@@ -154,43 +154,52 @@ const viewToggleProps = {
 
         <div class="border-t border-divider-surface pt-3 md:pt-0 md:border-t-0">
           <div
-            class="text-xs font-semibold tracking-wide text-text-mutedLight dark:text-text-mutedDark mb-1.5"
+            class="text-sm font-semibold text-text-light dark:text-text-dark mb-2"
           >
             Employment type
           </div>
           <div class="grid gap-1" role="group" aria-label="Employment type">
-            <button
-              type="button"
-              data-companies-employment-option="Remote"
-              aria-pressed="false"
-              class="cursor-pointer grid grid-cols-[1fr_auto] items-center gap-2 rounded-md px-2.5 py-2 min-h-11 text-sm hover:bg-surface-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+            <label
+              class="cursor-pointer grid grid-cols-[auto_1fr] items-center gap-2 rounded-md px-2.5 py-1.5 text-sm hover:bg-surface-hover focus-within:outline-none focus-within:ring-2 focus-within:ring-accent"
             >
+              <input
+                type="checkbox"
+                value="Remote"
+                data-companies-employment-option
+                class="h-4 w-4 accent-accent"
+              />
               <span class="min-w-0 text-left">Remote</span>
-              <span
-                data-companies-employment-check
-                aria-hidden="true"
-                class="text-accent hidden shrink-0 self-center">✓</span
-              >
-            </button>
-            <button
-              type="button"
-              data-companies-employment-option="In-office"
-              aria-pressed="false"
-              class="cursor-pointer grid grid-cols-[1fr_auto] items-center gap-2 rounded-md px-2.5 py-2 min-h-11 text-sm hover:bg-surface-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+            </label>
+
+            <label
+              class="cursor-pointer grid grid-cols-[auto_1fr] items-center gap-2 rounded-md px-2.5 py-1.5 text-sm hover:bg-surface-hover focus-within:outline-none focus-within:ring-2 focus-within:ring-accent"
             >
+              <input
+                type="checkbox"
+                value="In-office"
+                data-companies-employment-option
+                class="h-4 w-4 accent-accent"
+              />
               <span class="min-w-0 text-left">In-office</span>
-              <span
-                data-companies-employment-check
-                aria-hidden="true"
-                class="text-accent hidden shrink-0 self-center">✓</span
-              >
-            </button>
+            </label>
+
+            <label
+              class="cursor-pointer grid grid-cols-[auto_1fr] items-center gap-2 rounded-md px-2.5 py-1.5 text-sm hover:bg-surface-hover focus-within:outline-none focus-within:ring-2 focus-within:ring-accent"
+            >
+              <input
+                type="checkbox"
+                value="Hybrid"
+                data-companies-employment-option
+                class="h-4 w-4 accent-accent"
+              />
+              <span class="min-w-0 text-left">Hybrid</span>
+            </label>
           </div>
         </div>
 
         <div class="border-t border-divider-surface pt-3 md:col-span-2">
           <div
-            class="text-xs font-semibold tracking-wide text-text-mutedLight dark:text-text-mutedDark mb-1.5"
+            class="text-sm font-semibold text-text-light dark:text-text-dark mb-2"
           >
             Interview style
           </div>
