@@ -22,7 +22,8 @@ const {
   firstLinkProps = {},
 } = Astro.props as Props;
 
-const isActive = (path: string) => pathname === path;
+const normalize = (p: string) => (p === "/" ? p : p.replace(/\/+$/, ""));
+const isActive = (path: string) => normalize(pathname) === normalize(path);
 
 const iconForHref = (href: string) => {
   if (href === "/") return Search;
