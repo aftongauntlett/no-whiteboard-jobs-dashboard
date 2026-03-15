@@ -157,6 +157,18 @@
   initial-value: #fb923c;
 }
 
+@property --nav-active-bg {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: color-mix(in srgb, #4987d9 12%, #eef3f7);
+}
+
+@property --nav-active-text {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #2c5ea0;
+}
+
 html {
   background-color: var(--bg);
 }
@@ -195,7 +207,9 @@ html.theme-transitioning {
     --info-text 200ms ease-in-out,
     --info-border 200ms ease-in-out,
     --curation-new 200ms ease-in-out,
-    --curation-updated 200ms ease-in-out;
+    --curation-updated 200ms ease-in-out,
+    --nav-active-bg 200ms ease-in-out,
+    --nav-active-text 200ms ease-in-out;
 }
 
 html.theme-transitioning .accordion-summary {
@@ -281,6 +295,10 @@ html.theme-transitioning .accordion-icon {
   /* Company curation indicators */
   --curation-new: #0f766e;
   --curation-updated: #fb923c;
+
+  /* Nav active state */
+  --nav-active-bg: color-mix(in srgb, var(--accent) 12%, var(--surface));
+  --nav-active-text: #2c5ea0;
 }
 
 .dark {
@@ -331,6 +349,10 @@ html.theme-transitioning .accordion-icon {
   /* Company curation indicators */
   --curation-new: #2dd4bf;
   --curation-updated: #fdba74;
+
+  /* Nav active state */
+  --nav-active-bg: color-mix(in srgb, var(--accent) 14%, var(--surface));
+  --nav-active-text: #93c5f7;
 }
 
 @layer utilities {

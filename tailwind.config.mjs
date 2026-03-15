@@ -40,6 +40,10 @@ export default {
         accent: {
           DEFAULT: "var(--accent)",
         },
+        nav: {
+          "active-bg": "var(--nav-active-bg)",
+          "active-text": "var(--nav-active-text)",
+        },
         success: {
           bg: "var(--success-bg)",
           text: "var(--success-text)",
