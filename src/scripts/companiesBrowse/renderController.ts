@@ -9,6 +9,7 @@ import { computeResults } from "./filters";
 import { normalizeText } from "./text";
 import { getView } from "./view";
 import { updateUrl } from "./url";
+import { getBrowseDefaults } from "./defaults";
 import { createPaginationNav } from "./pagination";
 import { initReadMore } from "./readMore";
 import { renderCards, renderList } from "./renderers";
@@ -100,6 +101,8 @@ export function createBrowseRenderController(args: {
       const filters = [
         ...Array.from(selectedEmployment),
         ...Array.from(selectedInterviewTags),
+        ...(state.aiFriendly ? ["ai-friendly"] : []),
+        ...(state.hasInterviewDetails ? ["has-interview-details"] : []),
       ];
       const hasFilters = filters.length > 0;
       if (filterDot) filterDot.classList.toggle("hidden", !hasFilters);
@@ -164,6 +167,7 @@ export function createBrowseRenderController(args: {
   const render = (options?: { append?: boolean }) => {
     const mdUp = isMdUp();
     const view = getView();
+    const defaults = getBrowseDefaults(view);
 
     const filtered = computeResults({
       indexed: indexedCompanies,
@@ -171,6 +175,8 @@ export function createBrowseRenderController(args: {
       sort: state.sort,
       selectedEmployment,
       selectedInterviewTags,
+      aiFriendly: state.aiFriendly,
+      hasInterviewDetails: state.hasInterviewDetails,
       resultsCache,
     });
 
@@ -226,14 +232,19 @@ export function createBrowseRenderController(args: {
         paginationHost.append(
           createPaginationNav(templates, state.page, totalPages, (nextPage) => {
             state.page = Math.max(1, Math.min(totalPages, nextPage));
-            updateUrl({
-              query: state.query,
-              sort: state.sort,
-              employment: Array.from(selectedEmployment),
-              interview: Array.from(selectedInterviewTags),
-              perPage: state.perPage,
-              page: state.page,
-            });
+            updateUrl(
+              {
+                query: state.query,
+                sort: state.sort,
+                employment: Array.from(selectedEmployment),
+                interview: Array.from(selectedInterviewTags),
+                aiFriendly: state.aiFriendly,
+                hasInterviewDetails: state.hasInterviewDetails,
+                perPage: state.perPage,
+                page: state.page,
+              },
+              defaults,
+            );
             render();
             scrollToTop();
           }),
@@ -254,14 +265,19 @@ export function createBrowseRenderController(args: {
       }
     }
 
-    updateUrl({
-      query: state.query,
-      sort: state.sort,
-      employment: Array.from(selectedEmployment),
-      interview: Array.from(selectedInterviewTags),
-      perPage: state.perPage,
-      page: state.page,
-    });
+    updateUrl(
+      {
+        query: state.query,
+        sort: state.sort,
+        employment: Array.from(selectedEmployment),
+        interview: Array.from(selectedInterviewTags),
+        aiFriendly: state.aiFriendly,
+        hasInterviewDetails: state.hasInterviewDetails,
+        perPage: state.perPage,
+        page: state.page,
+      },
+      defaults,
+    );
 
     syncControls();
   };

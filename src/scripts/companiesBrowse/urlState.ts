@@ -7,13 +7,10 @@ import { isInterviewTagId } from "../../config/interviewTags";
 import { isMdUp } from "../../utils/viewMode";
 import type { ViewMode } from "../../utils/viewMode";
 
-import {
-  defaultPerPageForView,
-  nearestOption,
-  perPageOptionsForView,
-} from "./paginationConfig";
+import { nearestOption, perPageOptionsForView } from "./paginationConfig";
 import { readInitialPageFromPath } from "./url";
 import type { SortKey } from "./filters";
+import { getBrowseDefaults } from "./defaults";
 
 export function canonicalizePagePath(): void {
   const initialPathPage = readInitialPageFromPath();
@@ -32,16 +29,19 @@ export function readInitialStateFromUrl(initialView: ViewMode): {
   sort: SortKey;
   selectedEmployment: Set<EmploymentType>;
   selectedInterviewTags: Set<InterviewTagId>;
+  aiFriendly: boolean;
+  hasInterviewDetails: boolean;
   perPage: number;
   page: number;
 } {
   const params = new URL(window.location.href).searchParams;
+  const d = getBrowseDefaults(initialView);
 
-  let query = params.get("q") ?? "";
+  let query = params.get("q") ?? d.query;
 
-  let sort: SortKey = (params.get("sort") as SortKey) ?? "name-asc";
+  let sort: SortKey = (params.get("sort") as SortKey) ?? d.sort;
   if (!(["name-asc", "name-desc", "curated-desc"] as const).includes(sort)) {
-    sort = "name-asc";
+    sort = d.sort;
   }
 
   const selectedEmployment = new Set<EmploymentType>();
@@ -56,17 +56,19 @@ export function readInitialStateFromUrl(initialView: ViewMode): {
     if (isInterviewTagId(t)) selectedInterviewTags.add(t);
   }
 
-  const perPageDefault = defaultPerPageForView(initialView);
+  const aiFriendly = params.get("aiFriendly") === "1";
+  const hasInterviewDetails = params.get("hasInterviewDetails") === "1";
+
   const perPageAllowed = perPageOptionsForView(initialView);
   const perPageParam = Number.parseInt(
-    params.get("perPage") ?? String(perPageDefault),
+    params.get("perPage") ?? String(d.perPage),
     10,
   );
 
   let perPage = perPageAllowed.includes(perPageParam)
     ? perPageParam
     : nearestOption(
-        Number.isFinite(perPageParam) ? perPageParam : perPageDefault,
+        Number.isFinite(perPageParam) ? perPageParam : d.perPage,
         perPageAllowed,
       );
 
@@ -74,20 +76,20 @@ export function readInitialStateFromUrl(initialView: ViewMode): {
     const mobileMax = 24;
     const mobileAllowed = perPageAllowed.filter((n) => n <= mobileMax);
     const mobileCap =
-      mobileAllowed.length > 0
-        ? Math.max(...mobileAllowed)
-        : defaultPerPageForView(initialView);
+      mobileAllowed.length > 0 ? Math.max(...mobileAllowed) : d.perPage;
     if (perPage > mobileCap) perPage = mobileCap;
   }
 
-  const pageParam = Number.parseInt(params.get("page") ?? "1", 10);
-  let page = Number.isFinite(pageParam) && pageParam > 0 ? pageParam : 1;
+  const pageParam = Number.parseInt(params.get("page") ?? String(d.page), 10);
+  let page = Number.isFinite(pageParam) && pageParam > 0 ? pageParam : d.page;
 
   return {
     query,
     sort,
     selectedEmployment,
     selectedInterviewTags,
+    aiFriendly,
+    hasInterviewDetails,
     perPage,
     page,
   };

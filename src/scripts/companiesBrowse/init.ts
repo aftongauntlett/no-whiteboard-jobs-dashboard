@@ -4,7 +4,7 @@ import { clientCompanies } from "../../data/companies";
 import { qs, qsa } from "./dom";
 import { normalizeText } from "./text";
 import { getView } from "./view";
-import { defaultPerPageForView } from "./paginationConfig";
+import { getBrowseDefaults } from "./defaults";
 import { getCompaniesBrowseTemplates } from "./templates";
 
 import { createCompaniesMenuController } from "./menu";
@@ -55,6 +55,8 @@ function init() {
     sort: initial.sort,
     selectedEmployment: initial.selectedEmployment,
     selectedInterviewTags: initial.selectedInterviewTags,
+    aiFriendly: initial.aiFriendly,
+    hasInterviewDetails: initial.hasInterviewDetails,
     perPage: initial.perPage,
     page: initial.page,
   };
@@ -83,6 +85,16 @@ function init() {
   const interviewTagInputs = qsa<HTMLInputElement>(
     section,
     "[data-companies-interview-tag]",
+  );
+
+  const aiFriendlyInput = qs<HTMLInputElement>(
+    section,
+    "[data-companies-ai-friendly]",
+  );
+
+  const hasInterviewDetailsInput = qs<HTMLInputElement>(
+    section,
+    "[data-companies-has-interview-details]",
   );
 
   const perPageGroupCard = qs<HTMLElement>(
@@ -190,6 +202,8 @@ function init() {
     sortButtons,
     employmentInputs,
     interviewTagInputs,
+    aiFriendlyInput,
+    hasInterviewDetailsInput,
     resetButton,
     selectedEmployment: state.selectedEmployment,
     selectedInterviewTags: state.selectedInterviewTags,
@@ -197,14 +211,19 @@ function init() {
     render: () => renderer.render(),
     closeMenu: menu.close,
     onReset: () => {
-      state.query = "";
-      state.sort = "name-asc";
+      const d = getBrowseDefaults(getView());
+      state.query = d.query;
+      state.sort = d.sort;
       state.selectedEmployment.clear();
       state.selectedInterviewTags.clear();
-      state.perPage = defaultPerPageForView(getView());
-      state.page = 1;
-      if (searchInput) searchInput.value = "";
+      state.aiFriendly = d.aiFriendly;
+      state.hasInterviewDetails = d.hasInterviewDetails;
+      state.perPage = d.perPage;
+      state.page = d.page;
+      if (searchInput) searchInput.value = d.query;
       for (const input of interviewTagInputs) input.checked = false;
+      if (aiFriendlyInput) aiFriendlyInput.checked = false;
+      if (hasInterviewDetailsInput) hasInterviewDetailsInput.checked = false;
       renderer.render();
       menu.close();
     },
