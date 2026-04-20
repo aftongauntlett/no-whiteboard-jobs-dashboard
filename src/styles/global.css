@@ -4,49 +4,49 @@
 @property --bg {
   syntax: "<color>";
   inherits: true;
-  initial-value: #f4f7f8;
+  initial-value: #f3f2ef;
 }
 
 @property --surface {
   syntax: "<color>";
   inherits: true;
-  initial-value: #eef3f5;
+  initial-value: #ffffff;
 }
 
 @property --surface-muted {
   syntax: "<color>";
   inherits: true;
-  initial-value: color-mix(in srgb, #eef3f5 70%, #f4f7f8);
+  initial-value: color-mix(in srgb, #ffffff 70%, #f3f2ef);
 }
 
 @property --surface-hover {
   syntax: "<color>";
   inherits: true;
-  initial-value: color-mix(in srgb, #eef3f5 88%, black 6%);
+  initial-value: color-mix(in srgb, #ffffff 70%, rgb(155, 155, 162) 6%);
 }
 
 @property --input-bg {
   syntax: "<color>";
   inherits: true;
-  initial-value: #f4f7f8;
+  initial-value: #f3f2ef;
 }
 
 @property --input-hover {
   syntax: "<color>";
   inherits: true;
-  initial-value: color-mix(in srgb, #eef3f5 88%, black 6%);
+  initial-value: color-mix(in srgb, #ffffff 70%, rgb(155, 155, 162) 6%);
 }
 
 @property --text {
   syntax: "<color>";
   inherits: true;
-  initial-value: #111827;
+  initial-value: #1e2030;
 }
 
 @property --text-muted {
   syntax: "<color>";
   inherits: true;
-  initial-value: #6b7280;
+  initial-value: #5f6b7a;
 }
 
 @property --text-muted-hover {
@@ -100,7 +100,7 @@
 @property --success-text {
   syntax: "<color>";
   inherits: true;
-  initial-value: #347058;
+  initial-value: #2a3f62;
 }
 
 @property --success-border {
@@ -145,6 +145,24 @@
   initial-value: #0ea5e9;
 }
 
+@property --green-bg {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #16a34a;
+}
+
+@property --green-text {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #14532d;
+}
+
+@property --green-border {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #4ade80;
+}
+
 @property --curation-new {
   syntax: "<color>";
   inherits: true;
@@ -155,6 +173,12 @@
   syntax: "<color>";
   inherits: true;
   initial-value: #fb923c;
+}
+
+@property --curation-live {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #0284c7;
 }
 
 @property --nav-active-bg {
@@ -206,8 +230,12 @@ html.theme-transitioning {
     --info-bg 200ms ease-in-out,
     --info-text 200ms ease-in-out,
     --info-border 200ms ease-in-out,
+    --green-bg 200ms ease-in-out,
+    --green-text 200ms ease-in-out,
+    --green-border 200ms ease-in-out,
     --curation-new 200ms ease-in-out,
     --curation-updated 200ms ease-in-out,
+    --curation-live 200ms ease-in-out,
     --nav-active-bg 200ms ease-in-out,
     --nav-active-text 200ms ease-in-out;
 }
@@ -249,18 +277,22 @@ html.theme-transitioning .accordion-icon {
 
 :root {
   /* Backgrounds */
-  --bg: #f4f7f8;
-  --surface: #eef3f7;
+  --bg: #faf9f8;
+  --surface: #ffffff;
   --surface-muted: color-mix(in srgb, var(--surface) 70%, var(--bg));
-  --surface-hover: color-mix(in srgb, var(--surface) 88%, black 6%);
+  --surface-hover: color-mix(
+    in srgb,
+    var(--surface) 70%,
+    rgb(155, 155, 162) 6%
+  );
 
   /* Form controls */
-  --input-bg: #f4f7f8;
+  --input-bg: #f3f2ef;
   --input-hover: var(--surface-hover);
 
   /* Text */
-  --text: #111827;
-  --text-muted: #6b7280;
+  --text: #1e2030;
+  --text-muted: #5f6b7a;
   --text-muted-hover: color-mix(in srgb, var(--text) 86%, var(--text-muted));
 
   /* Borders */
@@ -279,7 +311,7 @@ html.theme-transitioning .accordion-icon {
 
   /* Status: success */
   --success-bg: #6997d2;
-  --success-text: #20232c;
+  --success-text: #2a3f62;
   --success-border: #5b7cb2;
 
   /* Status: warning */
@@ -288,13 +320,19 @@ html.theme-transitioning .accordion-icon {
   --warning-border: #f59e0b;
 
   /* Status: info */
-  --info-bg: #5cf33a;
-  --info-text: #292b2a;
-  --info-border: #a9ed9a;
+  --info-bg: #0ea5e9;
+  --info-text: #1a3050;
+  --info-border: #38bdf8;
+
+  /* Status: green (Remote employment) */
+  --green-bg: #16a34a;
+  --green-text: #14532d;
+  --green-border: #4ade80;
 
   /* Company curation indicators */
   --curation-new: #0f766e;
   --curation-updated: #fb923c;
+  --curation-live: #0284c7;
 
   /* Nav active state */
   --nav-active-bg: color-mix(in srgb, var(--accent) 12%, var(--surface));
@@ -346,9 +384,15 @@ html.theme-transitioning .accordion-icon {
   --info-text: #8af4e1;
   --info-border: #0ee9e9;
 
+  /* Status: green (Remote employment) */
+  --green-bg: #4ade80;
+  --green-text: #bbf7d0;
+  --green-border: #16a34a;
+
   /* Company curation indicators */
   --curation-new: #2dd4bf;
   --curation-updated: #fdba74;
+  --curation-live: #38bdf8;
 
   /* Nav active state */
   --nav-active-bg: color-mix(in srgb, var(--accent) 14%, var(--surface));
@@ -539,7 +583,7 @@ html.theme-transitioning .accordion-icon {
     border-radius: 0.375rem;
     border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
     background: color-mix(in srgb, var(--accent) 10%, transparent);
-    color: var(--accent);
+    color: var(--nav-active-text);
   }
 
   .pagination-ellipsis {
@@ -588,7 +632,7 @@ html.theme-transitioning .accordion-icon {
     min-height: 1.5rem;
     border-radius: 0.375rem;
     border: 1px solid var(--border);
-    background: var(--surface-muted);
+    background: color-mix(in srgb, var(--border) 65%, var(--surface));
     padding: 0.25rem 0.5rem;
     font-size: 0.75rem;
     font-weight: 500;

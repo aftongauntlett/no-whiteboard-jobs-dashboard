@@ -23,6 +23,8 @@ export function bindFiltersController(args: {
   sortButtons: HTMLButtonElement[];
   employmentInputs: HTMLInputElement[];
   interviewTagInputs: HTMLInputElement[];
+  aiFriendlyInput: HTMLInputElement | null;
+  hasInterviewDetailsInput: HTMLInputElement | null;
   resetButton: HTMLButtonElement | null;
 
   selectedEmployment: Set<EmploymentType>;
@@ -39,6 +41,8 @@ export function bindFiltersController(args: {
     sortButtons,
     employmentInputs,
     interviewTagInputs,
+    aiFriendlyInput,
+    hasInterviewDetailsInput,
     resetButton,
     selectedEmployment,
     selectedInterviewTags,
@@ -109,6 +113,24 @@ export function bindFiltersController(args: {
     input.addEventListener("change", () => {
       if (input.checked) selectedInterviewTags.add(value);
       else selectedInterviewTags.delete(value);
+      state.page = 1;
+      render();
+    });
+  }
+
+  if (aiFriendlyInput) {
+    aiFriendlyInput.checked = state.aiFriendly;
+    aiFriendlyInput.addEventListener("change", () => {
+      state.aiFriendly = aiFriendlyInput.checked;
+      state.page = 1;
+      render();
+    });
+  }
+
+  if (hasInterviewDetailsInput) {
+    hasInterviewDetailsInput.checked = state.hasInterviewDetails;
+    hasInterviewDetailsInput.addEventListener("change", () => {
+      state.hasInterviewDetails = hasInterviewDetailsInput.checked;
       state.page = 1;
       render();
     });

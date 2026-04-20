@@ -37,7 +37,7 @@ const interviewId = createInterviewId(company);
         aria-label={`Open ${company.name} careers page in a new tab`}
       ></a>
 
-      <div class="relative flex flex-col">
+      <div class="relative flex flex-col flex-1">
         <!-- Header -->
         <header class={COMPANY_CARD_HEADER_CLASS}>
           <div class="min-w-0 flex items-center gap-2">
@@ -48,11 +48,11 @@ const interviewId = createInterviewId(company);
                 <span class={COMPANY_CARD_NAME_HOVER_CLASS}>
                   {company.name}
                 </span>
-                {
-                  company.source === "local" ? (
+                {company.source === "local" ? (
                     <CurationIndicator status={company.curationStatus ?? "edited"} />
-                  ) : null
-                }
+                  ) : company.source === "jsearch" ? (
+                    <CurationIndicator status="live" />
+                  ) : null}
                 {
                   company.officiallyVerified ? (
                     <ConfirmedByCompanyBadge

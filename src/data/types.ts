@@ -6,7 +6,7 @@ export function isEmploymentType(value: unknown): value is EmploymentType {
   return (EMPLOYMENT_TYPES as readonly string[]).includes(String(value));
 }
 
-export type CompanySource = "upstream" | "local";
+export type CompanySource = "upstream" | "local" | "jsearch";
 
 export type CurationStatus = "new" | "edited";
 

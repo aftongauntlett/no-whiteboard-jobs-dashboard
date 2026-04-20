@@ -16,6 +16,7 @@ import type { BrowseState, IndexedCompany } from "./types";
 
 import { interviewTags } from "../../config/interviewTags";
 import { deriveInterviewTagsFromText } from "../../utils/interviewTags";
+import { AI_KEYWORDS_RE } from "./filters";
 
 function init() {
   const section = document.getElementById("companies");
@@ -171,6 +172,40 @@ function init() {
     );
     if (el) el.textContent = String(interviewCounts.get(tag.id) ?? 0);
   }
+
+  // Employment type counts
+  const employmentCounts = new Map<string, number>();
+  for (const c of indexedCompanies) {
+    const t = c.company.employmentType;
+    employmentCounts.set(t, (employmentCounts.get(t) ?? 0) + 1);
+  }
+  for (const [type, count] of employmentCounts) {
+    const el = section.querySelector<HTMLElement>(
+      `[data-companies-employment-count="${cssEscape(type)}"]`,
+    );
+    if (el) el.textContent = String(count);
+  }
+
+  // AI-friendly count
+  const aiFriendlyCount = indexedCompanies.filter((c) => {
+    if (c.company.source === "jsearch") return true;
+    const text = (c.company.interviewProcessHtml ?? "").replace(/<[^>]*>/g, " ");
+    return AI_KEYWORDS_RE.test(text);
+  }).length;
+  const aiFriendlyCountEl = section.querySelector<HTMLElement>(
+    "[data-companies-ai-friendly-count]",
+  );
+  if (aiFriendlyCountEl) aiFriendlyCountEl.textContent = String(aiFriendlyCount);
+
+  // Has interview details count
+  const hasInterviewCount = indexedCompanies.filter((c) => {
+    const text = (c.company.interviewProcessHtml ?? "").replace(/<[^>]*>/g, " ").trim();
+    return text !== "" && text !== "No details provided.";
+  }).length;
+  const hasInterviewCountEl = section.querySelector<HTMLElement>(
+    "[data-companies-has-interview-count]",
+  );
+  if (hasInterviewCountEl) hasInterviewCountEl.textContent = String(hasInterviewCount);
 
   const resultsCache = new Map<string, Company[]>();
 

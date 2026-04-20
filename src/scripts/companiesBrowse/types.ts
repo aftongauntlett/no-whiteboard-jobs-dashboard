@@ -13,6 +13,8 @@ export type BrowseState = {
   sort: SortKey;
   selectedEmployment: Set<EmploymentType>;
   selectedInterviewTags: Set<InterviewTagId>;
+  aiFriendly: boolean;
+  hasInterviewDetails: boolean;
   perPage: number;
   page: number;
 };

@@ -39,9 +39,10 @@ const locationsClass =
 const clampClass = variant === "card" ? "line-clamp-3" : "line-clamp-2";
 ---
 
+<!-- Card structure must stay in sync with BrowseTemplates.astro (JS-cloned templates) -->
 {
   interviewProcessHtml ? (
-    <div class={variant === "card" ? "relative z-30 mt-2" : "relative z-30"}>
+    <div class={variant === "card" ? "relative z-30 mt-2 flex flex-col flex-1 gap-2" : "relative z-30"}>
       <div
         id={interviewId}
         data-readmore-text
@@ -51,27 +52,48 @@ const clampClass = variant === "card" ? "line-clamp-3" : "line-clamp-2";
         <div data-company-interview-html set:html={interviewProcessHtml} />
       </div>
 
-      {locations ? (
-        <CompanyLocations
-          locations={locations}
-          maxVisibleLocations={maxVisibleLocations}
-          class={locationsClass + " mt-1.5"}
-        />
-      ) : null}
-      <div class="text-right">
-        <button
-          type="button"
-          data-readmore-toggle
-          class={COMPANY_INTERVIEW_TOGGLE_CLASS}
-          aria-expanded="false"
-          aria-controls={interviewId}
-        >
-          Read more
-        </button>
-      </div>
+      {variant === "card" ? (
+        <div class="flex items-center mt-auto">
+          {locations ? (
+            <CompanyLocations
+              locations={locations}
+              maxVisibleLocations={maxVisibleLocations}
+              class={locationsClass}
+            />
+          ) : null}
+          <button
+            type="button"
+            data-readmore-toggle
+            class={COMPANY_INTERVIEW_TOGGLE_CLASS + " ml-auto"}
+            aria-expanded="false"
+            aria-controls={interviewId}
+          >
+            Read more
+          </button>
+        </div>
+      ) : (
+        <div class="flex items-center mt-1.5">
+          {locations ? (
+            <CompanyLocations
+              locations={locations}
+              maxVisibleLocations={maxVisibleLocations}
+              class="flex flex-wrap items-center gap-2"
+            />
+          ) : null}
+          <button
+            type="button"
+            data-readmore-toggle
+            class={COMPANY_INTERVIEW_TOGGLE_CLASS + " ml-auto"}
+            aria-expanded="false"
+            aria-controls={interviewId}
+          >
+            Read more
+          </button>
+        </div>
+      )}
     </div>
   ) : locations ? (
-    <div class={variant === "card" ? "relative z-30 mt-2" : "relative z-30"}>
+    <div class={variant === "card" ? "relative z-30 mt-2 flex flex-col flex-1 gap-2" : "relative z-30"}>
       <p class="ui-muted-body text-xs text-text-mutedLight dark:text-text-mutedDark transition-colors">
         No details provided.
       </p>
@@ -79,7 +101,7 @@ const clampClass = variant === "card" ? "line-clamp-3" : "line-clamp-2";
       <CompanyLocations
         locations={locations}
         maxVisibleLocations={maxVisibleLocations}
-        class={locationsClass + (variant === "list" ? " mt-1.5" : "")}
+        class={locationsClass + (variant === "list" ? " mt-1.5" : " mt-auto")}
       />
     </div>
   ) : variant === "list" ? (
@@ -89,7 +111,7 @@ const clampClass = variant === "card" ? "line-clamp-3" : "line-clamp-2";
       </p>
     </div>
   ) : (
-    <div class="relative z-30 mt-2">
+    <div class="relative z-30 mt-2 flex flex-col flex-1 gap-2">
       <p class="ui-muted-body text-xs text-text-mutedLight dark:text-text-mutedDark transition-colors">
         No details provided.
       </p>

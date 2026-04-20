@@ -9,12 +9,17 @@ export type IndexedCompany = {
   interviewTags: readonly InterviewTagId[];
 };
 
+export const AI_KEYWORDS_RE =
+  /\bai\b|cursor|claude|copilot|vibe coding|ai-native|agentic/i;
+
 export function computeResults(args: {
   indexed: IndexedCompany[];
   query: string;
   sort: SortKey;
   selectedEmployment: Set<EmploymentType>;
   selectedInterviewTags: Set<InterviewTagId>;
+  aiFriendly: boolean;
+  hasInterviewDetails: boolean;
   resultsCache: Map<string, Company[]>;
 }): Company[] {
   const q = args.query;
@@ -28,7 +33,7 @@ export function computeResults(args: {
       ? Array.from(args.selectedInterviewTags).sort().join(",")
       : "";
 
-  const cacheKey = `${q}\u0001${args.sort}\u0001${employmentKey}\u0001${interviewKey}`;
+  const cacheKey = `${q}\u0001${args.sort}\u0001${employmentKey}\u0001${interviewKey}\u0001${args.aiFriendly ? "1" : "0"}\u0001${args.hasInterviewDetails ? "1" : "0"}`;
 
   const cached = args.resultsCache.get(cacheKey);
   if (cached) return cached;
@@ -52,16 +57,39 @@ export function computeResults(args: {
     );
   }
 
+  if (args.aiFriendly) {
+    result = result.filter((c) => {
+      if (c.company.source === "jsearch") return true;
+      const text = (c.company.interviewProcessHtml ?? "").replace(
+        /<[^>]*>/g,
+        " ",
+      );
+      return AI_KEYWORDS_RE.test(text);
+    });
+  }
+
+  if (args.hasInterviewDetails) {
+    result = result.filter((c) => {
+      const text = (c.company.interviewProcessHtml ?? "")
+        .replace(/<[^>]*>/g, " ")
+        .trim();
+      return text !== "" && text !== "No details provided.";
+    });
+  }
+
   if (q) {
-    result = result.filter((c) => c.searchText.includes(q));
+    const qNorm = q.toLowerCase().replace(/\s+/g, " ").trim();
+    result = result.filter((c) => c.searchText.includes(qNorm));
   }
 
   const sorted = [...result];
 
   sorted.sort((a, b) => {
     if (args.sort === "curated-desc") {
-      const aLocal = a.company.source === "local";
-      const bLocal = b.company.source === "local";
+      const aLocal =
+        a.company.source === "local" || a.company.source === "jsearch";
+      const bLocal =
+        b.company.source === "local" || b.company.source === "jsearch";
 
       if (aLocal !== bLocal) return aLocal ? -1 : 1;
 

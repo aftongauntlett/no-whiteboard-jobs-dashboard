@@ -11,8 +11,6 @@ import PageHeader from "../components/layout/PageHeader.astro";
 import ResourceCard from "../components/ui/ResourceCard.astro";
 import Accordion from "../components/ui/Accordion.astro";
 import AccordionItem from "../components/ui/AccordionItem.astro";
-import ResourceSuggestionForm from "../components/ui/ResourceSuggestionForm.astro";
-
 const resourceRowClass =
   "flex items-center gap-3 rounded-md px-3 py-2 transition-colors hover:bg-surface-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-accent [&:hover_.resource-external-icon]:opacity-100 [&:focus-visible_.resource-external-icon]:opacity-100";
 
@@ -283,8 +281,8 @@ const techForGoodResources = [
           href="https://github.com/poteto/hiring-without-whiteboards"
         >
           <p>
-            This is the upstream repo that powers the company list on this site.
-            Huge credit to the folks maintaining it. The idea is simple, keep a
+            The origin of the no-whiteboard company data included on this site.
+            Huge credit to the folks maintaining it. The idea is simple: keep a
             public list of teams that don’t lean on CS trivia, puzzles, or
             gotcha questions as the main filter.
           </p>
@@ -453,11 +451,6 @@ const techForGoodResources = [
           </AccordionItem>
         </Accordion>
       </div>
-    </div>
-
-    <!-- Resource suggestion form -->
-    <div id="suggest">
-      <ResourceSuggestionForm />
     </div>
   </section>
 </Layout>

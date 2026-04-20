@@ -168,7 +168,12 @@ const viewToggleProps = {
                 data-companies-employment-option
                 class="h-4 w-4 accent-accent"
               />
-              <span class="min-w-0 text-left">Remote</span>
+              <span class="min-w-0 text-left">
+                Remote
+                <span class="ml-1 whitespace-nowrap text-xs tabular-nums text-text-mutedLight dark:text-text-mutedDark"
+                  >(<span data-companies-employment-count="Remote"></span>)</span
+                >
+              </span>
             </label>
 
             <label
@@ -180,19 +185,12 @@ const viewToggleProps = {
                 data-companies-employment-option
                 class="h-4 w-4 accent-accent"
               />
-              <span class="min-w-0 text-left">In-office</span>
-            </label>
-
-            <label
-              class="cursor-pointer grid grid-cols-[auto_1fr] items-center gap-2 rounded-md px-2.5 py-1.5 text-sm hover:bg-surface-hover focus-within:outline-none focus-within:ring-2 focus-within:ring-accent"
-            >
-              <input
-                type="checkbox"
-                value="Hybrid"
-                data-companies-employment-option
-                class="h-4 w-4 accent-accent"
-              />
-              <span class="min-w-0 text-left">Hybrid</span>
+              <span class="min-w-0 text-left">
+                In-office
+                <span class="ml-1 whitespace-nowrap text-xs tabular-nums text-text-mutedLight dark:text-text-mutedDark"
+                  >(<span data-companies-employment-count="In-office"></span>)</span
+                >
+              </span>
             </label>
           </div>
         </div>
@@ -398,6 +396,67 @@ const viewToggleProps = {
                   class="ml-1 whitespace-nowrap text-xs tabular-nums text-text-mutedLight dark:text-text-mutedDark"
                   >(<span data-companies-interview-count="on-site"
                   ></span>)</span
+                >
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <div class="border-t border-divider-surface pt-3 md:col-span-2">
+          <div
+            class="text-sm font-semibold text-text-light dark:text-text-dark mb-1"
+          >
+            AI-friendly
+          </div>
+          <p class="text-xs text-text-mutedLight dark:text-text-mutedDark mb-2">
+            Companies that mention AI tools in their process, or are pulled from
+            AI-focused job listings.
+          </p>
+          <div class="grid gap-1" role="group" aria-label="AI-friendly">
+            <label
+              class="cursor-pointer grid grid-cols-[auto_1fr] items-center gap-2 rounded-md px-2.5 py-1.5 text-sm hover:bg-surface-hover focus-within:outline-none focus-within:ring-2 focus-within:ring-accent"
+            >
+              <input
+                type="checkbox"
+                data-companies-ai-friendly
+                class="h-4 w-4 accent-accent"
+              />
+              <span class="min-w-0 text-left">
+                AI-friendly
+                <span class="ml-1 whitespace-nowrap text-xs tabular-nums text-text-mutedLight dark:text-text-mutedDark"
+                  >(<span data-companies-ai-friendly-count></span>)</span
+                >
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <div class="border-t border-divider-surface pt-3 md:col-span-2">
+          <div
+            class="text-sm font-semibold text-text-light dark:text-text-dark mb-1"
+          >
+            Has interview details
+          </div>
+          <p class="text-xs text-text-mutedLight dark:text-text-mutedDark mb-2">
+            Only show companies with a documented interview process.
+          </p>
+          <div
+            class="grid gap-1"
+            role="group"
+            aria-label="Has interview details"
+          >
+            <label
+              class="cursor-pointer grid grid-cols-[auto_1fr] items-center gap-2 rounded-md px-2.5 py-1.5 text-sm hover:bg-surface-hover focus-within:outline-none focus-within:ring-2 focus-within:ring-accent"
+            >
+              <input
+                type="checkbox"
+                data-companies-has-interview-details
+                class="h-4 w-4 accent-accent"
+              />
+              <span class="min-w-0 text-left">
+                Has interview details
+                <span class="ml-1 whitespace-nowrap text-xs tabular-nums text-text-mutedLight dark:text-text-mutedDark"
+                  >(<span data-companies-has-interview-count></span>)</span
                 >
               </span>
             </label>

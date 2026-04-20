@@ -214,7 +214,7 @@ export function createCompaniesMenuController(
 
       const firstInteractive = qs<HTMLElement>(
         menuPanel,
-        "[data-companies-sort-option], [data-companies-employment-option], [data-companies-interview-tag], [data-companies-reset]",
+        "[data-companies-sort-option], [data-companies-employment-option], [data-companies-interview-tag], [data-companies-ai-friendly], [data-companies-has-interview-details], [data-companies-reset]",
       );
       (firstInteractive || menuPanel).focus?.();
     } else {

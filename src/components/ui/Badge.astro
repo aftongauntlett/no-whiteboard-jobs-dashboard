@@ -1,5 +1,5 @@
 ---
-type Variant = "default" | "success" | "warning" | "info" | "muted";
+type Variant = "default" | "success" | "warning" | "info" | "green" | "muted";
 type Style = "solid" | "outline";
 
 interface Props {
@@ -35,6 +35,10 @@ const variants: Record<Variant, Record<Style, string>> = {
   info: {
     solid: "bg-info-bg/20 text-info-text",
     outline: "border border-info-border/40 text-info-text",
+  },
+  green: {
+    solid: "bg-green-bg/20 text-green-text",
+    outline: "border border-green-border/40 text-green-text",
   },
   muted: {
     solid:

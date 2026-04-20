@@ -1,14 +1,14 @@
 import type { EmploymentType } from "@data/types";
 
-export type EmploymentBadgeVariant = "info" | "success";
+export type EmploymentBadgeVariant = "green" | "success" | "warning";
 
 export const EMPLOYMENT_BADGE_VARIANT_BY_TYPE: Record<
   EmploymentType,
   EmploymentBadgeVariant
 > = {
-  Remote: "info",
+  Remote: "green",
   "In-office": "success",
-  Hybrid: "info",
+  Hybrid: "warning",
 };
 
 export function employmentBadgeVariant(
@@ -18,8 +18,9 @@ export function employmentBadgeVariant(
 }
 
 const BADGE_SOLID_CLASSES_BY_VARIANT: Record<EmploymentBadgeVariant, string> = {
-  info: "bg-info-bg/20 text-info-text",
+  green: "bg-green-bg/20 text-green-text",
   success: "bg-success-bg/20 text-success-text",
+  warning: "bg-warning-bg/20 text-warning-text",
 };
 
 export function employmentBadgeClasses(type: EmploymentType): string {
@@ -45,7 +46,8 @@ export const COMPANY_CARD_TITLE_CLASS =
 export const COMPANY_CARD_TITLE_INLINE_CLASS =
   "inline-flex items-center gap-2 min-w-0";
 
-export const COMPANY_CARD_NAME_HOVER_CLASS = "group-hover:text-accent";
+export const COMPANY_CARD_NAME_HOVER_CLASS =
+  "group-hover:text-nav-active-text dark:group-hover:text-accent";
 
 export const COMPANY_CARD_EMPLOYMENT_CLASS = "ui-badge";
 
@@ -66,7 +68,7 @@ export const COMPANY_INTERVIEW_TEXT_CLASS_LIST =
   "ui-muted-body text-xs sm:text-sm text-text-mutedLight dark:text-text-mutedDark transition-colors";
 
 export const COMPANY_INTERVIEW_TOGGLE_CLASS =
-  "mt-1 hidden text-xs font-medium text-accent hover:underline cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/30 rounded px-2 py-2 -mx-2 min-h-11";
+  "mt-1 hidden text-xs font-medium text-accent underline cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/30 rounded px-2 py-2 -mx-2 min-h-11";
 
 export const COMPANY_LIST_ITEM_CLASS =
   "company-list-item ui-hover-brighten-body group relative z-0 hover:z-20 focus-within:z-20 px-4 py-3 pr-12 sm:px-5 sm:py-4 sm:pr-14 md:pr-5 transition-colors md:col-span-4 md:grid md:grid-cols-subgrid md:gap-x-4 md:items-stretch";

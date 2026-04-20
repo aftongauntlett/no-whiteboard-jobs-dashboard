@@ -1,5 +1,6 @@
 import upstreamCompanies from "./companies.json";
 import localOverrides from "./companies.local.json";
+import liveJobs from "./jobs.live.json";
 
 import type { Company, CompanyLocalOverride } from "./types";
 import { renderInterviewProcessMarkdown } from "../utils/markdown";
@@ -175,6 +176,42 @@ for (const localEntry of localParsed) {
   });
 
   mergedById.set(merged.id, merged);
+}
+
+// Merge jsearch live jobs — deduplicated by id, never overwrite upstream/local entries.
+const liveJobsArray = Array.isArray(liveJobs) ? (liveJobs as unknown[]) : [];
+for (const raw of liveJobsArray) {
+  if (!raw || typeof raw !== "object") continue;
+  const job = raw as Record<string, unknown>;
+  const id = typeof job.id === "string" ? job.id : null;
+  if (!id || mergedById.has(id)) continue;
+
+  const interviewProcess =
+    typeof job.interviewProcess === "string" ? job.interviewProcess : "";
+
+  const company: Company = {
+    id,
+    name: typeof job.name === "string" ? job.name : "",
+    careersUrl: typeof job.careersUrl === "string" ? job.careersUrl : undefined,
+    locations: Array.isArray(job.locations) ? (job.locations as string[]) : [],
+    employmentType:
+      job.employmentType === "Remote" ||
+      job.employmentType === "In-office" ||
+      job.employmentType === "Hybrid"
+        ? job.employmentType
+        : "Remote",
+    interviewProcess: interviewProcess || undefined,
+    interviewProcessHtml: interviewProcess
+      ? renderInterviewProcessMarkdown(interviewProcess)
+      : "",
+    source: "jsearch",
+    lastUpdated:
+      typeof job.postedAt === "string" && job.postedAt
+        ? job.postedAt.slice(0, 10)
+        : undefined,
+  };
+
+  mergedById.set(id, company);
 }
 
 const mergedCompanies: Company[] = Array.from(mergedById.values());

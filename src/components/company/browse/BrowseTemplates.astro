@@ -24,6 +24,7 @@ import {
 } from "../companyStyles";
 ---
 
+<!-- These templates mirror CompanyInterviewPreview.astro and CompanyListItem.astro. Keep in sync. -->
 <template data-companies-template="card-interactive">
   <article class={COMPANY_CARD_INTERACTIVE_CLASS}>
     <a
@@ -32,7 +33,7 @@ import {
       rel="noopener noreferrer"
       class={COMPANY_CARD_LINK_CLASS}></a>
 
-    <div class="relative flex flex-col">
+    <div class="relative flex flex-col flex-1">
       <header class={COMPANY_CARD_HEADER_CLASS}>
         <div class="min-w-0 flex items-center gap-2">
           <h3 class={COMPANY_CARD_TITLE_CLASS}>
@@ -82,7 +83,7 @@ import {
         </span>
       </header>
 
-      <div data-company-interview class="relative z-30 mt-2">
+      <div data-company-interview class="relative z-30 mt-2 flex flex-col flex-1 gap-2">
         <div
           data-company-interview-text
           data-readmore-text
@@ -92,18 +93,18 @@ import {
         >
           <div data-company-interview-html></div>
         </div>
-        <div
-          data-company-locations
-          class="mt-2 flex flex-wrap gap-2"
-          aria-label="Company locations"
-        >
-        </div>
-        <div class="text-right">
+        <div class="flex items-center mt-auto">
+          <div
+            data-company-locations
+            class="mt-0.5 flex flex-wrap gap-2"
+            aria-label="Company locations"
+          >
+          </div>
           <button
             type="button"
             data-company-interview-toggle
             data-readmore-toggle
-            class={COMPANY_INTERVIEW_TOGGLE_CLASS}
+            class={COMPANY_INTERVIEW_TOGGLE_CLASS + " ml-auto"}
             aria-expanded="false"
           >
             Read more
@@ -114,6 +115,7 @@ import {
   </article>
 </template>
 
+<!-- Keep card-static in sync with card-interactive above and CompanyInterviewPreview.astro -->
 <template data-companies-template="card-static">
   <article class={COMPANY_CARD_STATIC_CLASS}>
     <header class={COMPANY_CARD_HEADER_CLASS}>
@@ -142,7 +144,7 @@ import {
       </div>
     </header>
 
-    <div data-company-interview class="relative z-30 mt-2">
+    <div data-company-interview class="relative z-30 mt-2 flex flex-col flex-1 gap-2">
       <div
         data-company-interview-text
         data-readmore-text
@@ -152,18 +154,18 @@ import {
       >
         <div data-company-interview-html></div>
       </div>
-      <div
-        data-company-locations
-        class="mt-2 flex flex-wrap gap-2"
-        aria-label="Company locations"
-      >
-      </div>
-      <div class="text-right">
+      <div class="flex items-center mt-auto">
+        <div
+          data-company-locations
+          class="mt-0.5 flex flex-wrap gap-2"
+          aria-label="Company locations"
+        >
+        </div>
         <button
           type="button"
           data-company-interview-toggle
           data-readmore-toggle
-          class={COMPANY_INTERVIEW_TOGGLE_CLASS}
+          class={COMPANY_INTERVIEW_TOGGLE_CLASS + " ml-auto"}
           aria-expanded="false"
         >
           Read more
@@ -219,18 +221,18 @@ import {
           >
             <div data-company-interview-html></div>
           </div>
-          <div
-            data-company-locations
-            class="mt-1.5 flex flex-wrap items-center gap-2"
-            aria-label="Company locations"
-          >
-          </div>
-          <div class="text-right">
+          <div class="flex items-center mt-1.5">
+            <div
+              data-company-locations
+              class="flex flex-wrap items-center gap-2"
+              aria-label="Company locations"
+            >
+            </div>
             <button
               type="button"
               data-company-interview-toggle
               data-readmore-toggle
-              class={COMPANY_INTERVIEW_TOGGLE_CLASS}
+              class={COMPANY_INTERVIEW_TOGGLE_CLASS + " ml-auto"}
               aria-expanded="false"
             >
               Read more
@@ -322,18 +324,18 @@ import {
           >
             <div data-company-interview-html></div>
           </div>
-          <div
-            data-company-locations
-            class="mt-1.5 flex flex-wrap items-center gap-2"
-            aria-label="Company locations"
-          >
-          </div>
-          <div class="text-right">
+          <div class="flex items-center mt-1.5">
+            <div
+              data-company-locations
+              class="flex flex-wrap items-center gap-2"
+              aria-label="Company locations"
+            >
+            </div>
             <button
               type="button"
               data-company-interview-toggle
               data-readmore-toggle
-              class={COMPANY_INTERVIEW_TOGGLE_CLASS}
+              class={COMPANY_INTERVIEW_TOGGLE_CLASS + " ml-auto"}
               aria-expanded="false"
             >
               Read more

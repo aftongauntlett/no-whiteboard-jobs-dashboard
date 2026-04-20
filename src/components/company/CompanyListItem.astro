@@ -22,9 +22,8 @@ type Props = {
 };
 
 const { company } = Astro.props as Props;
-const maxVisibleLocations = 1;
-
 const interviewId = createInterviewId(company);
+// List item structure must stay in sync with BrowseTemplates.astro (JS-cloned templates)
 ---
 
 <li
@@ -48,11 +47,11 @@ const interviewId = createInterviewId(company);
                 <span class={COMPANY_LIST_NAME_CLASS}>
                   {company.name}
                 </span>
-                {
-                  company.source === "local" ? (
+                {company.source === "local" ? (
                     <CurationIndicator status={company.curationStatus ?? "edited"} />
-                  ) : null
-                }
+                  ) : company.source === "jsearch" ? (
+                    <CurationIndicator status="live" />
+                  ) : null}
                 {
                   company.officiallyVerified ? (
                     <ConfirmedByCompanyBadge
@@ -64,7 +63,7 @@ const interviewId = createInterviewId(company);
             </h3>
           </div>
 
-          <!-- Column B: Employment + locations -->
+          <!-- Column B: Employment type -->
           <div class={COMPANY_LIST_COL_B_CLASS}>
             <div class="flex items-start">
               <EmploymentBadge employmentType={company.employmentType} />
@@ -78,7 +77,6 @@ const interviewId = createInterviewId(company);
               interviewId={interviewId}
               variant="list"
               locations={company.locations}
-              maxVisibleLocations={maxVisibleLocations}
             />
           </div>
 

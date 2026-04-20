@@ -138,7 +138,7 @@
     "careersUrl": "https://www.adyen.com",
     "locations": ["Amsterdam, NL"],
     "employmentType": "In-office",
-    "interviewProcess": "Take-home assignment, design discussion based on take home, culture fit etc. Provides visa sponsorship to the Netherlands."
+    "interviewProcess": "Take-home assignment, design discussion based on take home, culture fit etc. Provides visa sponsorship to The Netherlands."
   },
   {
     "id": "affinipay",
@@ -513,7 +513,7 @@
     "name": "Backbase",
     "careersUrl": "https://workatbackbase.com",
     "locations": [
-      "Amsterdam, Netherlands",
+      "Amsterdam, The Netherlands",
       "Cardiff, Wales",
       "London, UK",
       "Atlanta, GA"
@@ -554,7 +554,11 @@
     "id": "bakken-b-ck",
     "name": "Bakken & Bæck",
     "careersUrl": "https://bakkenbaeck.com/jobs",
-    "locations": ["Oslo, Norway", "Amsterdam, Netherlands", "Bonn, Germany"],
+    "locations": [
+      "Oslo, Norway",
+      "Amsterdam, The Netherlands",
+      "Bonn, Germany"
+    ],
     "employmentType": "In-office",
     "interviewProcess": "Skype interview followed by take-home assignment and a visit to one of our offices"
   },
@@ -1328,7 +1332,7 @@
     "id": "code-orange",
     "name": "Code Orange",
     "careersUrl": "https://code-orange.nl",
-    "locations": ["Amsterdam, Netherlands"],
+    "locations": ["Amsterdam, The Netherlands"],
     "employmentType": "In-office",
     "interviewProcess": "Phone conversation followed by take-home project"
   },
@@ -1433,7 +1437,7 @@
     "locations": [
       "Remote, Berlin",
       "Germany, Amsterdam",
-      "Netherlands",
+      "The Netherlands",
       "London, UK"
     ],
     "employmentType": "Remote",
@@ -1563,7 +1567,7 @@
     "id": "crownstone",
     "name": "Crownstone",
     "careersUrl": "https://crownstone.rocks/jobs",
-    "locations": ["Rotterdam, Netherlands"],
+    "locations": ["Rotterdam, The Netherlands"],
     "employmentType": "In-office",
     "interviewProcess": "Technical interaction using previously created GitHub projects, followed by in-person interview with a focus on someone's professional ambition in the short and long term."
   },
@@ -1624,7 +1628,7 @@
     "id": "datachef",
     "name": "DataChef",
     "careersUrl": "https://DataChef.co",
-    "locations": ["Amsterdam, Netherlands"],
+    "locations": ["Amsterdam, The Netherlands"],
     "employmentType": "In-office",
     "interviewProcess": "Video call (technical questions about candidate's achievements), take home assignment, cultural fit zoom or face to face with rest of the team."
   },
@@ -1680,7 +1684,7 @@
     "id": "deskbookers",
     "name": "Deskbookers",
     "careersUrl": "https://www.deskbookers.com/en-gb/jobs",
-    "locations": ["Amsterdam, Netherlands"],
+    "locations": ["Amsterdam, The Netherlands"],
     "employmentType": "In-office",
     "interviewProcess": "Phone screen, take-home project, on-site interview"
   },
@@ -1964,7 +1968,7 @@
     "name": "Edenspiekermann",
     "careersUrl": "https://jobs.edenspiekermann.com",
     "locations": [
-      "Amsterdam, Netherlands",
+      "Amsterdam, The Netherlands",
       "Berlin, Germany",
       "Los Angeles, CA",
       "San Francisco, CA",
@@ -2100,7 +2104,7 @@
       "Sofia, Bulgaria",
       "Frankfurt, Germany",
       "Glasgow, Scotland",
-      "Hilversum, Netherlands",
+      "Hilversum, The Netherlands",
       "London, UK",
       "Oxford, UK",
       "Bogota, Colombia",
@@ -3377,7 +3381,7 @@
     "id": "jumbo",
     "name": "Jumbo",
     "careersUrl": "https://nl.jobs.jumbo.com/nl",
-    "locations": ["Veghel, Netherlands"],
+    "locations": ["Veghel, The Netherlands"],
     "employmentType": "In-office",
     "interviewProcess": "Culture Fit call, take-home project, design discussion based on take-home project, system design conversation online or in-person."
   },
@@ -4271,7 +4275,7 @@
     "id": "nedap",
     "name": "Nedap",
     "careersUrl": "https://lifeatnedap.com/vacatures",
-    "locations": ["Groenlo, Netherlands", "Remote"],
+    "locations": ["Groenlo, The Netherlands", "Remote"],
     "employmentType": "Remote",
     "interviewProcess": "A simple conversation, human to human and a small on-site project"
   },
@@ -4994,7 +4998,7 @@
     "id": "persgroep-de",
     "name": "Persgroep, de",
     "careersUrl": "https://www.persgroep.nl/werken-bij-it",
-    "locations": ["Amsterdam, Netherlands"],
+    "locations": ["Amsterdam, The Netherlands"],
     "employmentType": "In-office",
     "interviewProcess": "Tech interview (technical background and experiences) and culture fit, both on-site"
   },
@@ -5381,7 +5385,7 @@
     "careersUrl": "https://reaktor.com/careers",
     "locations": [
       "New York, NY",
-      "Amsterdam, Netherlands",
+      "Amsterdam, The Netherlands",
       "Helsinki, Finland",
       "Tokyo, Japan"
     ],
@@ -6010,7 +6014,7 @@
     "id": "softwear",
     "name": "Softwear",
     "careersUrl": "https://softwear.nl/vacatures",
-    "locations": ["Amsterdam, Netherlands"],
+    "locations": ["Amsterdam, The Netherlands"],
     "employmentType": "In-office",
     "interviewProcess": "Writing software for the fashion industry – remotely – in an international team."
   },
@@ -6079,7 +6083,7 @@
     "id": "spronq",
     "name": "SpronQ",
     "careersUrl": "https://spronq.com",
-    "locations": ["Amsterdam, Netherlands"],
+    "locations": ["Amsterdam, The Netherlands"],
     "employmentType": "In-office",
     "interviewProcess": "Takehome coding challenge"
   },
@@ -6245,7 +6249,7 @@
     "id": "summitto",
     "name": "Summitto",
     "careersUrl": "https://careers.summitto.com",
-    "locations": ["Amsterdam, Netherlands"],
+    "locations": ["Amsterdam, The Netherlands"],
     "employmentType": "In-office",
     "interviewProcess": "take-home coding challenge and on-site interview"
   },
@@ -6404,7 +6408,7 @@
     "id": "takeaway-com",
     "name": "takeaway.com",
     "careersUrl": "https://careers.takeaway.com",
-    "locations": ["Enschede, Netherlands & Berlin", "Germany"],
+    "locations": ["Enschede, The Netherlands & Berlin", "Germany"],
     "employmentType": "In-office",
     "interviewProcess": "Discussion and general, high level questions"
   },
@@ -7035,7 +7039,7 @@
     "id": "voltra-co",
     "name": "Voltra Co.",
     "careersUrl": "https://voltra.co",
-    "locations": ["Amsterdam, Netherlands", "New York, NY", "Remote"],
+    "locations": ["Amsterdam, The Netherlands", "New York, NY", "Remote"],
     "employmentType": "Remote",
     "interviewProcess": "Show us your github account, tell us what you know. Let's pair on an OSS PR!"
   },
@@ -7160,7 +7164,7 @@
     "id": "wend",
     "name": "Wend",
     "careersUrl": "https://www.wend.nl",
-    "locations": ["Amsterdam, Netherlands"],
+    "locations": ["Amsterdam, The Netherlands"],
     "employmentType": "In-office",
     "interviewProcess": "Face to face interview followed by a take-home assignment"
   },
@@ -7176,7 +7180,7 @@
     "id": "wetransfer",
     "name": "WeTransfer",
     "careersUrl": "https://wetransfer.com/jobs",
-    "locations": ["Amsterdam, Netherlands"],
+    "locations": ["Amsterdam, The Netherlands"],
     "employmentType": "In-office",
     "interviewProcess": "Culture fit and fundamentals chat, skills interview - no whiteboarding! - and take-home project, communication and collaboration interview, meet with the VP of Engineering"
   },
@@ -7248,7 +7252,7 @@
     "id": "xebia-security",
     "name": "Xebia Security",
     "careersUrl": "https://xebia.com/careers/security/",
-    "locations": ["Hilversum, Netherlands"],
+    "locations": ["Hilversum, The Netherlands"],
     "employmentType": "In-office",
     "interviewProcess": "Culture fit, Technical interview, followed by take-home security project, on-site brainstorm session to discuss the solutions and approach."
   },

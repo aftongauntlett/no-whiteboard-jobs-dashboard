@@ -151,8 +151,8 @@ export function createBrowseRenderController(args: {
       btn.setAttribute("aria-checked", active ? "true" : "false");
       btn.classList.toggle("bg-surface-light", active);
       btn.classList.toggle("dark:bg-surface-dark", active);
-      btn.classList.toggle("text-text-light", active);
-      btn.classList.toggle("dark:text-text-dark", active);
+      btn.classList.toggle("shadow-sm", active);
+      btn.classList.toggle("text-accent", active);
       btn.classList.toggle("text-text-mutedLight", !active);
       btn.classList.toggle("dark:text-text-mutedDark", !active);
     }

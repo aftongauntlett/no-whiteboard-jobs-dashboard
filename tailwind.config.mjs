@@ -59,6 +59,11 @@ export default {
           text: "var(--info-text)",
           border: "var(--info-border)",
         },
+        green: {
+          bg: "var(--green-bg)",
+          text: "var(--green-text)",
+          border: "var(--green-border)",
+        },
       },
     },
   },

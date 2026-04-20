@@ -12,8 +12,8 @@ import Accordion from "../components/ui/Accordion.astro";
 import AccordionItem from "../components/ui/AccordionItem.astro";
 import SuggestionForm from "../components/ui/SuggestionForm.astro";
 
-const siteLastUpdated = "2026-03-15";
-const siteLastUpdatedDisplay = "March 15, 2026";
+const siteLastUpdated = "2026-04-19";
+const siteLastUpdatedDisplay = "April 19, 2026";
 ---
 
 <Layout
@@ -32,9 +32,10 @@ const siteLastUpdatedDisplay = "March 15, 2026";
       <div class="grid gap-6 md:grid-cols-2">
         <ResourceCard title="Why I built it" icon={Sparkles} tone="primary">
           <p>
-            I kept coming back to the original list. It’s a great community
-            resource, and I’m grateful it exists. I wanted a different way to
-            browse it, and I wanted a project I could build and maintain.
+            I wanted a more complete, honest picture of hiring — one that covers
+            interview transparency, AI-forward culture, and where companies are
+            actually hiring right now. That meant going beyond a single dataset
+            and building something I could curate and expand myself.
           </p>
           <ul class="mt-3 list-disc pl-5 space-y-2 marker:text-accent">
             <li>A calmer layout that’s easier to skim</li>
@@ -82,12 +83,16 @@ const siteLastUpdatedDisplay = "March 15, 2026";
           class="ui-muted-body mt-3 list-disc pl-5 space-y-2 text-sm text-text-mutedLight dark:text-text-mutedDark marker:text-accent"
         >
           <li>
-            Added curated resources on hiring research, AI in coding,
-            accessibility, and tech-for-good job boards
+            Added live job search via JSearch API — you can now browse more
+            jobs, not just those from the no-whiteboard dataset
           </li>
           <li>
-            Companies can now request a verified badge through a simple
-            verification form
+            Added filtering for companies using AI in their interview process or
+            workflow
+          </li>
+          <li>
+            Added curated resources on hiring research, AI in coding,
+            accessibility, and tech-for-good job boards
           </li>
           <li>
             Interview process tags include AI-friendly categories like pair
@@ -135,14 +140,17 @@ const siteLastUpdatedDisplay = "March 15, 2026";
         </ul>
       </AccordionItem>
 
-      <AccordionItem title="Data source" icon={ExternalLink}>
+      <AccordionItem title="Data sources" icon={ExternalLink}>
         <p
           class="ui-muted-body text-sm text-text-mutedLight dark:text-text-mutedDark"
         >
-          The company list comes from the upstream community repository. I sync
-          updates from there when they’re published. Any local fixes or
-          additions live in a separate local file, so the upstream data stays
-          the source of truth.
+          Company data comes from three places: the community-maintained
+          no-whiteboard dataset, local curation and overrides I manage directly,
+          and live job listings pulled from the JSearch API. The upstream
+          dataset is the origin of the no-whiteboard company list and gets
+          credit for that foundation. Local additions and corrections live in a
+          separate file so the upstream data is never mutated. Live listings
+          from JSearch are fetched independently and layered on top.
         </p>
         <a
           href="https://github.com/poteto/hiring-without-whiteboards"

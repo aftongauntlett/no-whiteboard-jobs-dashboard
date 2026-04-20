@@ -1,0 +1,42 @@
+name: Fetch Live Jobs
+
+on:
+  schedule:
+    - cron: "0 8 * * *"
+  workflow_dispatch:
+
+jobs:
+  fetch-jobs:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Fetch jobs
+        env:
+          JSEARCH_API_KEY: ${{ secrets.JSEARCH_API_KEY }}
+        run: node scripts/fetch-jobs.mjs
+
+      - name: Commit updated jobs if changed
+        run: |
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+          git add src/data/jobs.live.json
+          if git diff --cached --quiet; then
+            echo "No changes to jobs.live.json, skipping commit."
+          else
+            git commit -m "chore: update live jobs [skip ci]"
+            git push
+          fi
