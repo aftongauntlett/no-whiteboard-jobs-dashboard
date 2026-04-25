@@ -1,7 +1,5 @@
 ---
 import type { HTMLAttributes } from "astro/types";
-import CurationIndicator from "../../ui/CurationIndicator.astro";
-import { createUniqueId } from "../../../utils/company";
 import {
   COMPANIES_PER_PAGE_OPTIONS,
   DEFAULT_COMPANIES_PER_PAGE,
@@ -21,9 +19,6 @@ const {
   countProps = {},
 } = Astro.props as Props;
 
-const newTooltipId = createUniqueId("curation-new-tooltip");
-const updatedTooltipId = createUniqueId("curation-updated-tooltip");
-const liveTooltipId = createUniqueId("curation-live-tooltip");
 ---
 
 <div class="flex items-center justify-between gap-3">
@@ -35,88 +30,6 @@ const liveTooltipId = createUniqueId("curation-live-tooltip");
     >
       Showing {startIndex}–{endIndex} of {totalItems} companies
     </p>
-
-    <div
-      class="hidden md:flex items-center gap-3 text-xs text-text-mutedLight dark:text-text-mutedDark"
-    >
-      <button
-        type="button"
-        class="group relative inline-flex items-center focus:outline-none rounded cursor-help"
-        aria-describedby={newTooltipId}
-      >
-        <div class="inline-flex items-center gap-2">
-          <CurationIndicator status="new" class="shrink-0" />
-          <span>New</span>
-        </div>
-        <span
-          id={newTooltipId}
-          role="tooltip"
-          class="pointer-events-none opacity-0 translate-y-1 transition
-                 absolute left-1/2 -translate-x-1/2 top-full mt-2 z-20
-                 w-max max-w-[22rem]
-                 rounded-lg border border-border-light dark:border-border-dark
-                 bg-surface-light/95 dark:bg-surface-dark/95
-                 px-3 py-2 text-xs leading-relaxed text-text-light dark:text-text-dark
-                 shadow-lg ring-1 ring-black/5 dark:ring-white/10
-                 group-hover:opacity-100 group-hover:translate-y-0
-                 group-focus-within:opacity-100 group-focus-within:translate-y-0"
-        >
-          Added locally. Not in the upstream dataset.
-        </span>
-      </button>
-
-      <button
-        type="button"
-        class="group relative inline-flex items-center focus:outline-none rounded cursor-help"
-        aria-describedby={updatedTooltipId}
-      >
-        <div class="inline-flex items-center gap-2">
-          <CurationIndicator status="edited" class="shrink-0" />
-          <span>Updated</span>
-        </div>
-        <span
-          id={updatedTooltipId}
-          role="tooltip"
-          class="pointer-events-none opacity-0 translate-y-1 transition
-                 absolute left-1/2 -translate-x-1/2 top-full mt-2 z-20
-                 w-max max-w-[22rem]
-                 rounded-lg border border-border-light dark:border-border-dark
-                 bg-surface-light/95 dark:bg-surface-dark/95
-                 px-3 py-2 text-xs leading-relaxed text-text-light dark:text-text-dark
-                 shadow-lg ring-1 ring-black/5 dark:ring-white/10
-                 group-hover:opacity-100 group-hover:translate-y-0
-                 group-focus-within:opacity-100 group-focus-within:translate-y-0"
-        >
-          Edited locally. May differ from the upstream dataset.
-        </span>
-      </button>
-
-      <button
-        type="button"
-        class="group relative inline-flex items-center focus:outline-none rounded cursor-help"
-        aria-describedby={liveTooltipId}
-      >
-        <div class="inline-flex items-center gap-2">
-          <CurationIndicator status="live" class="shrink-0" />
-          <span>Live</span>
-        </div>
-        <span
-          id={liveTooltipId}
-          role="tooltip"
-          class="pointer-events-none opacity-0 translate-y-1 transition
-                 absolute left-1/2 -translate-x-1/2 top-full mt-2 z-20
-                 w-max max-w-[22rem]
-                 rounded-lg border border-border-light dark:border-border-dark
-                 bg-surface-light/95 dark:bg-surface-dark/95
-                 px-3 py-2 text-xs leading-relaxed text-text-light dark:text-text-dark
-                 shadow-lg ring-1 ring-black/5 dark:ring-white/10
-                 group-hover:opacity-100 group-hover:translate-y-0
-                 group-focus-within:opacity-100 group-focus-within:translate-y-0"
-        >
-          Live listing. Pulled from a job search API. Not community-verified.
-        </span>
-      </button>
-    </div>
   </div>
 
   <div class="hidden md:flex items-center gap-2">

@@ -4,7 +4,6 @@ import LayoutGrid from "lucide-astro/LayoutGrid";
 import MousePointerClick from "lucide-astro/MousePointerClick";
 import Shield from "lucide-astro/Shield";
 import ExternalLink from "lucide-astro/ExternalLink";
-import RefreshCw from "lucide-astro/RefreshCw";
 import Layout from "../layouts/Layout.astro";
 import PageHeader from "../components/layout/PageHeader.astro";
 import ResourceCard from "../components/ui/ResourceCard.astro";
@@ -12,8 +11,6 @@ import Accordion from "../components/ui/Accordion.astro";
 import AccordionItem from "../components/ui/AccordionItem.astro";
 import SuggestionForm from "../components/ui/SuggestionForm.astro";
 
-const siteLastUpdated = "2026-04-19";
-const siteLastUpdatedDisplay = "April 19, 2026";
 ---
 
 <Layout
@@ -69,45 +66,6 @@ const siteLastUpdatedDisplay = "April 19, 2026";
       title="Useful Information"
       description="Expand for notes on scope, design, and corrections."
     >
-      <AccordionItem title="Website status" icon={RefreshCw}>
-        <p
-          class="ui-muted-body text-sm text-text-mutedLight dark:text-text-mutedDark"
-        >
-          Last updated: <time
-            datetime={siteLastUpdated}
-            class="font-medium text-text-light dark:text-text-dark"
-            >{siteLastUpdatedDisplay}</time
-          >
-        </p>
-        <ul
-          class="ui-muted-body mt-3 list-disc pl-5 space-y-2 text-sm text-text-mutedLight dark:text-text-mutedDark marker:text-accent"
-        >
-          <li>
-            Added live job search via JSearch API — you can now browse more
-            jobs, not just those from the no-whiteboard dataset
-          </li>
-          <li>
-            Added filtering for companies using AI in their interview process or
-            workflow
-          </li>
-          <li>
-            Added curated resources on hiring research, AI in coding,
-            accessibility, and tech-for-good job boards
-          </li>
-          <li>
-            Interview process tags include AI-friendly categories like pair
-            programming with AI tools
-          </li>
-          <li>
-            Streamlined the resources page — fewer sections, better layout
-          </li>
-          <li>
-            Broken careers URLs and outdated company notes fixed as they're
-            found
-          </li>
-        </ul>
-      </AccordionItem>
-
       <AccordionItem title="What this isn’t" icon={Shield}>
         <p
           class="ui-muted-body text-sm text-text-mutedLight dark:text-text-mutedDark"
@@ -151,6 +109,14 @@ const siteLastUpdatedDisplay = "April 19, 2026";
           credit for that foundation. Local additions and corrections live in a
           separate file so the upstream data is never mutated. Live listings
           from JSearch are fetched independently and layered on top.
+        </p>
+        <p
+          class="ui-muted-body mt-3 text-sm text-text-mutedLight dark:text-text-mutedDark"
+        >
+          I also painstakingly review and fix broken or dead URLs across both
+          sources — replacing job board aggregator links with actual company
+          career pages, and removing listings that have gone stale. It's ongoing
+          work, but I do my best to keep this clean and useful.
         </p>
         <a
           href="https://github.com/poteto/hiring-without-whiteboards"

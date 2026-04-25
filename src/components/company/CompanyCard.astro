@@ -1,7 +1,6 @@
 ---
 import type { Company } from "@data/types";
 import EmploymentBadge from "../ui/EmploymentBadge.astro";
-import CurationIndicator from "../ui/CurationIndicator.astro";
 import ConfirmedByCompanyBadge from "../ui/ConfirmedByCompanyBadge.astro";
 import CompanyInterviewPreview from "./CompanyInterviewPreview.astro";
 import { createInterviewId } from "../../utils/company";
@@ -48,11 +47,6 @@ const interviewId = createInterviewId(company);
                 <span class={COMPANY_CARD_NAME_HOVER_CLASS}>
                   {company.name}
                 </span>
-                {company.source === "local" ? (
-                    <CurationIndicator status={company.curationStatus ?? "edited"} />
-                  ) : company.source === "jsearch" ? (
-                    <CurationIndicator status="live" />
-                  ) : null}
                 {
                   company.officiallyVerified ? (
                     <ConfirmedByCompanyBadge
@@ -108,11 +102,6 @@ const interviewId = createInterviewId(company);
           >
             <span class={COMPANY_CARD_TITLE_INLINE_CLASS}>
               <span>{company.name}</span>
-              {
-                company.source === "local" ? (
-                  <CurationIndicator status={company.curationStatus ?? "edited"} />
-                ) : null
-              }
               {
                 company.officiallyVerified ? (
                   <ConfirmedByCompanyBadge

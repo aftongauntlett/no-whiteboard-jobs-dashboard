@@ -178,13 +178,18 @@ for (const localEntry of localParsed) {
   mergedById.set(merged.id, merged);
 }
 
-// Merge jsearch live jobs — deduplicated by id, never overwrite upstream/local entries.
+// Merge jsearch live jobs — deduplicated by id and name, never overwrite upstream/local entries.
+const mergedByNameLower = new Map(
+  Array.from(mergedById.values()).map((c) => [c.name.toLowerCase().trim(), true]),
+);
 const liveJobsArray = Array.isArray(liveJobs) ? (liveJobs as unknown[]) : [];
 for (const raw of liveJobsArray) {
   if (!raw || typeof raw !== "object") continue;
   const job = raw as Record<string, unknown>;
   const id = typeof job.id === "string" ? job.id : null;
   if (!id || mergedById.has(id)) continue;
+  const jobName = typeof job.name === "string" ? job.name.toLowerCase().trim() : "";
+  if (jobName && mergedByNameLower.has(jobName)) continue;
 
   const interviewProcess =
     typeof job.interviewProcess === "string" ? job.interviewProcess : "";

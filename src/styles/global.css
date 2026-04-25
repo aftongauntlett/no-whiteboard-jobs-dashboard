@@ -163,24 +163,6 @@
   initial-value: #4ade80;
 }
 
-@property --curation-new {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: #0f766e;
-}
-
-@property --curation-updated {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: #fb923c;
-}
-
-@property --curation-live {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: #0284c7;
-}
-
 @property --nav-active-bg {
   syntax: "<color>";
   inherits: true;
@@ -233,9 +215,6 @@ html.theme-transitioning {
     --green-bg 200ms ease-in-out,
     --green-text 200ms ease-in-out,
     --green-border 200ms ease-in-out,
-    --curation-new 200ms ease-in-out,
-    --curation-updated 200ms ease-in-out,
-    --curation-live 200ms ease-in-out,
     --nav-active-bg 200ms ease-in-out,
     --nav-active-text 200ms ease-in-out;
 }
@@ -329,11 +308,6 @@ html.theme-transitioning .accordion-icon {
   --green-text: #14532d;
   --green-border: #4ade80;
 
-  /* Company curation indicators */
-  --curation-new: #0f766e;
-  --curation-updated: #fb923c;
-  --curation-live: #0284c7;
-
   /* Nav active state */
   --nav-active-bg: color-mix(in srgb, var(--accent) 12%, var(--surface));
   --nav-active-text: #2c5ea0;
@@ -388,11 +362,6 @@ html.theme-transitioning .accordion-icon {
   --green-bg: #4ade80;
   --green-text: #bbf7d0;
   --green-border: #16a34a;
-
-  /* Company curation indicators */
-  --curation-new: #2dd4bf;
-  --curation-updated: #fdba74;
-  --curation-live: #38bdf8;
 
   /* Nav active state */
   --nav-active-bg: color-mix(in srgb, var(--accent) 14%, var(--surface));
@@ -651,14 +620,6 @@ html.theme-transitioning .accordion-icon {
     );
     border-color: color-mix(in srgb, var(--border) 80%, transparent);
     font-weight: 500;
-  }
-
-  .curation-dot {
-    display: inline-block;
-    width: 0.5rem;
-    height: 0.5rem;
-    border-radius: 9999px;
-    border: 1px solid color-mix(in srgb, var(--border) 70%, transparent);
   }
 }
 

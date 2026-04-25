@@ -18,11 +18,7 @@ function renderLocations(
   container.hidden = false;
 
   if (actualLocations.length === 0) {
-    const chip = cloneTemplateRoot<HTMLElement>(templates["location-chip"]);
-    chip.textContent = "No Location";
-    chip.setAttribute("title", "No Location");
-    chip.classList.add("location-chip--empty");
-    container.append(chip);
+    container.hidden = true;
     return;
   }
 
@@ -127,39 +123,6 @@ function applyInterview(
   if (noInterview instanceof HTMLElement) noInterview.classList.add("hidden");
 }
 
-function applySourceIndicator(
-  root: ParentNode,
-  source: Company["source"],
-  curationStatus: Company["curationStatus"],
-) {
-  const el = root.querySelector("[data-company-source]");
-  if (!(el instanceof HTMLElement)) return;
-
-  const sr = root.querySelector("[data-company-source-sr]");
-  const srEl = sr instanceof HTMLElement ? sr : null;
-
-  const isLocal = source === "local";
-  el.classList.toggle("hidden", !isLocal);
-  if (srEl) srEl.classList.toggle("hidden", !isLocal);
-  if (!isLocal) {
-    el.style.removeProperty("background-color");
-    if (srEl) srEl.textContent = "";
-    return;
-  }
-
-  const status = curationStatus ?? "edited";
-  const tooltip =
-    status === "new"
-      ? "New entry (added locally)"
-      : "Edited entry (updated locally)";
-
-  el.setAttribute("title", tooltip);
-  if (srEl) srEl.textContent = tooltip;
-
-  el.style.backgroundColor =
-    status === "new" ? "var(--curation-new)" : "var(--curation-updated)";
-}
-
 function applyOfficialVerification(
   root: ParentNode,
   officiallyVerified: Company["officiallyVerified"],
@@ -199,7 +162,6 @@ export function createCompanyCardElement(
     employment.textContent = company.employmentType;
   }
 
-  applySourceIndicator(el, company.source, company.curationStatus);
   applyOfficialVerification(
     el,
     company.officiallyVerified,
@@ -246,7 +208,6 @@ export function createCompanyListItemElement(
     employment.textContent = company.employmentType;
   }
 
-  applySourceIndicator(el, company.source, company.curationStatus);
   applyOfficialVerification(
     el,
     company.officiallyVerified,

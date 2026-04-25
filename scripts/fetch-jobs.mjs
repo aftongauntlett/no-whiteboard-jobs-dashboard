@@ -54,9 +54,11 @@ function deriveEmploymentType(job) {
 }
 
 function deriveLocations(job) {
-  if (job.job_is_remote) return ["Remote"];
-  const parts = [job.job_city, job.job_state].filter(Boolean);
-  return parts.length > 0 ? [parts.join(", ")] : ["Unknown"];
+  const city = job.job_city || "";
+  const state = job.job_state || "";
+  const country = job.job_country || "";
+  const geo = [city, state].filter(Boolean).join(", ") || country;
+  return geo ? [geo] : [];
 }
 
 function normalize(job, fetchedAt) {
@@ -89,12 +91,18 @@ const fetchedAt = new Date().toISOString();
 const results = await Promise.all(queries.map(fetchJobs));
 const merged = results.flat();
 
-// Deduplicate by job_apply_link
-const seen = new Set();
+// Deduplicate by job_apply_link, then by employer_name (one card per company)
+const seenLinks = new Set();
+const seenNames = new Set();
 const deduped = merged.filter((job) => {
-  const key = job.job_apply_link;
-  if (!key || seen.has(key)) return false;
-  seen.add(key);
+  const link = job.job_apply_link;
+  if (!link || seenLinks.has(link)) return false;
+  seenLinks.add(link);
+
+  const name = (job.employer_name || "").toLowerCase().trim();
+  if (!name || seenNames.has(name)) return false;
+  seenNames.add(name);
+
   return true;
 });
 

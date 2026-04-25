@@ -2644,14 +2644,6 @@
     "interviewProcess": "A short phone screen with questions regarding general knowledge related to the open position, then a half day pair programming interview."
   },
   {
-    "id": "geosite",
-    "name": "Geosite",
-    "careersUrl": "https://www.geosite.io",
-    "locations": ["Remote"],
-    "employmentType": "Remote",
-    "interviewProcess": "Phone chat -> Take home project resembling the team focus -> Discussion about takehome & culture fit."
-  },
-  {
     "id": "ghost-inspector",
     "name": "Ghost Inspector",
     "careersUrl": "https://ghostinspector.com/jobs",
@@ -4676,14 +4668,6 @@
     "interviewProcess": "Take home exercise and/or pair programming session."
   },
   {
-    "id": "oncue",
-    "name": "Oncue",
-    "careersUrl": "https://oncue.co",
-    "locations": ["San Francisco, CA", "Remote"],
-    "employmentType": "Remote",
-    "interviewProcess": "Online coding test on real-world problems (2 hours). Technical discussion with developer team."
-  },
-  {
     "id": "onemain-financial",
     "name": "OneMain Financial",
     "careersUrl": "https://jobs.onemainfinancial.com",
@@ -4754,14 +4738,6 @@
     "locations": ["Washington, DC"],
     "employmentType": "In-office",
     "interviewProcess": "Take home exercise. Review your code onsite."
-  },
-  {
-    "id": "optum",
-    "name": "Optum",
-    "careersUrl": "https://www.optum.in/about/careers.html",
-    "locations": ["India, Hyderabad"],
-    "employmentType": "In-office",
-    "interviewProcess": "Online assessment, followed by technical interview and behavioural check"
   },
   {
     "id": "optum",
