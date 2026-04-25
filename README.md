@@ -3,6 +3,7 @@
 ![Astro](https://img.shields.io/badge/Astro-FF5D01?style=flat&logo=astro&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38BDF8?style=flat&logo=tailwindcss&logoColor=white)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/aftongauntlett/no-whiteboard-jobs-dashboard)
+![Lighthouse](https://img.shields.io/badge/Lighthouse-100%2F100-00C853?style=flat&logo=lighthouse&logoColor=white)
 
 Live site: https://no-wb.org/
 
