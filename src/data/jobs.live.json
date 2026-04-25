@@ -1,17 +1,45 @@
 [
   {
-    "id": "3jr9plxdoit7ktnlaaaaaa",
-    "name": "Engenious",
-    "jobTitle": "Frontend Engineer — San Francisco (Remote)",
-    "careersUrl": "https://bebee.com/us/jobs/frontend-engineer-san-francisco-remote-engenious-san-francisco-ca--theirstack-665154091",
+    "id": "aj-iqcd4tib27evhaaaaaa",
+    "name": "Notion",
+    "jobTitle": "Staff Frontend Engineer",
+    "careersUrl": "https://weworkremotely.com/remote-jobs/notion-staff-frontend-engineer",
     "locations": [
       "Remote"
     ],
     "employmentType": "Remote",
-    "interviewProcess": "About Engenious\n\nEngenious is a technology company building next-generation AI products that transform how people work, learn, and create.\nWe partner with fast-growing startups and global companies to design and scale intelligent systems — from AI-powered applications to full-stack platforms used by millions.\n\nOur team combines deep engineering expertise with product thinking to deliver solutions that are not just technically strong, but genuinely useful.\n\nAbout the Role\n\nWe’re looking for a Frontend Engineer to join our team and work on AI-driven products.\nIn this role, you will be working as part of an Engenious team embedded with one of our clients, a leading technology company building products used at global scale. You’ll collaborate closely with both Engenious and client-side teams to deliver high-impact solutions.\n\nYou’ll help build systems that support students throughout their writing journey — from drafting and citations to AI transparency and plagiarism detection.\n\nThis role combines frontend development with practical application of modern AI technologies, and you’ll be expected to actively work with AI-powered features as part of your day-to-day development.\n\nWhat You’ll Do\n\n• Contribute to end-to-end feature delivery on the frontend, ensuring high-quality user experiences in production.\n\n• Develop clean, intuitive user interfaces\n\n• Build and integrate AI-powered features into product workflows\n\n• Work with LLM-based systems and AI-driven services\n\n• Improve performance, reliability, and system architecture\n\n• Collaborate with product, design, and AI teams (both Engenious and client-side)\n\n• Contribute to technical decisions and engineering standards\n\n• Mentor engineers and support team growth\n\nWhat You’ll Work On\n\n• AI-powered writing and productivity tools\n\n• Systems for AI transparency and authorship clarity\n\n• Citation and attribution workflows\n\n• Plagiarism and AI-usage detection\n\n• Integrations with educational platforms and tools\n\nRequirements",
+    "interviewProcess": "Join Notion's engineering team to shape the future of collaborative productivity tools. You'll own large areas of our frontend architecture and mentor junior engineers.\n• 7+ years of frontend engineering experience\n• Deep expertise in React and TypeScript\n• Track record of leading complex technical initiatives",
     "source": "jsearch",
-    "postedAt": "2026-04-16T00:00:00.000Z",
-    "fetchedAt": "2026-04-19T23:17:30.636Z"
+    "postedAt": "2026-04-21T00:00:00.000Z",
+    "fetchedAt": "2026-04-25T19:14:51.686Z"
+  },
+  {
+    "id": "vfbk7f8axyojfomraaaaaa",
+    "name": "Toptal",
+    "jobTitle": "Remote Front End Developer Job for Two-Sided Marketplace (Part-time)",
+    "careersUrl": "https://www.toptal.com/freelance-jobs/developers/front-end/remote-front-end-developer-job-for-two-sided-marketplace-part-time-90",
+    "locations": [
+      "Remote"
+    ],
+    "employmentType": "Remote",
+    "interviewProcess": "We are a two-sided marketplace looking to hire developers to speed up our product launch. We need a front-end web developer who will combine the art of design with the art of programming. This hire will translate UI/UX design wireframes to code and build visual elements of the application.\n\nDesign your lifestyle as a full-time freelancer, with the freedom to work however, wherever, on your terms.\n\nAbout Toptal:\n\nFreelance work is defining the careers of today’s Developers in exciting new ways. If you’re passionate about working flexibly with leading Fortune 500 brands and innovative Silicon Valley startups, Toptal could be a great fit for your next career shift.\n\nToptal is an elite talent network for the world’s top 3% of Developers, connecting the best and brightest freelancers with top organizations. Unlike a 9-to-5 job, you’ll choose your own schedule and work from anywhere. Jobs come to you, so you won’t bid for projects against other freelancers in a race to the bottom. Plus, Toptal takes care of all the overhead, empowering you to focus on successful engagements while getting paid on time, at the rate you decide, every time.\n\nAs a freelancer, you could join an ever-expanding community of experts in over 120 countries, working remotely on the projects that meet your career ambitions.\n\nThat’s why the world’s top 3% of Developers choose Toptal. Developers in our elite network share:\n\nRequirements:\n\n• English language proficiency\n\n• At least 3 years of professional experience\n\n• Experience with system architecture or leading a software team is a strong advantage\n\n• Full-time availability is a strong advantage\n\n• Project management skills\n\n• A keen attention to detail\n\nIf you’re ready for a career shift to impactful freelance work, take the next step by applying today!",
+    "source": "jsearch",
+    "postedAt": "2026-04-23T00:00:00.000Z",
+    "fetchedAt": "2026-04-25T19:14:51.686Z"
+  },
+  {
+    "id": "vwss-x8yxxqdxdy4aaaaaa",
+    "name": "Epoch AI",
+    "jobTitle": "Remote React Front-End Engineer (5+ yrs)",
+    "careersUrl": "https://www.jobleads.com/us/job/remote-react-front-end-engineer-5-yrs--united-states--e71d5de9334bc0746e45d3a61eec7596e",
+    "locations": [
+      "Remote"
+    ],
+    "employmentType": "Remote",
+    "interviewProcess": "A tech company is seeking a full-time web developer to support a frontier data centers project. This role focuses on implementing front-end designs and coordinating with data teams to enhance website interactivity. Candidates should have five years of experience in web development with strong skills in TypeScript, JavaScript, and React. A fully remote work environment is offered, with flexible hours and hourly compensation ranging from $35 to $50 USD.",
+    "source": "jsearch",
+    "postedAt": "2026-04-18T00:00:00.000Z",
+    "fetchedAt": "2026-04-25T19:14:51.686Z"
   },
   {
     "id": "o9rdo3ep9xpcaprwaaaaaa",
@@ -24,232 +52,638 @@
     "employmentType": "Remote",
     "interviewProcess": "Description\n\nAs a Frontend Engineer at Wordly, you will build and improve user experiences that help customers effectively use Wordly’s real-time translation features across our applications.\nJoin Wordly's fast growing global team!\n\nDescription\n\nAs a Frontend Engineer at Wordly, you will build and improve user experiences that help customers effectively use Wordly’s real-time translation features across our applications.\n\nThis is an individual contributor role focused on hands-on implementation. You will work from product requirements, UI designs, and established technical direction to build new features, improve existing applications, and contribute reusable UI components that support a consistent frontend experience across the platform.\n\nWe are looking for someone who can work independently from clear requirements and contribute effectively within a fully remote team. Strong experience with either React or Angular frameworks is required, and exposure to the other is a plus. You should also be comfortable writing tests, integrating with backend APIs, and using AI-assisted development tools effectively and responsibly as part of day-to-day engineering work.\n\nMinimum Qualifications\n\n• 3+ years of hands-on experience building frontend applications from product requirements\n• Strong understanding of React and common React development patterns, or Angular, including common RxJS patterns; experience with both is a plus\n• Strong knowledge of JavaScript and TypeScript\n• Experience writing and maintaining frontend tests, including unit tests, with tools such as Jest, React Testing Library, Jasmine, or similar\n• Experience integrating frontend applications with backend APIs\n• Experience using AI-assisted development tools such as GitHub Copilot, Cursor, Windsurf, Claude Code, or similar, and comfort using them effectively and responsibly\n• Experience working in modern software development workflows, including version control and code review practices\n• Comfortable working wi",
     "source": "jsearch",
-    "postedAt": "2026-04-14T00:00:00.000Z",
-    "fetchedAt": "2026-04-19T23:17:30.636Z"
+    "postedAt": "2026-04-21T00:00:00.000Z",
+    "fetchedAt": "2026-04-25T19:14:51.686Z"
   },
   {
-    "id": "azlkhf3colmprrbfaaaaaa",
-    "name": "Hirevector",
-    "jobTitle": "[Remote] Frontend Developer | $80/hr Remote",
-    "careersUrl": "https://hirevector.liveblog365.com/job/remote-frontend-developer-80-hr-remote",
+    "id": "nlkfef04p2tgv44vaaaaaa",
+    "name": "Crossing Hurdles",
+    "jobTitle": "Frontend Engineer - AI Quality & Testing | $42/hr Remote",
+    "careersUrl": "https://bebee.com/us/jobs/frontend-engineer-ai-quality-testing-42-hr-remote-crossing-hurdles--theirstack-667876762",
     "locations": [
       "Remote"
     ],
     "employmentType": "Remote",
-    "interviewProcess": "Note: The job is a remote job and is open to candidates in USA. Crossing Hurdles is seeking a Software Engineer – Frontend to create high-quality prompts for client-side applications and contribute to AI training tasks. The role involves collaborating with teams to ensure the quality and consistency of frontend development scenarios.\n\nResponsibilities\n• Create high-quality, self-contained prompts for client-side web applications, games, tools, and simulations\n• Build precise, binary evaluation rubrics tagged by verification type for frontend AI training tasks\n• Ensure all rubric criteria are pass or fail and verifiable via screenshot and code inspection\n• Apply frontend engineering expertise to train AI models on real-world UI correctness, interactivity, state management, and robustness\n• Contribute to structured datasets that improve AI performance on client-side development scenarios\n• Collaborate asynchronously with research and engineering teams to refine task quality and consistency\n\nSkills\n• Strong experience in frontend or full-stack development or technical content creation\n• Bachelor's degree in Software Engineering, Computer Science, or a related field\n• Strong proficiency in JavaScript, TypeScript, React, or vanilla JavaScript\n• Ability to write precise technical specifications and evaluation criteria\n• Strong attention to detail and comfort working with verification-driven workflows\n• Ability to work independently in a fully remote, project-based environment\n\nCompany Overview\n• At Crossing Hurdles, we specialise in customised recruitment and staffing solutions designed to drive success for businesses and professionals. It was founded in 2022, and is headquartered in , with a workforce of 11-50 employees. Its website is https://www.crossinghurdles.com/.\n\nApply tot his job\n\nApply To this Job",
+    "interviewProcess": "Position:\nJunior Software Engineer – AI Quality & Testing\n\nType:\nHourly contract\n\nCompensation:\n$30 - $42/hour\nLocation:\nRemote\n\nCommitment:\n10–40 hours/week\nRole Responsibilities\n\n• Test and evaluate AI-powered web and mobile products with a focus on video generation.\n\n• Write detailed test cases and document bugs, edge cases, and product issues.\n\n• Contribute code improvements and fixes to TypeScript-based projects.\n\n• Analyze user feedback to identify product improvement opportunities.\n\n• Collaborate with cross-functional teams across engineering, product, and operations.\n\n• Apply structured quality engineering practices to enhance product performance.\n\n• Maintain organized documentation of testing processes and findings.\n\nRequirements\n\n• Bachelor’s degree in Computer Science, Software Engineering, or equivalent experience.\n\n• Strong proficiency in TypeScript with experience contributing to production codebases.\n\n• Demonstrated portfolio of self-built projects.\n\n• Ability to navigate and contribute to complex codebases.\n\n• Strong analytical skills with attention to detail.\n\n• Interest in AI tools and video generation technologies.\n\n• Ability to work independently in a remote, collaborative environment.\n\nApplication Process (Takes 20 Min)\n\n• Easy Apply on LinkedIn\n\n• Check email for next steps\n\n• Participate in resume evaluation & interview stage",
     "source": "jsearch",
-    "postedAt": "2026-04-17T00:00:00.000Z",
-    "fetchedAt": "2026-04-19T23:17:30.636Z"
+    "postedAt": "2026-04-21T00:00:00.000Z",
+    "fetchedAt": "2026-04-25T19:14:51.686Z"
   },
   {
-    "id": "rx5ohkvgdwicnh6aaaaaaa",
+    "id": "bty741z3qed0wjt6aaaaaa",
+    "name": "24-MAG",
+    "jobTitle": "Remote | Frontend Engineer Talent Network — $110–$170/hour",
+    "careersUrl": "https://24-mag.careers-page.com/jobs/5db161e5-7021-4f99-a1c0-b92761e568d1",
+    "locations": [
+      "Remote"
+    ],
+    "employmentType": "Remote",
+    "interviewProcess": "We are sharing a specialised part-time consulting opportunity for experienced Frontend Engineers to join an expert network supporting current and upcoming remote consulting opportunities.\n\nThis role supports structured technical workflows focused on frontend development, technical evaluation, and high-quality project execution. Selected professionals will apply their frontend engineering expertise to create real-world development tasks, review and refine technical outputs, provide structured feedback, follow technical instructions with precision, and contribute to high-quality technical deliverables.\n\nKey Responsibilities\n\nProfessionals in this role may contribute to:\n\nFrontend Evaluation & Technical Review\n\n• Evaluate frontend code implementations and user interface workflows\n• Identify issues in technical outputs related to UI behavior, responsiveness, and frontend architecture\n• Provide structured feedback to improve quality, reliability, and performance across frontend tasks\n\nFrontend Development Tasks\n\n• Create real-world frontend engineering scenarios and coding tasks\n• Contribute examples involving modern JavaScript frameworks and responsive UI development\n• Review and refine code related to frontend architecture, maintainability, and performance optimization\n\nTechnical Expertise & Collaboration\n\n• Provide expert insights on frontend engineering best practices\n• Support structured project workflows involving frontend development and technical review\n• Help improve the accuracy and reliability of technical deliverables across frontend-focused work\n\nIdeal Profile\n\nStrong candidates may have:\n\n• Professional experience in modern JavaScript frameworks such as React, Vue, or Angular\n• Strong understanding of responsive UI development using HTML and CSS\n• Experience with state management, performance optimization, and frontend architecture\n• Ability to communicate technical concepts clearly and effectively\n• Experience working independently in remote or distributed",
+    "source": "jsearch",
+    "postedAt": "2026-04-21T00:00:00.000Z",
+    "fetchedAt": "2026-04-25T19:14:51.686Z"
+  },
+  {
+    "id": "uyfcutwndb3uaufjaaaaaa",
+    "name": "Jobs via Dice",
+    "jobTitle": "Web Developer(AEM)",
+    "careersUrl": "https://www.linkedin.com/jobs/view/web-developer-aem-at-jobs-via-dice-4404111141",
+    "locations": [
+      "Remote"
+    ],
+    "employmentType": "Remote",
+    "interviewProcess": "Dice is the leading career destination for tech experts at every stage of their careers. Our client, Cloudpaths, is seeking the following. Apply via Dice today!\n\nPosition: Web Developer(AEM)\n\nLocation: Remote\n\nDuration: Long Term Contract\n\nResponsibilities\n\n• Develop, maintain, and enhance responsive web applications using HTML, CSS, JavaScript, and AngularJS.\n• Build and customize AEM templates, components, workflows, and content fragments to support scalable digital experiences.\n• Collaborate with UX/UI designers, product owners, and backend teams to deliver high‑quality features end‑to‑end.\n• Integrate front‑end components with backend services and APIs, ensuring optimized performance and reliability.\n• Troubleshoot, debug, and resolve application defects, ensuring adherence to best practices and coding standards.\n\nQualifications\n\n• Strong proficiency in HTML5, CSS3, JavaScript, and experience with AngularJS or similar front‑end frameworks.\n• Hands‑on experience working with Adobe Experience Manager (AEM), including templates, components, workflows, and content fragments.\n• Understanding of full‑stack development, including REST APIs, version control (Git), and build/deployment pipelines.\n• Ability to work cross‑functionally and translate business requirements into technical specifications.\n• Strong problem‑solving skills and ability to work in an Agile or iterative development environment.\n\nPrashant Mishra\n\nSr. IT Recruiter",
+    "source": "jsearch",
+    "postedAt": "2026-04-24T00:00:00.000Z",
+    "fetchedAt": "2026-04-25T19:14:51.686Z"
+  },
+  {
+    "id": "exhae6eookvlndp6aaaaaa",
+    "name": "Hostaway",
+    "jobTitle": "Senior Frontend Engineer, Communications - 100% Remote - EMEA",
+    "careersUrl": "https://jobgether.com/offer/69e60e6dc646310ee394aba0-senior-frontend-engineer-communications---100-remote---emea",
+    "locations": [
+      "Remote"
+    ],
+    "employmentType": "Remote",
+    "interviewProcess": "This a Full Remote job, the offer is available from: EMEA\nNOTE: This is a FULLY remote role, but the candidate must be within EMEA to collaborate with their team, peers, and internal customers. You do not have to be in the specific country or city shown in this listing, but please only apply if you are physically based within EMEA.\n\nTrusted by 20,000+ property managers worldwide, Hostaway is an industry leading, AI-powered vacation rental management platform designed for professional short-term rental operators. Hostaway brings everything together for greater efficiency and faster growth.\n\nProfitable, high-growth, and the first short-term rental PMS unicorn 🦄. Join us at our most exciting stage yet! Learn more about our recent valuation and story here.\n\nAbout the role\nAs a Senior Frontend Engineer at Hostaway, you'll take ownership of building and evolving the interfaces that our customers rely on every day. You'll be a key contributor to our frontend architecture, working in close collaboration with Product, Design, and Backend teams to deliver intuitive, high-performance experiences at scale.\n\nYour responsibility won't end at release - you'll monitor software in production, troubleshoot issues, and drive ongoing improvements to performance, stability, and user experience. Beyond shipping features, you'll help raise the bar across the team through code reviews, mentorship, and technical leadership.\n\nResponsibilities\n• Design, build, and maintain scalable, high-quality UI components, features, and reusable libraries that support our design system.\n\n• Develop intuitive, performant, accessible, and responsive user experiences across browsers and devices.\n\n• Build and maintain frontend integrations with backend services, including REST APIs, webhooks, and WebSocket-based real-time functionality.\n\n• Identify, troubleshoot, and resolve complex frontend issues, including memory leaks, performance bottlenecks, and production bugs.\n\n• Define, present, and lead relevant tec",
+    "source": "jsearch",
+    "postedAt": "2026-04-20T00:00:00.000Z",
+    "fetchedAt": "2026-04-25T19:14:51.686Z"
+  },
+  {
+    "id": "ateyus7cguk6o-taaaaaaa",
+    "name": "Notion",
+    "jobTitle": "Staff Frontend Engineer",
+    "careersUrl": "https://remotejobs.org/remote-jobs/staff-frontend-engineer-notion",
+    "locations": [
+      "Remote"
+    ],
+    "employmentType": "Remote",
+    "interviewProcess": "Headquarters: Remote\n\nURL: https://notion.so\n\nJoin Notion's engineering team to shape the future of collaborative productivity tools. You'll own large areas of our frontend architecture and mentor junior engineers.\n• 7+ years of frontend engineering experience\n• Deep expertise in React and TypeScript\n• Track record of leading complex technical initiatives\n\nTo apply: https://weworkremotely.com/remote-jobs/notion-staff-frontend-engineer",
+    "source": "jsearch",
+    "postedAt": "2026-04-21T00:00:00.000Z",
+    "fetchedAt": "2026-04-25T19:14:51.686Z"
+  },
+  {
+    "id": "ck5lfwvqoeiuwru2aaaaaa",
+    "name": "Veeva Systems",
+    "jobTitle": "Frontend Engineer – React (Remote) – United Kingdom – London",
+    "careersUrl": "https://up2staff.com/react-frontend-kingdom-engineer-united-at-veeva-systems",
+    "locations": [
+      "Remote"
+    ],
+    "employmentType": "Remote",
+    "interviewProcess": "Veeva Systems is a mission-driven organization and pioneer in industry cloud, helping life sciences companies bring therapies to patients faster. As one of the fastest-growing SaaS companies in history, we surpassed $2B in revenue in our last fiscal year with extensive growth potential ahead.\n\nAt the heart of Veeva are our values: Do the Right Thing, Customer Success, Employee Success, and Speed. We’re not just any public company – we made history in 2021 by becoming a public benefit corporation (PBC), legally bound to balancing the interests of customers, employees, society, and investors.\n\nAs a Work Anywhere company, we support your flexibility to work from home or in the office, so you can thrive in your ideal environment.\n\nJoin us in transforming the life sciences industry, committed to making a positive impact on its customers, employees, and communities.\n\nThe Role\n\nVeeva Link seeks a mid-to-senior level Front End Engineer (React) that will participate in all aspects of architecting and developing new and innovative web applications. You will have the opportunity to work on cutting-edge technology and new product development in an established company that is rapidly growing. This is a great opportunity for an engineer looking to expand their well-established career, who is excited about search, solving complex problems, ownership, and who enjoys working with technologies like React, Python, AWS, and Elasticsearch.\n\nYou have to be based in the UK and be eligible for employment in the UK, as Veeva does not sponsor employment visa/permit processes for this opportunity.\n\nWhat You’ll Do\n\n• Build scalable web applications utilizing open-source tools and technologies\n\n• Use REST and GraphQL APIs\n\n• Be able to work independently while communicating progress to other members of the team\n\n• Lead the technical planning, user story and technical acceptance creation, and coding\n\n• Identify and correct complex bugs and problems\n\n• Plan technical architectures that minimize o",
+    "source": "jsearch",
+    "postedAt": "2026-04-21T00:00:00.000Z",
+    "fetchedAt": "2026-04-25T19:14:51.686Z"
+  },
+  {
+    "id": "uarzlueaa9gy5rgtaaaaaa",
+    "name": "Skylight",
+    "jobTitle": "Senior Frontend Engineer – Contract",
+    "careersUrl": "https://www.remoterocketship.com/company/skylightframe/jobs/senior-frontend-engineer-contract-united-states-remote/",
+    "locations": [
+      "Remote"
+    ],
+    "employmentType": "Remote",
+    "interviewProcess": "Job Description:\n• Build and maintain high-quality, performant front-end applications\n• Develop SSR-based web experiences with a strong focus on speed, scalability and SEO\n• Integrate and manage content-driven experiences using a headless CMS such as Sanity or similar platforms\n• Partner closely with Product, Design and Engineering to deliver user-facing features from concept to launch\n• Translate design and content requirements into reusable, maintainable front-end components\n• Improve site performance, accessibility and overall user experience\n• Help define front-end best practices, architecture and development standards\n• Support experimentation, testing and optimization across web experiences\n\nRequirements:\n• 5+ years of front-end engineering experience\n• Strong experience with SSR frameworks such as React Router V7\n• Strong experience integrating with headless CMS platforms, especially Sanity or similar tools\n• Experience with Shopify, ecommerce storefronts or content-commerce integrations\n• Experience building reusable component systems and scalable front-end architecture\n• Strong understanding of performance optimization, SEO and web accessibility\n• Ability to work independently, take ownership and drive projects forward\n• Strong communication and collaboration skills in cross-functional environments\nNice to have\n• Familiarity with A/B testing, analytics and conversion-focused product development\n• Experience with modern deployment platforms such as Netlify or similar\n• Experience working in fast-moving startup or growth-stage teams\n\nBenefits:\nHourly Contract Role.",
+    "source": "jsearch",
+    "postedAt": "2026-04-20T00:00:00.000Z",
+    "fetchedAt": "2026-04-25T19:14:51.686Z"
+  },
+  {
+    "id": "t8-lfwg2vctbozldaaaaaa",
     "name": "AiDOOS",
-    "jobTitle": "Remote Front End Engineer",
-    "careersUrl": "https://aidoos.com/remote-jobs/remote-front-end-engineer/",
+    "jobTitle": "Web Frontend Engineer Role",
+    "careersUrl": "https://aidoos.com/remote-jobs/web-frontend-engineer-role-25882/",
     "locations": [
       "Remote"
     ],
     "employmentType": "Remote",
-    "interviewProcess": "We are seeking a talented Front End Engineer to join our team remotely. This position requires a strong understanding of modern web technologies and a passion for creating intuitive user interfaces.\n\nKey Responsibilities\n\nDevelop and maintain user-friendly web applications.\n…",
+    "interviewProcess": "Canonical is seeking a Web/UI Engineer to develop a data-rich and reliable user experience for our enterprise products using JS, CSS, React, and Flutter. This role offers the opportunity to work on open-source projects that prioritize performance and accessibility.\n\nKey Responsibilities\n…",
     "source": "jsearch",
-    "postedAt": "2026-04-13T00:00:00.000Z",
-    "fetchedAt": "2026-04-19T23:17:30.636Z"
+    "postedAt": "2026-04-22T00:00:00.000Z",
+    "fetchedAt": "2026-04-25T19:14:51.686Z"
   },
   {
-    "id": "oaojumu3li-lcqcbaaaaaa",
-    "name": "Toptal",
-    "jobTitle": "Remote Front End Developer Job for Two-Sided Marketplace (Part-time)",
-    "careersUrl": "https://www.toptal.com/freelance-jobs/developers/front-end/remote-front-end-developer-job-for-two-sided-marketplace-part-time-90",
+    "id": "lpbayezz0bf3ceibaaaaaa",
+    "name": "Blaze Talent",
+    "jobTitle": "Frontend Engineer @ Casino Gaming Startup | Series A | $140-160k Base",
+    "careersUrl": "https://jobs.gem.com/blazetalent/am9icG9zdDrpefSJpDF3VaLa4qvokI8q",
     "locations": [
       "Remote"
     ],
     "employmentType": "Remote",
-    "interviewProcess": "We are a two-sided marketplace looking to hire developers to speed up our product launch. We need a front-end web developer who will combine the art of design with the art of programming. This hire will translate UI/UX design wireframes to code and build visual elements of the application.\n\nDesign your lifestyle as a full-time freelancer, with the freedom to work however, wherever, on your terms.\n\nAbout Toptal:\n\nFreelance work is defining the careers of today’s Developers in exciting new ways. If you’re passionate about working flexibly with leading Fortune 500 brands and innovative Silicon Valley startups, Toptal could be a great fit for your next career shift.\n\nToptal is an elite talent network for the world’s top 3% of Developers, connecting the best and brightest freelancers with top organizations. Unlike a 9-to-5 job, you’ll choose your own schedule and work from anywhere. Jobs come to you, so you won’t bid for projects against other freelancers in a race to the bottom. Plus, Toptal takes care of all the overhead, empowering you to focus on successful engagements while getting paid on time, at the rate you decide, every time.\n\nAs a freelancer, you could join an ever-expanding community of experts in over 120 countries, working remotely on the projects that meet your career ambitions.\n\nThat’s why the world’s top 3% of Developers choose Toptal. Developers in our elite network share:\n\nRequirements:\n\n• English language proficiency\n\n• At least 3 years of professional experience\n\n• Experience with system architecture or leading a software team is a strong advantage\n\n• Full-time availability is a strong advantage\n\n• Project management skills\n\n• A keen attention to detail\n\nIf you’re ready for a career shift to impactful freelance work, take the next step by applying today!",
+    "interviewProcess": "Job Title: Senior Frontend Software Engineer\nLocation: Remote in the US (EST hours)\nEmployment Type: Full-Time\n\nAbout the Company:\nWe’re working with a fast-scaling, venture-backed startup in the gaming space that’s building an entirely new kind of social online experience — combining real-time interaction, multiplayer features, and creator-driven communities into one unified platform. With a recent $15M Series A, they’re well-capitalized and moving quickly to deliver unique, player-first experiences that are reshaping how people engage with online games.\nThis is an opportunity to join a high-caliber team at an early stage, where you’ll play a key role in shaping the frontend experience for a product used by a growing and highly engaged user base.\n\nWhat You’ll Do:\n• Build and ship responsive, performant web features in a modern frontend framework (Svelte/SvelteKit preferred, React or Vue acceptable)\n• Collaborate closely with designers and product managers to bring high-fidelity designs to life\n• Review code, shape engineering standards, and promote best practices across the frontend stack\n• Design and deliver user-facing components that will scale to serve thousands of concurrent users\n• Own features end-to-end — from concept to deployment\n\nWhat We’re Looking For:\n• 4+ years of professional experience in frontend engineering\n• Proficient in JavaScript/TypeScript and familiar with frameworks like Svelte/SvelteKit, React/Next.js, or Vue/Nuxt.js\n• Skilled in implementing Figma designs with precision and responsiveness\n• Familiar with tools like Vite, TailwindCSS, REST APIs, Git/GitHub, and testing frameworks such as Vitest or Jest\n• Strong communicator who thrives in a fast-paced, remote-first environment\n• Experience in gaming, fintech, or consumer-facing platforms is a strong plus\n\nInterview Process:\n• Round 1: 75 minute live coding session to build a simple interactive web app in Svelte/SvelteKit\n• Round 2: 45 minute call for technical conversation\n• Final Round: 3",
     "source": "jsearch",
-    "postedAt": "2026-04-17T00:00:00.000Z",
-    "fetchedAt": "2026-04-19T23:17:30.636Z"
+    "postedAt": "2026-04-20T00:00:00.000Z",
+    "fetchedAt": "2026-04-25T19:14:51.686Z"
   },
   {
-    "id": "ueu9ctdr01jndojwaaaaaa",
-    "name": "Bold+Beyond",
-    "jobTitle": "Front-End Engineer - US Remote Contractor",
-    "careersUrl": "https://bebee.com/us/jobs/front-end-engineer-us-remote-contractor-boldbeyond--theirstack-664323666",
-    "locations": [
-      "Remote"
-    ],
-    "employmentType": "Remote",
-    "interviewProcess": "About Bold+Beyond\n\nBold+Beyond is a growing consulting and digital agency in search of an experienced Front-End Engineer. We’re looking for someone interested in working with talented team members, exciting clients, and developing digital products.\nWe are thrived to provide some of the most influential brands in the world from Fortune 500 companies to some of the world’s fastest-growing startups (like HUM Nutrition, Privé Revaux, SureSale, Agnetix, and Clay AIR).\n\nWe’re looking for someone that shares our values, wants to be a part of something that is growing, and loves bringing award-winning user experiences to life for customers. We want to design and build beautiful, technically sound websites. We’re looking for new teammates that are positive, love supporting their colleagues, and want to have the opportunity to spread their wings when the opportunity presents itself.\n\nLocation: Los Angeles | Remote Options\n\nHours: Full-Time or Contractor\n\nStart Date: Immediate\n\nResponsibilities\n\n• Joining our Digital Product team.\n\n• Working with UX and UI designers to produce tight, forward-thinking, responsive, and scalable front-end experiences.\n\n• Building out digital platforms that are performant and with exceptional user experience.\n\n• Building out custom WordPress websites with our internal tools and framework.\n\n• Building out tailor-made web applications answering our clients’ technological needs.\n\n• Deploying and maintaining websites with Automated deploys on VPS servers or manually through FTP and SSH tunnels.\n\n• Working with Project Management to scope new functionality requests and supporting Sales to scope new projects.\n\n• Working with our Technical Director, to always provide our clients with cutting-edge technology and efficient technical solutions.\n\n• Intense passion and strong desire to be successful in the field of web development or programming.\n\n• Ability to move between customer projects, understand business needs that drive features, and be consultative t",
-    "source": "jsearch",
-    "postedAt": "2026-04-15T00:00:00.000Z",
-    "fetchedAt": "2026-04-19T23:17:30.636Z"
-  },
-  {
-    "id": "mba6yeeswdipkqmtaaaaaa",
-    "name": "Unity Technologies",
-    "jobTitle": "Remote Frontend Engineer — Real-Time Canvas & 3D Tools",
-    "careersUrl": "https://www.jobleads.com/us/job/remote-frontend-engineer-real-time-canvas-3d-tools--united-states--e250e122688ff2d2eb7a1204cac610d81",
-    "locations": [
-      "Remote"
-    ],
-    "employmentType": "Remote",
-    "interviewProcess": "A leading tech company is looking for a Software Engineer for their SyncSketch team. This fully remote position focuses on frontend development in a dynamic environment, working on innovative web interfaces and real-time drawing features. Candidates should have expertise in Vue.js, JavaScript, and WebSockets, with a passion for the creative industries. The role offers a salary range of $92,400 to $138,600, along with various benefits geared toward well-being and work-life balance.",
-    "source": "jsearch",
-    "postedAt": "2026-04-17T00:00:00.000Z",
-    "fetchedAt": "2026-04-19T23:17:30.636Z"
-  },
-  {
-    "id": "jlkxznv6amntgc9oaaaaaa",
-    "name": "Jobflarely",
-    "jobTitle": "Frontend Engineer - React (USA only - 100% Remote)",
-    "careersUrl": "https://jobflarely.liveblog365.com/job/frontend-engineer-react-usa-only-100-remote",
-    "locations": [
-      "Remote"
-    ],
-    "employmentType": "Remote",
-    "interviewProcess": "About Us\n\nSince 2013, we've been building a CRM that gets out of our customers' way and helps teams sell more, faster. No manual data entry, just communication-first sales software designed to help SMBs succeed and scale.\n\nWe're bootstrapped and profitable which means we answer to our customers and play by our own rules. We're proud of our ~120 person, 100% remote team of thoughtful individuals who prioritize taking ownership and making a meaningful impact.\n\nOur Engineering team has grown to 50+ members across Frontend, Backend, and Infrastructure. We prioritize craftsmanship and collaboration. We're committed to shipping the things that matter to our customers in the most thoughtful, scalable, and innovative ways possible.\n\nOur app's frontend is a single-page TypeScript web app mostly written in React (originally built with Backbone.js). Our mobile app is built using React Native. We bundle with Vite and target only modern browsers. We test with Vitest, React Testing Library, Playwright, and Chromatic for VRT. Our UI updates in near real-time, is styled via CSS modules, and takes advantage of fun technologies like Websockets and WebRTC.\n\nWe care about performance (e.g. route-based code splitting or skeleton UI), maintainability, and testability of our frontend code. We sweat the UI/UX details and work collaboratively with the Product team throughout the design process. This means diving into lo-fi wireframes, and communicating continuously when those ideas are brought to life using Figma and code. We've built our own design system, for which we have created an extensive Storybook to explore and test.\n\nOur frontend app is built on top of our REST API & GraphQL endpoints. Our backend tech stack consists of Python/Flask, MongoDB, Postgres, Elasticsearch, and Redis. We run our services in Docker on AWS.\n\nWe ♥ open sourcing our code and ideas on our GitHub and on The Making of Close, our behind-the-scenes Product & Engineering blog. Check our projects such as react-cust",
-    "source": "jsearch",
-    "postedAt": "2026-04-14T00:00:00.000Z",
-    "fetchedAt": "2026-04-19T23:17:30.636Z"
-  },
-  {
-    "id": "q4rbe5bltfymzpddaaaaaa",
-    "name": "Outlive",
-    "jobTitle": "[Remote] Frontend Engineer - Mobile (React Native)",
-    "careersUrl": "https://jobright.ai/jobs/info/69711b9f51f72647718354ec",
-    "locations": [
-      "Remote"
-    ],
-    "employmentType": "Remote",
-    "interviewProcess": "Note: The job is a remote job and is open to candidates in USA. Outlive is a company focused on building a mobile-first digital health experience aimed at long-term risk reduction and personalized longevity guidance. The Mobile Frontend Engineer will be responsible for developing and evolving the React Native application, ensuring high-quality user experiences and collaborating closely with product, design, and backend teams.\n\nResponsibilities\n• Build and maintain a high-quality React Native (Expo) mobile application for iOS and Android\n• Implement complex, stateful user experiences using Tamagui, expo-router, and TanStack Query\n• Integrate with REST APIs and custom authentication hooks backed by Firebase and our backend identity layer\n• Design and implement offline-first and background sync behaviors for daily health data and scoring\n• Integrate mobile-specific services including:\n• Push notifications (@react-native-firebase/messaging, Notifee)\n• Payments (@stripe/stripe-react-native)\n• Analytics (PostHog)\n• Error tracking (Sentry)\n• Ensure accessibility best practices are followed across mobile surfaces\n• Collaborate closely with product, design, and backend engineers to ship iteratively and safely\n• Participate in CI/CD workflows using EAS and GitHub Actions\n• Implement, maintain, and enhance behavior testing suites to identify and prevent product regression\n\nSkills\n• 4+ years of professional frontend or mobile development experience\n• 3+ years of iOS development experience\n• 2+ years of hands-on React Native experience\n• Strong understanding of React hooks, async data flows, and state management\n• Experience integrating REST APIs and handling auth flows securely\n• Familiarity with mobile testing strategies (Jest, Detox, or equivalent)\n• Strong attention to UX quality, performance, and reliability\n• Familiarity with native iOS and Android SDKs\n• Experience implementing offline sync or background tasks\n• Experience with health, wellness, or regulated applications",
-    "source": "jsearch",
-    "postedAt": "2026-04-13T00:00:00.000Z",
-    "fetchedAt": "2026-04-19T23:17:30.636Z"
-  },
-  {
-    "id": "jgd-ktowrkifnxvqaaaaaa",
+    "id": "cahcpwjdinj-6ccbaaaaaa",
     "name": "Hostaway",
     "jobTitle": "Principal FrontEnd Engineer - 100% Remote - EMEA",
-    "careersUrl": "https://jobgether.com/offer/69df76edc646310ee38f2ec8-principal-frontend-engineer---100-remote---emea",
+    "careersUrl": "https://jobgether.com/offer/69e60e6fc646310ee394ac31-principal-frontend-engineer---100-remote---emea",
     "locations": [
       "Remote"
     ],
     "employmentType": "Remote",
     "interviewProcess": "This a Full Remote job, the offer is available from: EMEA\nNOTE: This is a FULLY remote role, but the candidate must be within EMEA to collaborate with their team, peers, and internal customers. You do not have to be in the specific city shown in this listing, but please only apply if you are physically based within EMEA.\n\nTrusted by 20,000+ property managers worldwide, Hostaway is an industry leading, AI-powered vacation rental management platform designed for professional short-term rental operators. Hostaway brings everything together for greater efficiency and faster growth.\n\nProfitable, high-growth, and the first short-term rental Property Management System unicorn 🦄. Join us at our most exciting stage yet! Learn more about our recent valuation and story here.\n\nAs Principal Frontend Engineer, you will define and drive the organization-wide frontend vision - shaping our design system, developer experience, accessibility standards, and frontend architecture. You’ll partner with Product, Design, and Engineering leadership to ensure our platform scales seamlessly while empowering teams to deliver user experiences that set a new standard for quality.\n\nResponsibilities:\n• Define and evolve the frontend architectural vision: design systems, micro-frontends, developer tooling, and long-term scalability.\n\n• Lead cross-organization frontend initiatives, influencing multiple teams and aligning technical direction with product strategy.\n\n• Establish and champion standards for accessibility, performance, and usability across the company but specifically our front-end community\n\n• Mentor and grow technical leaders, raising the bar for frontend engineering excellence.\n\n• Partner with Product, Design, and Engineering to deliver cohesive, scalable, and customer-centric solutions.\n\n• Identify and drive tech debt remediation to ensure frontend scalability and maintainability.\n\n• Influence executive-level decisions on frontend technology strategy.\n\nThis offer from \"Hostaway\" has b",
     "source": "jsearch",
-    "postedAt": "2026-04-15T00:00:00.000Z",
-    "fetchedAt": "2026-04-19T23:17:30.636Z"
+    "postedAt": "2026-04-20T00:00:00.000Z",
+    "fetchedAt": "2026-04-25T19:14:51.686Z"
   },
   {
-    "id": "p77nxqwryq3a-rxraaaaaa",
-    "name": "Trebecon LLC",
-    "jobTitle": ".Net Full Stack Developer | 100% Remote | W2 Profiles",
-    "careersUrl": "https://www.dice.com/job-detail/17214d22-a3af-4c2b-ae74-a5d7e56f7b88",
+    "id": "cwl5amg4rcebts4waaaaaa",
+    "name": "Remotely",
+    "jobTitle": "Remote-First React Frontend Engineer (TypeScript)",
+    "careersUrl": "https://www.jobleads.com/us/job/remote-first-react-frontend-engineer-typescript--united-states--e319e87d3928c47fe7d6032530e062285",
     "locations": [
       "Remote"
     ],
     "employmentType": "Remote",
-    "interviewProcess": "Role: .Net Full Stack Developer\n\nLocation: 100% Remote\n\nKey Responsibilities:\n• Design, develop, and maintain web applications using .NET Core / .NET Framework\n• Build responsive front-end applications using Angular / React / JavaScript / HTML / CSS\n• Develop and integrate RESTful APIs and microservices\n• Work with Microsoft Azure services such as App Services, Azure Functions, Azure DevOps, and Storage\n• Design and optimize SQL Server databases, queries, and stored procedures\n• Collaborate with cross-functional teams to gather and analyze requirements\n• Implement authentication, authorization, and security best practices\n• Perform code reviews, debugging, and performance tuning\n• Ensure application scalability, reliability, and maintainability\n• Participate in CI/CD pipeline implementation and deployment processes\n\nRequired Skills:\n• Strong experience in C#, ASP.NET Core, MVC, Web API\n• Hands-on experience with Azure Cloud Services\n• Proficiency in SQL Server, T-SQL, and database design\n• Experience with REST APIs, JSON, and third-party integrations\n• Front-end experience with Angular / React / JavaScript frameworks\n• Knowledge of Entity Framework / ORM tools\n• Familiarity with Git, Azure DevOps, CI/CD pipelines\n• Understanding of Microservices architecture",
+    "interviewProcess": "A leading tech company in the United States is looking for a mid-level React Frontend Developer to enhance web interfaces for their products. The role involves building and maintaining user-facing features in React with TypeScript, collaborating closely with design and backend teams. Ideal candidates should have 2–4 years of experience, strong modern React skills, and a good understanding of accessibility standards. The position offers a competitive salary, performance bonuses, and a flexible remote work environment.",
     "source": "jsearch",
-    "postedAt": "2026-04-17T00:00:00.000Z",
-    "fetchedAt": "2026-04-19T23:17:30.636Z"
+    "postedAt": "2026-04-21T00:00:00.000Z",
+    "fetchedAt": "2026-04-25T19:14:51.686Z"
   },
   {
-    "id": "secztufnpswzqrfzaaaaaa",
-    "name": "AlmavivA de Belgique",
-    "jobTitle": "Full Stack Developer with .Net Skills (remote from Europe)",
-    "careersUrl": "https://jobgether.com/offer/69e36b69c646310ee393962f-full-stack-developer-with-.net-skills-remote-from-europe",
+    "id": "xhbv4jrm8fux0n3maaaaaa",
+    "name": "Outlive",
+    "jobTitle": "[Remote] Frontend Engineer - Web (React / Next.js)",
+    "careersUrl": "https://jobright.ai/jobs/info/6971207451f7264771835766",
     "locations": [
       "Remote"
     ],
     "employmentType": "Remote",
-    "interviewProcess": "This a Full Remote job, the offer is available from: Europe\n\nDESCRIPTION OF THE TASKS:\n\n• Write and debug web frontend code in SPA frameworks\n\n• Manage the front-end build configuration and the appropriate npm tasks.\n\n• Work with Typescript and modern web development.\n\n• Write CSS and HTML by using SASS and Semantic UI.\n\n• Participate in the .NET implementation of a micro-services solution, being able to write backend code in a reliable, scalable, secure and testable way, implementing resilient integrations, satisfying requirements and service level agreements.\n\n• Deploy and manage services on Kubernetes.\n\n• Implement validation mechanisms as unit and integration tests for both back-end and front-end code.\n\n• Implement OAUTH authentication mechanisms.\n\n• Liaise with other technical Teams in order to push new features / changes to production.\n\nWrite and maintain technical documentation of the solution implemented. Account for secure coding practices, as well as logging and auditing features.\n\nREQUIREMENTS:\n\nMore than 12 years in IT\n\nMore than 5 years of experience in Software Development\n\nMore than 3 years of experience in front-end Development\n\nMore than 1 year of experience on debugging Angular codebase\n\nMore than 5 years of experience in back-end Development in Microsoft .NET (C#) and .NET Core\n\nMore than 3 years of experience with highly scalable systems and microservices\n\nMore than 3 years of experience working in a team. following Agile/SCRUM methodology procedures and disciplines.\n\nMore than 3 years of experience in developing applications that publish and consume messages via AMQP, including handling message routing, queuing, and error handling.\n\nMore than 3 years of experience on estimating the work to be done upon request.\n\nGood knowledge of SDLC best practices\n\nGood knowledge of the design, documentation and development of full stack solutions\n\nExcellent knowledge of the design and development of back-end components (REST APIs, integration patterns, micro-",
+    "interviewProcess": "Note: The job is a remote job and is open to candidates in USA. Outlive is a company focused on transforming long-term health through a practical, evidence-based product. The Frontend Engineer role involves building and maintaining the web experience, collaborating with other engineers to ensure a cohesive user experience across platforms.\n\nResponsibilities\n• Build and maintain a production-grade Next.js (App Router) application\n• Implement responsive, accessible UI using Tamagui shared across web and mobile\n• Manage client-side data fetching and caching with TanStack Query\n• Integrate Stripe payments using Stripe.js and react-stripe-js\n• Consume REST APIs and custom authentication hooks backed by Firebase\n• Implement analytics (PostHog) and error tracking (Sentry)\n• Write and maintain high-quality tests using Vitest, React Testing Library, and Playwright\n• Ensure accessibility compliance using tooling such as eslint-plugin-jsx-a11y and axe-core\n• Collaborate with design and product to translate complex health concepts into clear UX\n\nSkills\n• 4+ years of professional frontend development experience\n• Strong experience with React and Next.js in production environments\n• Solid understanding of web accessibility, performance, and SEO fundamentals\n• Experience integrating third-party APIs and payment systems\n• Familiarity with modern frontend testing practices\n• Strong familiarity with web application security concerns\n• Experience sharing component systems across web and mobile\n• Familiarity with health or fintech products\n• Experience with Storybook and visual regression testing\n• Prior work in regulated or compliance-conscious environments\n\nBenefits\n• 100% employer-paid medical, vision, and dental insurance (multiple plans available).\n• 100% employer-paid life insurance, short-term, and long-term disability insurance.\n• Employer-sponsored HSA contributions for HDHP medical plans\n• Additional HSA and FSA spending account plans for employees\n• 401(k) with a 5% company",
     "source": "jsearch",
-    "postedAt": "2026-04-18T00:00:00.000Z",
-    "fetchedAt": "2026-04-19T23:17:30.636Z"
+    "postedAt": "2026-04-21T00:00:00.000Z",
+    "fetchedAt": "2026-04-25T19:14:51.686Z"
   },
   {
-    "id": "buhwxrloaxcll6tcaaaaaa",
-    "name": "SynergisticIT",
-    "jobTitle": "Junior Data scientist/full stack Developer-remote",
-    "careersUrl": "https://www.whatjobs.com/jobs/junior-data-scientist-full-stack-developer/remote?id=2642684613",
+    "id": "i2vg5ylg-w61sjueaaaaaa",
+    "name": "Wordly",
+    "jobTitle": "Remote Frontend Engineer – Real-Time Translation UI",
+    "careersUrl": "https://us.trabajo.org/job-2283-668ca160f75183516b81204ec6e04c19",
     "locations": [
       "Remote"
     ],
     "employmentType": "Remote",
-    "interviewProcess": "Synergisticit Job Opportunity\n\nSYNERGISTICIT wants every candidate to know that the job market is challenging and to stand out, you need to have exceptional skills and technologies and that's where we come in to make sure you get the attention which you need. Position open for all visas and US citizens. We at Synergisticit understand the problem of the mismatch between employer's requirements and employee skills and we are here to bridge that gap.",
+    "interviewProcess": "A tech startup specializing in translation services is seeking a Frontend Engineer to build and enhance user experiences. You will work independently to implement features based on defined requirements and collaborate with a remote team. Strong skills in React or Angular, along with a solid foundation in JavaScript and TypeScript, are essential. The role offers the flexibility of fully remote work, with an optional office in California for those in the Bay Area.\n#J-18808-Ljbffr",
+    "source": "jsearch",
+    "postedAt": "2026-04-21T00:00:00.000Z",
+    "fetchedAt": "2026-04-25T19:14:51.686Z"
+  },
+  {
+    "id": "flekqpu2swqyvxgdaaaaaa",
+    "name": "Jobs via Dice",
+    "jobTitle": "Staff Front End Software Engineer (Mobile)",
+    "careersUrl": "https://www.linkedin.com/jobs/view/staff-front-end-software-engineer-mobile-at-jobs-via-dice-4405712829",
+    "locations": [
+      "Remote"
+    ],
+    "employmentType": "Remote",
+    "interviewProcess": "Dice is the leading career destination for tech experts at every stage of their careers. Our client, OSI Engineering, Inc., is seeking the following. Apply via Dice today!\n\nStaff Front End Software Engineer (Mobile)\n\nJob Summary\n\nWe are looking for a talented Senior Software Engineer to be part of our front-end engineering team developing mobile applications that will be key to our future business. You will be part of a dynamic team using the latest technology and tools to build high-quality applications that delight our customers. We have several new products on the way, and you will be able to make a big impact!\n\nResponsibilities:\n\n• Technical hands-on engineer producing high-quality code following the best architecture and design standards\n• Interact with Product and Design teams to understand the requirements and deliver features\n• Work closely with technical leads and other engineers to ensure that your code fits well with the rest of the application\n• Ensure high quality by thoroughly testing your code including unit testing and partnering closely with the QA team for integrated testing\n• Build code that meets high standards for non-functional requirements like performance and scaling\n• Mentor junior developers using expertise in software development methodology and frameworks.\n\nQualifications:\n\n• BS or higher in Computer Science, Computer Engineering, Math, or relevant experience\n• 8+ years of software engineering experience, including a successful track record developing customer-facing SaaS/PaaS products.\n• 5+ years of experience with ReactNative, React, Redux, all things JavaScript/TypeScript and the tools of the React ecosystem such as node and npm\n• Prior experience with iOS (Swift/Objective-C) and Android (Kotlin/Java) preferred\n• Experience working with CI/CD pipelines specific to mobile application distribution\n• Exposure to implementing third party event-driven analytics/metrics tools such as AppsFlyer, Google Analytics, and Mixpanel\n• Experience wit",
+    "source": "jsearch",
+    "postedAt": "2026-04-25T01:00:00.000Z",
+    "fetchedAt": "2026-04-25T19:14:51.686Z"
+  },
+  {
+    "id": "demjs8on-2hgdhksaaaaaa",
+    "name": "Slate",
+    "jobTitle": "Senior Frontend Engineer - Brand",
+    "careersUrl": "https://jobs.ashbyhq.com/slate/5eba1fcb-1457-468b-b5bd-d63d0c1a90cb/application",
+    "locations": [
+      "Remote"
+    ],
+    "employmentType": "Remote",
+    "interviewProcess": "The Pitch\nSlate’s brand system is the foundation of every piece of content our customers create. The Brand feature — logos, fonts, colours, templates — ensures every post looks on-brand, without the back-and-forth. We need a Senior Frontend Engineer to own this area, extend it, and make it the most powerful brand management experience in social media tools.\n\nWhat You’ll Actually Do\nOwn the Brand feature area\n• Build and evolve the brand management experience: brand kits, font management, colour palettes, logo handling, and brand-aware templates\n\n• Design and build the UI systems that enforce brand consistency across Slate’s editor\n\n• Work closely with the design team to ship experiences that feel polished and intuitive\n\nIntegrate brand into the editor\n• Build the connective tissue between brand assets and the editor so applying brand feels effortless\n\n• Collaborate with the editor team on shared primitives and APIs\n\n• Ensure brand features work reliably across canvas sizes, aspect ratios, and export formats\n\nRaise the quality bar\n• Write well-tested, maintainable code in a codebase that’s actively growing\n\n• Contribute to frontend architecture decisions across the team\n\n• Mentor junior engineers through code reviews and design discussions\n\nYou’d Be a Great Fit If\nYou have the experience:\n• 5+ years of frontend engineering experience, with a track record of shipping product\n\n• Strong React and TypeScript skills\n\n• Experience building design tooling, creative software, or brand management features is a strong plus\n\nYou’ve done work like this before:\n• Built complex, stateful UI features that handle rich data (fonts, colours, assets)\n\n• Worked closely with designers to implement pixel-perfect, interaction-rich UIs\n\n• Contributed to or maintained a shared component library or design system\n\nYou work the way we work:\n• You take ownership of features end-to-end, from design to production\n\n• You care about craft — both in the UI you ship and the code you write\n\n• You use A",
     "source": "jsearch",
     "postedAt": "2026-04-19T00:00:00.000Z",
-    "fetchedAt": "2026-04-19T23:17:30.636Z"
+    "fetchedAt": "2026-04-25T19:14:51.686Z"
   },
   {
-    "id": "xa7yew3aivrsasx9aaaaaa",
-    "name": "Sdlc Technologies",
-    "jobTitle": "Remote Full-Stack Developer — Framer Expert",
-    "careersUrl": "https://www.jobleads.com/us/job/remote-full-stack-developer-framer-expert--united-states--e2d559e8c4694b24f6ddb5062e4824577",
+    "id": "chyy5kj3iutmyuimaaaaaa",
+    "name": "Kasmo Inc",
+    "jobTitle": "Frontend Architect / UI Architect/ Lead Frontend Engineer / Lead UI Engineer",
+    "careersUrl": "https://www.indeed.com/viewjob?jk=be101e55503ad519",
     "locations": [
       "Remote"
     ],
     "employmentType": "Remote",
-    "interviewProcess": "A technology solutions provider is seeking a Mid-Level Full Stack Developer to build high-performing web applications. The position requires strong expertise in both frontend and backend technologies, especially with Framer for creating modern user experiences. Responsibilities include translating designs into functional products, ensuring performance, scalability, and writing clean code. Ideal candidates have at least 3 years of experience in full stack development and proficiency in JavaScript, React.js, and Node.js.",
+    "interviewProcess": "Role: Frontend Architect / UI Architect/ Lead Frontend Engineer / Lead UI Engineer\n\nLocation: Remote\n\nDuration: Long Term\n\nJob Description:\n\nMandatory Skills:\n\n• React\n\n• React Native\n\n• TypeScript\n\n• MobX\n\n• vanilla-extract\n\n• Design Tokens\n\n• Theming Systems\n\n• Monorepo Architecture - Turborepo or Nx\n\n• Jest / React Testing Library / React Native Testing Library\n\n• npm & pnpm\n\n• Git\n\n• CI/CD Pipelines\n\n• Full-stack Architecture\n\n• Performance Optimization\n\n• Reusable UI Component Design",
     "source": "jsearch",
-    "postedAt": "2026-04-17T00:00:00.000Z",
-    "fetchedAt": "2026-04-19T23:17:30.636Z"
+    "postedAt": "2026-04-23T00:00:00.000Z",
+    "fetchedAt": "2026-04-25T19:14:51.686Z"
   },
   {
-    "id": "ildci201rqxfcxwlaaaaaa",
-    "name": "Peakhealth AI",
-    "jobTitle": "Full Stack Developer (Stealth Startup, Remote - US based)",
-    "careersUrl": "https://bebee.com/us/jobs/full-stack-developer-stealth-startup-remote-us-based-peakhealth-ai-san-francisco--ss-us-r6jsr4",
+    "id": "6fqb6l2tidogx9dbaaaaaa",
+    "name": "Simera",
+    "jobTitle": "Frontend Engineer: Build Scalable, User-Focused Web Apps",
+    "careersUrl": "https://www.whatjobs.com/jobs/frontend-engineer-build-scalable-user-focused/california?id=2644171315",
     "locations": [
       "Remote"
     ],
     "employmentType": "Remote",
-    "interviewProcess": "Role: Own and ship full-stack features end-to-end—from patient dashboards to backend logic. Work closely with design, product, and clinical ops to rapidly build and iterate.\n\nYou bring: 3+ years experience; strong with React, Node, and Python. Familiar with common LLM stacks. Experience building APIs, scalable infra, and secure systems. Bonus: health-tech or HIPAA exposure.\n\nComp: Competitive\n\nLocation: Remote (US-based)",
+    "interviewProcess": "A tech company in San Francisco is seeking a seasoned frontend developer to enhance their product team. This role involves translating customer needs into interactive web apps, optimizing performance, and ensuring an excellent user experience. Candidates should have 3 to 5 years of relevant experience and be proficient in HTML, CSS, and JavaScript frameworks like jQuery and Angular. You will collaborate with design and product management teams to create elegant interfaces, making this a crucial position for creating high-quality web applications.\n#J-18808-Ljbffr",
     "source": "jsearch",
-    "postedAt": "2026-04-15T00:00:00.000Z",
-    "fetchedAt": "2026-04-19T23:17:30.636Z"
+    "postedAt": "2026-04-19T00:00:00.000Z",
+    "fetchedAt": "2026-04-25T19:14:51.686Z"
   },
   {
-    "id": "fxwxwdbi-zxqha9zaaaaaa",
-    "name": "Kibo Commerce",
-    "jobTitle": "Senior Full Stack Engineer (NET 8/9+, React, Microservices AI Agents (Claude/Cursor/Copilot)",
-    "careersUrl": "https://dailyremote.com/remote-job/senior-full-stack-engineer-net-8-9-react-microservices-ai-agents-claude-cursor-copilot-4884804",
+    "id": "irrcasduql0etzeeaaaaaa",
+    "name": "DoorDash",
+    "jobTitle": "Front-End Web Developer, B2B, Marketing Technology",
+    "careersUrl": "https://www.remoterocketship.com/us/company/doordash/jobs/front-end-web-developer-b2b-marketing-technology-united-states-remote/",
     "locations": [
       "Remote"
     ],
     "employmentType": "Remote",
-    "interviewProcess": "About this Role:\n\nWe are seeking a Senior Full Stack Engineer who is an absolute expert in AI-assisted development. You are a power user of tools like Claude, Cursor, or Copilot, and you understand that \"Prompt Engineering\" is actually \"Context Engineering.\" Your primary goal is to build and scale our commerce platform using .NET Core and React at a pace that traditional development cannot match. You will be responsible for defining the patterns that allow AI to generate high-quality, testable, and secure code consistently.\n\nAbout KIBO Commerce:\n\nKIBO is a composable digital commerce platform for B2C, D2C, and B2B organizations who want to simplify the complexity in their businesses and deliver modern customer experiences. KIBO is the only modular, modern commerce platform that supports experiences spanning B2B and B2C Commerce, Order Management, and Subscriptions. Companies like Ace Hardware, Zwilling, Jelly Belly, Nivel, and Honey Birdette trust Kibo to bring simplicity and sophistication to commerce operations and deliver experiences that drive value.\n\nKIBO's cutting-edge solution is MACH Alliance Certified and has been recognized by Forrester, Gartner, IDC, Internet Retailer, and Trust Radius. KIBO has been named a leader in The Forrester Wave™: Order Management Systems, Q1 2025 and in the IDC Market Scape report “Worldwide Enterprise Headless Digital Commerce Applications 2024 Vendor Assessment”.\n\nBy joining KIBO, you will be part of a team of Kibonauts all over the world in a remote-friendly environment. Whether your job is to build, sell, or support KIBO’s commerce solutions, we tackle challenges together with the approach of trust, growth mindset, and customer obsession. If you’re seeking a unique challenge with amazing growth potential, then come work with us!\n\nWhat You'll Do:\n\n•\nRapid Feature Prototyping: Use AI agents to move from a concept or \"vibe\" to a working MVP in hours, not weeks.\n\n•\nContext Management: Expertly manage IDE context (using .cursorrul",
+    "interviewProcess": "Job Description:\n• Develop features and enhancements to marketing sites (e.g. merchants.doordash.com, business.doordash.com, dasher.doordash.com) in a secure, well-tested, and performant way\n• Own front-end web development projects from scoping through implementation and optimization, working closely with Marketing, Design, Content and Engineering teams\n• Craft code that meets internal standards for style, maintainability, and best practices for a high-scale web environment\n• Lead front-end architecture decisions, maintaining component libraries, performance optimization strategies, and accessibility standards (WCAG compliance)\n• Optimize web pages for maximum speed and scalability while maintaining brand consistency and design fidelity\n• Collaborate with the Web Platforms team on CMS integration (Contentful), ensuring seamless content management experiences for Marketing teams\n• Implement responsive designs that work flawlessly across devices and browsers, with a mobile-first approach\n• Work with Marketing teams to implement tracking and analytics code, ensuring proper measurement of user behavior and conversion metrics\n• Conduct code reviews and mentor other developers on front-end best practices and emerging web technologies\n• Partner with Product and Strategy teams to scope major initiatives, define technical requirements, and deliver business outcomes\n• Identify and implement improvements to the front-end codebase, including performance optimizations, accessibility enhancements, workflow efficiencies and developer experience improvements\n• Stay current with web technologies, frameworks, and best practices, bringing fresh ideas to enhance our marketing websites\n\nRequirements:\n• 4+ years of professional front-end web development experience, ideally supporting marketing or growth teams\n• Strong proficiency in HTML5, CSS3, and modern JavaScript (ES6+), with expertise in React/NextJS (Vue.js or Angular also considered)\n• Experience with TypeScript and modern CSS met",
     "source": "jsearch",
-    "postedAt": "2026-04-17T00:00:00.000Z",
-    "fetchedAt": "2026-04-19T23:17:30.636Z"
+    "postedAt": "2026-04-23T00:00:00.000Z",
+    "fetchedAt": "2026-04-25T19:14:51.686Z"
   },
   {
-    "id": "zndexo0swckfpmvjaaaaaa",
-    "name": "Crossing Hurdles",
-    "jobTitle": "Remote Full-Stack Engineer — React + Backend",
-    "careersUrl": "https://www.jobleads.com/us/job/remote-full-stack-engineer-react-backend--united-states--e1a095b106878008facb092a4603c953e",
+    "id": "nv743ckc4fx9sk0daaaaaa",
+    "name": "First Citizens Bank",
+    "jobTitle": "Remote Senior React Engineer - Lead Frontend and Architecture",
+    "careersUrl": "https://www.jobleads.com/us/job/remote-senior-react-engineer-lead-frontend-and-architecture--phoenix--ed1ce24b92b5f8f73df22c2dddcc8c2a3",
     "locations": [
       "Remote"
     ],
     "employmentType": "Remote",
-    "interviewProcess": "A technology firm is seeking a Full Stack Engineer (Talent Pool) to work remotely. The role involves building and maintaining frontend systems with technologies like React, Angular, or Vue, and developing backend services using Node.js, Django, or Spring. Candidates should have professional experience in both frontend and backend development, as well as experience with databases. This position offers the chance to collaborate with distributed teams and contribute to comprehensive feature development across the stack.",
+    "interviewProcess": "A financial institution is seeking a Senior React Engineer to design and build pages for their Online Banking application. The role requires collaboration with product managers and a good understanding of Agile methodologies. The ideal candidate should have substantial experience with React and related technologies. This position offers a remote work opportunity, allowing the selected candidate to work from Arizona, North Carolina, or Texas. The emphasis will be on maintaining code quality and mentoring junior engineers.",
     "source": "jsearch",
-    "postedAt": "2026-04-13T00:00:00.000Z",
-    "fetchedAt": "2026-04-19T23:17:30.636Z"
+    "postedAt": "2026-04-20T00:00:00.000Z",
+    "fetchedAt": "2026-04-25T19:14:51.686Z"
   },
   {
-    "id": "di7nfqh6hffjk-ebaaaaaa",
-    "name": "Jobflarely",
-    "jobTitle": "Full-stack Developer - Back-end Focus (Remote, Full-Time)",
-    "careersUrl": "https://jobflarely.liveblog365.com/job/full-stack-developer-back-end-focus-remote-full-time",
+    "id": "mtjrbdniwbdgslvaaaaaaa",
+    "name": "Connectad",
+    "jobTitle": "Frontend Engineer (m/w/d)",
+    "careersUrl": "https://jooble.org/jdp/-3880617595867513130",
     "locations": [
       "Remote"
     ],
     "employmentType": "Remote",
-    "interviewProcess": "About Smart WorkingAt Smart Working, we believe your job should not only look right on paper but also feel right every day. This isn’t just another remote opportunity - it’s about finding where you truly belong, no matter where you are. From day one, you’re welcomed into a genuine community that values your growth and well-being.Our mission is simple: to break down geographic barriers and connect skilled professionals with outstanding global teams and products for full-time, long-term roles. We help you discover meaningful work with teams that invest in your success, where you’re empowered to grow personally and professionally.Join one of the highest-rated workplaces on Glassdoor and experience what it means to thrive in a truly remote-first world.About the RoleWe are looking for a skilled Full-stack Developer with a strong backend focus to join our lean team. You will develop and maintain a responsive Progressive Web Application, build secure API integrations with corporate systems, and ensure high code quality across the stack.What You’ll Be DoingDevelop a responsive Progressive Web Application based on Figma designsBuild and maintain RESTful APIs using Python (FastAPI preferred)Integrate external corporate systems via APIsCollaborate closely with frontend developers, designers, and product ownersEnsure high standards for code quality, security, and performanceMust-Have SkillsPython (4+ years) – Strong backend development experiencePostgreSQL (2+ years) – Proficient in database design and query optimizationReact (1+ year) – Practical knowledge to support frontend collaborationNice-to-Have SkillsExperience building REST APIs with FastAPIResponsive UI development skillsSecure web application development best practicesPerformance optimization for user interfacesWhat Sets You ApartExcellent Communication: You clearly share progress, challenges, and ideas with the team.Honesty and Reliability: You take ownership of your work and consistently deliver on commitments.Adap",
+    "interviewProcess": "You are passionate about developing software and enjoy working in a proactive environment to reach your full potential. We are looking for a frontend engineer (m/f/d) on a remote work basis, if you live in Austria or Germany, to increase our motivated cross-functional team. Become a part of it now and grow beyond yourself together with ConnectAd!\n• You have the mind. 3 years of experience in developing web apps\n• You have a technical education (HTL, FH, Uni) in the field of computer science, computer science, software engineering or similar\n• You are affine with JAVA script, Livewire, HTML5/SASS and UI/UX design\n• You have hands-on experience with cutting-edge web and hybrid app development frameworks such as Cypress.io\n• You have in-depth knowledge of current development trends such as CI/CD, TDD, BDD, Mobile and Contract First\n• You speak German at C1 level and English at B2 level\nYour technology Stack:\nJava- Scipe , PHP, node.js, Go von Vorteil, CSS3, Gitlab , Postman and Alpine.js, SQL-Kenntnisse\n• You create secure, stable and user-friendly solutions for responsive web and mobile applications.\n• As a frontend engineer (m/f/d), you design UI and UX mock-ups and functional prototypes together with company representatives.\n• At ConnectAd you will work closely with the technical product owner, the scrum team and other stakeholders to ensure usable, accessible and state-of-the-art frontends.\n• Together with the team, you make architectural decisions and evaluate new technologies or products.\n• You drive innovation and share your knowledge with other developers and DevOps experts to optimize software development and deployment processes.\n• Systematically planning, structuring and coordinating processes and tasks is one of your skills?\n• Are you quality-oriented and do you attach particular importance to it?\n• Do you find it easy to empathize with other people and recognize their needs?\n• Do you know how to express ideas and how to actively listen?\n• Are you a communi",
     "source": "jsearch",
-    "postedAt": "2026-04-14T00:00:00.000Z",
-    "fetchedAt": "2026-04-19T23:17:30.636Z"
+    "postedAt": "2026-04-21T00:00:00.000Z",
+    "fetchedAt": "2026-04-25T19:14:51.686Z"
+  },
+  {
+    "id": "jannh5d368yjmzq5aaaaaa",
+    "name": "Tubi Tv",
+    "jobTitle": "Growth Frontend Engineer — AI‑Driven, Scalable UI",
+    "careersUrl": "https://www.whatjobs.com/jobs/growth-frontend-engineer-ai-driven/california?id=2644263611",
+    "locations": [
+      "Remote"
+    ],
+    "employmentType": "Remote",
+    "interviewProcess": "A leading streaming service headquartered in San Francisco seeks a Front-End Developer to enhance the user experience across web and OTT applications. You'll work closely with Product and Design to implement features focused on user growth, leveraging technologies like React and Node.js. This hybrid role involves traveling to the San Francisco office three days a week. Competitive compensation is offered, with a salary range of $159,300 - $227,600 annually plus benefits. Join a team committed to innovative, AI-driven development practices.\n#J-18808-Ljbffr",
+    "source": "jsearch",
+    "postedAt": "2026-04-19T00:00:00.000Z",
+    "fetchedAt": "2026-04-25T19:14:51.686Z"
+  },
+  {
+    "id": "efpbld7og61zj41iaaaaaa",
+    "name": "Tidal Cyber",
+    "jobTitle": "Principal Frontend Engineer (React)",
+    "careersUrl": "https://careers.bluewing.vc/companies/tidal-cyber-2/jobs/75431999-principal-frontend-engineer-react",
+    "locations": [
+      "Remote"
+    ],
+    "employmentType": "Remote",
+    "interviewProcess": "This website stores cookies on your computer. These cookies are used to collect information about how you interact with our website and allow us to remember you. We use this information in order to improve and customize your browsing experience and for analytics and metrics about our visitors both on this website and other media. To find out more about the cookies we use, see our Privacy Policy.",
+    "source": "jsearch",
+    "postedAt": "2026-04-19T00:00:00.000Z",
+    "fetchedAt": "2026-04-25T19:14:51.686Z"
+  },
+  {
+    "id": "vbpubfzpdow34gapaaaaaa",
+    "name": "Search Atlas",
+    "jobTitle": "Lead Front End Engineer",
+    "careersUrl": "https://searchatlas.na.teamtailor.com/jobs/595057-lead-front-end-engineer",
+    "locations": [
+      "Remote"
+    ],
+    "employmentType": "Remote",
+    "interviewProcess": "Fully Remote\nTimezone: Must be able to work EST/CST\nPlease submit your resume in English.\nHi, we’re Search Atlas! We’re a rapidly growing SEO software company and full-service digital agency that helps websites improve their Google performance. From Fortune 500 companies to Silicon Valley startups, our clients trust us to drive results.\nWe’re hiring a Product-Centric Lead Frontend Engineer (React / Next.js) to take ownership of refactoring and introducing best practices to our large-scale Next.js application. This is the primary objective of the role. You will define and enforce architectural standards, improve maintainability and performance, and ensure our frontend codebase can scale with our rapidly growing enterprise-level SEO intelligence platform.\n\nThis is a hands-on leadership position for someone with deep technical expertise in Next.js, proven experience modernizing large applications, and the ability to mentor engineers while making high-impact architectural decisions.\n\nKey Responsibilities\nPrimary Objective\n\n• Lead a comprehensive refactor of our large-scale Next.js application, introducing best practices in architecture, performance, and maintainability.\n\nTechnical Leadership\n\n• Define and maintain architectural patterns for enterprise-grade Next.js applications.\n\n• Establish scalable and maintainable state management strategies (including MobX, Redux, Zustand, or similar).\n\n• Standardize coding practices, component structures, and testing strategies across the frontend team.\n\nTeam Leadership & Mentorship\n\n• Provide technical guidance and mentorship to frontend engineers, ensuring code quality and adherence to best practices.\n\n• Collaborate closely with product, design, and backend teams to align frontend architecture with business and UX goals.\n\n• Lead code reviews and architectural discussions.\n\nPerformance & Scalability\n\n• Profile and optimize application performance using Lighthouse, Web Vitals, React Profiler, and similar tools.\n\n• Implement improve",
+    "source": "jsearch",
+    "postedAt": "2026-04-21T00:00:00.000Z",
+    "fetchedAt": "2026-04-25T19:14:51.686Z"
+  },
+  {
+    "id": "z3tz524lh-pzhorsaaaaaa",
+    "name": "Alignerr",
+    "jobTitle": "Frontend JavaScript Engineer",
+    "careersUrl": "https://www.linkedin.com/jobs/view/frontend-javascript-engineer-at-alignerr-4404046086",
+    "locations": [
+      "Remote"
+    ],
+    "employmentType": "Remote",
+    "interviewProcess": "Frontend JavaScript Engineer (AI Training)\n\nAbout The Role\n\nWhat if your JavaScript expertise could directly influence how AI writes and understands code for millions of developers around the world? We're looking for experienced Frontend JavaScript Engineers to evaluate, critique, and improve AI-generated code — helping ensure the next generation of AI tools actually thinks like a great engineer.\n\nThis is a fully remote, flexible contract role. Training and onboarding support will be provided — no prior AI experience needed. Just bring your deep knowledge of JavaScript and a sharp eye for quality code.\n\n• Organization: Alignerr\n• Type: Hourly Contract\n• Location: Remote\n• Commitment: 10–40 hours/week\n\nWhat You'll Do\n\n• Evaluate AI-generated JavaScript code for correctness, efficiency, and adherence to modern ES6+ standards\n• Assess DOM manipulation approaches and identify performance issues or anti-patterns\n• Solve complex UI/UX challenges to test the model's ability to produce responsive and interactive frontend solutions\n• Identify bugs and suboptimal patterns in AI-generated frontend logic and provide clearly optimized alternatives\n• Write human-readable documentation explaining state flow, event handling, and code structure\n• Work independently and asynchronously — fully on your own schedule\n\nWho You Are\n\n• Deep, hands-on knowledge of core JavaScript concepts — async/await, closures, the event loop, and DOM manipulation\n• 3–5 years of practical experience with modern frameworks such as React, Vue, or Node.js\n• Strong instincts for clean, maintainable, and efficient frontend code\n• Naturally detail-oriented with a systematic approach to evaluating and improving code quality\n• Clear written communicator who can explain technical reasoning in plain terms\n• Bachelor's degree in Computer Science or a related technical field preferred\n\nNice to Have\n\n• Experience with data labeling, RLHF, or other AI training or evaluation projects\n• Familiarity with testing frameworks",
+    "source": "jsearch",
+    "postedAt": "2026-04-19T00:00:00.000Z",
+    "fetchedAt": "2026-04-25T19:14:51.686Z"
+  },
+  {
+    "id": "mxpatl2zzlbbivtmaaaaaa",
+    "name": "Itive",
+    "jobTitle": "Looking for a Full Stack Developer",
+    "careersUrl": "https://www.indeed.com/viewjob?jk=eb747d2a878e881f",
+    "locations": [
+      "Remote"
+    ],
+    "employmentType": "Remote",
+    "interviewProcess": "Job Title: Full Stack Developer (React/Node.js) – Interview Coach\n\nOverview\n\nWe are looking for a Senior Full Stack Developer with strong English communication skills to help with technical interview preparation and mock interview sessions.\n\nThe focus is on improving system design explanations, coding discussions, and communication clarity for modern full-stack roles.\n\nResponsibilities\n\n• Conduct live mock technical interviews (Full Stack focus)\n\n• Simulate real interview scenarios (coding + system design)\n\n• Provide feedback on technical communication and explanations\n\n• Help improve clarity when presenting past project experience\n\nRequired Skills\n\n• Strong experience with React, Node.js, JavaScript/TypeScript\n\n• Good understanding of PostgreSQL and backend architecture\n\n• Experience with Docker and full-stack systems\n\n• Fluent English communication (must be able to conduct live sessions)\n\nDetails\n\n• Remote (Worldwide)\n\n• Flexible schedule\n\n• Hourly or milestone-based work\n\nIdeal Candidate\n\nSenior developers or tech leads who are confident in both hands-on development and technical communication.\n\nPay: $20.00 - $80.00 per hour\n\nPeople with a criminal record are encouraged to apply\n\nExperience:\n\n• Full-stack development: 2 years (Required)\n\nLanguage:\n\n• English (Required)\n\nAbility to Commute:\n\n• Remote (Required)\n\nWork Location: Remote",
+    "source": "jsearch",
+    "postedAt": "2026-04-22T00:00:00.000Z",
+    "fetchedAt": "2026-04-25T19:14:51.686Z"
+  },
+  {
+    "id": "ogsosgv116-hgzzaaaaaa",
+    "name": "ICF",
+    "jobTitle": "ICF Incorporated, LLC: Full Stack Developer– Reston, VA",
+    "careersUrl": "https://dailyremote.com/remote-job/icf-incorporated-llc-full-stack-developer-reston-va-4917571",
+    "locations": [
+      "Remote"
+    ],
+    "employmentType": "Remote",
+    "interviewProcess": "ICF Incorporated, LLC: Full Stack Developer– Reston, VA\n\nDUTIES:\n\n• Develop and maintain application software to support end client’s business process.\n\n• Work on webpage development and use other programming languages and platforms when appropriate.\n\n• Support all areas of full software development life cycle (SDLC) including requirements analysis, functional and technical specifications, implementation, testing and maintenance of the client’s PRS modernization.\n\n• Support, design, development, unit testing, integration, and deployment.\n\n• Analyze and address production issues and provide inputs to software development artifacts.\n\nREQUIREMENTS: Bachelor’s degree or foreign equivalent degree in Computer Science, Information Systems or a closely related technical field followed by 5 years of software development experience.\n\nOther required experience:\n• 5 years of professional front end development experience including the use of JavaScript frameworks calling REST API endpoints.\n\n• 1 year of Drupal development or development using any other CMS.\n\n• 1 year of experience with website migration.\n\n• 1 year of experience with HTML, CSS, and Web Standards, JavaScript libraries and linters, browser developer tools and git, building responsive web interfaces (RWD), WCAG guidelines, Web Accessibility, and/or 508 compliance development practices.\n\n• Must possess or be immediately able to obtain and maintain a Public Trust.\n\nTELEWORK: 100% remote; position may be performed from anywhere within the U.S\nThere are multiple factors that are considered in determining final pay for a position, including, but not limited to, relevant work experience, skills, certifications and competencies that align to the specified role, geographic location, education and certifications as well as contract provisions regarding labor categories that are specific to the position. The pay range for this position is: $103,310.00 - $201,971.00/year.\n\nLOCATION: 1902 Reston Metro Plaza Reston, VA 20190\n\nWo",
+    "source": "jsearch",
+    "postedAt": "2026-04-24T23:00:00.000Z",
+    "fetchedAt": "2026-04-25T19:14:51.686Z"
+  },
+  {
+    "id": "zcihbdwafzj8axcbaaaaaa",
+    "name": "FetchJobs.co",
+    "jobTitle": "Full Stack Developer ( .Net / JS / SQL / AWS)",
+    "careersUrl": "https://bebee.com/us/jobs/full-stack-developer-net-js-sql-aws-fetchjobsco--theirstack-669258833",
+    "locations": [
+      "Remote"
+    ],
+    "employmentType": "Remote",
+    "interviewProcess": "About The Company\n\nCymertek Corporation is a leading innovator in the technology sector, renowned for delivering advanced solutions that empower businesses across various industries. With a commitment to excellence and a focus on sustainable growth, Cymertek has established itself as a trusted partner for organizations seeking cutting-edge technology integration, digital transformation, and strategic consulting services. Our company fosters a collaborative and inclusive work environment that encourages creativity, continuous learning, and professional development.\n\nAt Cymertek, we believe in leveraging technology to solve complex problems and create meaningful impact for our clients and communities worldwide.\n\nAbout The Role\n\nWe are seeking a highly motivated and detail-oriented Software Engineer to join our dynamic team at Cymertek Corporation. In this role, you will be responsible for designing, developing, and maintaining innovative software solutions that meet the evolving needs of our clients. The ideal candidate will possess strong technical expertise, excellent problem-solving skills, and the ability to work effectively within a collaborative team environment.\n\nAs a Software Engineer, you will play a critical role in translating business requirements into scalable and efficient software applications, ensuring high quality and performance standards are met. This position offers an exciting opportunity to work on impactful projects that drive digital transformation and technological advancement across diverse sectors.\n\nQualifications The ideal candidate should possess a Bachelor’s degree in Computer Science, Software Engineering, or a related field. Proven experience in software development, preferably with a strong background in programming languages such as Java, Python, or C#. Familiarity with modern development frameworks, cloud platforms, and agile methodologies is essential.\n\nExcellent analytical and problem-solving skills, along with the ability to work",
+    "source": "jsearch",
+    "postedAt": "2026-04-22T00:00:00.000Z",
+    "fetchedAt": "2026-04-25T19:14:51.686Z"
+  },
+  {
+    "id": "sxndvc7v2digtediaaaaaa",
+    "name": "ClassDojo",
+    "jobTitle": "Senior Full-Stack Engineer - Remote, Shape Global Education",
+    "careersUrl": "https://himalayas.app/companies/classdojo/jobs/senior-full-stack-engineer-remote-shape-global-education",
+    "locations": [
+      "Remote"
+    ],
+    "employmentType": "Remote",
+    "interviewProcess": "An innovative education technology company in San Francisco is seeking a Full-Stack Engineer to develop systems for rapid growth. This role emphasizes collaboration, communication, and technical excellence, allowing engineers to deploy frequently and impact millions of users including students, teachers, and parents. The ideal candidate has 8-10 years of experience in software, and strong passion for education, working well in teams and across various technologies.\n#J-18808-Ljbffr",
+    "source": "jsearch",
+    "postedAt": "2026-04-25T12:00:00.000Z",
+    "fetchedAt": "2026-04-25T19:14:51.686Z"
+  },
+  {
+    "id": "7qg-tlzqug2soafzaaaaaa",
+    "name": "Perch | Mortgages, simplified",
+    "jobTitle": "Full-Stack Engineer — Remote, Early Team Member",
+    "careersUrl": "https://www.jobleads.com/us/job/full-stack-engineer-remote-early-team-member--united-states--e86a9d7ae551be09ef212424931a02499",
+    "locations": [
+      "Remote"
+    ],
+    "employmentType": "Remote",
+    "interviewProcess": "A technology company in the mortgage sector is looking for a full stack developer to join its new engineering team in Canada. The role involves delivering features across Angular applications and Node.js APIs, while collaborating with Senior engineers. The ideal candidate should be proficient in TypeScript, JavaScript, and have experience with PostgreSQL. This is a fully remote position offering flexible hours and opportunities for professional growth within the team.",
+    "source": "jsearch",
+    "postedAt": "2026-04-20T00:00:00.000Z",
+    "fetchedAt": "2026-04-25T19:14:51.686Z"
+  },
+  {
+    "id": "brwfbg9qfxo6-lebaaaaaa",
+    "name": "Fimple",
+    "jobTitle": "Fullstack or Backend Developer\nİstanbul - Remote\nFull-Time",
+    "careersUrl": "https://bebee.com/us/jobs/fullstack-or-backend-developer-istanbul-remote-full-time-fimple--theirstack-669771911",
+    "locations": [
+      "Remote"
+    ],
+    "employmentType": "Remote",
+    "interviewProcess": "Fimple is a product company focused on building a cloud-native, highly composable, and extendible platform designed to meet the end-to-end requirements of digital, disruptive, and new-entrant financial players seeking agility. We provide a modern, API-first, extensible platform with strong ecosystem and marketplace capabilities, enabling financial institutions to scale and evolve rapidly in a dynamic market.\n\nWe are looking for a Full Stack Developer or Backend Developer with strong software engineering fundamentals, hands-on experience in both backend and frontend development, and prior exposure to the banking or financial services domain. You will play a key role in building and maintaining high-performance, scalable applications that power next-generation digital banking experiences. This role is fully remote and requires the ability to work effectively in an international, fast-paced product environment.\n\nWhat Will The Right Person Look Like?\n\n• Minimum 2 years of professional experience as a Full Stack or Backend-focused Developer.\n\n• Banking industry experience in at least one of the following areas: Credits, Accounting, Core Banking, Transfers (SWIFT, EFT, SEPA, etc.), Treasury, or Financial Analysis.\n\n• Bachelor’s degree in Computer Science, Software Engineering, or a related field.\n\n• Strong proficiency in frontend fundamentals: HTML, CSS, JavaScript.\n\n• Experience with modern JavaScript frameworks such as React, Angular, or Vue.\n\n• Proficiency with server-side languages and frameworks such as .NET, Java, Node.js, or Python.\n\n• Familiarity with database technologies such as MSSQL, MySQL, Oracle, or MongoDB.\n\n• Understanding of RESTful API design and integration patterns.\n\n• Excellent problem-solving, analytical thinking, and debugging skills.\n\n• Strong communication and interpersonal skills; ability to collaborate with cross-functional teams in a remote setting.\n\nWhat Will You Be Doing?\n\n• Collaborate with product managers, architects, and development teams",
+    "source": "jsearch",
+    "postedAt": "2026-04-23T00:00:00.000Z",
+    "fetchedAt": "2026-04-25T19:14:51.686Z"
+  },
+  {
+    "id": "boq0z16o8764atj6aaaaaa",
+    "name": "Cognizant",
+    "jobTitle": "Remote: Senior Java Full-Stack Developer",
+    "careersUrl": "https://www.whatjobs.com/jobs/remote-senior-java-full-stack-developer/florida?id=2644680739",
+    "locations": [
+      "Remote"
+    ],
+    "employmentType": "Remote",
+    "interviewProcess": "A leading technology company seeks a Senior Java Full Stack Developer in Florida to design and develop scalable applications. With a minimum of 8 years in Java and experience across frontend and backend, you will work closely with cloud architects and DevOps to ensure high-quality deliveries. Responsibilities include building APIs, collaborating with teams, and enhancing systems. You will receive a competitive salary ranging from $70,000 to $117,000 plus benefits including medical insurance and a 401(k) plan.\n#J-18808-Ljbffr",
+    "source": "jsearch",
+    "postedAt": "2026-04-19T00:00:00.000Z",
+    "fetchedAt": "2026-04-25T19:14:51.686Z"
+  },
+  {
+    "id": "a9qzvyvrjay-kegqaaaaaa",
+    "name": "Resolution Technologies, Inc.",
+    "jobTitle": "Full-Stack Agentic AI Developer (Hybrid with Travel)",
+    "careersUrl": "https://dailyremote.com/remote-job/full-stack-agentic-ai-developer-hybrid-with-travel-4913211",
+    "locations": [
+      "Remote"
+    ],
+    "employmentType": "Remote",
+    "interviewProcess": "Full-Stack Agentic AI Developer (Hybrid with travel) with Product Ownership Responsibilities Full-Stack Agentic AI Developer Position Summary We are looking for a Full-Stack Agentic AI Developer who can build autonomous, goal-driven AI systems and ship them as products that solve real business problems. This is not a traditional developer role. The ideal candidate blends deep technical fluency in agentic frameworks and AI-native development tools with a product owner s instinct for prioritization, stakeholder management, and outcome-driven delivery. You will design, build, and orchestrate multi-agent systems that plan, reason, use tools, recover from errors, and collaborate with humans when the stakes are high. Equally important, you will own the product roadmap for the solutions you build translating business objectives into technical requirements, managing backlogs, and ensuring what ships creates measurable value. Full-Stack Agentic AI Developer What You Will Do Agentic AI Development Design, develop, and deploy autonomous and semi-autonomous AI agent systems that interpret goals, gather context, select tools, and execute end-to-end workflows Build and maintain custom skills, plugins, and tool integrations that extend agent capabilities across enterprise environments Architect multi-agent orchestration patterns including agent-to-agent delegation, parallel task execution, and human-in-the-loop escalation paths Implement agentic memory frameworks, context management strategies, and guardrails that ensure reliable, safe, and auditable agent behavior Develop and refine system prompts, reasoning chains, and evaluation pipelines to continuously improve agent performance Full-Stack Engineering Build robust, scalable web applications and APIs that serve as the interface and backbone for AI-powered solutions Work across front-end and back-end technologies to deliver complete, production-ready systems Design and implement data pipelines, integrations, and infrastructure t",
+    "source": "jsearch",
+    "postedAt": "2026-04-24T00:00:00.000Z",
+    "fetchedAt": "2026-04-25T19:14:51.686Z"
+  },
+  {
+    "id": "dut3zsmixa0udikqaaaaaa",
+    "name": "Ayora",
+    "jobTitle": "Full Stack Developer (5-8 yrs)",
+    "careersUrl": "https://remotejobs.org/remote-jobs/full-stack-developer-5-8-yrs-ayora",
+    "locations": [
+      "Remote"
+    ],
+    "employmentType": "Remote",
+    "interviewProcess": "Headquarters: Global, Remote\n\nJob Title: Full Stack Developer (5 to 8 Years)\nProduct: Health and Fitness App\nEmployment Type: Full-time\nLocation: (On-site / Hybrid / Remote, add as applicable)\nAbout the Role\nWe are building a health and fitness app that helps users track workouts, nutrition, goals, and progress through a smooth mobile and web experience. We are hiring a Full Stack Developer (5 to 8 years) to build end-to-end features across backend services, APIs, and modern web frontends, with strong focus on performance, scalability, and user experience.\nKey Responsibilities\n• Build and maintain scalable backend services and APIs (REST and/or GraphQL)\n\n• Develop responsive, user-friendly web interfaces (dashboard, admin, coach/trainer portals, internal tools)\n\n• Translate product requirements into clean, maintainable, tested code across the stack\n\n• Design data models and optimize queries for performance and reliability\n\n• Implement authentication and authorization (OAuth2, JWT, RBAC)\n\n• Integrate third-party services (payments, notifications, analytics, fitness platforms, wearables)\n\n• Implement background jobs, queues, and scheduled workflows\n\n• Ensure security best practices (OWASP), privacy, and safe handling of user data\n\n• Set up observability (logs, monitoring, alerts) and improve system reliability\n\n• Collaborate with product, design, mobile, and QA teams, participate in code reviews and sprint planning\n\nRequired Skills and Experience\n• 5 to 8 years of full stack development experience in product companies or high-quality engineering teams\n\n• Strong backend skills in one of the following :\n• Node.js (TypeScript), Java (Spring Boot), Python (Django/FastAPI), Go, or .NET\n\n• Strong frontend experience with modern frameworks:\n• React / Next.js (preferred), Angular, or Vue\n\n• Solid understanding of API design, versioning, caching, and integration patterns\n\n• Strong database experience (PostgreSQL/MySQL, plus NoSQL is a bonus)\n\n• Experience with cloud platforms",
+    "source": "jsearch",
+    "postedAt": "2026-04-23T00:00:00.000Z",
+    "fetchedAt": "2026-04-25T19:14:51.686Z"
+  },
+  {
+    "id": "exevwurnni2ovrkaaaaaa",
+    "name": "Cutsforth, LLC",
+    "jobTitle": "Jr. Full Stack Developer",
+    "careersUrl": "https://careers.cutsforth.com/apply/w2Mtc42pIw/Jr-Full-Stack-Developer",
+    "locations": [
+      "Remote"
+    ],
+    "employmentType": "Remote",
+    "interviewProcess": "Role Information:\n• Job Title: Jr. Full Stack Developer\n• Work Location: Remote\n• Employment Type: Full-time\n• Employment Status: Exempt, salaried\n• Visa sponsorship is not available for this position.\n• Must reside in the United States.\n• We are not accepting applicants for remote workers in California, Illinois, and New York at this time. Applications from any of these states can not be considered.\nCompensation:\n• $106,878 - 132,206 based on number of years of experience\nRole Overview:\nWe are looking for a motivated and technically sharp Jr. Full Stack Developer to join our growing engineering team in the utilities and energy sector. In this role, you will contribute to the design, development, and maintenance of scalable, data-driven applications that power critical infrastructure solutions. You'll work closely with cross-functional teams including R&D, operations, and client-facing groups to deliver AI-enhanced software that makes a real impact on how energy is monitored, managed, and optimized.\n\nKey Responsibilities:\n• Independently write, test, and deploy clean, maintainable code across both front-end and back-end systems\n• Design and consume RESTful APIs that support real-time data exchange between utility systems and end-user applications\n• Integrate AI and machine learning models into existing and new application workflows\n• Troubleshoot and resolve technical issues across the full application stack with minimal supervision\n• Participate actively in sprint planning, stand-ups, and retrospectives as part of an agile development team\n• Communicate technical decisions and trade-offs clearly to both technical peers and non-technical stakeholders\n• Adapt quickly to evolving project requirements and emerging technologies in the energy/utilities space\n• Collaborate with R&D and operations teams to prototype, test, and iterate on new features\nRequired Qualifications:\n• Successfully pass background check for cybersecurity site access.\n• 2–5 years of professional Ful",
+    "source": "jsearch",
+    "postedAt": "2026-04-21T00:00:00.000Z",
+    "fetchedAt": "2026-04-25T19:14:51.686Z"
+  },
+  {
+    "id": "q1kamyzrek1ydewpaaaaaa",
+    "name": "Axcend Automation & Software Solutions",
+    "jobTitle": "Remote Full Stack Developer (C#.NET + Angular)",
+    "careersUrl": "https://www.jobleads.com/us/job/remote-full-stack-developer-c-net-angular--united-states--e371329b3a8121dcc28fb03060900ed91",
+    "locations": [
+      "Remote"
+    ],
+    "employmentType": "Remote",
+    "interviewProcess": "A technology solutions company is seeking a skilled Full Stack Developer with expertise in C# and Angular for a remote position. Responsibilities include designing and maintaining applications, implementing RESTful APIs, and ensuring application performance. The ideal candidate has over 5 years of experience in full stack development and is proficient in modern web technologies. Further qualifications include a degree in Computer Science and strong teamwork abilities.",
+    "source": "jsearch",
+    "postedAt": "2026-04-18T00:00:00.000Z",
+    "fetchedAt": "2026-04-25T19:14:51.686Z"
+  },
+  {
+    "id": "28tlnhqg4rd2-bbqaaaaaa",
+    "name": "Cosmoquick",
+    "jobTitle": "Remote Full Stack Developer Jobs in Los Angeles",
+    "careersUrl": "https://cosmoquick.com/remote-jobs-in/los-angeles/remote-fullstack-developer",
+    "locations": [
+      "Remote"
+    ],
+    "employmentType": "Remote",
+    "interviewProcess": "Find remote Full Stack Developer positions with Los Angeles employers. 4-8 years of full stack development with proven ability to handle complete project lifecycles",
+    "source": "jsearch",
+    "postedAt": "2026-04-19T00:00:00.000Z",
+    "fetchedAt": "2026-04-25T19:14:51.686Z"
+  },
+  {
+    "id": "wm7ljb1muvesmquiaaaaaa",
+    "name": "Technovision, Inc.",
+    "jobTitle": "GIS Full Stack Developer (Angular / Java) - Remote - Contract (Client in Harrisburg, PA)",
+    "careersUrl": "https://www.dice.com/job-detail/e5a70974-b91e-4097-be2e-0d0f78745cf4",
+    "locations": [
+      "Remote"
+    ],
+    "employmentType": "Remote",
+    "interviewProcess": "Our direct client is looking for a GIS Full Stack Developer (Angular / Java) for a 100% Remote Contract in Harrisburg, PA\n\nJ0B DESCRIPTION:\n- The position primarily serves as mid-level Developer in PennDOT’s Bureau of Solutions Management. The incumbent will be responsible to assist with design and development of the new PA Unified Crash System.\n- Candidates will work under the direction of the project’s Technical Lead and Application Architect to write, test, and document code to implement system features and enhancements using Angular, Java, Spring Boot, GIS, and Azure Function technologies.\n\nWork details:\n-Work hours are Monday – Friday, 8:00AM – 5:00PM excluding state holidays for a maximum of 40 hours/week. Lunch is 12:00 – 1:00PM. The contract assumes an additional 80 hours of unpaid leave in addition to the above per state fiscal year.\n- Work location is majority remote; however, selected candidates will be required to report IN PERSON for an interview at PennDOT’s offices at 400 North Street, 5th floor, Harrisburg PA.\n- Engaged candidates will also need to report IN PERSON to pick up equipment as part of onboarding and may be required to report for occasional in-person meetings or training.\n- Selected candidates must provide a completed PATCH check and work authorization done at vendor expense prior to engagement.\n- On-site work location is a secured floor. If candidate has a need to be onsite regularly, a badge will be required. In this case, the candidate would be responsible for the $20 fee for the badge.\n- The agency does not provide parking.\n\nSKILL MATRIX:\n- Front-End Frameworks & UI Technologies: Angular (preferably Angular 14 or higher) - Required\n- Back-End Development: Java w/Spring Boot (Microservices architecture), RESTful APIs design and integration, GIS integrations & spatial data handling - Required\n- Testing frameworks: jUnit, Prefer: Jasmine and Karma - Required\n- Data: PostGIS- based data design for reporting layers, PostgreSQL or any other",
+    "source": "jsearch",
+    "postedAt": "2026-04-24T00:00:00.000Z",
+    "fetchedAt": "2026-04-25T19:14:51.686Z"
+  },
+  {
+    "id": "kh8fwnaaer7jbkllaaaaaa",
+    "name": "Box N Case",
+    "jobTitle": "Full Stack Developer — Broad appeal for developers across stacks.",
+    "careersUrl": "https://www.whatjobs.com/jobs/full-stack-developer-broad/new-york?id=2644260222",
+    "locations": [
+      "Remote"
+    ],
+    "employmentType": "Remote",
+    "interviewProcess": "Commack, United States | Posted on 12/16/2025\n\nBoxNCase ( ) is your trusted source for gourmet culinary essentials, serving businesses and individuals across North America. Based in the New York City Area, we take pride in being one of the largest direct importers and wholesalers specializing in the world of Specialty & Fine Foods, offering a diverse array of premium products in club sizes. Our commitment is rooted in bringing you a diverse selection of top-tier specialty and fine food products, thoughtfully sourced from around the globe. Discover a curated selection of chocolates, candies, snacks, spices, condiments, cheeses, teas, and more, all in bulk sizes. Whether you're stocking up for your business or a home chef with a passion for gourmet creations, our easy ordering, proprietary CPG logistic solutions, and US based account managers cater to your unique needs.\nJob Description\n\nAbout the Role We are looking for a Full Stack Developer who loves building products that users love. You will join a dynamic engineering team where you will have the autonomy to make technical decisions and the support to grow your skills.\nRequirements\n\nWhat We Are Looking For\nExperience: 3+ years of professional full-stack development experience. Frontend Skills: Deep understanding of HTML5, CSS3 (Tailwind/Sass), and modern state management (Redux/Zustand). Backend Skills: Experience building RESTful APIs or GraphQL endpoints. Infrastructure: Familiarity with serverless functions, microservices, or containerization (Docker/Kubernetes ). Version Control: Proficiency with Git and collaboration workflows (Pull Requests, Code Reviews). Preferred Tech Stack Frontend: React, TypeScript, Next.js, Tailwind CSS Tools: Docker, AWS, GitHub Actions, Jira\n\nSalary Range: $40,000 – $160,000 USD / year (Based on experience and location)\n\nRemote Work: 100% remote-first culture.\n\nEquipment: Company-provided laptop (MacBook Pro) and home office stipend.\n\n#J-18808-Ljbffr",
+    "source": "jsearch",
+    "postedAt": "2026-04-19T00:00:00.000Z",
+    "fetchedAt": "2026-04-25T19:14:51.686Z"
+  },
+  {
+    "id": "wjaag-5mq2dtx6j-aaaaaa",
+    "name": "CGI",
+    "jobTitle": "Senior AWS Full Stack Developer job at CGI in Reston, VA",
+    "careersUrl": "https://remote.co/job-details/senior-aws-full-stack-developer-58a4da87-6285-451f-9c55-920012a62d4c",
+    "locations": [
+      "Remote"
+    ],
+    "employmentType": "Remote",
+    "interviewProcess": "Title: Senior AWS Full Stack Developer\n\nCategory: Software Development/ Engineering\n\nMain location: United States, Various\n\nPosition ID: J0426-1582\n\nEmployment Type: Full Time\n\nJob Description:\n\nU.S. - What we do matters\n\nPosition Description:\n\nWe are looking for a Senior AWS Full Stack Developer with strong expertise in both front-end and back-end development to build and maintain scalable, cloud-native applications. This role requires a hands-on technologist who can design, develop, and deploy modern web solutions using Angular, Spring Boot, and AWS services.\n\nWe partner with 15 of the top 20 banks globally, and our top 10 banking clients have worked with us for an average of 26 years!.\n\nThis role is located at a client site in either Reston, VA. A hybrid working model is acceptable.\n\nYour future duties and responsibilities:\n\nWe are looking for a Senior AWS Full Stack Developer with strong expertise in both front-end and back-end development to build and maintain scalable, cloud-native applications. This role requires a hands-on technologist who can design, develop, and deploy modern web solutions using Angular, Spring Boot, and AWS services.\n\nYou will work closely with cross-functional teams to deliver secure, high-performing applications while leveraging modern DevOps practices and cloud technologies. In addition to development responsibilities, you will play a key role in improving system performance, mentoring team members, and ensuring the delivery of maintainable, high-quality code.\n\nRequired qualifications to be successful in this role:\n\n. 8+ years of relevant experience\n\n. Strong full-stack development experience building modern web applications using Angular and Spring Boot\n\n. Deep expertise developing RESTful APIs and microservices in a cloud-native architecture\n\n. Hands-on experience with AWS services such as EC2, Lambda, API Gateway, S3, RDS, DynamoDB, and CloudFormation\n\n. Proficiency in Angular (version 10 or later) for responsive, scalable front-end",
+    "source": "jsearch",
+    "postedAt": "2026-04-21T00:00:00.000Z",
+    "fetchedAt": "2026-04-25T19:14:51.686Z"
+  },
+  {
+    "id": "gzzfje7qegzhjxt1aaaaaa",
+    "name": "Lemon.io",
+    "jobTitle": "Senior Full-stack Developer",
+    "careersUrl": "https://remotejobs.org/remote-jobs/senior-full-stack-developer-lemonio",
+    "locations": [
+      "Remote"
+    ],
+    "employmentType": "Remote",
+    "interviewProcess": "Headquarters: New York, NY\n\nURL: https://lemon.io\n\nAre you a talented Senior Developer looking for a remote job that lets you show your skills and get decent compensation? Look no further than Lemon.io — the marketplace that connects you with hand-picked startups in the US and Europe.\n\nWhat we offer:\n\n• The rate depends on your seniority level, skills and experience. We've already paid out over $11M to our engineers.\n\n• No more hunting for clients or negotiating rates — let us handle the business side of things so you can focus on what you do best.\n\n• We'll manually find the best project for you according to your skills and preferences.\n\n• Choose a schedule that works best for you. It’s possible to communicate async or minimally overlap within team working hours.\n\n• We respect your seniority so you can expect no micromanagement or screen trackers.\n\n• Communicate directly with the clients. Most of them have technical backgrounds. Sounds good, yeah?\n\n• We will support you from the time you submit the application throughout all cooperation stages.\n\n• Most of our projects involve working in a fast-paced startup environment. We hope you like it as much as we do.\n\n• Through our community, we will connect you with the best developers from more than 71 countries.\n\nWe have several open positions for Full-Stack React.js Developers - please see the details below. We also have some backend positions; the full list is included below as well.\n\nRequirements for the Senior React & Python Position:\n\n• 4+ years of software development experience\n\nCommercial experience:\n\n• React.js 3+ years and Python 3+ years OR React.js 2+ years and Python 5+ years OR React.js 5+ years and Python 2+ years\n\n• Experience with AWS, GCP, or Azure is required\n\nRequirements for the Senior Python Position:\n\n• 5+ years of software development experience\n\n• 5+ years of commercial experience with Python\n\n• 3+ years of commercial experience with Flask\n\nRequirements for the Senior Golang & React Position:\n\n• 4+",
+    "source": "jsearch",
+    "postedAt": "2026-04-23T00:00:00.000Z",
+    "fetchedAt": "2026-04-25T19:14:51.686Z"
+  },
+  {
+    "id": "790e-ks7k-jupzmtaaaaaa",
+    "name": "OpenAI",
+    "jobTitle": "Full-Stack AI Workload Scheduler",
+    "careersUrl": "https://himalayas.app/companies/openai/jobs/full-stack-ai-workload-scheduler",
+    "locations": [
+      "Remote"
+    ],
+    "employmentType": "Remote",
+    "interviewProcess": "An innovative firm is seeking a Full Stack Engineer to join their Fleet Scheduling team. This role involves designing and developing web-based systems that enhance the management of AI workloads across powerful supercomputers. You'll collaborate with researchers and product teams to create user-friendly interfaces and scalable solutions that ensure efficient resource allocation and system transparency. This is a unique opportunity to work at the forefront of AI infrastructure, contributing to tools that handle exascale workloads while maintaining high usability and performance. If you're passionate about technology and eager to make an impact, this role is for you.\n#J-18808-Ljbffr",
+    "source": "jsearch",
+    "postedAt": "2026-04-22T00:00:00.000Z",
+    "fetchedAt": "2026-04-25T19:14:51.686Z"
+  },
+  {
+    "id": "tl5vfxam4gmegrneaaaaaa",
+    "name": "The Nippon Telegraph and Telephone Corporation (NTT)",
+    "jobTitle": "Salesforce Fullstack Developer - Remote Canada Position",
+    "careersUrl": "https://www.theladders.com/job/salesforce-fullstack-developer-remote-canada-position-nttdataservices-virtual-travel_86647223",
+    "locations": [
+      "Remote"
+    ],
+    "employmentType": "Remote",
+    "interviewProcess": "Req ID: 369066\n\nWe are currently seeking a Salesforce Fullstack Developer - Remote Canada Position\n\nOur Salesforce Developers are fundamental to ensuring the digital technology and related services that NTT DATA builds for our clients are valuable, intuitive, and impactful. The work of Salesforce Developers provides our clients and team with support, leadership, and direction to make sure projects are executed well and to deliver the engagement as promised.\n\nDay to Day/Job Function\n• Design, develop, and maintain scalable solutions on the Salesforce platform.\n• Develop backend logic using Apex, including triggers, classes, batch jobs, and integrations.\n• Build responsive and dynamic user interfaces using Lightning Web Components (LWC) and Aura components.\n• Customize Salesforce applications including Sales Cloud, Service Cloud, or Experience Cloud.\n• Design and implement REST/SOAP APIs and integrate Salesforce with external systems.\n• Work on data modeling, schema design, and data migrations within Salesforce.\n• Collaborate with business analysts and stakeholders to gather and refine requirements.\n• Participate in code reviews, unit testing, and deployment activities.\n• Support CI/CD processes and version control using tools like Git and Copado.\n• Troubleshoot production issues and provide timely resolutions.\n• Ensure adherence to Salesforce best practices, security, and governance standards.\n\nRequired Qualifications\n• 6+ years of experience in Salesforce development.\n• 6+ years experience using Apex, Visualforce, Lightning Web Components (LWC), and Aura.\n• 6+ years experience with Salesforce data model, SOQL/SOSL, and platform limitations.\n• 6+ years experience building integrations using REST/SOAP APIs and middleware tools.\n• 6+ years experience working with CI/CD tools and version control systems (Git, Copado, Jenkins).\n• 3+ years experience with Agile/Scrum methodologies\n• Strong understanding of Salesforce security model (profiles, roles, sharing rules).\n• Stro",
+    "source": "jsearch",
+    "postedAt": "2026-04-23T00:00:00.000Z",
+    "fetchedAt": "2026-04-25T19:14:51.686Z"
+  },
+  {
+    "id": "fgnsgu-pceqb55q-aaaaaa",
+    "name": "Jobgether",
+    "jobTitle": "Lead Full Stack Developer (Remote)",
+    "careersUrl": "https://jooble.org/jdp/6650366983042245792",
+    "locations": [
+      "Remote"
+    ],
+    "employmentType": "Remote",
+    "interviewProcess": "This position is posted by Jobgether on behalf of a partner company. We are currently looking for a Full Stack Software Engineer - REMOTE. In this role, you will directly influence how users access and manage their finances through innovative software solutions. As part of a dynamic team, you will tackle challenges that arise from operating at scale, ultimately enhancing the user experience for our growing customer base. Your contributions will be instrumental in developing features that ensure a seamless interaction with our financial services. We value a fast-paced, mission-driven culture where collaboration and proactivity are key. Join us in creating meaningful financial products that make a difference in people's lives.\n\nAccountabilities\n• Design and deliver new features that scale with the customer base.\n• Collaborate closely with other engineers to ship high-quality code.\n• Create and maintain clear documentation for a growing, remote organization.\n• Tackle complex challenges involving sensitive financial data and real-time money movement.\n\nRequirements\n• 7+ years of professional experience shipping and scaling user-facing applications or backend services.\n• Experience with mobile or frontend applications, ideally with React Native or similar frameworks.\n• A passion for quality in code, communication, and culture.\n• Drive and proactivity; a builder and executor mindset.\n\nBenefits\n• Competitive base salary, stock options, and health benefits from Day 1.\n• 401(k) plan with company match.\n• Remote-friendly (US), flexible time off (FTO), and growth opportunities.\n• A high-growth, mission-driven, inclusive culture where your work has real impact.\n\nWhy Apply Through Jobgether?\n\nWe use an AI-powered matching process to ensure your application is reviewed quickly, objectively, and fairly against the role's core requirements. Our system identifies the top-fitting candidates, and this shortlist is then shared directly with the hiring company. The final decision and nex",
+    "source": "jsearch",
+    "postedAt": "2026-04-21T00:00:00.000Z",
+    "fetchedAt": "2026-04-25T19:14:51.686Z"
+  },
+  {
+    "id": "bya8zqp8fxpl0fzvaaaaaa",
+    "name": "Peraton",
+    "jobTitle": "Full Stack Developer (Java, Spring Boot, Angular)",
+    "careersUrl": "https://careers-peraton.icims.com/jobs/166122/full-stack-developer-%28java%2C-spring-boot%2C-angular%29/job",
+    "locations": [
+      "Remote"
+    ],
+    "employmentType": "Remote",
+    "interviewProcess": "Responsibilities\n\nPeraton is seeking a Full Stack Developer with strong Java/Spring Boot/Angular experience to join our BEAGLE Team (Border Enforcement Applications for Government Leading-Edge Information Technology), supporting U.S. Customs and Border Protection (CBP). Join this passionate team of industry-leading individuals supporting the best practices in Agile Software Development for the Department of Homeland Security (DHS). The ideal candidate will serve as an Agile Scrum team member providing software development and maintenance for the delivery of releasable software in short sprint cycles.\n\nAs a member of the BEAGLE Team, you will support the men and women charged with safeguarding the American people and enhancing the Nation’s safety, security, and prosperity. CBP agents and officers are on the front lines every day, protecting our national security by combining customs, immigration, border security, and agricultural protection into one coordinated and supportive activity. Make a direct impact on national security while working with cutting-edge technologies.\n\nLocation: Remote work is available for candidates who are not local to Ashburn, VA. Local candidates are expected to be onsite 2 to 3 days per week.\n\nDay to Day Roles and Responsibilities:\n\n• Designing, developing, and implementing custom software and database application capabilities for a variety of legacy and modernized systems with limited oversight\n\n• Acting as a member of a product team supporting teammates and collaborating with a do what it takes attitude to ensure product and team success\n\n• Providing improvements to the product(s) being supported\n\n• Actively participate in release and sprint planning, artifact creation, sprint testing, regression testing, demonstrations and retrospectives and solution releases\n\n• Supporting release planning with conceptual design and development / refinement of software engineering guidelines\n\n• Analyzing complex project-related problems and creating inno",
+    "source": "jsearch",
+    "postedAt": "2026-04-23T00:00:00.000Z",
+    "fetchedAt": "2026-04-25T19:14:51.686Z"
+  },
+  {
+    "id": "numbmfrvsm-4pjgqaaaaaa",
+    "name": "Twine",
+    "jobTitle": "Full Stack Developer – Contract",
+    "careersUrl": "https://bebee.com/us/jobs/full-stack-developer-contract-twine--theirstack-667342036",
+    "locations": [
+      "Remote"
+    ],
+    "employmentType": "Remote",
+    "interviewProcess": "Join a dynamic environment as a senior full stack developer, contributing to multiple projects in the healthcare and fintech sectors. This part-time, fully remote contract role requires a proactive professional who can manage both frontend and backend development, ensuring robust system design and seamless client communication. You will play a key role in delivering high-quality solutions for projects with long-term potential, collaborating closely with stakeholders across different time zones.\n\nResponsibilities\n\n• Lead the development of scalable web applications across both frontend and backend\n\n• Collaborate with cross-functional teams to define, design, and deliver new features\n\n• Architect and implement system designs that meet project requirements and industry standards\n\n• Communicate effectively with clients to gather requirements and provide technical guidance\n\n• Ensure code quality, security, and maintainability through best practices and code reviews\n\n• Troubleshoot, debug, and optimize applications for maximum performance\n\n• Manage project timelines and deliverables in a remote, distributed team environment\n\nSkills And Requirements\n\n• Proven experience as a senior full stack developer, with expertise in both frontend and backend technologies\n\n• Strong proficiency in modern frameworks and languages (e.g., React, Angular, Node.js, Python, or similar)\n\n• Solid understanding of system architecture, RESTful APIs, and database management\n\n• Experience working on projects in healthcare or fintech is highly desirable\n\n• Excellent communication skills and ability to interact with clients professionally\n\n• Self-motivated, reliable, and able to work independently in a remote setting\n\n• Comfortable with part-time contract work and flexible availability\n\n• Must provide timezone, hourly rate, and availability upon application\n\nAbout Twine\nTwine is a leading freelance marketplace connecting top freelancers, consultants, and contractors with companies needing creative an",
+    "source": "jsearch",
+    "postedAt": "2026-04-20T00:00:00.000Z",
+    "fetchedAt": "2026-04-25T19:14:51.686Z"
   },
   {
     "id": "eygu4fbdz1nkdituaaaaaa",
@@ -262,21 +696,105 @@
     "employmentType": "Remote",
     "interviewProcess": "Job Summary:\n\nThe Elite Job is looking for a highly skilled and motivated Remote Full Stack Developer based in Malaysia to join our growing tech team. As a Full Stack Developer, you will be responsible for both the front-end and back-end development of innovative web applications. The ideal candidate will have a passion for technology, a solid understanding of modern development practices, and the ability to work collaboratively in a remote environment. This is an exciting opportunity for developers looking to make a significant impact while working with a dynamic and innovative team.\nKey Responsibilities:\n• * Develop and maintain web applications, including both front-end and back-end components.\n• * Write clean, maintainable, and efficient code across multiple technology stacks.\n• * Collaborate with product managers, designers, and other developers to deliver high-quality features and solutions.\n• * Troubleshoot, debug, and optimize applications for maximum performance and scalability.\n• * Stay up-to-date with emerging technologies and trends in full-stack development.\n• * Ensure cross-platform compatibility and responsiveness of applications.\n• * Participate in code reviews, knowledge sharing, and collaborative team efforts to improve development practices.\n• Required Skills and Qualifications:\n• * Proficiency in front-end technologies like HTML, CSS, JavaScript, and frameworks such as React or Angular.\n• * Strong experience with back-end technologies like Node.js, Express, or similar technologies.\n• * Expertise in database management, particularly SQL and NoSQL databases (e.g., MongoDB, PostgreSQL, MySQL).\n• * Familiarity with version control tools such as Git.\n• * Solid understanding of RESTful API development and integration.\n• * Strong problem-solving skills and attention to detail.\n• * Experience with agile development methodologies.\n• * Excellent communication skills and the ability to work independently in a remote setup.\n• Experience:\n• * Minimum of 2-4 y",
     "source": "jsearch",
-    "postedAt": "2026-04-19T00:00:00.000Z",
-    "fetchedAt": "2026-04-19T23:17:30.636Z"
+    "postedAt": "2026-04-20T00:00:00.000Z",
+    "fetchedAt": "2026-04-25T19:14:51.686Z"
   },
   {
-    "id": "c4fhe9u0gtinuu50aaaaaa",
-    "name": "Perch | Mortgages, simplified",
-    "jobTitle": "Full-Stack Engineer — Remote, Early Team Member",
-    "careersUrl": "https://www.jobleads.com/us/job/full-stack-engineer-remote-early-team-member--united-states--e86a9d7ae551be09ef212424931a02499",
+    "id": "3akagqgm2lfxe7-saaaaaa",
+    "name": "Virtual Vocations Inc",
+    "jobTitle": "SAP Full-Stack Developer",
+    "careersUrl": "https://www.whatjobs.com/jobs/sap-full-stack-developer?id=2655970290",
     "locations": [
       "Remote"
     ],
     "employmentType": "Remote",
-    "interviewProcess": "A technology company in the mortgage sector is looking for a full stack developer to join its new engineering team in Canada. The role involves delivering features across Angular applications and Node.js APIs, while collaborating with Senior engineers. The ideal candidate should be proficient in TypeScript, JavaScript, and have experience with PostgreSQL. This is a fully remote position offering flexible hours and opportunities for professional growth within the team.",
+    "interviewProcess": "A company is looking for a TI Specialist (SAP Full-Stack Developer). Key Responsibilities Design and implement end-to-end SAP applications using ABAP RESTful Application Programming Model (RAP) and Fiori Elements Develop and maintain solutions in SAP BTP, S/4HANA, and S/4HANA Cloud, ensuring alignment with SAP's clean principles Collaborate with functional teams to analyze business needs and translate them into effective technical projects Required Qualifications Bachelor's degree in IT, Computer Science, Software Engineering, Information Systems, or related fields Advanced English proficiency Solid experience with OData services, Adobe Forms, and ABAP Object-Oriented programming Experience with Managed Database Procedures (AMDP) and Web Services (SOAP/REST) Familiarity with Data Services (CDS Views) and IDoc configuration/processing",
     "source": "jsearch",
-    "postedAt": "2026-04-13T00:00:00.000Z",
-    "fetchedAt": "2026-04-19T23:17:30.636Z"
+    "postedAt": "2026-04-25T00:00:00.000Z",
+    "fetchedAt": "2026-04-25T19:14:51.686Z"
+  },
+  {
+    "id": "shfolx3pz9iavwpnaaaaaa",
+    "name": "Squires Group, Inc",
+    "jobTitle": "Java Fullstack Developer | Secret Cleared Remote / Telecommute Jobs",
+    "careersUrl": "https://www.clearancejobs.com/jobs/8872447/java-fullstack-developer-secret-cleared",
+    "locations": [
+      "Remote"
+    ],
+    "employmentType": "Remote",
+    "interviewProcess": "Remote opportunity. Immediate impact. National mission.\n\nOur client is seeking a Secret cleared Java Full Stack Developer to help modernize one of the federal government’s most mission critical investigative systems. This fully remote role puts you on the front lines of large scale transformation—migrating legacy applications to a secure, cloud native platform, advancing DevSecOps and Zero Trust architectures, and shaping the future of a nationwide personnel vetting ecosystem. If you’re driven by complex technical challenges and want your work to directly support national security, this is the kind of role that defines a career.\n\nPer our Federal Government Contract, candidates must be U.S. Citizens with an ACTIVE SECRET CLEARANCE. Top Secret Clearance is preferred.\n\nResponsibilities:\n\n• Create, enhance, and support secure, high‑quality applications using Java and other modern technologies\n\n• Develop application solutions backed by Oracle databases\n\n• Design and deploy container‑based services in an agile development environment\n\n• Utilize DevSecOps CI/CD pipelines to automate build, test, and deployment processes\n\n• Deliver full‑stack functionality across front‑end and back‑end components\n\n• Identify, analyze, and resolve technical issues throughout the application lifecycle\n\n• Partner with cross‑functional team members to produce scalable and reliable solutions\n\n• Apply strong communication, organizational, and collaborative skills to team efforts.\n\nQualifications:\n\n• 3+ years of experience in software application development within a fast paced Agile/Scrum environment\n\n• Proven experience developing applications using Java and other modern programming languages\n\n• Hands on experience with application containerization (e.g., Docker, Kubernetes, or similar technologies)\n\n• Demonstrated ability to work within a DevSecOps CI/CD pipeline for application build, test, and deployment\n\n• Experience developing and supporting Java based applications integrated with Oracle da",
+    "source": "jsearch",
+    "postedAt": "2026-04-22T00:00:00.000Z",
+    "fetchedAt": "2026-04-25T19:14:51.686Z"
+  },
+  {
+    "id": "2rtdo4pdfl0fosi7aaaaaa",
+    "name": "Openkyber",
+    "jobTitle": "Full Stack Developer (Java)",
+    "careersUrl": "https://www.indeed.com/viewjob?jk=b145de3d65c1aa82",
+    "locations": [
+      "Remote"
+    ],
+    "employmentType": "Remote",
+    "interviewProcess": "Job Description Ability to lead the pod(s) of engineers (onshore/offshore) responsible for end-to-end application development. This role requires deep expertise in both front-end (Angular) and back-end (Java Spring Boot) technologies, along with proficiency in debugging and optimizing code. Cloud knowledge, particularly Google Cloud Platform (Google Cloud Platform) is critical.\nTechnical Skillset:\n\n• Strong experience with Angular (version 16+), Java Spring Boot, and relational databases (PostgresSQL)\n\n• Extensive experience with cloud-native application development and deployment\n\n• Familiarity with GKE or similar container orchestration platforms\n\n• Agile framework and tools like Rally, JIRA for sprint management\n\n• Debugging and performance optimization techniques, feature flagging\n\nTechnical Leadership\n\n• Proven track record of leading technical initiatives and setting standards across the development lifecycle\n\n• Experience in conducting code reviews, problem-solving, and ensuring code meets acceptance criteria\n\n• Ability to mentor team members and provide guidance on technical skills and project alignment\n\nCI/CD Pipeline Setup:\n\n• Hands-on experience setting up CI/CD pipelines using tools like GitHub Actions, Harness, Argo CD, and CircleCI\n\n• Expertise in automating workflows and deployments through pipelines\n\n• Familiarity with testing automation tools like Playwright\n\nResponsibilities:\n\n• Lead discussions with Architecture, Technical leads, Product managers, business, Infra and Enterprise Security teams to come up with scalable and efficient application solution and build code\n\n• Lead technical initiatives, build code, set standards and ensuring quality across the development lifecycle\n\n• Conduct code reviews, assist in problem-solving, and ensure code meets acceptance criteria\n\n• Mentor team members, providing guidance on both technical skills and project alignment\n\n• Coordinate closely with the Product Managers, Design leads and Engineering Manager on arch",
+    "source": "jsearch",
+    "postedAt": "2026-04-25T04:00:00.000Z",
+    "fetchedAt": "2026-04-25T19:14:51.686Z"
+  },
+  {
+    "id": "hlxfkkv6qli4mwoqaaaaaa",
+    "name": "The Nippon Telegraph and Telephone Corporation (NTT)",
+    "jobTitle": "Java Full Stack Developer with React/SRE/DevOps - Onsite/Hybrid",
+    "careersUrl": "https://lensa.com/job-v1/the-nippon-telegraph-and-telephone-corporation-ntt/remote/java-full-stack-developer/061257e5e93e0ebdde1b70631026151a",
+    "locations": [
+      "Remote"
+    ],
+    "employmentType": "Remote",
+    "interviewProcess": "About NTT DATA\n\nAt NTT DATA, we know that with the right people on board, anything is possible. The quality, integrity, and commitment of our employees have been key factors in our company's growth and market presence. By hiring the best people and helping them grow both professionally and personally, we ensure a bright future for NTT DATA and for the people who work here.\n\nFor more than 25 years, NTT DATA Services have focused on impacting the core of your business operations with industry-leading outsourcing services and automation. With our industry-specific platforms, we deliver continuous value addition, and innovation that will improve your business outcomes. Outsourcing is not just a method of gaining a one-time cost advantage, but an effective strategy for gaining and maintaining competitive advantages when executed as part of an overall sourcing strategy.\n\nNTT DATA's Client is seeking a candidate who will be responsible for the development and overall implementation of software in a complex, critical, and large cross-departmental and multi-disciplinary area. The role is part of a multi-year transformation journey that will require a successful candidate to establish best practices, motivate and promote a cultural shift that will ensure a successful adoption of Engineering Principles and Practices within Production Management. The role requires a comprehensive understanding of multiple areas within a function and how they interact to achieve the objectives of the function. Applies in-depth understanding of the business impact of technical contributions. Accountable for delivery of a full range of end-to-end projects. Excellent communication skills required to negotiate internally. Involved in short- to medium-term planning of actions and resources for own area.\n\nWe have a Java Full Stack Developer available and React frontend development with SRE/DevOps is needed for this position. If you are interested, please apply today\n• Build applications (Development)",
+    "source": "jsearch",
+    "postedAt": "2026-04-23T00:00:00.000Z",
+    "fetchedAt": "2026-04-25T19:14:51.686Z"
+  },
+  {
+    "id": "2upzeioz6mxclishaaaaaa",
+    "name": "Jobgether",
+    "jobTitle": "Remote Engineer, Full Stack",
+    "careersUrl": "https://jooble.org/jdp/4752282529650438782",
+    "locations": [
+      "Remote"
+    ],
+    "employmentType": "Remote",
+    "interviewProcess": "This position is posted by Jobgether on behalf of a partner company. We are currently looking for a Full Stack Software Engineer - REMOTE. In this role, you will directly influence how users access and manage their finances through innovative software solutions. As part of a dynamic team, you will tackle challenges that arise from operating at scale, ultimately enhancing the user experience for our growing customer base. Your contributions will be instrumental in developing features that ensure a seamless interaction with our financial services. We value a fast-paced, mission-driven culture where collaboration and proactivity are key. Join us in creating meaningful financial products that make a difference in people's lives.\n\nAccountabilities\n• Design and deliver new features that scale with the customer base.\n• Collaborate closely with other engineers to ship high-quality code.\n• Create and maintain clear documentation for a growing, remote organization.\n• Tackle complex challenges involving sensitive financial data and real-time money movement.\n\nRequirements\n• 7+ years of professional experience shipping and scaling user-facing applications or backend services.\n• Experience with mobile or frontend applications, ideally with React Native or similar frameworks.\n• A passion for quality in code, communication, and culture.\n• Drive and proactivity; a builder and executor mindset.\n\nBenefits\n• Competitive base salary, stock options, and health benefits from Day 1.\n• 401(k) plan with company match.\n• Remote-friendly (US), flexible time off (FTO), and growth opportunities.\n• A high-growth, mission-driven, inclusive culture where your work has real impact.\n\nWhy Apply Through Jobgether?\n\nWe use an AI-powered matching process to ensure your application is reviewed quickly, objectively, and fairly against the role's core requirements. Our system identifies the top-fitting candidates, and this shortlist is then shared directly with the hiring company. The final decision and nex",
+    "source": "jsearch",
+    "postedAt": "2026-04-21T00:00:00.000Z",
+    "fetchedAt": "2026-04-25T19:14:51.686Z"
+  },
+  {
+    "id": "oplszxkda-wv1dbiaaaaaa",
+    "name": "Pavago",
+    "jobTitle": "Remote Full-Stack AI Engineer: Deploy Production ML",
+    "careersUrl": "https://www.jobleads.com/us/job/remote-full-stack-ai-engineer-deploy-production-ml--united-states--e08885d4bf9a955db6df8f3cbfb78e8d3",
+    "locations": [
+      "Remote"
+    ],
+    "employmentType": "Remote",
+    "interviewProcess": "A tech-focused company is seeking a Full-Stack AI Engineer to design, build, and deploy AI applications. Responsibilities include integrating ML models, developing data pipelines, and creating user interfaces. The ideal candidate has over 3 years of experience in software engineering, particularly in AI/ML, with proficiency in Python and JavaScript. This is a full-time remote position offering the chance to work on innovative AI solutions.",
+    "source": "jsearch",
+    "postedAt": "2026-04-20T00:00:00.000Z",
+    "fetchedAt": "2026-04-25T19:14:51.686Z"
+  },
+  {
+    "id": "cdwl8ktsr0wpgjs8aaaaaa",
+    "name": "State of Nebraska",
+    "jobTitle": "Senior Full-Stack Java & React Developer",
+    "careersUrl": "https://son.wd108.myworkdayjobs.com/en-US/NebraskaStateCareers/job/Senior-Full-Stack-Java---React-Developer_JR2026-00025339",
+    "locations": [
+      "Remote"
+    ],
+    "employmentType": "Remote",
+    "interviewProcess": "The work we do matters! Hiring Agency: Health & Human Services - Agency 25 Location: Lincoln, NE Hiring Rate: $35.267 Job Posting: JR2026-00025339 Senior Full-Stack Java & React Developer (Evergreen) (Open) Applications No Longer Accepted On (If no date is displayed, job is posted as open until closed): 04-29-2026 Job Description: The Department of Health and Human Services (DHHS) is seeking a Senior full-stack Java & React Developer to build and support micro-services and React applications used across multiple teams within the Department. The Senior Applications Developer will develop and maintain cloud-based applications. The ability to communicate with technical team members, business users, and management is required. **The Nebraska Department of Health and Human Services does not sponsor or transfer non-immigrant work visas for this position or accept STEM OPT (form i-983) at any time. ** Key Responsibilities Design scalable and maintainable systems Write clean, efficient, and well-tested Java code Review code and guide junior developers Troubleshoot performance and production issues Examples of Work Expert in the design, coding, and deployment of micro-services and React applications. Provide technical guidance and mentorship to junior developers and peers. Collaborate with cross-functional teams to refine business requirements into technical solutions. Develop, and deploy scalable micro-services and REST APIs. Develop front-end applications using React and ensure they are optimized for performance, scalability, and security. Expertise in working with databases and data manipulation techniques (relational and non-relational) in Azure cloud environments. Conduct and lead unit, integration, and customer acceptance testing, ensuring high-quality deliverables. Document technical solutions, application architecture, and development processes. Troubleshoot and resolve complex production issues under tight timeframes, occasionally Requirements / Qualifications: Mini",
+    "source": "jsearch",
+    "postedAt": "2026-04-20T00:00:00.000Z",
+    "fetchedAt": "2026-04-25T19:14:51.686Z"
   }
 ]
