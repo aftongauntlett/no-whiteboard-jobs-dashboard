@@ -188,7 +188,6 @@ function init() {
 
   // AI-friendly count
   const aiFriendlyCount = indexedCompanies.filter((c) => {
-    if (c.company.source === "jsearch") return true;
     const text = (c.company.interviewProcessHtml ?? "").replace(/<[^>]*>/g, " ");
     return AI_KEYWORDS_RE.test(text);
   }).length;

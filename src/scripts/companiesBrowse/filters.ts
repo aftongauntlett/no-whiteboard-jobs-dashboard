@@ -59,7 +59,6 @@ export function computeResults(args: {
 
   if (args.aiFriendly) {
     result = result.filter((c) => {
-      if (c.company.source === "jsearch") return true;
       const text = (c.company.interviewProcessHtml ?? "").replace(
         /<[^>]*>/g,
         " ",
@@ -86,10 +85,8 @@ export function computeResults(args: {
 
   sorted.sort((a, b) => {
     if (args.sort === "curated-desc") {
-      const aLocal =
-        a.company.source === "local" || a.company.source === "jsearch";
-      const bLocal =
-        b.company.source === "local" || b.company.source === "jsearch";
+      const aLocal = a.company.source === "local";
+      const bLocal = b.company.source === "local";
 
       if (aLocal !== bLocal) return aLocal ? -1 : 1;
 
