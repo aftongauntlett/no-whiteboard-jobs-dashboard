@@ -42,7 +42,6 @@ export function createBrowseRenderController(args: {
   selectedEmployment: Set<EmploymentType>;
   state: BrowseState;
   scrollToTop: () => void;
-  closeMenu: () => void;
 }) {
   const {
     templates,

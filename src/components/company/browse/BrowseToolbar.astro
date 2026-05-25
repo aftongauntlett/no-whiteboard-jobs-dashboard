@@ -15,7 +15,9 @@ const { searchInputProps = {}, menuButtonProps = {} } = Astro.props;
 ---
 
 <div class="flex flex-1 min-w-0 items-center gap-2 md:gap-0">
-  <div class="relative flex-1 min-w-0 md:max-w-[min(28rem,60vw)]">
+  <div
+    class="relative flex-1 min-w-0 md:max-w-[min(20rem,52vw)] lg:max-w-[min(28rem,60vw)]"
+  >
     <label class="sr-only" for="company-search">Search companies</label>
     <span
       class="pointer-events-none absolute inset-y-0 left-4 flex items-center text-text-mutedLight dark:text-text-mutedDark"
@@ -80,7 +82,7 @@ const { searchInputProps = {}, menuButtonProps = {} } = Astro.props;
       </span>
 
       <span
-        class="hidden md:inline text-left text-text-mutedLight dark:text-text-mutedDark"
+        class="hidden lg:inline text-left text-text-mutedLight dark:text-text-mutedDark"
       >
         Filter &amp; Sort
       </span>

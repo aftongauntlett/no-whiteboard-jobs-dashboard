@@ -18,11 +18,10 @@ const {
   totalItems,
   countProps = {},
 } = Astro.props as Props;
-
 ---
 
-<div class="flex items-center justify-between gap-3">
-  <div class="flex items-center gap-4 min-w-0">
+<div class="flex flex-wrap items-center justify-between gap-3">
+  <div class="flex grow items-center gap-4 min-w-0">
     <p
       class="text-sm text-text-mutedLight dark:text-text-mutedDark"
       data-companies-count
@@ -32,9 +31,9 @@ const {
     </p>
   </div>
 
-  <div class="hidden md:flex items-center gap-2">
+  <div class="hidden lg:flex items-center gap-2 shrink-0">
     <span
-      class="hidden md:inline text-xs text-text-mutedLight dark:text-text-mutedDark"
+      class="hidden lg:inline text-xs text-text-mutedLight dark:text-text-mutedDark"
     >
       Per page
     </span>

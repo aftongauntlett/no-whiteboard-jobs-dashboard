@@ -61,6 +61,7 @@ const linkClass = (href: string) => {
               <a
                 href={item.href}
                 aria-current={isActive(item.href) ? "page" : undefined}
+                aria-label={item.label}
                 class={linkClass(item.href)}
                 {...(idx === 0 ? firstLinkProps : {})}
               >

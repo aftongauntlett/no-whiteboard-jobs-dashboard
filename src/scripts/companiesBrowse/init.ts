@@ -188,23 +188,30 @@ function init() {
 
   // AI-friendly count
   const aiFriendlyCount = indexedCompanies.filter((c) => {
-    const text = (c.company.interviewProcessHtml ?? "").replace(/<[^>]*>/g, " ");
+    const text = (c.company.interviewProcessHtml ?? "").replace(
+      /<[^>]*>/g,
+      " ",
+    );
     return AI_KEYWORDS_RE.test(text);
   }).length;
   const aiFriendlyCountEl = section.querySelector<HTMLElement>(
     "[data-companies-ai-friendly-count]",
   );
-  if (aiFriendlyCountEl) aiFriendlyCountEl.textContent = String(aiFriendlyCount);
+  if (aiFriendlyCountEl)
+    aiFriendlyCountEl.textContent = String(aiFriendlyCount);
 
   // Has interview details count
   const hasInterviewCount = indexedCompanies.filter((c) => {
-    const text = (c.company.interviewProcessHtml ?? "").replace(/<[^>]*>/g, " ").trim();
+    const text = (c.company.interviewProcessHtml ?? "")
+      .replace(/<[^>]*>/g, " ")
+      .trim();
     return text !== "" && text !== "No details provided.";
   }).length;
   const hasInterviewCountEl = section.querySelector<HTMLElement>(
     "[data-companies-has-interview-count]",
   );
-  if (hasInterviewCountEl) hasInterviewCountEl.textContent = String(hasInterviewCount);
+  if (hasInterviewCountEl)
+    hasInterviewCountEl.textContent = String(hasInterviewCount);
 
   const resultsCache = new Map<string, Company[]>();
 
@@ -228,7 +235,6 @@ function init() {
     selectedEmployment: state.selectedEmployment,
     state,
     scrollToTop,
-    closeMenu: menu.close,
   });
 
   bindFiltersController({

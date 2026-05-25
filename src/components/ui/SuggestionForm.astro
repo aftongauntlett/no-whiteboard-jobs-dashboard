@@ -7,6 +7,7 @@ import { errorSummaryClass } from "./form/formStyles";
 import MessageSquare from "lucide-astro/MessageSquare";
 
 const action = "https://formspree.io/f/xgoobynr";
+const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY ?? "";
 ---
 
 <form
@@ -34,8 +35,8 @@ const action = "https://formspree.io/f/xgoobynr";
       >
         This dashboard is independently maintained and draws from multiple
         sources: the Hiring Without Whiteboards open-source dataset, my own
-        local curation, and live listings from job search APIs. I keep the
-        upstream data in sync and apply local fixes and additions separately.
+        local curation, and community submissions. I keep upstream data and
+        local fixes/additions separate.
       </p>
 
       <div class="space-y-2">
@@ -154,6 +155,26 @@ const action = "https://formspree.io/f/xgoobynr";
     </div>
 
     <div
+      class="space-y-2"
+      data-turnstile-widget
+      aria-label="Human verification"
+    >
+      {
+        turnstileSiteKey ? (
+          <div
+            class="cf-turnstile"
+            data-sitekey={turnstileSiteKey}
+            data-theme="auto"
+          ></div>
+        ) : (
+          <p class="text-sm text-warning-text">
+            Human verification is unavailable right now. Please try again later.
+          </p>
+        )
+      }
+    </div>
+
+    <div
       data-suggestion-success
       hidden
       role="status"
@@ -199,6 +220,16 @@ const action = "https://formspree.io/f/xgoobynr";
   </div>
 </form>
 
+{
+  turnstileSiteKey && (
+    <script
+      src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+      async
+      defer
+    ></script>
+  )
+}
+
 <script is:inline>
   (() => {
     const form = document.querySelector("[data-suggestion-form]");
@@ -210,6 +241,7 @@ const action = "https://formspree.io/f/xgoobynr";
     const retryBtn = form.querySelector("[data-suggestion-retry]");
     const submitBtn = form.querySelector("[data-suggestion-submit]");
     const gotchaEl = form.querySelector("#suggestion-gotcha");
+    const turnstileWidgetEl = form.querySelector(".cf-turnstile");
     const validationSummaryEl = form.querySelector("[data-validation-summary]");
     const validationSummaryListEl = form.querySelector(
       "[data-validation-summary-list]",
@@ -300,9 +332,20 @@ const action = "https://formspree.io/f/xgoobynr";
       errorEl.focus();
     };
 
+    const resetTurnstile = () => {
+      const turnstileApi = window.turnstile;
+      if (!turnstileApi || typeof turnstileApi.reset !== "function") return;
+      try {
+        turnstileApi.reset();
+      } catch (_err) {
+        // Ignore widget reset errors and preserve submit flow.
+      }
+    };
+
     if (retryBtn) {
       retryBtn.addEventListener("click", () => {
         hideMessages();
+        resetTurnstile();
         submitBtn.focus();
       });
     }
@@ -331,10 +374,16 @@ const action = "https://formspree.io/f/xgoobynr";
         return;
       }
 
+      const formData = new FormData(form);
+      const turnstileToken = formData.get("cf-turnstile-response");
+      if (turnstileWidgetEl && (!turnstileToken || !String(turnstileToken).trim())) {
+        showError("Please complete the security check and try again.");
+        return;
+      }
+
       setBusy(true);
 
       try {
-        const formData = new FormData(form);
         const response = await fetch(form.action, {
           method: "POST",
           body: formData,
@@ -345,14 +394,17 @@ const action = "https://formspree.io/f/xgoobynr";
 
         if (response.ok) {
           showSuccess("Thanks — your message was sent.");
+          resetTurnstile();
           window.setTimeout(() => {
             form.reset();
           }, 2000);
           return;
         }
 
+        resetTurnstile();
         showError("Something went wrong. Please try again later.");
       } catch (_err) {
+        resetTurnstile();
         showError(
           "Unable to send. Please check your connection and try again.",
         );

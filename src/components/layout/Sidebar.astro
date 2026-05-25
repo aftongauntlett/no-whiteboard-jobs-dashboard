@@ -76,7 +76,8 @@ import ChevronLeft from "lucide-astro/ChevronLeft";
         <button
           id="sidebar-toggle"
           type="button"
-          aria-label="Toggle sidebar"
+          aria-label="Collapse sidebar"
+          aria-expanded="true"
           class="mt-4 flex items-center justify-between w-full rounded p-2 min-h-11 text-text-mutedLight dark:text-text-mutedDark cursor-pointer
                hover:text-accent dark:hover:text-accent
                hover:bg-surface-light dark:hover:bg-surface-dark
@@ -135,6 +136,15 @@ import ChevronLeft from "lucide-astro/ChevronLeft";
         themeToggle.classList.remove("justify-center");
       }
 
+      toggleButton.setAttribute(
+        "aria-expanded",
+        isCollapsed ? "false" : "true",
+      );
+      toggleButton.setAttribute(
+        "aria-label",
+        isCollapsed ? "Expand sidebar" : "Collapse sidebar",
+      );
+
       // Store collapsed state
       localStorage.setItem("sidebar-collapsed", isCollapsed.toString());
     });
@@ -154,6 +164,12 @@ import ChevronLeft from "lucide-astro/ChevronLeft";
       themeToggle.classList.remove("justify-start");
       themeToggle.classList.add("justify-center");
     }
+
+    toggleButton.setAttribute("aria-expanded", isCollapsed ? "false" : "true");
+    toggleButton.setAttribute(
+      "aria-label",
+      isCollapsed ? "Expand sidebar" : "Collapse sidebar",
+    );
   }
 </script>
 

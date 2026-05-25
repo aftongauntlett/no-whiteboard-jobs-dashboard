@@ -68,7 +68,7 @@ const viewToggleProps = {
     </div>
 
     <div data-companies-background>
-      <div class="flex flex-nowrap items-center gap-3 min-w-0">
+      <div class="flex flex-wrap lg:flex-nowrap items-center gap-3 min-w-0">
         <BrowseToolbar {...toolbarProps} />
         <BrowseViewToggle {...viewToggleProps} />
       </div>
@@ -170,8 +170,10 @@ const viewToggleProps = {
               />
               <span class="min-w-0 text-left">
                 Remote
-                <span class="ml-1 whitespace-nowrap text-xs tabular-nums text-text-mutedLight dark:text-text-mutedDark"
-                  >(<span data-companies-employment-count="Remote"></span>)</span
+                <span
+                  class="ml-1 whitespace-nowrap text-xs tabular-nums text-text-mutedLight dark:text-text-mutedDark"
+                  >(<span data-companies-employment-count="Remote"
+                  ></span>)</span
                 >
               </span>
             </label>
@@ -187,8 +189,10 @@ const viewToggleProps = {
               />
               <span class="min-w-0 text-left">
                 In-office
-                <span class="ml-1 whitespace-nowrap text-xs tabular-nums text-text-mutedLight dark:text-text-mutedDark"
-                  >(<span data-companies-employment-count="In-office"></span>)</span
+                <span
+                  class="ml-1 whitespace-nowrap text-xs tabular-nums text-text-mutedLight dark:text-text-mutedDark"
+                  >(<span data-companies-employment-count="In-office"
+                  ></span>)</span
                 >
               </span>
             </label>
@@ -423,7 +427,8 @@ const viewToggleProps = {
               />
               <span class="min-w-0 text-left">
                 AI-friendly
-                <span class="ml-1 whitespace-nowrap text-xs tabular-nums text-text-mutedLight dark:text-text-mutedDark"
+                <span
+                  class="ml-1 whitespace-nowrap text-xs tabular-nums text-text-mutedLight dark:text-text-mutedDark"
                   >(<span data-companies-ai-friendly-count></span>)</span
                 >
               </span>
@@ -455,7 +460,8 @@ const viewToggleProps = {
               />
               <span class="min-w-0 text-left">
                 Has interview details
-                <span class="ml-1 whitespace-nowrap text-xs tabular-nums text-text-mutedLight dark:text-text-mutedDark"
+                <span
+                  class="ml-1 whitespace-nowrap text-xs tabular-nums text-text-mutedLight dark:text-text-mutedDark"
                   >(<span data-companies-has-interview-count></span>)</span
                 >
               </span>
