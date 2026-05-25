@@ -5,6 +5,9 @@
   "description": "Personal Astro dashboard for browsing hiring-without-whiteboards companies with accessible search and filters.",
   "author": "Afton Gauntlett",
   "license": "MIT",
+  "engines": {
+    "node": ">=22.12.0"
+  },
   "homepage": "https://no-wb.org/",
   "repository": {
     "type": "git",
@@ -19,12 +22,12 @@
     "test": "tsx --test src/utils/interviewTags.test.ts"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.6",
-    "@tailwindcss/vite": "^4.1.18",
-    "astro": "^5.16.6",
+    "@astrojs/check": "^0.9.9",
+    "@tailwindcss/vite": "^4.3.0",
+    "astro": "^6.3.7",
     "lucide-astro": "^0.556.0",
     "markdown-it": "^14.1.0",
-    "tailwindcss": "^4.1.18",
+    "tailwindcss": "^4.3.0",
     "typescript": "^5.9.3"
   },
   "devDependencies": {
