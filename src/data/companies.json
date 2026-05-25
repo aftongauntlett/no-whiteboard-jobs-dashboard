@@ -10,7 +10,7 @@
   {
     "id": "aalyria",
     "name": "Aalyria",
-    "careersUrl": "https://www.aalyria.com/jobs",
+    "careersUrl": "https://ats.rippling.com/aalyria-careers/jobs",
     "locations": ["Remote"],
     "employmentType": "Remote",
     "interviewProcess": "Timeboxed design exercise and related coding exercise, followed by a technical/behavioral discussion with the team, and behavioral interview with leadership"
@@ -414,14 +414,6 @@
     "locations": ["New Delhi, India"],
     "employmentType": "In-office",
     "interviewProcess": "A mini project (to be done within 8 days), followed by a discussion with the team you're applying to. Then as the final step, a call with one of the founders."
-  },
-  {
-    "id": "aura-frames",
-    "name": "Aura Frames",
-    "careersUrl": "https://auraframes.com/jobs?gh_src=2ef5cfa32",
-    "locations": ["New York, NY", "San Francisco, CA"],
-    "employmentType": "In-office",
-    "interviewProcess": "Simplified real-world coding task on Coderpad.io, followed by a few hours onsite writing code in our actual codebase."
   },
   {
     "id": "auto1",
@@ -1144,9 +1136,9 @@
     "interviewProcess": "Cultural fit interview, home test, technical interview with the team and then interview with the leadership"
   },
   {
-    "id": "chargify",
-    "name": "Chargify",
-    "careersUrl": "https://chargify.com/jobs",
+    "id": "maxio",
+    "name": "Maxio",
+    "careersUrl": "https://www.maxio.com/careers",
     "locations": ["San Antonio, TX", "Remote"],
     "employmentType": "Remote",
     "interviewProcess": "Take-home project & pair on a problem similar to daily work"
@@ -1281,6 +1273,14 @@
     "interviewProcess": "Phone conversations and examples of Free Software/Open Source work"
   },
   {
+    "id": "clipboard",
+    "name": "Clipboard",
+    "careersUrl": "https://www.clipboardhealth.com/careers",
+    "locations": ["San Francisco, CA", "New York, NY", "Remote"],
+    "employmentType": "Remote",
+    "interviewProcess": "1 hour take-home project, followed by team interviews which include live coding, discussion of the take-home project, and discussion of technical background and experience."
+  },
+  {
     "id": "clippings",
     "name": "Clippings",
     "careersUrl": "https://clippings.com",
@@ -1355,7 +1355,7 @@
   {
     "id": "colearn",
     "name": "Colearn",
-    "careersUrl": "https://kelas.colearn.id/career",
+    "careersUrl": "https://colearn.bamboohr.com/careers",
     "locations": [
       "Remote, Bengaluru",
       "India, Jakarta",
@@ -1500,14 +1500,6 @@
     "interviewProcess": "Technical interview as an open discussion"
   },
   {
-    "id": "cortlex",
-    "name": "Cortlex",
-    "careersUrl": "https://careers.cortlex.com",
-    "locations": ["Vilnius, Lithuania"],
-    "employmentType": "In-office",
-    "interviewProcess": "Non-technical screening call with recruiter, then online interview with experience based technical questions"
-  },
-  {
     "id": "cosium",
     "name": "Cosium",
     "careersUrl": "https://www.cosium.com",
@@ -1534,7 +1526,7 @@
   {
     "id": "cox-enterprises",
     "name": "Cox Enterprises",
-    "careersUrl": "https://jobs.coxenterprises.com/home-technology/",
+    "careersUrl": "https://jobs.coxenterprises.com/en/career-areas/technology/",
     "locations": ["Atlanta, GA", "Remote"],
     "employmentType": "Remote",
     "interviewProcess": "First-round behavioral interview with Engineering Lead, second-round technical discussion with the dev team"
@@ -2036,8 +2028,8 @@
   {
     "id": "ellucian",
     "name": "Ellucian",
-    "careersUrl": "https://www.ellucian.com/About-Us/Careers/",
-    "locations": ["Reston, VA", "USA"],
+    "careersUrl": "https://careers.ellucian.com/careers-home",
+    "locations": ["Reston, VA, USA"],
     "employmentType": "In-office",
     "interviewProcess": "Discussion of real world problems (from resume, if possible)"
   },
@@ -3704,6 +3696,14 @@
     "interviewProcess": "Skype interview, mini take-home exercise, discussion on-site / personal interview"
   },
   {
+    "id": "linear",
+    "name": "Linear",
+    "careersUrl": "https://linear.app/careers",
+    "locations": ["San Francisco, CA", "Remote"],
+    "employmentType": "Remote",
+    "interviewProcess": "Practical take-home assignment and technical discussion"
+  },
+  {
     "id": "linx-systems",
     "name": "Linx Systems",
     "careersUrl": "https://www.linxsystems.com",
@@ -4780,14 +4780,6 @@
     "interviewProcess": "Take-home exercise, real-world pair programming session, friendly chat with team"
   },
   {
-    "id": "outlook-ios-android",
-    "name": "Outlook iOS & Android",
-    "careersUrl": "https://github.com/outlook/jobs",
-    "locations": ["San Francisco, CA", "New York, NY"],
-    "employmentType": "In-office",
-    "interviewProcess": "Take-home project & online / onsite discussion"
-  },
-  {
     "id": "the-nerdery",
     "name": "The Nerdery",
     "careersUrl": "https://www.nerdery.com/careers",
@@ -5369,9 +5361,9 @@
     "interviewProcess": "Discussion, work samples from previous projects (work or hobby), take-home exercise if needed for further info"
   },
   {
-    "id": "realync",
-    "name": "Realync",
-    "careersUrl": "https://realync.com/careers",
+    "id": "grace-hill",
+    "name": "Grace Hill",
+    "careersUrl": "https://gracehill.com/careers/",
     "locations": ["Chicago, IL", "Carmel, IN", "Remote"],
     "employmentType": "Remote",
     "interviewProcess": "Quick phone interview, then a take home project and finally in person interview (open discussions instead of quizzes - anything technical are real-world problems)."
@@ -6152,14 +6144,6 @@
     "interviewProcess": "Skype/on-site interview, take-home project"
   },
   {
-    "id": "storm",
-    "name": "Storm",
-    "careersUrl": "https://www.stormx.io/about#jobs",
-    "locations": ["Seattle, WA", "Remote"],
-    "employmentType": "Remote",
-    "interviewProcess": "Phone/skype screen --> Take-home coding assignment --> on-site/skype interview loop to discuss assignment; meet-and-greet with other teams --> +1/-1 based on team consensus"
-  },
-  {
     "id": "storytel",
     "name": "Storytel",
     "careersUrl": "https://jobs.storytel.com/departments/tech",
@@ -6356,14 +6340,6 @@
     "locations": ["Richmond (London), UK"],
     "employmentType": "In-office",
     "interviewProcess": "Live pair programming or take home project with review"
-  },
-  {
-    "id": "take-homes",
-    "name": "Take Homes",
-    "careersUrl": "https://takehomes.com",
-    "locations": ["San Francisco", "CA & New York, NY"],
-    "employmentType": "In-office",
-    "interviewProcess": "Take-home project based on a real-world problem, administered on their own platform, followed by a pair programming session, also on their platform, which builds on the initial project"
   },
   {
     "id": "take-two-interactive",
@@ -7010,14 +6986,6 @@
     "locations": ["Tupelo, MS"],
     "employmentType": "In-office",
     "interviewProcess": "Take home project, code review, and in-person discussion"
-  },
-  {
-    "id": "voltra-co",
-    "name": "Voltra Co.",
-    "careersUrl": "https://voltra.co",
-    "locations": ["Amsterdam, The Netherlands", "New York, NY", "Remote"],
-    "employmentType": "Remote",
-    "interviewProcess": "Show us your github account, tell us what you know. Let's pair on an OSS PR!"
   },
   {
     "id": "vsx",
