@@ -7,7 +7,15 @@ import { errorSummaryClass } from "./form/formStyles";
 import Lightbulb from "lucide-astro/Lightbulb";
 
 const action = "https://formspree.io/f/xgoobynr";
-const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY ?? "";
+const turnstileSiteKey = String(
+  import.meta.env.PUBLIC_TURNSTILE_SITE_KEY ||
+    import.meta.env.PUBLIC_CLOUDFLARE_TURNSTILE_SITE_KEY ||
+    import.meta.env.TURNSTILE_SITE_KEY ||
+    process.env.PUBLIC_TURNSTILE_SITE_KEY ||
+    process.env.PUBLIC_CLOUDFLARE_TURNSTILE_SITE_KEY ||
+    process.env.TURNSTILE_SITE_KEY ||
+    "",
+).trim();
 ---
 
 <form

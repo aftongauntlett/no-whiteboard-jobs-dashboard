@@ -7,7 +7,15 @@ import { errorSummaryClass } from "./form/formStyles";
 import MessageSquare from "lucide-astro/MessageSquare";
 
 const action = "https://formspree.io/f/xgoobynr";
-const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY ?? "";
+const turnstileSiteKey = String(
+  import.meta.env.PUBLIC_TURNSTILE_SITE_KEY ||
+    import.meta.env.PUBLIC_CLOUDFLARE_TURNSTILE_SITE_KEY ||
+    import.meta.env.TURNSTILE_SITE_KEY ||
+    process.env.PUBLIC_TURNSTILE_SITE_KEY ||
+    process.env.PUBLIC_CLOUDFLARE_TURNSTILE_SITE_KEY ||
+    process.env.TURNSTILE_SITE_KEY ||
+    "",
+).trim();
 ---
 
 <form
@@ -165,7 +173,7 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY ?? "";
             class="cf-turnstile"
             data-sitekey={turnstileSiteKey}
             data-theme="auto"
-          ></div>
+          />
         ) : (
           <p class="text-sm text-warning-text">
             Human verification is unavailable right now. Please try again later.
@@ -226,7 +234,7 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY ?? "";
       src="https://challenges.cloudflare.com/turnstile/v0/api.js"
       async
       defer
-    ></script>
+    />
   )
 }
 
@@ -376,7 +384,10 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY ?? "";
 
       const formData = new FormData(form);
       const turnstileToken = formData.get("cf-turnstile-response");
-      if (turnstileWidgetEl && (!turnstileToken || !String(turnstileToken).trim())) {
+      if (
+        turnstileWidgetEl &&
+        (!turnstileToken || !String(turnstileToken).trim())
+      ) {
         showError("Please complete the security check and try again.");
         return;
       }
