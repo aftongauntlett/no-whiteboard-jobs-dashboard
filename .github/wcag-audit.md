@@ -1,31 +1,3 @@
-## Opener Prompt For New Chat
-
-Copy/paste this to start a new agent chat:
-
-```text
-Execute the accessibility and UX audit runbook in .github/wcag-audit.md for this repo.
-
-Focus areas:
-- WCAG 2.2 AA best-practice compliance across /, /about, /hiring-tips, and /page/2
-- Keyboard navigation, focus order/visibility, and Escape/focus-return behavior
-- Responsive overlap/reflow issues (especially browse toolbar + results controls)
-- Color contrast in light/dark theme tokens
-- Lighthouse scores (mobile + desktop) with evidence
-
-Required actions:
-1) Run lint, test, and build first.
-2) Run Lighthouse on all scoped routes and write JSON artifacts to .github/audit.
-3) Perform manual keyboard and responsive checks from the runbook.
-4) Implement fixes with minimal, safe diffs.
-5) Remove verified dead code in touched areas.
-
-Return format:
-- Findings by severity with file references
-- Exact code changes made
-- Test/build/Lighthouse results
-- Remaining risks and explicit DoD pass/fail
-```
-
 # No Whiteboard Jobs Accessibility + UX Audit Runbook
 
 This is the execution plan for auditing and fixing accessibility, keyboard navigation, responsive overlap, contrast, and Lighthouse quality in this specific Astro app.

@@ -75,7 +75,7 @@ const turnstileSiteKey = String(
             href="https://github.com/poteto/hiring-without-whiteboards"
             target="_blank"
             rel="noopener noreferrer"
-            class="inline text-accent hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm"
+            class="inline text-accent underline decoration-current underline-offset-2 hover:no-underline focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm"
             >(hiring-without-whiteboards)
           </a>
           - that way the whole community benefits.
@@ -163,26 +163,6 @@ const turnstileSiteKey = String(
     </div>
 
     <div
-      class="space-y-2"
-      data-turnstile-widget
-      aria-label="Human verification"
-    >
-      {
-        turnstileSiteKey ? (
-          <div
-            class="cf-turnstile"
-            data-sitekey={turnstileSiteKey}
-            data-theme="auto"
-          />
-        ) : (
-          <p class="text-sm text-warning-text">
-            Human verification is unavailable right now. Please try again later.
-          </p>
-        )
-      }
-    </div>
-
-    <div
       data-suggestion-success
       hidden
       role="status"
@@ -224,6 +204,26 @@ const turnstileSiteKey = String(
       >
         Send suggestion
       </Button>
+    </div>
+
+    <div
+      class="space-y-2 flex flex-col items-end"
+      data-turnstile-widget
+      aria-label="Human verification"
+    >
+      {
+        turnstileSiteKey ? (
+          <div
+            class="cf-turnstile"
+            data-sitekey={turnstileSiteKey}
+            data-theme="auto"
+          />
+        ) : (
+          <p class="text-sm text-warning-text">
+            Human verification is unavailable right now. Please try again later.
+          </p>
+        )
+      }
     </div>
   </div>
 </form>

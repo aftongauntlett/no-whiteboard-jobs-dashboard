@@ -78,7 +78,10 @@ import {
         </span>
       </header>
 
-      <div data-company-interview class="relative z-30 mt-2 flex flex-col flex-1 gap-2">
+      <div
+        data-company-interview
+        class="relative z-30 mt-2 flex flex-col flex-1 gap-2"
+      >
         <div
           data-company-interview-text
           data-readmore-text
@@ -134,7 +137,10 @@ import {
       </div>
     </header>
 
-    <div data-company-interview class="relative z-30 mt-2 flex flex-col flex-1 gap-2">
+    <div
+      data-company-interview
+      class="relative z-30 mt-2 flex flex-col flex-1 gap-2"
+    >
       <div
         data-company-interview-text
         data-readmore-text
@@ -352,7 +358,7 @@ import {
   >
     <span data-location-overflow-count></span>
     <div
-      class="absolute top-0 left-full ml-2 invisible group-hover/loc:visible group-focus/loc:visible group-focus-within/loc:visible pointer-events-none border border-border-light dark:border-border-dark rounded-lg p-3 text-xs text-text-light dark:text-text-dark bg-surface-light dark:bg-surface-dark shadow-lg ring-1 ring-black/5 dark:ring-white/10 w-fit max-w-[min(28rem,calc(100vw-2rem))] break-words z-50 text-left"
+      class="absolute top-0 left-full ml-2 hidden group-hover/loc:block group-focus/loc:block group-focus-within/loc:block pointer-events-none border border-border-light dark:border-border-dark rounded-lg p-3 text-xs text-text-light dark:text-text-dark bg-surface-light dark:bg-surface-dark shadow-lg ring-1 ring-black/5 dark:ring-white/10 w-fit max-w-[min(28rem,calc(100vw-2rem))] wrap-break-word z-50 text-left"
       role="tooltip"
       data-location-overflow-tooltip
     >
@@ -364,13 +370,17 @@ import {
 <template data-companies-template="pagination-nav">
   <nav
     aria-label="Pagination"
-    class="mt-6 rounded-lg border border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark p-3 flex items-center justify-center gap-2"
+    class="mt-6 rounded-lg border border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark p-3 flex flex-wrap items-center justify-center gap-2"
   >
     <button type="button" data-pagination-prev class="pagination-button">
       ← Previous
     </button>
 
-    <div class="flex items-center gap-1" data-pagination-pages></div>
+    <div
+      class="flex flex-wrap items-center justify-center gap-1"
+      data-pagination-pages
+    >
+    </div>
 
     <button type="button" data-pagination-next class="pagination-button">
       Next →

@@ -30,7 +30,7 @@ const pageNumbers = generatePageNumbers(currentPage, totalPages);
     data-pagination-nav
     class="mt-8 rounded-lg border border-border-light dark:border-border-dark
            bg-surface-light dark:bg-surface-dark
-           p-3 flex items-center justify-center gap-2"
+           p-3 flex flex-wrap items-center justify-center gap-2"
   >
     <!-- Previous -->
     {prevUrl ? (
@@ -52,7 +52,7 @@ const pageNumbers = generatePageNumbers(currentPage, totalPages);
     )}
 
     <!-- Page numbers -->
-    <div class="flex items-center gap-1">
+    <div class="flex flex-wrap items-center justify-center gap-1">
       {pageNumbers.map((page) =>
         page === "ellipsis" ? (
           <span

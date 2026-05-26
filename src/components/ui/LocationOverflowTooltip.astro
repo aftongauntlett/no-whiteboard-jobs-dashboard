@@ -20,7 +20,7 @@ const tooltipId = createUniqueId("locations-tooltip");
   +{count}
   <div
     id={tooltipId}
-    class="absolute top-0 left-full ml-2 invisible group-hover/loc:visible group-focus/loc:visible group-focus-within/loc:visible pointer-events-none border border-border-light dark:border-border-dark rounded-lg p-3 text-xs text-text-light dark:text-text-dark bg-surface-light dark:bg-surface-dark shadow-lg ring-1 ring-black/5 dark:ring-white/10 w-fit max-w-[min(28rem,calc(100vw-2rem))] break-words z-50 text-left"
+    class="absolute top-0 left-full ml-2 hidden group-hover/loc:block group-focus/loc:block group-focus-within/loc:block pointer-events-none border border-border-light dark:border-border-dark rounded-lg p-3 text-xs text-text-light dark:text-text-dark bg-surface-light dark:bg-surface-dark shadow-lg ring-1 ring-black/5 dark:ring-white/10 w-fit max-w-[min(28rem,calc(100vw-2rem))] wrap-break-word z-50 text-left"
     role="tooltip"
   >
     <div class="flex flex-col space-y-1">

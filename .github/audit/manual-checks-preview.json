@@ -1,0 +1,850 @@
+{
+  "generatedAt": "2026-05-26T01:46:12.387Z",
+  "baseUrl": "http://127.0.0.1:4322",
+  "routes": [
+    "/",
+    "/about",
+    "/hiring-tips",
+    "/page/2"
+  ],
+  "skipLinkFirstTab": [
+    {
+      "route": "/",
+      "tag": "A",
+      "text": "Skip to content",
+      "href": "#main",
+      "pass": true
+    },
+    {
+      "route": "/about",
+      "tag": "A",
+      "text": "Skip to content",
+      "href": "#main",
+      "pass": true
+    },
+    {
+      "route": "/hiring-tips",
+      "tag": "A",
+      "text": "Skip to content",
+      "href": "#main",
+      "pass": true
+    },
+    {
+      "route": "/page/2",
+      "tag": "A",
+      "text": "Skip to content",
+      "href": "#main",
+      "pass": true
+    }
+  ],
+  "keyboard": {
+    "desktop": {
+      "filterOpenDesktop": {
+        "expanded": "true",
+        "panelHidden": false,
+        "role": "region",
+        "focusInPanel": true
+      },
+      "filterCloseDesktop": {
+        "expanded": "false",
+        "panelHidden": true,
+        "focusReturned": true
+      },
+      "viewToggle": {
+        "listState": {
+          "listChecked": "true",
+          "listPanelHidden": false,
+          "cardPanelHidden": true
+        },
+        "cardState": {
+          "cardChecked": "true",
+          "cardPanelHidden": false
+        }
+      },
+      "pagination": {
+        "rangeBefore": "Showing 1–24 of 826 companies",
+        "rangeAfter": "Showing 25–48 of 826 companies",
+        "changed": true
+      }
+    },
+    "mobile": {
+      "mobileNavOpen": {
+        "expanded": "true",
+        "overlayHidden": false,
+        "overlayAriaHidden": "false",
+        "focusInPanel": true
+      },
+      "mobileNavClose": {
+        "expanded": "false",
+        "overlayHidden": true,
+        "overlayAriaHidden": "true",
+        "focusReturned": true
+      },
+      "filterOpenMobile": {
+        "expanded": "true",
+        "panelHidden": false,
+        "role": "dialog",
+        "modal": "true",
+        "scrimHidden": false,
+        "focusInPanel": true
+      },
+      "filterCloseMobile": {
+        "expanded": "false",
+        "panelHidden": true,
+        "focusReturned": true
+      }
+    }
+  },
+  "responsive": [
+    {
+      "route": "/",
+      "width": 1280,
+      "overflowPx": 0,
+      "hasBrowseControls": true,
+      "searchWrap": {
+        "x": 256,
+        "y": 144,
+        "width": 448,
+        "height": 42,
+        "top": 144,
+        "right": 704,
+        "bottom": 186,
+        "left": 256
+      },
+      "menuBtn": {
+        "x": 703,
+        "y": 144,
+        "width": 140.84375,
+        "height": 42,
+        "top": 144,
+        "right": 843.84375,
+        "bottom": 186,
+        "left": 703
+      },
+      "viewToggle": {
+        "x": 1156,
+        "y": 143,
+        "width": 92,
+        "height": 44,
+        "top": 143,
+        "right": 1248,
+        "bottom": 187,
+        "left": 1156
+      },
+      "allWithinViewport": true,
+      "toolbarCollision": {
+        "collisionSearchMenu": true,
+        "collisionMenuToggle": false
+      }
+    },
+    {
+      "route": "/",
+      "width": 1024,
+      "overflowPx": 0,
+      "hasBrowseControls": true,
+      "searchWrap": {
+        "x": 256,
+        "y": 144,
+        "width": 448,
+        "height": 42,
+        "top": 144,
+        "right": 704,
+        "bottom": 186,
+        "left": 256
+      },
+      "menuBtn": {
+        "x": 703,
+        "y": 144,
+        "width": 140.84375,
+        "height": 42,
+        "top": 144,
+        "right": 843.84375,
+        "bottom": 186,
+        "left": 703
+      },
+      "viewToggle": {
+        "x": 900,
+        "y": 143,
+        "width": 92,
+        "height": 44,
+        "top": 143,
+        "right": 992,
+        "bottom": 187,
+        "left": 900
+      },
+      "allWithinViewport": true,
+      "toolbarCollision": {
+        "collisionSearchMenu": true,
+        "collisionMenuToggle": false
+      }
+    },
+    {
+      "route": "/",
+      "width": 768,
+      "overflowPx": 0,
+      "hasBrowseControls": true,
+      "searchWrap": {
+        "x": 256,
+        "y": 144,
+        "width": 320,
+        "height": 42,
+        "top": 144,
+        "right": 576,
+        "bottom": 186,
+        "left": 256
+      },
+      "menuBtn": {
+        "x": 575,
+        "y": 146,
+        "width": 50,
+        "height": 38,
+        "top": 146,
+        "right": 625,
+        "bottom": 184,
+        "left": 575
+      },
+      "viewToggle": {
+        "x": 644,
+        "y": 143,
+        "width": 92,
+        "height": 44,
+        "top": 143,
+        "right": 736,
+        "bottom": 187,
+        "left": 644
+      },
+      "allWithinViewport": true,
+      "toolbarCollision": {
+        "collisionSearchMenu": true,
+        "collisionMenuToggle": false
+      }
+    },
+    {
+      "route": "/",
+      "width": 640,
+      "overflowPx": 0,
+      "hasBrowseControls": true,
+      "searchWrap": {
+        "x": 32,
+        "y": 212,
+        "width": 526,
+        "height": 42,
+        "top": 212,
+        "right": 558,
+        "bottom": 254,
+        "left": 32
+      },
+      "menuBtn": {
+        "x": 566,
+        "y": 218,
+        "width": 42,
+        "height": 30,
+        "top": 218,
+        "right": 608,
+        "bottom": 248,
+        "left": 566
+      },
+      "viewToggle": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "allWithinViewport": true,
+      "toolbarCollision": {
+        "collisionSearchMenu": false,
+        "collisionMenuToggle": false
+      }
+    },
+    {
+      "route": "/",
+      "width": 390,
+      "overflowPx": 0,
+      "hasBrowseControls": true,
+      "searchWrap": {
+        "x": 32,
+        "y": 232,
+        "width": 276,
+        "height": 42,
+        "top": 232,
+        "right": 308,
+        "bottom": 274,
+        "left": 32
+      },
+      "menuBtn": {
+        "x": 316,
+        "y": 238,
+        "width": 42,
+        "height": 30,
+        "top": 238,
+        "right": 358,
+        "bottom": 268,
+        "left": 316
+      },
+      "viewToggle": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "allWithinViewport": true,
+      "toolbarCollision": {
+        "collisionSearchMenu": false,
+        "collisionMenuToggle": false
+      }
+    },
+    {
+      "route": "/",
+      "width": 375,
+      "overflowPx": 0,
+      "hasBrowseControls": true,
+      "searchWrap": {
+        "x": 32,
+        "y": 232,
+        "width": 261,
+        "height": 42,
+        "top": 232,
+        "right": 293,
+        "bottom": 274,
+        "left": 32
+      },
+      "menuBtn": {
+        "x": 301,
+        "y": 238,
+        "width": 42,
+        "height": 30,
+        "top": 238,
+        "right": 343,
+        "bottom": 268,
+        "left": 301
+      },
+      "viewToggle": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "allWithinViewport": true,
+      "toolbarCollision": {
+        "collisionSearchMenu": false,
+        "collisionMenuToggle": false
+      }
+    },
+    {
+      "route": "/",
+      "width": 320,
+      "overflowPx": 0,
+      "hasBrowseControls": true,
+      "searchWrap": {
+        "x": 32,
+        "y": 232,
+        "width": 206,
+        "height": 42,
+        "top": 232,
+        "right": 238,
+        "bottom": 274,
+        "left": 32
+      },
+      "menuBtn": {
+        "x": 246,
+        "y": 238,
+        "width": 42,
+        "height": 30,
+        "top": 238,
+        "right": 288,
+        "bottom": 268,
+        "left": 246
+      },
+      "viewToggle": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "allWithinViewport": true,
+      "toolbarCollision": {
+        "collisionSearchMenu": false,
+        "collisionMenuToggle": false
+      }
+    },
+    {
+      "route": "/about",
+      "width": 1280,
+      "overflowPx": 0,
+      "hasBrowseControls": false,
+      "searchWrap": null,
+      "menuBtn": null,
+      "viewToggle": null,
+      "allWithinViewport": true,
+      "toolbarCollision": null
+    },
+    {
+      "route": "/about",
+      "width": 1024,
+      "overflowPx": 0,
+      "hasBrowseControls": false,
+      "searchWrap": null,
+      "menuBtn": null,
+      "viewToggle": null,
+      "allWithinViewport": true,
+      "toolbarCollision": null
+    },
+    {
+      "route": "/about",
+      "width": 768,
+      "overflowPx": 0,
+      "hasBrowseControls": false,
+      "searchWrap": null,
+      "menuBtn": null,
+      "viewToggle": null,
+      "allWithinViewport": true,
+      "toolbarCollision": null
+    },
+    {
+      "route": "/about",
+      "width": 640,
+      "overflowPx": 0,
+      "hasBrowseControls": false,
+      "searchWrap": null,
+      "menuBtn": null,
+      "viewToggle": null,
+      "allWithinViewport": true,
+      "toolbarCollision": null
+    },
+    {
+      "route": "/about",
+      "width": 390,
+      "overflowPx": 0,
+      "hasBrowseControls": false,
+      "searchWrap": null,
+      "menuBtn": null,
+      "viewToggle": null,
+      "allWithinViewport": true,
+      "toolbarCollision": null
+    },
+    {
+      "route": "/about",
+      "width": 375,
+      "overflowPx": 0,
+      "hasBrowseControls": false,
+      "searchWrap": null,
+      "menuBtn": null,
+      "viewToggle": null,
+      "allWithinViewport": true,
+      "toolbarCollision": null
+    },
+    {
+      "route": "/about",
+      "width": 320,
+      "overflowPx": 0,
+      "hasBrowseControls": false,
+      "searchWrap": null,
+      "menuBtn": null,
+      "viewToggle": null,
+      "allWithinViewport": true,
+      "toolbarCollision": null
+    },
+    {
+      "route": "/hiring-tips",
+      "width": 1280,
+      "overflowPx": 0,
+      "hasBrowseControls": false,
+      "searchWrap": null,
+      "menuBtn": null,
+      "viewToggle": null,
+      "allWithinViewport": true,
+      "toolbarCollision": null
+    },
+    {
+      "route": "/hiring-tips",
+      "width": 1024,
+      "overflowPx": 0,
+      "hasBrowseControls": false,
+      "searchWrap": null,
+      "menuBtn": null,
+      "viewToggle": null,
+      "allWithinViewport": true,
+      "toolbarCollision": null
+    },
+    {
+      "route": "/hiring-tips",
+      "width": 768,
+      "overflowPx": 0,
+      "hasBrowseControls": false,
+      "searchWrap": null,
+      "menuBtn": null,
+      "viewToggle": null,
+      "allWithinViewport": true,
+      "toolbarCollision": null
+    },
+    {
+      "route": "/hiring-tips",
+      "width": 640,
+      "overflowPx": 0,
+      "hasBrowseControls": false,
+      "searchWrap": null,
+      "menuBtn": null,
+      "viewToggle": null,
+      "allWithinViewport": true,
+      "toolbarCollision": null
+    },
+    {
+      "route": "/hiring-tips",
+      "width": 390,
+      "overflowPx": 0,
+      "hasBrowseControls": false,
+      "searchWrap": null,
+      "menuBtn": null,
+      "viewToggle": null,
+      "allWithinViewport": true,
+      "toolbarCollision": null
+    },
+    {
+      "route": "/hiring-tips",
+      "width": 375,
+      "overflowPx": 0,
+      "hasBrowseControls": false,
+      "searchWrap": null,
+      "menuBtn": null,
+      "viewToggle": null,
+      "allWithinViewport": true,
+      "toolbarCollision": null
+    },
+    {
+      "route": "/hiring-tips",
+      "width": 320,
+      "overflowPx": 0,
+      "hasBrowseControls": false,
+      "searchWrap": null,
+      "menuBtn": null,
+      "viewToggle": null,
+      "allWithinViewport": true,
+      "toolbarCollision": null
+    },
+    {
+      "route": "/page/2",
+      "width": 1280,
+      "overflowPx": 0,
+      "hasBrowseControls": true,
+      "searchWrap": {
+        "x": 256,
+        "y": 144,
+        "width": 448,
+        "height": 42,
+        "top": 144,
+        "right": 704,
+        "bottom": 186,
+        "left": 256
+      },
+      "menuBtn": {
+        "x": 703,
+        "y": 144,
+        "width": 140.84375,
+        "height": 42,
+        "top": 144,
+        "right": 843.84375,
+        "bottom": 186,
+        "left": 703
+      },
+      "viewToggle": {
+        "x": 1156,
+        "y": 143,
+        "width": 92,
+        "height": 44,
+        "top": 143,
+        "right": 1248,
+        "bottom": 187,
+        "left": 1156
+      },
+      "allWithinViewport": true,
+      "toolbarCollision": {
+        "collisionSearchMenu": true,
+        "collisionMenuToggle": false
+      }
+    },
+    {
+      "route": "/page/2",
+      "width": 1024,
+      "overflowPx": 0,
+      "hasBrowseControls": true,
+      "searchWrap": {
+        "x": 256,
+        "y": 144,
+        "width": 448,
+        "height": 42,
+        "top": 144,
+        "right": 704,
+        "bottom": 186,
+        "left": 256
+      },
+      "menuBtn": {
+        "x": 703,
+        "y": 144,
+        "width": 140.84375,
+        "height": 42,
+        "top": 144,
+        "right": 843.84375,
+        "bottom": 186,
+        "left": 703
+      },
+      "viewToggle": {
+        "x": 900,
+        "y": 143,
+        "width": 92,
+        "height": 44,
+        "top": 143,
+        "right": 992,
+        "bottom": 187,
+        "left": 900
+      },
+      "allWithinViewport": true,
+      "toolbarCollision": {
+        "collisionSearchMenu": true,
+        "collisionMenuToggle": false
+      }
+    },
+    {
+      "route": "/page/2",
+      "width": 768,
+      "overflowPx": 0,
+      "hasBrowseControls": true,
+      "searchWrap": {
+        "x": 256,
+        "y": 144,
+        "width": 320,
+        "height": 42,
+        "top": 144,
+        "right": 576,
+        "bottom": 186,
+        "left": 256
+      },
+      "menuBtn": {
+        "x": 575,
+        "y": 146,
+        "width": 50,
+        "height": 38,
+        "top": 146,
+        "right": 625,
+        "bottom": 184,
+        "left": 575
+      },
+      "viewToggle": {
+        "x": 644,
+        "y": 143,
+        "width": 92,
+        "height": 44,
+        "top": 143,
+        "right": 736,
+        "bottom": 187,
+        "left": 644
+      },
+      "allWithinViewport": true,
+      "toolbarCollision": {
+        "collisionSearchMenu": true,
+        "collisionMenuToggle": false
+      }
+    },
+    {
+      "route": "/page/2",
+      "width": 640,
+      "overflowPx": 0,
+      "hasBrowseControls": true,
+      "searchWrap": {
+        "x": 32,
+        "y": 212,
+        "width": 526,
+        "height": 42,
+        "top": 212,
+        "right": 558,
+        "bottom": 254,
+        "left": 32
+      },
+      "menuBtn": {
+        "x": 566,
+        "y": 218,
+        "width": 42,
+        "height": 30,
+        "top": 218,
+        "right": 608,
+        "bottom": 248,
+        "left": 566
+      },
+      "viewToggle": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "allWithinViewport": true,
+      "toolbarCollision": {
+        "collisionSearchMenu": false,
+        "collisionMenuToggle": false
+      }
+    },
+    {
+      "route": "/page/2",
+      "width": 390,
+      "overflowPx": 0,
+      "hasBrowseControls": true,
+      "searchWrap": {
+        "x": 32,
+        "y": 232,
+        "width": 276,
+        "height": 42,
+        "top": 232,
+        "right": 308,
+        "bottom": 274,
+        "left": 32
+      },
+      "menuBtn": {
+        "x": 316,
+        "y": 238,
+        "width": 42,
+        "height": 30,
+        "top": 238,
+        "right": 358,
+        "bottom": 268,
+        "left": 316
+      },
+      "viewToggle": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "allWithinViewport": true,
+      "toolbarCollision": {
+        "collisionSearchMenu": false,
+        "collisionMenuToggle": false
+      }
+    },
+    {
+      "route": "/page/2",
+      "width": 375,
+      "overflowPx": 0,
+      "hasBrowseControls": true,
+      "searchWrap": {
+        "x": 32,
+        "y": 232,
+        "width": 261,
+        "height": 42,
+        "top": 232,
+        "right": 293,
+        "bottom": 274,
+        "left": 32
+      },
+      "menuBtn": {
+        "x": 301,
+        "y": 238,
+        "width": 42,
+        "height": 30,
+        "top": 238,
+        "right": 343,
+        "bottom": 268,
+        "left": 301
+      },
+      "viewToggle": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "allWithinViewport": true,
+      "toolbarCollision": {
+        "collisionSearchMenu": false,
+        "collisionMenuToggle": false
+      }
+    },
+    {
+      "route": "/page/2",
+      "width": 320,
+      "overflowPx": 0,
+      "hasBrowseControls": true,
+      "searchWrap": {
+        "x": 32,
+        "y": 232,
+        "width": 206,
+        "height": 42,
+        "top": 232,
+        "right": 238,
+        "bottom": 274,
+        "left": 32
+      },
+      "menuBtn": {
+        "x": 246,
+        "y": 238,
+        "width": 42,
+        "height": 30,
+        "top": 238,
+        "right": 288,
+        "bottom": 268,
+        "left": 246
+      },
+      "viewToggle": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "allWithinViewport": true,
+      "toolbarCollision": {
+        "collisionSearchMenu": false,
+        "collisionMenuToggle": false
+      }
+    }
+  ],
+  "zoom200": [
+    {
+      "route": "/",
+      "overflowPx": 0,
+      "controls": {
+        "search": true,
+        "filter": true,
+        "viewToggle": true,
+        "pagination": true
+      }
+    },
+    {
+      "route": "/page/2",
+      "overflowPx": 0,
+      "controls": {
+        "search": true,
+        "filter": true,
+        "viewToggle": true,
+        "pagination": true
+      }
+    }
+  ]
+}
