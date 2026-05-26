@@ -80,6 +80,18 @@ npm run build
 
 Locally curated entries are intentionally labeled in the UI so users can distinguish them from upstream records.
 
+## Upstream sync
+
+Use these commands to keep `src/data/companies.json` aligned with the production upstream README list:
+
+```bash
+npm run companies:check
+npm run companies:sync
+```
+
+- `companies:check` exits non-zero when local data differs from upstream.
+- `companies:sync` updates `src/data/companies.json` in place.
+
 ## Project goals
 
 This project prioritizes:

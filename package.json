@@ -19,7 +19,9 @@
     "preview": "astro preview",
     "astro": "astro",
     "lint": "eslint src/",
-    "test": "tsx --test src/utils/interviewTags.test.ts"
+    "test": "tsx --test src/utils/interviewTags.test.ts",
+    "companies:sync": "node scripts/sync-companies-from-upstream-readme.js",
+    "companies:check": "node scripts/sync-companies-from-upstream-readme.js --check"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.9",
