@@ -82,7 +82,9 @@ Locally curated entries are intentionally labeled in the UI so users can disting
 
 ## Upstream sync
 
-Use these commands to keep `src/data/companies.json` aligned with the production upstream README list:
+`src/data/companies.json` is kept aligned with the production upstream README list by running the sync manually when upstream changes. The `Sync upstream companies` GitHub Actions workflow can be triggered on demand, rebuilds the static JSON with `companies:sync`, validates the site, and commits the generated data file when upstream changes are found.
+
+Use these commands to check or run the same sync locally:
 
 ```bash
 npm run companies:check
@@ -103,7 +105,7 @@ This project prioritizes:
 
 ## Current limitations
 
-- Data freshness still depends on manual syncing from upstream
+- Data freshness depends on manually running the upstream sync and the upstream README format remaining parseable
 - Interview process descriptions are community-sourced and may be incomplete or outdated
 - This project focuses on browsing and reading, not account features or backend moderation
 
