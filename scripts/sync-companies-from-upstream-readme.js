@@ -124,6 +124,22 @@ function parseReadmeRows(readmeText) {
   return rows;
 }
 
+function arraysEqual(a, b) {
+  if (a === b) return true;
+  if (!a || !b || a.length !== b.length) return false;
+  return a.every((value, index) => value === b[index]);
+}
+
+function companiesEqual(a, b) {
+  return (
+    a.name === b.name &&
+    a.careersUrl === b.careersUrl &&
+    a.employmentType === b.employmentType &&
+    (a.interviewProcess ?? "") === (b.interviewProcess ?? "") &&
+    arraysEqual(a.locations, b.locations)
+  );
+}
+
 function pushToIndexMap(map, key, value) {
   const current = map.get(key);
   if (current) {
@@ -182,7 +198,7 @@ function buildSyncedCompanies(upstreamRows, localCompanies) {
 
   const synced = [];
   let createdCount = 0;
-  let urlUpdatedCount = 0;
+  let updatedCount = 0;
 
   for (const row of upstreamRows) {
     const urlKey = normalizeUrl(row.careersUrl);
@@ -192,33 +208,27 @@ function buildSyncedCompanies(upstreamRows, localCompanies) {
       takeUnused(byUrl.get(urlKey), usedIndexes) ??
       takeUnused(byName.get(nameKey), usedIndexes);
 
-    if (source) {
-      usedIndexes.add(source.index);
-
-      const next = {
-        ...source.company,
-        name: row.name,
-        careersUrl: row.careersUrl,
-      };
-
-      if (source.company.careersUrl !== row.careersUrl) {
-        urlUpdatedCount += 1;
-      }
-
-      synced.push(next);
-      continue;
-    }
-
     const locations = parseLocations(row.locationCell);
-    synced.push({
-      id: nextUniqueId(row.name),
+    const next = {
+      id: source ? source.company.id : nextUniqueId(row.name),
       name: row.name,
       careersUrl: row.careersUrl,
       locations,
       employmentType: inferEmploymentType(locations),
       interviewProcess: row.interviewProcessCell,
-    });
-    createdCount += 1;
+    };
+
+    if (source) {
+      usedIndexes.add(source.index);
+
+      if (!companiesEqual(source.company, next)) {
+        updatedCount += 1;
+      }
+    } else {
+      createdCount += 1;
+    }
+
+    synced.push(next);
   }
 
   const removed = localWithMeta
@@ -229,7 +239,7 @@ function buildSyncedCompanies(upstreamRows, localCompanies) {
     synced,
     createdCount,
     removedCount: removed.length,
-    urlUpdatedCount,
+    updatedCount,
     removed,
   };
 }
@@ -239,7 +249,7 @@ function printSummary(summary) {
   console.log(`Local rows: ${summary.localCount}`);
   console.log(`Would create: ${summary.createdCount}`);
   console.log(`Would remove: ${summary.removedCount}`);
-  console.log(`Would update URL: ${summary.urlUpdatedCount}`);
+  console.log(`Would update: ${summary.updatedCount}`);
 
   if (summary.removed.length > 0) {
     console.log("\nEntries that would be removed:");
@@ -279,7 +289,7 @@ async function main() {
     const hasChanges =
       summary.createdCount > 0 ||
       summary.removedCount > 0 ||
-      summary.urlUpdatedCount > 0;
+      summary.updatedCount > 0;
 
     if (hasChanges) {
       process.exitCode = 1;
@@ -294,7 +304,7 @@ async function main() {
   const hasChanges =
     summary.createdCount > 0 ||
     summary.removedCount > 0 ||
-    summary.urlUpdatedCount > 0;
+    summary.updatedCount > 0;
 
   await writeFile(DATA_FILE, `${JSON.stringify(result.synced, null, 2)}\n`);
   printSummary(summary);

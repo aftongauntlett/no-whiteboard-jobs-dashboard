@@ -4,8 +4,7 @@
     "name": "1000.software",
     "careersUrl": "https://www.1000.software/careers",
     "locations": [
-      "Krakow, Poland",
-      "Remote"
+      "Krakow, Poland / Remote"
     ],
     "employmentType": "Remote",
     "interviewProcess": "Series of 2 interviews first on soft skills, second on technical skills (how to build things, how to solve specific, real world problem, best practice) and meeting with a team leader. Sometimes a take home, simple project."
@@ -25,8 +24,7 @@
     "name": "Able",
     "careersUrl": "https://able.co/careers",
     "locations": [
-      "Lima, PE",
-      "Remote"
+      "Lima, PE / Remote"
     ],
     "employmentType": "Remote",
     "interviewProcess": "Coding interview, Technical interview (Backlog Refinement + System Design), Leadership interview (Behavioural)"
@@ -46,10 +44,7 @@
     "name": "Accenture",
     "careersUrl": "https://www.accenture.com/us-en/careers",
     "locations": [
-      "San Francisco, CA",
-      "Los Angeles, CA",
-      "New York, NY",
-      "Kuala Lumpur, Malaysia"
+      "San Francisco, CA / Los Angeles, CA / New York, NY / Kuala Lumpur, Malaysia"
     ],
     "employmentType": "In-office",
     "interviewProcess": "Technical phone discussion with architecture manager, followed by behavioral interview focusing on soft skills"
@@ -59,9 +54,7 @@
     "name": "Accredible",
     "careersUrl": "https://www.accredible.com/careers",
     "locations": [
-      "Cambridge, UK",
-      "San Francisco, CA",
-      "Remote"
+      "Cambridge, UK / San Francisco, CA / Remote"
     ],
     "employmentType": "Remote",
     "interviewProcess": "Take home project, then a pair-programming and discussion onsite / Skype round."
@@ -91,9 +84,7 @@
     "name": "Adaface",
     "careersUrl": "https://www.adaface.com",
     "locations": [
-      "Remote, Singapore",
-      "Singapore, Bangalore",
-      "India"
+      "Remote/ Singapore, Singapore / Bangalore, India"
     ],
     "employmentType": "Remote",
     "interviewProcess": "Conversational on-the-job technical assessment, followed by video calls with technical lead and founders"
@@ -123,8 +114,7 @@
     "name": "AdEx Network",
     "careersUrl": "https://www.adex.network",
     "locations": [
-      "Sofia, Bulgaria",
-      "Remote"
+      "Sofia, Bulgaria / Remote"
     ],
     "employmentType": "Remote",
     "interviewProcess": "Email screening process, followed by a take-home assignment"
@@ -134,8 +124,7 @@
     "name": "Admiral",
     "careersUrl": "https://getadmiral.com",
     "locations": [
-      "Gainesville, FL",
-      "Remote"
+      "Gainesville, FL / Remote"
     ],
     "employmentType": "Remote",
     "interviewProcess": "Intro phone call with hiring manager, take-home assignment, (mostly) non-technical on-site with team/leadership"
@@ -168,7 +157,7 @@
       "Amsterdam, NL"
     ],
     "employmentType": "In-office",
-    "interviewProcess": "Take-home assignment, design discussion based on take home, culture fit etc. Provides visa sponsorship to The Netherlands."
+    "interviewProcess": "Take-home assignment, design discussion based on take home, culture fit etc. Provides visa sponsorship to the Netherlands."
   },
   {
     "id": "affinipay",
@@ -185,9 +174,7 @@
     "name": "Agency Enterprise Studio",
     "careersUrl": "https://ae.studio",
     "locations": [
-      "Remote",
-      "Los Angeles, CA",
-      "Florianópolis, Brazil"
+      "Remote / Los Angeles, CA / Florianópolis, Brazil"
     ],
     "employmentType": "Remote",
     "interviewProcess": "Live coding of a task you'd do daily"
@@ -263,8 +250,7 @@
     "name": "Algolia",
     "careersUrl": "https://www.algolia.com/careers",
     "locations": [
-      "Paris, France",
-      "San Francisco, CA"
+      "Paris, France / San Francisco, CA"
     ],
     "employmentType": "In-office",
     "interviewProcess": "Takehome project & Onsite discussions and presentation"
@@ -318,9 +304,7 @@
     "name": "AlphaSights",
     "careersUrl": "https://www.alphasights.com/careers/open-roles/",
     "locations": [
-      "London, UK",
-      "New York, NY",
-      "Remote"
+      "London, UK / New York, NY / Remote"
     ],
     "employmentType": "Remote",
     "interviewProcess": "Initial interview, pair programming then final round with general technical questions"
@@ -340,8 +324,7 @@
     "name": "Anderson Merchandisers",
     "careersUrl": "https://amerch.com",
     "locations": [
-      "Remote",
-      "Dallas, TX"
+      "Remote / Dallas, TX"
     ],
     "employmentType": "Remote",
     "interviewProcess": "Technical discussion about the technologies they are currently using. Going over background and resume."
@@ -371,8 +354,7 @@
     "name": "Aparkado",
     "careersUrl": "https://aparkado.de",
     "locations": [
-      "Cologne, Germany",
-      "Remote"
+      "Cologne, Germany / Remote"
     ],
     "employmentType": "Remote",
     "interviewProcess": "Intro with Co-Founder, team fit with the team plus a small real-world problem to solve, followed by final round with CEO / Co-Founder."
@@ -382,8 +364,7 @@
     "name": "Apollo Agriculture",
     "careersUrl": "https://apolloagriculture.com",
     "locations": [
-      "Nairobi, Kenya",
-      "Remote"
+      "Nairobi, Kenya / Remote"
     ],
     "employmentType": "Remote",
     "interviewProcess": "Takehome project or Worksample (or whiteboard)"
@@ -413,12 +394,7 @@
     "name": "Artsy",
     "careersUrl": "https://www.artsy.net/jobs#engineering",
     "locations": [
-      "New York, NY",
-      "London, UK",
-      "Berlin, Germany",
-      "Los Angeles, CA",
-      "Hong Kong, Hong Kong",
-      "Remote"
+      "New York, NY / London, UK / Berlin, Germany / Los Angeles, CA / Hong Kong, Hong Kong / Remote"
     ],
     "employmentType": "Remote",
     "interviewProcess": "Our process: 1) Informal chat 2) Application 3) Phone screen 4) In-person interview with 1 lead, 2 individual contributors and 1 non-engineer (30-45 mins each), focusing on your work habits and expertise as demonstrated in your previous work 5) ~4 in-depth professional reference calls (30-45 mins each)."
@@ -508,8 +484,7 @@
     "name": "Avarteq GmbH",
     "careersUrl": "https://www.avarteq.com/career",
     "locations": [
-      "Berlin, Germany",
-      "Saarbrücken, Germany"
+      "Berlin, Germany / Saarbrücken, Germany"
     ],
     "employmentType": "In-office",
     "interviewProcess": "Technical interview with our developers on-site or remote followed by a work sample in a pair programming session or a previous take-home project with a follow-up discussion and detailed feedback."
@@ -539,10 +514,7 @@
     "name": "Axios",
     "careersUrl": "https://www.axios.com/careers",
     "locations": [
-      "Arlington, VA",
-      "New York, NY",
-      "San Francisco, CA",
-      "Remote"
+      "Arlington, VA / New York, NY / San Francisco, CA / Remote"
     ],
     "employmentType": "Remote",
     "interviewProcess": "Take-home project, with discussion."
@@ -572,7 +544,7 @@
     "name": "Backbase",
     "careersUrl": "https://workatbackbase.com",
     "locations": [
-      "Amsterdam, The Netherlands",
+      "Amsterdam, Netherlands",
       "Cardiff, Wales",
       "London, UK",
       "Atlanta, GA"
@@ -595,10 +567,7 @@
     "name": "BAE Systems Digital Intelligence",
     "careersUrl": "https://cybercareers.baesystems.com",
     "locations": [
-      "London, UK",
-      "Manchester, UK",
-      "Guildford, UK",
-      "Gloucester, UK"
+      "London, UK / Manchester, UK / Guildford, UK / Gloucester, UK"
     ],
     "employmentType": "In-office",
     "interviewProcess": "Initial interview with experience based technical questions, second interview pair programming on problem similar to daily work"
@@ -609,7 +578,7 @@
     "careersUrl": "https://bakkenbaeck.com/jobs",
     "locations": [
       "Oslo, Norway",
-      "Amsterdam, The Netherlands",
+      "Amsterdam, Netherlands",
       "Bonn, Germany"
     ],
     "employmentType": "In-office",
@@ -620,8 +589,7 @@
     "name": "Barracuda View Team",
     "careersUrl": "https://www.barracuda.com/company/careers",
     "locations": [
-      "Chelmsford, MA",
-      "Remote"
+      "Chelmsford, MA / Remote"
     ],
     "employmentType": "Remote",
     "interviewProcess": "Phone screen, remote pair programming session, technical discussion interview, culture fit interview"
@@ -631,8 +599,7 @@
     "name": "Basecamp",
     "careersUrl": "https://basecamp.com/about/jobs",
     "locations": [
-      "Chicago, IL",
-      "Remote"
+      "Chicago, IL / Remote"
     ],
     "employmentType": "Remote",
     "interviewProcess": ""
@@ -652,8 +619,7 @@
     "name": "Beam Dental",
     "careersUrl": "https://jobs.lever.co/beam",
     "locations": [
-      "Columbus, OH",
-      "Remote"
+      "Columbus, OH / Remote"
     ],
     "employmentType": "Remote",
     "interviewProcess": "Phone Screen, Take Home Project, In-Person or remote Pairing and Cross-Functional Interview"
@@ -674,9 +640,7 @@
     "name": "Bemind",
     "careersUrl": "https://www.bemind.me",
     "locations": [
-      "Biella, Italy",
-      "Latina, Italy",
-      "Remote"
+      "Biella, Italy / Latina, Italy / Remote"
     ],
     "employmentType": "Remote",
     "interviewProcess": "Series of interviews, discussion about technical background and past experiences, take-home project & pair programming"
@@ -696,8 +660,7 @@
     "name": "Benefex",
     "careersUrl": "https://hellobenefex.com/about-us/careers",
     "locations": [
-      "Southampton, UK",
-      "Remote"
+      "Southampton, UK / Remote"
     ],
     "employmentType": "Remote",
     "interviewProcess": "A short, 3-stages interview process. The first stage is with HR. The second stage is a take-home assignment. The third stage is discussing the take-home assignment solution with two engineers."
@@ -720,7 +683,7 @@
       "New York, NY"
     ],
     "employmentType": "In-office",
-    "interviewProcess": "Phone interview followed by on-site pair programming to simulate a Betterment feature build."
+    "interviewProcess": "Long process of a series of interviews: 15mins Recruiter Chat, 1hr Hiring Manager, 1hr Technical Interview Code, 1hr Technical Interview System Design, 15mins Recruiter Chat, 1hr Direct Manager Connect, 30mins Team Connect (2 people), 30mins Executive Interview, 30mins Product Connect, 15mins Recruiter Chat Wrap Up."
   },
   {
     "id": "betterpt",
@@ -737,8 +700,7 @@
     "name": "bevelop",
     "careersUrl": "https://bevelop.de",
     "locations": [
-      "Aschaffenburg, BY",
-      "Remote"
+      "Aschaffenburg, BY / Remote"
     ],
     "employmentType": "Remote",
     "interviewProcess": "Initial introductory call, on-sight or remote trial day with project"
@@ -798,8 +760,7 @@
     "name": "Bitpanda",
     "careersUrl": "https://www.bitpanda.com/en/career",
     "locations": [
-      "Cracow, Poland",
-      "Remote"
+      "Cracow, Poland / Remote"
     ],
     "employmentType": "Remote",
     "interviewProcess": "HR talk, take-home task, tech interview, culture fit interview"
@@ -819,8 +780,7 @@
     "name": "Bitso",
     "careersUrl": "https://bitso.com/jobs",
     "locations": [
-      "Mexico City, Mexico",
-      "Remote"
+      "Mexico City, Mexico / Remote"
     ],
     "employmentType": "Remote",
     "interviewProcess": "Intro phone or hangouts/skype call with People team, take home project followed by walkthrough of your code and some tech questions focused on your experience, founders video call with one of the founders"
@@ -850,8 +810,7 @@
     "name": "Bleacher Report",
     "careersUrl": "https://bleacherreport.com",
     "locations": [
-      "San Francisco, CA",
-      "USA"
+      "San Francisco, CA, USA"
     ],
     "employmentType": "In-office",
     "interviewProcess": "Take-home project; on-site discussion about the project and meeting with different teams"
@@ -911,8 +870,7 @@
     "name": "Bocoup",
     "careersUrl": "https://bocoup.com/careers",
     "locations": [
-      "Boston, MA",
-      "Remote"
+      "Boston, MA / Remote"
     ],
     "employmentType": "Remote",
     "interviewProcess": "Pair programming with personal laptop on typical problem seen at work"
@@ -942,9 +900,7 @@
     "name": "BoomTown",
     "careersUrl": "https://boomtownroi.com",
     "locations": [
-      "Charleston, SC",
-      "Atlanta, GA",
-      "Remote"
+      "Charleston, SC / Atlanta, GA / Remote"
     ],
     "employmentType": "Remote",
     "interviewProcess": "Conversational in-person interviews with potential team members and managers that revolve around past experience and how that could be applied to future work"
@@ -1044,8 +1000,7 @@
     "name": "Broadlume",
     "careersUrl": "https://apply.workable.com/broadlume/",
     "locations": [
-      "New York, NY",
-      "Remote"
+      "New York, NY / Remote"
     ],
     "employmentType": "Remote",
     "interviewProcess": "Intro phone call with HR, second conversation with Broadlume engineer, and final pairing interview with Broadlume engineer over a screenshare"
@@ -1086,9 +1041,7 @@
     "name": "btw",
     "careersUrl": "https://www.btw.so",
     "locations": [
-      "Remote, Singapore",
-      "Singapore, Bangalore",
-      "India"
+      "Remote/ Singapore, Singapore / Bangalore, India"
     ],
     "employmentType": "Remote",
     "interviewProcess": "Initial phone screen for cultural round, optional take-home assignment, two rounds of video interviews (1-2hrs) discussing through previous projects and technical stack"
@@ -1118,8 +1071,7 @@
     "name": "Bugcrowd",
     "careersUrl": "https://www.bugcrowd.com/about/careers/",
     "locations": [
-      "San Francisco, CA",
-      "Sydney, NSW"
+      "San Francisco, CA / Sydney, NSW"
     ],
     "employmentType": "In-office",
     "interviewProcess": "Take home exercise, half-day onsite walking through code, and pair programming."
@@ -1149,8 +1101,7 @@
     "name": "Bustle",
     "careersUrl": "https://jobs.lever.co/BDG?department=Product&team=Engineering",
     "locations": [
-      "New York City, NY",
-      "Remote"
+      "New York City, NY / Remote"
     ],
     "employmentType": "Remote",
     "interviewProcess": "Half day pair programming on a task for production or one of our Open Source projects. We'll also buy you lunch with the team."
@@ -1315,21 +1266,17 @@
     "name": "Checkr",
     "careersUrl": "https://checkr.com/company/careers",
     "locations": [
-      "San Francisco, CA",
-      "Denver, CO",
-      "Orlando, FL",
-      "Remote"
+      "San Francisco, CA / Denver, CO / Orlando, FL / Remote"
     ],
     "employmentType": "Remote",
-    "interviewProcess": "1 hour CoderPad problem, if pass, then four 1 hour interviews: API Design using your computer and languages, Refactoring in language of your choice, Object Design (no coding), System Architecture (no coding) and sometimes a 30 minute manager chat [read more](https://medium.com/checkr/an-engineers-guide-to-interviewing-at-checkr-fc28f9e8014b)"
+    "interviewProcess": "1 hour CoderPad problem, if pass, then four 1 hour interviews: API Design using your computer and languages, Refactoring in language of your choice, Object Design (no coding), System Architecture (no coding) and sometimes a 30 minute manager chat"
   },
   {
     "id": "chef",
     "name": "Chef",
     "careersUrl": "https://www.chef.io/careers",
     "locations": [
-      "Seattle, WA",
-      "Remote"
+      "Seattle, WA / Remote"
     ],
     "employmentType": "Remote",
     "interviewProcess": "Take home small project testing the ability to implement real world problems. Phone/Zoom interviews discussing the said project. Checking if the candidate would be a good cultural fit."
@@ -1339,12 +1286,7 @@
     "name": "Chesapeake Technology",
     "careersUrl": "https://www.ctic.us/careers/",
     "locations": [
-      "Denver, CO",
-      "Santa Barbara, CA",
-      "Camarillo, CA",
-      "Dulles, VA",
-      "California, MD",
-      "Remote"
+      "Denver, CO / Santa Barbara, CA / Camarillo, CA / Dulles, VA / California, MD / Remote"
     ],
     "employmentType": "Remote",
     "interviewProcess": "Phone screen (30 minutes), take home at leisure question based on real development followed by in person review of solution and general technical questions with actual team and opportunity for you to ask questions and provide feedback ( 2-3 hours)"
@@ -1364,15 +1306,7 @@
     "name": "CI&T",
     "careersUrl": "https://ciandt.com/us/en-us/careers/open-positions",
     "locations": [
-      "New York, NY",
-      "London, UK",
-      "Tokyo, Japan",
-      "Campinas, Brazil",
-      "Shanghai, China",
-      "Medellín, Colombia",
-      "Lisbon, Portugal",
-      "Melbourne, Australia",
-      "Remote"
+      "New York, NY / London, UK / Tokyo, Japan / Campinas, Brazil / Shanghai, China / Medellín, Colombia / Lisbon, Portugal / Melbourne, Australia / Remote"
     ],
     "employmentType": "Remote",
     "interviewProcess": "Video screening followed by a technical interview focusing on software engineering skills and finally, a feedback interview with the hiring manager."
@@ -1382,8 +1316,7 @@
     "name": "CircleCI",
     "careersUrl": "https://circleci.com",
     "locations": [
-      "San Francisco, CA",
-      "Remote"
+      "San Francisco, CA / Remote"
     ],
     "employmentType": "Remote",
     "interviewProcess": "Take-home project and discussion, followed by on-site interview that includes pair programming on actual CircleCI bugs/feature requests."
@@ -1413,8 +1346,7 @@
     "name": "CJ Affiliate",
     "careersUrl": "https://www.cj.com/careers",
     "locations": [
-      "Los Angeles",
-      "CA & Westlake Village, CA"
+      "Los Angeles, CA & Westlake Village, CA"
     ],
     "employmentType": "In-office",
     "interviewProcess": "Phone coding design exercise (no algorithms), followed by an on-site final interview that includes pair programming on a realistic object-oriented design problem"
@@ -1434,8 +1366,7 @@
     "name": "Clarisights",
     "careersUrl": "https://careers.clarisights.com",
     "locations": [
-      "Bangalore, India",
-      "Remote"
+      "Bangalore, India / Remote"
     ],
     "employmentType": "Remote",
     "interviewProcess": "Culture fit Interview, Basic Tech Round, Design Interview"
@@ -1445,8 +1376,7 @@
     "name": "ClickMagick",
     "careersUrl": "https://www.clickmagick.com",
     "locations": [
-      "Austin, TX",
-      "Remote"
+      "Austin, TX / Remote"
     ],
     "employmentType": "Remote",
     "interviewProcess": "Phone conversations and examples of Free Software/Open Source work"
@@ -1456,9 +1386,7 @@
     "name": "Clipboard",
     "careersUrl": "https://www.clipboardhealth.com/careers",
     "locations": [
-      "San Francisco, CA",
-      "New York, NY",
-      "Remote"
+      "San Francisco, CA / New York, NY / Remote"
     ],
     "employmentType": "Remote",
     "interviewProcess": "1 hour take-home project, followed by team interviews which include live coding, discussion of the take-home project, and discussion of technical background and experience."
@@ -1520,7 +1448,7 @@
     "name": "Code Orange",
     "careersUrl": "https://code-orange.nl",
     "locations": [
-      "Amsterdam, The Netherlands"
+      "Amsterdam, Netherlands"
     ],
     "employmentType": "In-office",
     "interviewProcess": "Phone conversation followed by take-home project"
@@ -1540,9 +1468,7 @@
     "name": "Cognitran",
     "careersUrl": "https://www.cognitran.com",
     "locations": [
-      "Essex, UK",
-      "Szczecin, Poland",
-      "Detroit, MI"
+      "Essex, UK / Szczecin, Poland / Detroit, MI"
     ],
     "employmentType": "In-office",
     "interviewProcess": "Skype/phone interview followed by pair programming."
@@ -1552,11 +1478,11 @@
     "name": "Colearn",
     "careersUrl": "https://colearn.bamboohr.com/careers",
     "locations": [
-      "Remote, Bengaluru",
-      "India, Jakarta",
-      "Indonesia, Abu Dhabi",
-      "UAE, Central",
-      "Singapore"
+      "Remote",
+      "Bengaluru, India",
+      "Jakarta, Indonesia",
+      "Abu Dhabi, UAE",
+      "Central, Singapore"
     ],
     "employmentType": "Remote",
     "interviewProcess": "Alignment call with HR or CTO, small take home assignment, remote pair programming session about the assignment with senior engineer & tech lead."
@@ -1566,9 +1492,7 @@
     "name": "Collabora",
     "careersUrl": "https://www.collabora.com/careers.html",
     "locations": [
-      "Cambridge, UK",
-      "Montreal, Canada",
-      "Remote"
+      "Cambridge, UK / Montreal, Canada / Remote"
     ],
     "employmentType": "Remote",
     "interviewProcess": "On-site or video interview, discussion of technical experience and sometimes approach for tackling a hypothetical problem."
@@ -1588,8 +1512,7 @@
     "name": "combyne",
     "careersUrl": "https://combyne.com",
     "locations": [
-      "Remote, Munich",
-      "Germany"
+      "Remote / Munich, Germany"
     ],
     "employmentType": "Remote",
     "interviewProcess": "Short online technical test, 4-hour take-home project, and culture fit interview with members of the team."
@@ -1639,9 +1562,9 @@
     "name": "Container Solutions",
     "careersUrl": "https://container-solutions.com",
     "locations": [
-      "Remote, Berlin",
-      "Germany, Amsterdam",
-      "The Netherlands",
+      "Remote",
+      "Berlin, Germany",
+      "Amsterdam, Netherlands",
       "London, UK"
     ],
     "employmentType": "Remote",
@@ -1652,8 +1575,7 @@
     "name": "Contentful",
     "careersUrl": "https://www.contentful.com/careers",
     "locations": [
-      "Berlin, Germany & SF",
-      "USA"
+      "Berlin, Germany & SF, USA"
     ],
     "employmentType": "In-office",
     "interviewProcess": "Multiple interviews, discussion of technical background & live coding challenge (you can use the internet)."
@@ -1736,9 +1658,7 @@
     "name": "Cossack Labs",
     "careersUrl": "https://www.cossacklabs.com/job/",
     "locations": [
-      "London, UK",
-      "Kyiv, UA",
-      "Remote"
+      "London, UK / Kyiv, UA / Remote"
     ],
     "employmentType": "Remote",
     "interviewProcess": "Initial screening video call, technical take-home challenge, technical interview with the team about real-world tasks and candidates' day-to-day work (programming, networking, OS, SSDLC, security)."
@@ -1779,7 +1699,7 @@
     "name": "Crownstone",
     "careersUrl": "https://crownstone.rocks/jobs",
     "locations": [
-      "Rotterdam, The Netherlands"
+      "Rotterdam, Netherlands"
     ],
     "employmentType": "In-office",
     "interviewProcess": "Technical interaction using previously created GitHub projects, followed by in-person interview with a focus on someone's professional ambition in the short and long term."
@@ -1821,7 +1741,7 @@
     "locations": [
       "London, UK & Remote"
     ],
-    "employmentType": "In-office",
+    "employmentType": "Remote",
     "interviewProcess": "Take-home project"
   },
   {
@@ -1852,7 +1772,7 @@
     "name": "DataChef",
     "careersUrl": "https://DataChef.co",
     "locations": [
-      "Amsterdam, The Netherlands"
+      "Amsterdam, Netherlands"
     ],
     "employmentType": "In-office",
     "interviewProcess": "Video call (technical questions about candidate's achievements), take home assignment, cultural fit zoom or face to face with rest of the team."
@@ -1884,7 +1804,7 @@
     "locations": [
       "Florianópolis, Brazil & Remote"
     ],
-    "employmentType": "In-office",
+    "employmentType": "Remote",
     "interviewProcess": "On-site (and/or remote) interviews about the company and the opening, with a short take-home project for leveling."
   },
   {
@@ -1902,7 +1822,7 @@
     "name": "Deskbookers",
     "careersUrl": "https://www.deskbookers.com/en-gb/jobs",
     "locations": [
-      "Amsterdam, The Netherlands"
+      "Amsterdam, Netherlands"
     ],
     "employmentType": "In-office",
     "interviewProcess": "Phone screen, take-home project, on-site interview"
@@ -1952,10 +1872,7 @@
     "name": "Development Seed",
     "careersUrl": "https://developmentseed.org/careers",
     "locations": [
-      "Remote",
-      "Washington, DC",
-      "Lisbon, Portugal",
-      "Ayacucho, Peru"
+      "Remote / Washington, DC / Lisbon, Portugal / Ayacucho, Peru"
     ],
     "employmentType": "Remote",
     "interviewProcess": "Introductory discussion; in-depth technical video interview (no whiteboard, and no live coding); mission & values video interview; onsite (or remote) 1 or 2 days paid working \"sprint\" in the context of a real project, culminating in a brief presentation of completed sprint work"
@@ -2022,7 +1939,7 @@
     "locations": [
       "Denver, Colorado & Remote"
     ],
-    "employmentType": "In-office",
+    "employmentType": "Remote",
     "interviewProcess": "Video meetings on past experience and high level tech questions, take-home project"
   },
   {
@@ -2224,11 +2141,7 @@
     "name": "Edenspiekermann",
     "careersUrl": "https://jobs.edenspiekermann.com",
     "locations": [
-      "Amsterdam, The Netherlands",
-      "Berlin, Germany",
-      "Los Angeles, CA",
-      "San Francisco, CA",
-      "Singapore, Singapore"
+      "Amsterdam, Netherlands / Berlin, Germany / Los Angeles, CA / San Francisco, CA / Singapore, Singapore"
     ],
     "employmentType": "In-office",
     "interviewProcess": "On-site chat about skills and past experiences, review some code samples or a take-home assignment"
@@ -2290,8 +2203,7 @@
     "name": "Electric Pulp",
     "careersUrl": "https://www.electricpulp.com",
     "locations": [
-      "Sioux Falls, SD",
-      "USA"
+      "Sioux Falls, SD, USA"
     ],
     "employmentType": "In-office",
     "interviewProcess": "Phone interviews with leadership team and technical team leads. We are a tight knit team, so emphasis on a great personal fit is as important as technical prowess."
@@ -2301,8 +2213,7 @@
     "name": "Elements Interactive",
     "careersUrl": "https://www.elements.nl/careers",
     "locations": [
-      "Almere, The Netherlands & Barcelona",
-      "Spain"
+      "Almere, The Netherlands & Barcelona, Spain"
     ],
     "employmentType": "In-office",
     "interviewProcess": "Take-home project & discussion via Skype or on-site"
@@ -2322,8 +2233,7 @@
     "name": "elmah.io",
     "careersUrl": "https://elmah.io",
     "locations": [
-      "Aarhus, Denmark",
-      "Remote"
+      "Aarhus, Denmark / Remote"
     ],
     "employmentType": "Remote",
     "interviewProcess": "Discussion about code and looking at hobby projects (if any)"
@@ -2395,7 +2305,7 @@
       "Sofia, Bulgaria",
       "Frankfurt, Germany",
       "Glasgow, Scotland",
-      "Hilversum, The Netherlands",
+      "Hilversum, Netherlands",
       "London, UK",
       "Oxford, UK",
       "Bogota, Colombia",
@@ -2668,8 +2578,7 @@
     "name": "FireHire",
     "careersUrl": "https://firehire.ai",
     "locations": [
-      "Wilmington, USA",
-      "Remote"
+      "Wilmington, USA / Remote"
     ],
     "employmentType": "Remote",
     "interviewProcess": "Soft Skills Check + Hard Skills Check with lead engineer."
@@ -3060,9 +2969,7 @@
     "name": "Grace Hill",
     "careersUrl": "https://gracehill.com/careers/",
     "locations": [
-      "Chicago, IL",
-      "Carmel, IN",
-      "Remote"
+      "Chicago, IL / Carmel, IN / Remote"
     ],
     "employmentType": "Remote",
     "interviewProcess": "Quick phone interview, then a take home project and finally in person interview (open discussions instead of quizzes - anything technical are real-world problems)."
@@ -3092,8 +2999,7 @@
     "name": "Gram Games",
     "careersUrl": "https://gram.gs",
     "locations": [
-      "London, UK",
-      "Istanbul, Turkey"
+      "London, UK / Istanbul, Turkey"
     ],
     "employmentType": "In-office",
     "interviewProcess": "Initial interview -> Take home -> Take home discussion call -> On site code review and technical discussions"
@@ -3113,8 +3019,7 @@
     "name": "Grape",
     "careersUrl": "https://www.chatgrape.com/jobs/",
     "locations": [
-      "Vienna, Austria",
-      "Remote"
+      "Vienna, Austria / Remote"
     ],
     "employmentType": "Remote",
     "interviewProcess": "GitHub or code samples -> Pair programming -> Skype/phone interview"
@@ -3165,8 +3070,7 @@
     "name": "Gridscale",
     "careersUrl": "https://gridscale.io",
     "locations": [
-      "Cologne, Germany",
-      "Remote"
+      "Cologne, Germany / Remote"
     ],
     "employmentType": "Remote",
     "interviewProcess": "Intro video call for open Q&A, followed by intro with hiring manager, team fit with the whole team plus a small real-world problem to solve, followed by final round with hiring manager and/or c-level/founder."
@@ -3216,8 +3120,7 @@
     "name": "Hashrocket",
     "careersUrl": "https://hashrocket.com",
     "locations": [
-      "Chicago, IL",
-      "Jacksonville Beach, FL"
+      "Chicago, IL/Jacksonville Beach, FL"
     ],
     "employmentType": "In-office",
     "interviewProcess": "Remote pairing session, paid week pair programming with everyone on the team"
@@ -3239,7 +3142,7 @@
     "locations": [
       "Rio de Janeiro, Brazil & Remote"
     ],
-    "employmentType": "In-office",
+    "employmentType": "Remote",
     "interviewProcess": "Take-home project and discussion via Skype."
   },
   {
@@ -3295,7 +3198,7 @@
       "Denver, CO",
       "Montreal, Québec & Remote"
     ],
-    "employmentType": "In-office",
+    "employmentType": "Remote",
     "interviewProcess": "Resume deep dive, take-home exercise on GitHub, (virtual) in-person including review of the take-home exercise (1hr), product collaboration, meet the team, and AMA with leadership"
   },
   {
@@ -3450,7 +3353,7 @@
     "locations": [
       "Warsaw, Poland & Remote"
     ],
-    "employmentType": "In-office",
+    "employmentType": "Remote",
     "interviewProcess": "Take-home project, technical interview with developer"
   },
   {
@@ -3503,7 +3406,7 @@
     "locations": [
       "San Francisco, CA & Remote"
     ],
-    "employmentType": "In-office",
+    "employmentType": "Remote",
     "interviewProcess": "Technical and non-technical interviews, pair programming, with prospective manager and multiple prospective teammates"
   },
   {
@@ -3534,7 +3437,7 @@
       "Winston-Salem, NC",
       "Austin, TX & Remote"
     ],
-    "employmentType": "In-office",
+    "employmentType": "Remote",
     "interviewProcess": "Take-home project and conversation-style interviews"
   },
   {
@@ -3553,8 +3456,7 @@
     "name": "Innovia CoLabs",
     "careersUrl": "https://www.innoviacolabs.com",
     "locations": [
-      "Rochester, NY",
-      "Remote"
+      "Rochester, NY / Remote"
     ],
     "employmentType": "Remote",
     "interviewProcess": "Zoom interview with two to three engineers and you share projects/code you're proud of; only reviewing code you wrote yourself. Most of the interview is about culture fit and who you are as a person. There is a blog on the website that outlines the interview and will contact you prior to tell you exactly what the interview will be like."
@@ -3594,8 +3496,8 @@
     "name": "InvestSuite",
     "careersUrl": "https://www.investsuite.com/jobs",
     "locations": [
-      "Remote, Leuven",
-      "Belgium"
+      "Remote",
+      "Leuven, Belgium"
     ],
     "employmentType": "Remote",
     "interviewProcess": "Take home project -> discuss with 2 developers on-site or remote -> job offer"
@@ -3750,7 +3652,7 @@
     "name": "Jumbo",
     "careersUrl": "https://nl.jobs.jumbo.com/nl",
     "locations": [
-      "Veghel, The Netherlands"
+      "Veghel, Netherlands"
     ],
     "employmentType": "In-office",
     "interviewProcess": "Culture Fit call, take-home project, design discussion based on take-home project, system design conversation online or in-person."
@@ -3770,8 +3672,7 @@
     "name": "Kahoot!",
     "careersUrl": "https://www.getkahoot.com/jobs",
     "locations": [
-      "London, UK",
-      "Oslo, Norway"
+      "London, UK / Oslo, Norway"
     ],
     "employmentType": "In-office",
     "interviewProcess": "Phone screening to discuss technical background and past experience. Take-home assignment followed by on-site code review and interview. Cultural fit assessment"
@@ -3781,8 +3682,7 @@
     "name": "Kata.ai",
     "careersUrl": "https://kata.ai",
     "locations": [
-      "Malang, Indonesia",
-      "Jakarta, Indonesia"
+      "Malang, Indonesia / Jakarta, Indonesia"
     ],
     "employmentType": "In-office",
     "interviewProcess": "Take-home assignment, then invited to discuss the assignment and interview."
@@ -3792,8 +3692,7 @@
     "name": "Kayako",
     "careersUrl": "https://www.kayako.com",
     "locations": [
-      "London, UK",
-      "Gurgaon, India"
+      "London, UK / Gurgaon, India"
     ],
     "employmentType": "In-office",
     "interviewProcess": "Take-home assignment, series of experience based interviews, cultural fit assessment"
@@ -3843,9 +3742,7 @@
     "name": "Knock.com",
     "careersUrl": "https://www.knock.com/careers",
     "locations": [
-      "San Francisco, CA",
-      "New York, NY",
-      "Remote"
+      "San Francisco, CA / New York, NY / Remote"
     ],
     "employmentType": "Remote",
     "interviewProcess": "Phone Interview, Take-home project, On-site technical conversation relating to the tech stack you would be hired to build with"
@@ -4118,8 +4015,7 @@
     "name": "Linx Systems",
     "careersUrl": "https://www.linxsystems.com",
     "locations": [
-      "Bloomington, IL",
-      "Remote"
+      "Bloomington, IL / Remote"
     ],
     "employmentType": "Remote",
     "interviewProcess": "5-10 minute take home project; followed by a non-technical interview; finish up with a second take home project or paired with a developer for a 30-60 minute session."
@@ -4286,7 +4182,7 @@
     "locations": [
       "São Paulo, Brazil & Remote"
     ],
-    "employmentType": "In-office",
+    "employmentType": "Remote",
     "interviewProcess": "Phone interview + take home assignment, followed by pair programming and informal meeting with the team."
   },
   {
@@ -4362,8 +4258,7 @@
     "name": "Maxio",
     "careersUrl": "https://www.maxio.com/careers",
     "locations": [
-      "San Antonio, TX",
-      "Remote"
+      "San Antonio, TX / Remote"
     ],
     "employmentType": "Remote",
     "interviewProcess": "Take-home project & pair on a problem similar to daily work"
@@ -4610,7 +4505,7 @@
     "locations": [
       "London, UK & Remote"
     ],
-    "employmentType": "In-office",
+    "employmentType": "Remote",
     "interviewProcess": "Phone interview with another engineer. Take-home assignment. Call to debrief on take-home assignment. Half-day interview (on-site or Hangouts) with three conversational sessions: (1) building on take-home test & real-world system design (verbal and collaborative); (2) digging into knowledge & understanding in 1-2 other relevant technical areas; (3) general background, teams and ways of working."
   },
   {
@@ -4644,8 +4539,7 @@
     "name": "Mutual of Omaha",
     "careersUrl": "https://www.mutualofomaha.com/careers",
     "locations": [
-      "Omaha, NE",
-      "USA"
+      "Omaha, NE, USA"
     ],
     "employmentType": "In-office",
     "interviewProcess": "Panel Style Interviews analyzing problem solving, ability to adapt well to change, and interpersonal communication skills."
@@ -4655,8 +4549,7 @@
     "name": "Mutually Human Software",
     "careersUrl": "https://www.mutuallyhuman.com",
     "locations": [
-      "MI, OH",
-      "WA"
+      "MI, OH, WA"
     ],
     "employmentType": "In-office",
     "interviewProcess": "Collaborative problem analysis and design exercise, pairing exercise"
@@ -4669,7 +4562,7 @@
       "San Francisco, CA",
       "London, UK & Remote"
     ],
-    "employmentType": "In-office",
+    "employmentType": "Remote",
     "interviewProcess": "Hands-on software engineer and system-design interviews that focus on collaboratively building practical applications at scale."
   },
   {
@@ -4762,8 +4655,7 @@
     "name": "Netlify",
     "careersUrl": "https://www.netlify.com/careers",
     "locations": [
-      "San Francisco, CA",
-      "Remote"
+      "San Francisco, CA / Remote"
     ],
     "employmentType": "Remote",
     "interviewProcess": "Takehome project and online/onsite discussion"
@@ -5010,9 +4902,7 @@
     "name": "Noyo",
     "careersUrl": "https://www.noyo.com/careers/",
     "locations": [
-      "San Francisco, CA",
-      "Durham, NC",
-      "Remote"
+      "San Francisco, CA / Durham, NC / Remote"
     ],
     "employmentType": "Remote",
     "interviewProcess": "Phone interview, take-home assignment, on-site code review, and walk through a past project you're proud of"
@@ -5073,8 +4963,7 @@
     "name": "Nutshell",
     "careersUrl": "https://www.nutshell.com/jobs",
     "locations": [
-      "Ann Arbor, MI",
-      "US"
+      "Ann Arbor, MI, US"
     ],
     "employmentType": "In-office",
     "interviewProcess": "Email screen / take-home programming exercise ([public repo](https://github.com/nutshellcrm/join-the-team))"
@@ -5096,8 +4985,7 @@
     "name": "Oak Street Health",
     "careersUrl": "https://www.oakstreethealth.com/careers",
     "locations": [
-      "Chicago, IL",
-      "Remote"
+      "Chicago, IL / Remote"
     ],
     "employmentType": "Remote",
     "interviewProcess": "Casual but semi-technical initial phone screen. One hour video call consisting of in depth technical discussion with lead developers followed by one hour of discussion with the product team"
@@ -5309,9 +5197,7 @@
     "name": "PagerDuty",
     "careersUrl": "https://pagerduty.com/careers",
     "locations": [
-      "San Francisco, CA",
-      "Toronto, Canada",
-      "Atlanta, GA"
+      "San Francisco, CA / Toronto, Canada / Atlanta, GA"
     ],
     "employmentType": "In-office",
     "interviewProcess": "Zoom / on-site pair programming and tasks"
@@ -5333,15 +5219,7 @@
     "name": "Pariveda Solutions",
     "careersUrl": "https://parivedasolutions.com",
     "locations": [
-      "Dallas, TX",
-      "Houston, TX",
-      "Atlana, GA",
-      "Washington, DC",
-      "New York, NY",
-      "Chicago, IL",
-      "San Francisco, CA",
-      "Seattle, WA",
-      "Los Angeles, CA"
+      "Dallas, TX / Houston, TX / Atlana, GA / Washington, DC / New York, NY / Chicago, IL / San Francisco, CA / Seattle, WA / Los Angeles, CA"
     ],
     "employmentType": "In-office",
     "interviewProcess": "Personality assessment (Predictive Index) and case study. Programming aptitude test (language independent) for college hires."
@@ -5361,10 +5239,7 @@
     "name": "Pathos Ethos",
     "careersUrl": "https://pathosethos.com/careers/",
     "locations": [
-      "Durham, NC",
-      "Raleigh, NC",
-      "Chapel Hill, NC",
-      "Remote"
+      "Durham, NC / Raleigh, NC / Chapel Hill, NC / Remote"
     ],
     "employmentType": "Remote",
     "interviewProcess": "3 conversational interviews (Manager, Team, Founder). No homework. We look for a candidate to be \"culture add\" instead of \"culture fit\""
@@ -5543,8 +5418,8 @@
     "name": "Pleo",
     "careersUrl": "https://www.pleo.io/en/careers",
     "locations": [
-      "Remote, Copenhagen",
-      "Denmark",
+      "Remote",
+      "Copenhagen, Denmark",
       "London, UK",
       "Berlin, Germany",
       "Stockholm, Sweden",
@@ -5639,8 +5514,7 @@
     "name": "Primary",
     "careersUrl": "https://www.primary.com",
     "locations": [
-      "New York, NY",
-      "Remote"
+      "New York, NY / Remote"
     ],
     "employmentType": "Remote",
     "interviewProcess": "Phone chat, take home exercise, pair program and discuss onsite."
@@ -5650,8 +5524,7 @@
     "name": "Progressive",
     "careersUrl": "https://careers.progressive.com",
     "locations": [
-      "Mayfield Village, OH",
-      "Remote"
+      "Mayfield Village, OH / Remote"
     ],
     "employmentType": "Remote",
     "interviewProcess": "Recruiter phone screen, followed by 2 one-hour [manager STAR interviews](https://www.progressive.com/careers/how-we-hire/application-next-steps/interviewing/) and 1 one-hour [technical STAR interview](https://www.progressive.com/careers/life/how-to-prepare-for-a-technical-screening/)."
@@ -5711,12 +5584,7 @@
     "name": "Qonto",
     "careersUrl": "https://qonto.com/en/careers",
     "locations": [
-      "Paris, France",
-      "Berlin, Germany",
-      "Milan, Italy",
-      "Barcelona, Spain",
-      "Belgrade, Serbia",
-      "Remote"
+      "Paris, France / Berlin, Germany / Milan, Italy / Barcelona, Spain / Belgrade, Serbia / Remote"
     ],
     "employmentType": "Remote",
     "interviewProcess": "Take-home project, code review and discussions with our engineers."
@@ -5726,8 +5594,7 @@
     "name": "Quiet Light Communications",
     "careersUrl": "https://quietlightcom.com",
     "locations": [
-      "Rockford, IL",
-      "USA"
+      "Rockford, IL, USA"
     ],
     "employmentType": "In-office",
     "interviewProcess": "Discussion, work samples and/or small freelance project"
@@ -5833,9 +5700,7 @@
     "name": "Rapyuta Robotics",
     "careersUrl": "https://www.rapyuta-robotics.com/pages/jobs.html",
     "locations": [
-      "Bengaluru, India",
-      "Tokyo, Japan",
-      "Zurich, Switzerland"
+      "Bengaluru, India / Tokyo, Japan / Zurich, Switzerland"
     ],
     "employmentType": "In-office",
     "interviewProcess": "Take-home assignment related to our ongoing projects, series of technical / experience based interviews, candidate presentation"
@@ -5856,7 +5721,7 @@
     "careersUrl": "https://reaktor.com/careers",
     "locations": [
       "New York, NY",
-      "Amsterdam, The Netherlands",
+      "Amsterdam, Netherlands",
       "Helsinki, Finland",
       "Tokyo, Japan"
     ],
@@ -5868,8 +5733,7 @@
     "name": "Rebase Consulting",
     "careersUrl": "https://rebase.fi",
     "locations": [
-      "Helsinki, Finland",
-      "Remote"
+      "Helsinki, Finland / Remote"
     ],
     "employmentType": "Remote",
     "interviewProcess": "First round general discussion/introductions, second round technical interview built around a take-home exercise, 2x2 skill/interest matrix go-through and general technical topics based on the candidate's profile."
@@ -5971,8 +5835,7 @@
     "name": "Repl.it",
     "careersUrl": "https://repl.it/site/jobs",
     "locations": [
-      "San Francisco, CA",
-      "Remote"
+      "San Francisco, CA / Remote"
     ],
     "employmentType": "Remote",
     "interviewProcess": "Take-home project and discussion, then an on-site project and discussion"
@@ -6117,10 +5980,7 @@
     "name": "Ruangguru",
     "careersUrl": "https://career.ruangguru.com",
     "locations": [
-      "Jakarta, Indonesia",
-      "Yogyakarta, Indonesia",
-      "Malang, Indonesia",
-      "Bandung, Indonesia"
+      "Jakarta, Indonesia / Yogyakarta, Indonesia / Malang, Indonesia / Bandung, Indonesia"
     ],
     "employmentType": "In-office",
     "interviewProcess": "Phone screening with technical recruiter --> live coding with an engineer --> panel interview with related engineers (Test Engineers, Frontend Engineers, Backend Engineers, etc) --> final interview with VP of Engineering"
@@ -6312,8 +6172,7 @@
     "name": "SerpApi",
     "careersUrl": "https://serpapi.com",
     "locations": [
-      "Austin, TX",
-      "Remote"
+      "Austin, TX / Remote"
     ],
     "employmentType": "Remote",
     "interviewProcess": "Skype core value and culture interview, review of contributions on GitHub or other platforms, and take-home project if online contributions are not enough."
@@ -6333,8 +6192,7 @@
     "name": "Ship&co",
     "careersUrl": "https://www.shipandco.com/en/",
     "locations": [
-      "Remote, Kyoto",
-      "Japan"
+      "Remote / Kyoto, Japan"
     ],
     "employmentType": "Remote",
     "interviewProcess": "Casual non-technical interview with the CEO. One hour technical discussion with lead developer about software development, skills and past experience. Three months paid trial period."
@@ -6356,7 +6214,7 @@
     "locations": [
       "New York, NY & Remote"
     ],
-    "employmentType": "In-office",
+    "employmentType": "Remote",
     "interviewProcess": "Phone interview, followed by onsite discussions and pair programming"
   },
   {
@@ -6364,8 +6222,7 @@
     "name": "ShuttleCloud",
     "careersUrl": "https://www.shuttlecloud.com",
     "locations": [
-      "Chicago, IL",
-      "Madrid, Spain"
+      "Chicago, IL / Madrid, Spain"
     ],
     "employmentType": "In-office",
     "interviewProcess": "Take-home project, then on-site code walk through and a real world problem discussion."
@@ -6396,8 +6253,7 @@
     "name": "Simpli.fi",
     "careersUrl": "https://www.simpli.fi/about-us/careers",
     "locations": [
-      "Fort Worth, TX",
-      "USA"
+      "Fort Worth, TX, USA"
     ],
     "employmentType": "In-office",
     "interviewProcess": "Takehome code challenge and review"
@@ -6417,8 +6273,7 @@
     "name": "Simply Business",
     "careersUrl": "https://www.simplybusiness.co.uk/about-us/careers/tech",
     "locations": [
-      "London, UK",
-      "Remote"
+      "London, UK / Remote"
     ],
     "employmentType": "Remote",
     "interviewProcess": "Three stage, one day interview with quick feedback. One of the stages is 1.5h pair-programming session, where interviewee is assigned a task and interviewing developer plays role of Product Owner."
@@ -6488,8 +6343,7 @@
     "name": "Smile.io",
     "careersUrl": "https://smile.io/careers",
     "locations": [
-      "Kitchener, Canada",
-      "Remote"
+      "Kitchener, Canada / Remote"
     ],
     "employmentType": "Remote",
     "interviewProcess": "Take-home real world project, interviews with HR and engineering team"
@@ -6520,7 +6374,7 @@
     "name": "Softwear",
     "careersUrl": "https://softwear.nl/vacatures",
     "locations": [
-      "Amsterdam, The Netherlands"
+      "Amsterdam, Netherlands"
     ],
     "employmentType": "In-office",
     "interviewProcess": "Writing software for the fashion industry – remotely – in an international team."
@@ -6542,7 +6396,7 @@
     "locations": [
       "San Francisco, CA & Remote"
     ],
-    "employmentType": "In-office",
+    "employmentType": "Remote",
     "interviewProcess": "Tailored to the candidate, often consists of take-home work, discussion of real-world eng challenges, and product familiarity."
   },
   {
@@ -6592,7 +6446,7 @@
     "name": "SpronQ",
     "careersUrl": "https://spronq.com",
     "locations": [
-      "Amsterdam, The Netherlands"
+      "Amsterdam, Netherlands"
     ],
     "employmentType": "In-office",
     "interviewProcess": "Takehome coding challenge"
@@ -6602,7 +6456,7 @@
     "name": "Squadcast",
     "careersUrl": "https://www.squadcast.com/careers",
     "locations": [
-      "Bangalore, India"
+      "Bangalore,India"
     ],
     "employmentType": "In-office",
     "interviewProcess": "Phone screening, technical interview, Founder Interview."
@@ -6652,10 +6506,7 @@
     "name": "Stackgenie",
     "careersUrl": "https://stackgenie.io",
     "locations": [
-      "London, UK",
-      "New York, US",
-      "Trivandrum, India",
-      "Remote"
+      "London, UK / New York, US / Trivandrum, India / Remote"
     ],
     "employmentType": "Remote",
     "interviewProcess": "Real-world take-home project, video interviews with HR and the engineering team."
@@ -6678,7 +6529,7 @@
     "locations": [
       "Singapore, Malaysia & Remote"
     ],
-    "employmentType": "In-office",
+    "employmentType": "Remote",
     "interviewProcess": "Take Home Technical Task (broken down to frontend or backend focused), Database Architecture Case Design round, Peer-to-Peer (P2P) team round, and Management Interview"
   },
   {
@@ -6720,8 +6571,7 @@
     "name": "Stride Consulting",
     "careersUrl": "https://www.stridenyc.com",
     "locations": [
-      "New York, NY",
-      "Chicago, IL"
+      "New York, NY / Chicago, IL"
     ],
     "employmentType": "In-office",
     "interviewProcess": "Phone Screen, Agile and Technical Overview, a Pairing session, and architecture interview on previous experience."
@@ -6773,8 +6623,7 @@
     "name": "Sulvo",
     "careersUrl": "https://sulvo.com/careers",
     "locations": [
-      "New York, NY",
-      "Remote"
+      "New York, NY / Remote"
     ],
     "employmentType": "Remote",
     "interviewProcess": "Interview over video call for cultural fit first, if you pass we proceed with technical interview that doesn't include coding games or challenges"
@@ -6865,8 +6714,7 @@
     "name": "Symphony Commerce",
     "careersUrl": "https://www.symphonycommerce.com/careers",
     "locations": [
-      "San Francisco, CA",
-      "Remote"
+      "San Francisco, CA / Remote"
     ],
     "employmentType": "Remote",
     "interviewProcess": "Take-home project (phone), design discussion, review and critique _our_ code, debugging questions"
@@ -6929,9 +6777,8 @@
       "Bengaluru, India",
       "Vancouver, Canada",
       "London, UK",
-      "Singapore",
-      "Singapore, CA",
-      "NY, WA: United States"
+      "Singapore, Singapore",
+      "CA, NY, WA: United States"
     ],
     "employmentType": "In-office",
     "interviewProcess": "Data Engineering, Recruiter screening, followed by 1 round of fitment discussion, followed by a take home assignment(similar to actual work), followed by 1 round involving assignment solution discussion, programming language specific questions, and other role specific technical questions, followed by hiring manager discussion."
@@ -6992,8 +6839,8 @@
     "name": "Teamwork.com",
     "careersUrl": "https://www.teamwork.com",
     "locations": [
-      "Remote, Cork",
-      "Ireland",
+      "Remote",
+      "Cork, Ireland",
       "Belfast, UK",
       "Wilmington, USA"
     ],
@@ -7049,7 +6896,7 @@
       "Seattle, WA"
     ],
     "employmentType": "In-office",
-    "interviewProcess": "Initial screen to discuss experience and interest in a role at Textio; then a take-home programming task is discussed during a 1-hour tech screen (on-site or remote); finally a larger take-home project, simulating real work, is discussed during an on-site presentation plus 1-1s with engineers and managers."
+    "interviewProcess": "Initial screen to discuss experience and interest in a role at Textio; then a take-home programming task is discussed during a 1-hour tech screen (on-site or remote); finally a larger take-home project, simulating real work, is discussed during an on-site presentation plus 1-1s"
   },
   {
     "id": "the-book-of-everyone",
@@ -7180,8 +7027,7 @@
     "name": "Toggl",
     "careersUrl": "https://toggl.com/jobs",
     "locations": [
-      "Remote, Tallinn",
-      "Estonia"
+      "Remote / Tallinn, Estonia"
     ],
     "employmentType": "Remote",
     "interviewProcess": "Online test on basic programming skills, followed by interview (typically includes get-to-know questions and technical skill testing). Depending on the team, there may be a take-home or live coding assignment. **Paid test week** to work with the team on actual bugs/features."
@@ -7204,8 +7050,7 @@
     "name": "Toowoxx",
     "careersUrl": "https://toowoxx.de/index.php/karriere/",
     "locations": [
-      "Deisenhausen, Germany & Ulm",
-      "Germany"
+      "Deisenhausen, Germany & Ulm, Germany"
     ],
     "employmentType": "In-office",
     "interviewProcess": "Short interview with general questions, on-site programming challenge, code review of result"
@@ -7215,8 +7060,7 @@
     "name": "Top Hat",
     "careersUrl": "https://tophat.com/company/work-with-us/",
     "locations": [
-      "Remote, Toronto",
-      "Canada"
+      "Remote / Toronto, Canada"
     ],
     "employmentType": "Remote",
     "interviewProcess": "Short coding challenge inspired from the day-to-day problem space followed by a longer frontend or backend pairing design and implementation exercise"
@@ -7373,7 +7217,7 @@
     "name": "Typito",
     "careersUrl": "https://typito.com/go",
     "locations": [
-      "Bangalore, India"
+      "Bangalore , India"
     ],
     "employmentType": "In-office",
     "interviewProcess": "Take home assignment project with options for focus in frontend or backend work. First interview round based on the project submitted, may require to do some edits or add further feature based on discussion , live during interview. Second round mostly specific to overall system engineering and discussion regarding solutions to common backend/frontend engineering problems."
@@ -7577,7 +7421,7 @@
     "name": "Vector Informatik GmbH",
     "careersUrl": "https://jobs.vector.com/de",
     "locations": [
-      "Karlsruhe, Germany"
+      "Karlruhe, Germany"
     ],
     "employmentType": "In-office",
     "interviewProcess": "Short online interview, a case study and a presentation of given solution."
@@ -7628,8 +7472,7 @@
     "name": "Verve Industrial Protection",
     "careersUrl": "https://verveindustrial.com/why-verve/careers",
     "locations": [
-      "Madison, WI",
-      "Remote"
+      "Madison, WI / Remote"
     ],
     "employmentType": "Remote",
     "interviewProcess": "Phone screen, project discussion and tooling experience overview in panel interview with team, practical shared-editor coding problem and relevant architectural challenge in hands-on interview"
@@ -7741,7 +7584,7 @@
     "locations": [
       "San Francisco, CA & Remote"
     ],
-    "employmentType": "In-office",
+    "employmentType": "Remote",
     "interviewProcess": "Short take-home challenge, followed by a paid 3-5 day freelance contract project"
   },
   {
@@ -7798,7 +7641,7 @@
     "name": "Wend",
     "careersUrl": "https://www.wend.nl",
     "locations": [
-      "Amsterdam, The Netherlands"
+      "Amsterdam, Netherlands"
     ],
     "employmentType": "In-office",
     "interviewProcess": "Face to face interview followed by a take-home assignment"
@@ -7819,7 +7662,7 @@
     "name": "WeTransfer",
     "careersUrl": "https://wetransfer.com",
     "locations": [
-      "Amsterdam, The Netherlands"
+      "Amsterdam, Netherlands"
     ],
     "employmentType": "In-office",
     "interviewProcess": "Culture fit and fundamentals chat, skills interview - no whiteboarding! - and take-home project, communication and collaboration interview, meet with the VP of Engineering"
@@ -7899,7 +7742,7 @@
     "name": "Xebia Security",
     "careersUrl": "https://xebia.com",
     "locations": [
-      "Hilversum, The Netherlands"
+      "Hilversum, Netherlands"
     ],
     "employmentType": "In-office",
     "interviewProcess": "Culture fit, Technical interview, followed by take-home security project, on-site brainstorm session to discuss the solutions and approach."
@@ -7967,7 +7810,7 @@
       "London, UK"
     ],
     "employmentType": "Remote",
-    "interviewProcess": "Questions related to implementation of specific projects using popular functional programming libraries and techniques and a discussion about the tradeoffs. Discussion of past open-source projects/contributions and future open-source goals. \n\n **Note:** This company looks for people who have modern functional programming experience in Haskell, Scala, Swift, or Kotlin and it looks for people who have existing open-source contributions in those fields so the roles can be a bit self-selecting."
+    "interviewProcess": "Questions related to implementation of specific projects using popular functional programming libraries and techniques and a discussion about the tradeoffs. Discussion of past open-source projects/contributions and future open-source goals. **Note:** This company looks for people who have modern functional programming experience in Haskell, Scala, Swift, or Kotlin and it looks for people who have existing open-source contributions in those fields so the roles can be a bit self-selecting."
   },
   {
     "id": "4degrees",
@@ -8011,7 +7854,7 @@
       "Lisbon, PT",
       "Porto, PT & Remote"
     ],
-    "employmentType": "In-office",
+    "employmentType": "Remote",
     "interviewProcess": "Take home-code challenge, pair-programming session and discussion about past experience"
   },
   {
@@ -8097,7 +7940,7 @@
     "locations": [
       "Münster, Germany & Remote"
     ],
-    "employmentType": "In-office",
+    "employmentType": "Remote",
     "interviewProcess": "Get-to-know call, take-home task representative to our problems, on-site pairing and discussion, and mentoring throughout the process with talks for aligning expectations."
   }
 ]

@@ -82,7 +82,7 @@ Locally curated entries are intentionally labeled in the UI so users can disting
 
 ## Upstream sync
 
-`src/data/companies.json` is kept aligned with the production upstream README list by running the sync manually when upstream changes. The `Sync upstream companies` GitHub Actions workflow can be triggered on demand, rebuilds the static JSON with `companies:sync`, validates the site, and commits the generated data file when upstream changes are found.
+`src/data/companies.json` is kept aligned with the production upstream README list automatically. The `Sync upstream companies` GitHub Actions workflow runs weekly (Mondays) and can also be triggered on demand. It rebuilds the static JSON with `companies:sync` (adding new companies, removing delisted ones, and refreshing changed fields like locations or interview process descriptions for existing ones), validates the site, and commits the generated data file when upstream changes are found.
 
 Use these commands to check or run the same sync locally:
 
@@ -105,7 +105,7 @@ This project prioritizes:
 
 ## Current limitations
 
-- Data freshness depends on manually running the upstream sync and the upstream README format remaining parseable
+- Data freshness depends on the weekly upstream sync workflow and the upstream README format remaining parseable
 - Interview process descriptions are community-sourced and may be incomplete or outdated
 - This project focuses on browsing and reading, not account features or backend moderation
 
