@@ -5554,6 +5554,17 @@
     "interviewProcess": "Intro interview (30m-45m), take home assignment, interview with discussion on the assignment + technical questions with the team (90m) and interview with managers (60m)."
   },
   {
+    "id": "plivo",
+    "name": "Plivo",
+    "careersUrl": "https://www.plivo.com/jobs",
+    "locations": [
+      "Remote",
+      "Bengaluru, India"
+    ],
+    "employmentType": "Remote",
+    "interviewProcess": "1-2 technical rounds and 1 HR round - questions around basic foundations, system design, projects and real world problems"
+  },
+  {
     "id": "poki",
     "name": "Poki",
     "careersUrl": "https://jobs.poki.com",
