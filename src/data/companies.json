@@ -555,7 +555,7 @@
   {
     "id": "badoo",
     "name": "Badoo",
-    "careersUrl": "https://team.badoo.com/jobs",
+    "careersUrl": "https://team.bumble.com/jobs",
     "locations": [
       "London, UK"
     ],
@@ -615,9 +615,9 @@
     "interviewProcess": "Behavioral interview with the technical lead and hiring manager, followed by a take-home project, and finally a brief discussion about how the exercise went."
   },
   {
-    "id": "beam-dental",
-    "name": "Beam Dental",
-    "careersUrl": "https://jobs.lever.co/beam",
+    "id": "beam-benefits",
+    "name": "Beam Benefits",
+    "careersUrl": "https://www.beambenefits.com/careers",
     "locations": [
       "Columbus, OH / Remote"
     ],
@@ -3103,7 +3103,7 @@
       "Cambridge, MA"
     ],
     "employmentType": "In-office",
-    "interviewProcess": "Take home project that mirrors work we might do on a [Sketch](https://lil.law.harvard.edu/sketches/) and follow up discussion after."
+    "interviewProcess": "Take home project that mirrors work we might do on a [Sketch](https://lil.law.harvard.edu/our-work/) and follow up discussion after."
   },
   {
     "id": "hashnode",
@@ -4165,17 +4165,6 @@
     "interviewProcess": "[Our hiring process](https://github.com/madetech/handbook/tree/master/guides/hiring#20-minute-phone-conversation)"
   },
   {
-    "id": "magical",
-    "name": "Magical",
-    "careersUrl": "https://magical.team/work",
-    "locations": [
-      "Tel Aviv, Israel",
-      "Remote"
-    ],
-    "employmentType": "Remote",
-    "interviewProcess": "Culture fit interview + take home assignment, followed by a technical interview, and a CTO interview."
-  },
-  {
     "id": "magnetis",
     "name": "Magnetis",
     "careersUrl": "https://magnetis.workable.com",
@@ -4609,7 +4598,7 @@
   {
     "id": "neoteric",
     "name": "Neoteric",
-    "careersUrl": "https://neoteric.eu/career/",
+    "careersUrl": "https://neoteric.eu",
     "locations": [
       "Gdańsk, Warsaw Poland",
       "Remote"
@@ -6372,7 +6361,7 @@
   {
     "id": "softwear",
     "name": "Softwear",
-    "careersUrl": "https://softwear.nl/vacatures",
+    "careersUrl": "https://softwear.nl",
     "locations": [
       "Amsterdam, Netherlands"
     ],
@@ -7011,6 +7000,17 @@
     ],
     "employmentType": "In-office",
     "interviewProcess": "On site interview and pair programming exercise"
+  },
+  {
+    "id": "timeless",
+    "name": "Timeless",
+    "careersUrl": "https://www.timeless.day",
+    "locations": [
+      "Tel Aviv, Israel",
+      "Remote"
+    ],
+    "employmentType": "Remote",
+    "interviewProcess": "Culture fit interview + take home assignment, followed by a technical interview, and a CTO interview."
   },
   {
     "id": "tipalti",
@@ -7777,16 +7777,6 @@
     ],
     "employmentType": "Remote",
     "interviewProcess": "Three video calls: general introduction, team introduction, contract"
-  },
-  {
-    "id": "3boxlabs",
-    "name": "3BoxLabs",
-    "careersUrl": "https://3boxlabs.com",
-    "locations": [
-      "Remote"
-    ],
-    "employmentType": "Remote",
-    "interviewProcess": "Intro call, resume walk-through, and finally live work exercise with ~2 hours independent work followed by ~1.5 hour debrief discussing the work with the rest of the team."
   },
   {
     "id": "3d-hubs",
